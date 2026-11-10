@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<!--
+================================================================================
+  U-TEAL · About me (EN) · HTML mockup — Draft 1
+================================================================================
+  Content: client Google Doc "About me" (texts, links, heading levels).
+  Heading levels: doc H3 = page H2, doc H4 = page H3 (the doc's own H1 is the
+  document title; the page H1 is written explicitly as "H1:" in the doc).
+  Shared: header + footer are identical to index.html (Theme Builder in WP).
+  CSS: assets/css/global.css + assets/css/about.css
+  Developer notes: floating switch (bottom-right) or ?notes=1
+================================================================================
+-->
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- SEO (Yoast: SEO title / Meta description / Social) -->
+    <title>Nadja Gmelch: higher education consultant | U-teal</title>
+    <meta
+      name="description"
+      content="Nadja Gmelch, systemic higher education consultant for internationalisation, strategy, organisational development and leadership in Europe and beyond."
+    />
+    <meta property="og:type" content="profile" />
+    <meta property="og:title" content="Nadja Gmelch: higher education consultant | U-teal" />
+    <meta
+      property="og:description"
+      content="Nadja Gmelch, founder of U-teal: systemic higher education consultant for strategy, organisational development, internationalisation and leadership in Europe and beyond."
+    />
+    <meta property="og:image" content="assets/images/about-nadja-gmelch.jpg" />
+
+    <link rel="icon" type="image/png" href="assets/images/brand/mark-primary-bg-white-square.png" />
+    <link rel="apple-touch-icon" href="assets/images/brand/mark-primary-bg-white-square.png" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap"
+    />
+
+    <link rel="stylesheet" href="assets/css/global.css" />
+    <link rel="stylesheet" href="assets/css/about.css" />
+  </head>
+
+  <body>
+    <!-- ======================================================================
+         S01 · HEADER
+         Elementor: Theme Builder › Header (sticky)
+         Widgets: Site Logo (SVG) · Nav Menu (Home · Services ▾ · About ·
+                  Methods) · Polylang language switcher (dropdown) · Button
+         ====================================================================== -->
+    <header class="site-header" id="top">
+      <div class="dev-note">
+        S01 · Theme Builder › Header (sticky) — Site Logo · Nav Menu with
+        "Services" submenu · Polylang switcher (EN/DE/ES) · Button "Let's talk"
+      </div>
+
+      <div class="container site-header__inner">
+        <a class="site-logo" href="index.html" aria-label="U-teal home">
+          <img src="assets/images/brand/logo-uteal.svg" alt="U-teal" width="117" height="31" />
+        </a>
+
+        <!-- Mobile menu button (designer icon: bar · diamond · bar) -->
+        <button
+          class="menu-toggle"
+          type="button"
+          aria-label="Open menu"
+          aria-expanded="false"
+          aria-controls="site-nav"
+        >
+          <span class="menu-toggle__bar menu-toggle__bar--top"></span>
+          <span class="menu-toggle__diamond"></span>
+          <span class="menu-toggle__bar menu-toggle__bar--bottom"></span>
+        </button>
+
+        <nav class="site-nav" id="site-nav" aria-label="Main">
+          <ul class="nav-list">
+            <li><a class="nav-link" href="index.html">Home</a></li>
+
+            <!-- Services dropdown (final wording tbc by client) -->
+            <li>
+              <button class="nav-link" type="button" aria-expanded="false" aria-controls="submenu-services" data-dropdown>
+                Services <span class="nav-link__chev" aria-hidden="true"></span>
+              </button>
+              <ul class="submenu" id="submenu-services">
+                <li><a href="#" data-todo="/internationalisation">Internationalisation and university alliances</a></li>
+                <li><a href="#" data-todo="/strategy-consulting">Strategy consulting</a></li>
+                <li><a href="#" data-todo="/organisational-development">Organisational development</a></li>
+                <li><a href="#" data-todo="/leadership-development">Leadership development and coaching</a></li>
+                <li class="submenu__divider" aria-hidden="true"></li>
+                <li><a href="#" data-todo="/women-in-higher-education-leadership">Coaching for women in higher education leadership</a></li>
+              </ul>
+            </li>
+
+            <li><a class="nav-link is-active" href="about-me.html" aria-current="page">About</a></li>
+            <li><a class="nav-link" href="index.html#how-i-work">Methods</a></li>
+
+            <!-- Language switcher (Polylang) -->
+            <li class="lang">
+              <button class="nav-link lang__btn" type="button" aria-expanded="false" aria-controls="submenu-lang" aria-label="Language: English" data-dropdown>
+                <svg viewBox="-1 -1 22 22" fill="none" aria-hidden="true">
+                  <path d="M20 10c0 5.523-4.477 10-10 10m10-10c0-5.523-4.477-10-10-10m10 10H0m10 10C4.477 20 0 15.523 0 10m10 10a14.6 14.6 0 0 1-4-10c0-3.723 1.432-7.304 4-10m0 20a14.6 14.6 0 0 0 4-10c0-3.723-1.432-7.304-4-10M0 10C0 4.477 4.477 0 10 0" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                EN <span class="nav-link__chev" aria-hidden="true"></span>
+              </button>
+              <ul class="submenu lang__menu" id="submenu-lang">
+                <li><a href="about-me.html" aria-current="true">English</a></li>
+                <li><a href="#" data-todo="/de/">Deutsch</a></li>
+                <li><a href="#" data-todo="/es/">Español</a></li>
+              </ul>
+            </li>
+          </ul>
+
+          <a class="btn btn--primary" href="#" data-todo="/contact">Let’s talk</a>
+
+          <!-- Elementor build notes for the mobile menu (visible with developer notes on, menu open) -->
+          <div class="dev-note dev-note--inline">
+            <strong>MOBILE MENU · Elementor Pro › Nav Menu widget</strong>
+            <ul>
+              <li>Layout: Horizontal · Breakpoint: Tablet (Site Settings › Layout › Breakpoints: Tablet = 999px).</li>
+              <li>Mobile dropdown: Full width ON · Align: start · Toggle icon: custom SVG (bar · diamond · bar), colour #02383E, size 22px.</li>
+              <li>Dropdown items: Manrope 16px/700 #02383E · padding 15px 0 · divider 1px #E3E8E8 · active: text #008080 + 3px left border.</li>
+              <li>Submenu ("Services"): indicator chevron on the right · bg #F7F7F7 · items 15px/600 · padding 12px 16px.</li>
+              <li>Languages: Polylang adds EN / DE / ES as a "Language switcher" menu item (show names, hide flags).</li>
+              <li>"Let's talk": last menu item with CSS class <code>menu-cta</code> styled as a button (or hide the header button on mobile: the floating Let's talk is always visible).</li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+    </header>
+    <!-- /S01 · HEADER -->
+
+    <!-- ======================================================================
+         SEO BOX (developer only — copy-paste into Yoast for this page)
+         ====================================================================== -->
+    <aside class="seo-box dev-only" aria-label="SEO values for this page">
+      <div class="seo-box__inner">
+        <p class="seo-box__title">
+          <span>SEO · About me (EN) → Yoast SEO</span>
+          <span>Slug: /about-me</span>
+        </p>
+        <dl>
+          <dt>Title tag</dt>
+          <dd data-count>Nadja Gmelch: higher education consultant | U-teal</dd>
+          <dd><button class="copy-btn" type="button">Copy</button></dd>
+
+          <dt>Meta description</dt>
+          <dd data-count>Nadja Gmelch, systemic higher education consultant for internationalisation, strategy, organisational development and leadership in Europe and beyond.</dd>
+          <dd><button class="copy-btn" type="button">Copy</button></dd>
+
+          <dt>OG title</dt>
+          <dd data-count>Nadja Gmelch: higher education consultant | U-teal</dd>
+          <dd><button class="copy-btn" type="button">Copy</button></dd>
+
+          <dt>OG description</dt>
+          <dd data-count>Nadja Gmelch, founder of U-teal: systemic higher education consultant for strategy, organisational development, internationalisation and leadership in Europe and beyond.</dd>
+          <dd><button class="copy-btn" type="button">Copy</button></dd>
+
+          <dt>Slug</dt>
+          <dd>/about-me</dd>
+          <dd></dd>
+
+          <dt>H1</dt>
+          <dd>Nadja Gmelch: systemic consulting and coaching for universities</dd>
+          <dd><button class="copy-btn" type="button">Copy</button></dd>
+        </dl>
+
+        <div class="seo-box__outline">
+          <p class="seo-box__subtitle">
+            Heading structure (from the client doc: doc H3 = page H2, doc H4 = page H3; set the same HTML tag in each Elementor Heading widget)
+          </p>
+          <ol class="heading-outline" data-heading-outline></ol>
+          <p class="seo-box__hint">
+            Hidden section "Who I work with" (partner cards) only shows with developer notes on, until the partners give their OK.
+          </p>
+        </div>
+      </div>
+    </aside>
+
+    <main>
+      <!-- ====================================================================
+           S02 · HERO
+           Elementor: Container (row, 2 cols) › Heading (eyebrow) ·
+                      Heading H1 (display) · Image (rectangular)
+           ==================================================================== -->
+      <section class="about-hero">
+        <div class="dev-note">
+          S02 · Hero — Container (row) › eyebrow · H1 (display 60px/700) ·
+          Image (rectangular portrait)
+        </div>
+
+        <div class="container about-hero__grid">
+          <div class="about-hero__content">
+            <p class="eyebrow">About me</p>
+            <h1 class="display">Nadja Gmelch: systemic consulting and coaching for universities</h1>
+          </div>
+
+          <figure class="picture">
+            <img
+              src="assets/images/about-nadja-gmelch.jpg"
+              alt="Portrait of Nadja Gmelch, founder of U-teal"
+              width="1065"
+              height="1600"
+            />
+          </figure>
+        </div>
+      </section>
+      <!-- /S02 · HERO -->
+
+      <!-- ====================================================================
+           S03 · WHO I AM AND HOW I THINK
+           Elementor: Container (row) › left: Heading H2 + Image (sticky via
+                      Motion Effects) · right: Text Editor (links as in doc)
+           ==================================================================== -->
+      <section class="section section--soft story">
+        <div class="dev-note">
+          S03 · Who I am — Container (row) › H2 + Image (sticky) | Text Editor
+          (links: ACUP, UOC, OpenEU, dacte, Presencing Institute, ELP)
+        </div>
+
+        <div class="container story__grid">
+          <div class="story__aside">
+            <h2 class="h2">Who I am and how I think</h2>
+            <figure class="picture">
+              <img
+                src="assets/images/offering-coaching-women.jpg"
+                alt="Nadja Gmelch taking notes during a conversation"
+                loading="lazy"
+                width="1600"
+                height="1065"
+              />
+            </figure>
+          </div>
+
+          <div class="stack body story__text">
+            <p class="lead">
+              I’m Nadja Gmelch, founder of U-teal, a systemic higher education
+              consultancy, working on internationalisation, strategy,
+              organisational development and leadership across Europe and
+              beyond.
+            </p>
+            <p>
+              I love looking at familiar things from new angles and shifting
+              perspectives. I help people shape change, in themselves and in
+              their institutions. And I enjoy this most in the world I know
+              best: universities, and the people who lead them.
+            </p>
+            <p>
+              Universities are under pressure from several directions at once.
+              AI is changing teaching, research and university management,
+              budgets are shrinking, and society is asking more of them. Those
+              who shape and lead universities are searching for new answers.
+              How can we rethink universities so they can continue to serve
+              society? And what kind of leadership will get them there?
+            </p>
+            <p class="story__highlight">These questions are at the heart of my work.</p>
+            <p>
+              I’m interested not only in the what of change, but also in the
+              how. What inner and outer conditions does change really need? How
+              do institutions, and the people in them, find their own capacity
+              for renewal? How can we activate collective intelligence so that
+              something new can emerge? I believe that established leadership
+              cultures and ways of working will not be enough on their own to
+              meet the demands of our time.
+            </p>
+            <p>
+              From 2007 to 2022, I worked inside higher education: as Head of
+              Projects at the
+              <a href="https://www.acup.cat/en" target="_blank" rel="noopener">Association of Catalan Public Universities (ACUP)</a>
+              and as Director Europe and Open Knowledge at the
+              <a href="https://www.uoc.edu/en" target="_blank" rel="noopener">UOC</a>.
+              Alongside these roles, I began consulting for universities in
+              2014. I know where and how universities make decisions: in the
+              senate, in committees, in strategy processes. At the UOC, I led
+              the creation of the
+              <a href="https://openeu.eu/" target="_blank" rel="noopener">OpenEU Alliance</a>:
+              I brought the partner universities together and prepared its first
+              two applications to the European Universities Initiative. In 2024,
+              the European Commission selected the alliance for funding. I have
+              developed internationalisation strategies, built institutional
+              partnerships and designed university-wide strategies for
+              sustainability and open knowledge. Digital higher education is one
+              of my core areas: at the UOC, one of Europe’s pioneers in online
+              learning, I saw first-hand how digital learning changes
+              universities, and I have
+              <a href="#" data-todo="/case-studies#publications">published on the topic</a>,
+              including for the European University Association.
+            </p>
+            <p>
+              From 2023 to 2025, I worked as a senior consultant at a strategic
+              consultancy, mostly outside higher education. There I saw what
+              becomes possible when organisations approach change systemically.
+              I trained as a systemic coach and organisational development
+              consultant (<a href="https://dacte.de/" target="_blank" rel="noopener">dacte</a>).
+              In the
+              <a href="https://www.presencing.org/" target="_blank" rel="noopener">Presencing Institute</a>’s
+              <a href="https://www.u-school.org/offerings/elp-m3-latam-2026" target="_blank" rel="noopener">Ecosystem Leadership Program</a>,
+              I learned awareness-based leadership and Theory U directly from
+              Otto Scharmer. With U-teal, founded in 2026, I’m bringing all of
+              this back to higher education: to the people who shape
+              universities, and to the institutions themselves.
+            </p>
+            <p>
+              I’m originally from Germany and have lived in Mexico City and
+              Barcelona. Today, home is a small mountain village in the
+              Apennines, Munich and wherever my camper van happens to be parked.
+              I’m happy to work with you in English, German, Spanish, Italian or
+              Catalan. I’ll come to you whenever your project needs it: for
+              retreats, workshops and important meetings. Anything that works
+              well online, we do online.
+            </p>
+          </div>
+        </div>
+      </section>
+      <!-- /S03 · WHO I AM -->
+
+      <!-- ====================================================================
+           S04 · HOW I WORK (3 principles)
+           Elementor: Container (soft bg) › Heading H2 · Text Editor (link to
+                      /#how-i-work) · 3-col Container › per card: shape
+                      (Icon/SVG) · Heading H3 · Text Editor
+           ==================================================================== -->
+      <section class="section principles">
+        <div class="dev-note">
+          S04 · How I work — H2 · Text · 3 cards (SVG shape · H3 · Text)
+        </div>
+
+        <div class="container">
+          <div class="section-head">
+            <h2 class="h2">How I work</h2>
+            <p class="body">
+              People and their development are at the centre of my work. I draw
+              on Theory U, systemic coaching and systemic organisational
+              development. My projects follow three steps:
+              <a href="index.html#how-i-work">Notice, Align, Act with impact</a>.
+              They rest on three principles:
+            </p>
+          </div>
+
+          <div class="principles__grid">
+            <article class="principle">
+              <span class="principle__shape" aria-hidden="true"></span>
+              <h3 class="h3">Everything is connected</h3>
+              <p class="body">
+                I see universities as a web of people, committees, structures
+                and relationships that all influence one another. That’s why I
+                work on structures and processes and, at the same time, on the
+                mindsets and inner stance of the people within them.
+              </p>
+            </article>
+            <article class="principle">
+              <span class="principle__shape principle__shape--diamond" aria-hidden="true"></span>
+              <h3 class="h3">Head, heart and body</h3>
+              <p class="body">
+                I bring together logical, emotional and intuitive intelligence,
+                together with the body, which sends signals we often overlook.
+              </p>
+            </article>
+            <article class="principle">
+              <span class="principle__shape principle__shape--circle" aria-hidden="true"></span>
+              <h3 class="h3">Prototypes, not recipes</h3>
+              <p class="body">
+                I help people design and test prototypes instead of handing them
+                finished solutions. There is room to experiment: mistakes become
+                learning opportunities, and a culture of learning takes root.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+      <!-- /S04 · HOW I WORK -->
+
+      <!-- ====================================================================
+           S05 · CTA
+           Elementor: Container (centred) › Heading H2 · Button → /contact
+           ==================================================================== -->
+      <section class="section section--soft cta-section">
+        <div class="dev-note">S05 · CTA — Container (centred) › H2 · Button "Let's talk" → /contact</div>
+
+        <div class="container cta-block">
+          <h2 class="cta-block__title">Ready to rethink your university and how it is led?</h2>
+          <a class="btn btn--primary btn--arrow" href="#" data-todo="/contact">Let’s talk</a>
+        </div>
+      </section>
+      <!-- /S05 · CTA -->
+
+      <!-- ====================================================================
+           S06 · WHO I WORK WITH
+           Client: the first sentence is published; the partner cards stay
+           hidden until the partners give their OK (dev-only for now).
+           Elementor: Container › Heading H2 · Text · 3-col Container (hidden:
+                      Advanced › Responsive › hide on all devices) › per card:
+                      Image · Heading H3 · Text · Link
+           ==================================================================== -->
+      <section class="section partners">
+        <div class="dev-note">
+          S06 · Who I work with — H2 · Text (live). Partner cards: hidden until
+          partners agree (Q22)
+        </div>
+
+        <div class="container">
+          <div class="section-head">
+            <h2 class="h2">Who I work with</h2>
+            <p class="body">
+              For larger projects, I work with colleagues whose experience
+              complements mine.
+            </p>
+          </div>
+
+          <!-- Not yet published: partner details (visible with developer notes on) -->
+          <div class="dev-only">
+            <p class="body">
+              We have worked together before and share an understanding of what
+              makes change in universities work.
+            </p>
+            <div class="partners__grid">
+              <article class="partner">
+                <span class="partner__photo" aria-hidden="true"></span>
+                <h3 class="h4">[Name 1], [role, organisation]</h3>
+                <p class="body">[One sentence on their expertise and what we work on together.]</p>
+                <a class="partner__link" href="#">[Link to website or LinkedIn]</a>
+              </article>
+              <article class="partner">
+                <span class="partner__photo" aria-hidden="true"></span>
+                <h3 class="h4">[Name 2], [role, organisation]</h3>
+                <p class="body">[One sentence on their expertise and what we work on together.]</p>
+                <a class="partner__link" href="#">[Link to website or LinkedIn]</a>
+              </article>
+              <article class="partner">
+                <span class="partner__photo" aria-hidden="true"></span>
+                <h3 class="h4">[Name 3], [role, organisation]</h3>
+                <p class="body">[One sentence on their expertise and what we work on together.]</p>
+                <a class="partner__link" href="#">[Link to website or LinkedIn]</a>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- /S06 · WHO I WORK WITH -->
+
+      <!-- ====================================================================
+           S07 · WHY U-TEAL?
+           Elementor: Container (row) › Image (brand mark) · Heading H2 ·
+                      Text Editor
+           ==================================================================== -->
+      <section class="section section--soft why">
+        <div class="dev-note">S07 · Why U-teal? — Container (row) › Image (brand mark) | H2 · Text</div>
+
+        <div class="container why__grid">
+          <figure class="why__mark">
+            <img src="assets/images/brand/mark-white-bg-primary-square.png" alt="U-teal brand mark: the U and the diamond" loading="lazy" width="480" height="480" />
+          </figure>
+
+          <div class="stack">
+            <h2 class="h2">Why U-teal?</h2>
+            <p class="body">
+              The U in U-teal stands for university, and for the U-shaped
+              journey of Theory U. Along this journey, attention, intention and
+              the capacity to act shift as we truly listen and allow something
+              new to emerge.
+            </p>
+            <p class="body">
+              Teal is the colour between blue and green. For me, it stands for a
+              third possibility in the space in between, for example between
+              hierarchy and chaos. In his book Reinventing Organizations,
+              Frédéric Laloux uses teal to describe a new kind of organisation:
+              one built on self-management, distributed responsibility,
+              wholeness and a clear sense of its purpose in society. This image
+              guides my work. I’d like to see universities develop in this
+              direction, each in its own way and at its own pace.
+            </p>
+          </div>
+        </div>
+      </section>
+      <!-- /S07 · WHY U-TEAL -->
+
+      <!-- ====================================================================
+           S08 · MY BACKGROUND
+           Elementor: Container › Heading H2 · 3-col Container › per column:
+                      Heading H3 · Icon List / Text Editor (title, place, years)
+           ==================================================================== -->
+      <section class="section cv">
+        <div class="dev-note">S08 · My background — H2 · 3 cols (H3 · list: title · organisation · years)</div>
+
+        <div class="container">
+          <div class="section-head">
+            <h2 class="h2">My background</h2>
+          </div>
+
+          <div class="cv__grid">
+            <!-- Education -->
+            <div class="cv__col">
+              <h3 class="h4">Education</h3>
+              <ul class="cv-list">
+                <li class="cv-item">
+                  <p class="cv-item__title">Master’s in European Development Cooperation Policies</p>
+                  <p class="cv-item__meta">
+                    Universitat Autònoma de Barcelona (<a href="https://www.uab.cat/web/universitat-autonoma-de-barcelona-1345467954774.html?param2=1345716706936" target="_blank" rel="noopener">UAB</a>), Spain
+                    <span class="cv-item__date">2006–2007</span>
+                  </p>
+                </li>
+                <li class="cv-item">
+                  <p class="cv-item__title">Diplom (German degree equivalent to a master’s degree) in Language, Business and Cultural Studies</p>
+                  <p class="cv-item__meta">
+                    <a href="https://www.uni-passau.de/en/" target="_blank" rel="noopener">University of Passau</a>, Germany
+                    <span class="cv-item__date">2000–2005</span>
+                  </p>
+                </li>
+              </ul>
+            </div>
+
+            <!-- Professional experience -->
+            <div class="cv__col">
+              <h3 class="h4">Professional experience</h3>
+              <ul class="cv-list">
+                <li class="cv-item">
+                  <p class="cv-item__title">Founder, independent consultant and coach</p>
+                  <p class="cv-item__meta">U-teal <span class="cv-item__date">since August 2026</span></p>
+                </li>
+                <li class="cv-item">
+                  <p class="cv-item__title">Senior Consultant in Organisational Development</p>
+                  <p class="cv-item__meta">joyn-coop, Munich <span class="cv-item__date">2023–2025</span></p>
+                </li>
+                <li class="cv-item">
+                  <p class="cv-item__title">Freelance consultant in international university cooperation and development cooperation, alongside employment</p>
+                  <p class="cv-item__meta"><span class="cv-item__date">2014–2025</span></p>
+                </li>
+                <li class="cv-item">
+                  <p class="cv-item__title">Director Europe and Open Knowledge</p>
+                  <p class="cv-item__meta">
+                    Universitat Oberta de Catalunya (<a href="https://www.uoc.edu/en" target="_blank" rel="noopener">UOC</a>), Barcelona
+                    <span class="cv-item__date">2016–2022</span>
+                  </p>
+                </li>
+                <li class="cv-item">
+                  <p class="cv-item__title">Head of Projects</p>
+                  <p class="cv-item__meta">
+                    Association of Catalan Public Universities (<a href="https://www.acup.cat/en" target="_blank" rel="noopener">ACUP</a>), Barcelona
+                    <span class="cv-item__date">2007–2016</span>
+                  </p>
+                </li>
+                <li class="cv-item">
+                  <p class="cv-item__title">Associate Lecturer</p>
+                  <p class="cv-item__meta">
+                    <a href="https://www.uab.cat/web/universitat-autonoma-de-barcelona-1345467954774.html?param2=1345716706936" target="_blank" rel="noopener">Universitat Autònoma de Barcelona</a> (2008–2011) and
+                    <a href="https://web.ub.edu/en/" target="_blank" rel="noopener">Universitat de Barcelona</a> (2018–2021)
+                  </p>
+                </li>
+              </ul>
+            </div>
+
+            <!-- Further training -->
+            <div class="cv__col">
+              <h3 class="h4">Further training and qualifications</h3>
+              <ul class="cv-list">
+                <li class="cv-item">
+                  <p class="cv-item__title">Certified programme in Systemic Organisational Development and Systemic Coaching (820 hours)</p>
+                  <p class="cv-item__meta">
+                    dacte (German Academy for Coaching, Training and Development)
+                    <span class="cv-item__date">2026</span>
+                  </p>
+                </li>
+                <li class="cv-item">
+                  <p class="cv-item__title">Ecosystem Leadership Program</p>
+                  <p class="cv-item__meta">
+                    Presencing Institute: Theory U, awareness-based leadership and ecosystem leadership
+                    <span class="cv-item__date">2025–2026</span>
+                  </p>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- /S08 · MY BACKGROUND -->
+
+      <!-- ====================================================================
+           S09 · FINAL CTA (button only, as in the doc)
+           Elementor: Container (centred) › Button → /contact
+           ==================================================================== -->
+      <section class="section final-cta">
+        <div class="dev-note">S09 · Final CTA — Button "Let's talk" → /contact</div>
+        <a class="btn btn--primary btn--arrow" href="#" data-todo="/contact">Let’s talk</a>
+      </section>
+      <!-- /S09 · FINAL CTA -->
+    </main>
+
+    <!-- ======================================================================
+         S11 · FOOTER
+         Elementor: Theme Builder › Footer
+         Col 1: Site Logo (white SVG) · Text · Button
+         Col 2: Nav Menu (services)
+         Col 3: Text · Form (Pro: first name + email → Mailchimp/Brevo,
+                double opt-in) · privacy note
+         Bottom bar: copyright · legal links · contact · LinkedIn · EN|DE|ES
+         ====================================================================== -->
+    <footer class="site-footer">
+      <div class="dev-note">
+        S11 · Theme Builder › Footer — 3 cols (logo + text + button · services
+        menu · newsletter form) + bottom bar (Polylang switcher)
+      </div>
+
+      <div class="container">
+        <div class="site-footer__cols">
+          <!-- Column 1 -->
+          <div class="site-footer__col">
+            <a class="site-footer__logo" href="index.html" aria-label="U-teal home">
+              <img src="assets/images/brand/logo-uteal-white.svg" alt="U-teal" width="96" height="26" />
+            </a>
+            <p>
+              U-teal · Nadja Gmelch’s systemic higher education consultancy for
+              internationalisation, strategy, organisational development and
+              leadership in Europe and beyond. · On site and online.
+            </p>
+            <a class="btn btn--accent" href="#" data-todo="/contact">Let’s talk</a>
+          </div>
+
+          <!-- Column 2 -->
+          <div class="site-footer__col">
+            <p class="site-footer__title">Services</p>
+            <ul class="site-footer__links">
+              <li><a href="#" data-todo="/strategy-consulting">Strategy consulting</a></li>
+              <li><a href="#" data-todo="/internationalisation">Internationalisation and university alliances</a></li>
+              <li><a href="#" data-todo="/organisational-development">Organisational development</a></li>
+              <li><a href="#" data-todo="/leadership-development">Leadership development and coaching</a></li>
+              <li><a href="#" data-todo="/women-in-higher-education-leadership">Coaching for women in higher education leadership</a></li>
+            </ul>
+          </div>
+
+          <!-- Column 3: newsletter -->
+          <div class="site-footer__col site-footer__col--newsletter">
+            <p class="site-footer__title">Newsletter</p>
+            <p>
+              Want to stay informed about what I’m working on? Roughly every two
+              months, I write about current projects, new formats and upcoming
+              dates, and share what I’m learning about change in universities.
+            </p>
+            <form class="footer-form" action="#" onsubmit="return false;">
+              <label class="sr-only" for="nl-name">First name</label>
+              <input id="nl-name" type="text" placeholder="First name" autocomplete="given-name" />
+              <label class="sr-only" for="nl-email">Email</label>
+              <input id="nl-email" type="email" placeholder="Email" autocomplete="email" />
+              <button class="btn btn--accent" type="submit">Subscribe</button>
+            </form>
+            <p class="footer-form__note">
+              Unsubscribe at any time.
+              <a href="#" data-todo="/privacy-policy">Privacy information</a>
+            </p>
+
+            <div class="dev-note dev-note--inline">
+              <strong>FORM · Elementor Pro › Form widget</strong>
+              <ul>
+                <li>Fields: First name (text, 50%) + Email (required, 50%) + Submit (100%, auto width). Mobile: all 100%.</li>
+                <li>Action: Mailchimp (native) with double opt-in ON (GDPR/DE). Brevo: Brevo plugin or webhook.</li>
+                <li>Spam: honeypot ON; Cloudflare Turnstile if needed (no reCAPTCHA).</li>
+                <li>Field: transparent bg · border 1px rgba(255,255,255,.35) · radius 8px · padding 11px 14px · Manrope 14px · text #FFF · placeholder #9FB8B6.</li>
+                <li>Button: bg #3DB7BB · text #02383E · 14px/700 · padding 12px 20px · radius 8px · hover bg #FFF.</li>
+                <li>Polylang: translate the success message + privacy link in DE/ES.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bottom bar -->
+        <div class="site-footer__bottom">
+          <ul class="site-footer__meta">
+            <li>© <span class="js-year">2026</span> Nadja Gmelch · U-teal</li>
+            <li><a href="#" data-todo="/legal-notice">Legal notice</a></li>
+            <li><a href="#" data-todo="/privacy-policy">Privacy policy</a></li>
+            <li><a href="#" data-todo="cookie-settings">Cookie settings</a></li>
+            <li><a href="mailto:nadja@u-teal.com">nadja@u-teal.com</a></li>
+            <li><a href="tel:+34697585199">+34 697 585 199</a></li>
+            <li><a href="https://www.linkedin.com/in/nadja-gmelch/" target="_blank" rel="noopener">LinkedIn (Nadja Gmelch)</a></li>
+            <li><a href="https://www.linkedin.com/company/u-teal/" target="_blank" rel="noopener">LinkedIn (U-teal)</a></li>
+          </ul>
+          <!-- Polylang: each link points to the same page in the other language -->
+          <nav class="site-footer__lang" aria-label="Language">
+            <a href="about-me.html" aria-current="true">EN</a> |
+            <a href="#" data-todo="/de/">DE</a> |
+            <a href="#" data-todo="/es/">ES</a>
+          </nav>
+        </div>
+      </div>
+    </footer>
+    <!-- /S11 · FOOTER -->
+
+    <!-- ======================================================================
+         FLOATING "LET'S TALK" (always visible — client request)
+         Elementor: Pro Popup (bottom bar, all pages, no close button) or a
+         fixed Container. Triangle = SVG/shape behind the button.
+         ====================================================================== -->
+    <div class="float-cta">
+      <a class="btn btn--primary" href="#" data-todo="/contact">Let’s talk</a>
+    </div>
+
+    <!-- Scripts: menus, developer notes, SEO copy buttons, footer year -->
+    <script src="assets/js/main.js" defer></script>
+  </body>
+</html>

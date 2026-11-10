@@ -1,0 +1,294 @@
+/* ==========================================================================
+   U-TEAL · ABOUT ME PAGE STYLES
+   Loaded only on about-me.html, after global.css.
+   Sections: S02 Hero · S03 Who I am · S04 How I work (principles) ·
+             S05 CTA · S06 Who I work with (partly hidden) · S07 Why U-teal ·
+             S08 My background · S09 Final CTA
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   S02 · Hero: H1 (display) + portrait
+   -------------------------------------------------------------------------- */
+.about-hero {
+  padding-top: clamp(40px, 6vw, 88px);
+  padding-bottom: clamp(48px, 6vw, 88px);
+}
+
+.about-hero__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+  gap: clamp(32px, 5vw, 72px);
+  align-items: center;
+}
+
+.about-hero__content {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.about-hero .picture {
+  aspect-ratio: 4 / 4.8;
+}
+
+/* --------------------------------------------------------------------------
+   S03 · Who I am: sticky H2 + picture on the left, long text on the right
+   -------------------------------------------------------------------------- */
+.story__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+  gap: clamp(32px, 6vw, 96px);
+  align-items: start;
+}
+
+.story__aside {
+  position: sticky;
+  top: 112px;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.story__aside .picture {
+  aspect-ratio: 3 / 2;
+}
+
+.story__text a {
+  font-weight: 600;
+  text-decoration: underline;
+  text-decoration-color: rgba(0, 128, 128, 0.35);
+  text-underline-offset: 3px;
+}
+
+.story__text a:hover {
+  text-decoration-color: currentColor;
+}
+
+/* "These questions are at the heart of my work." */
+.story__highlight {
+  padding: 4px 0 4px 14px;
+  border-left: 3px solid var(--c-teal-light);
+  font-size: clamp(18px, 1.6vw, 22px);
+  line-height: 1.45;
+  font-weight: 600;
+  color: var(--c-teal-dark);
+}
+
+/* --------------------------------------------------------------------------
+   S04 · How I work: intro + 3 principle cards (square · diamond · circle)
+   -------------------------------------------------------------------------- */
+.principles__grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.principle {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: clamp(28px, 3vw, 40px);
+  background: var(--c-bg-soft);
+}
+
+.principle__shape {
+  display: block;
+  width: 28px;
+  height: 28px;
+  margin-bottom: 6px;
+  background: var(--c-teal-dark);
+}
+
+.principle__shape--diamond {
+  width: 26px;
+  height: 26px;
+  margin-left: 2px;
+  background: var(--c-teal-light);
+  transform: rotate(45deg);
+}
+
+.principle__shape--circle {
+  border-radius: 50%;
+  background: var(--c-teal);
+}
+
+.principles .section-head a {
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* --------------------------------------------------------------------------
+   S05 · CTA (designer "Contact": centred)
+   -------------------------------------------------------------------------- */
+.cta-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  text-align: center;
+}
+
+.cta-block__title {
+  max-width: 760px;
+  font-size: clamp(30px, 3.4vw, 40px);
+  line-height: 1.3;
+  font-weight: 800;
+  letter-spacing: -0.3px;
+  color: var(--c-teal-dark);
+  text-wrap: balance;
+}
+
+/* --------------------------------------------------------------------------
+   S06 · Who I work with (partner cards hidden until partners agree)
+   -------------------------------------------------------------------------- */
+.partners__grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+  margin-top: 32px;
+}
+
+.partner {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 24px;
+  background: var(--c-bg-soft);
+}
+
+/* Brand mark tile matches the soft section background */
+.why .why__mark img {
+  mix-blend-mode: multiply;
+}
+
+.partner__photo {
+  width: 88px;
+  height: 88px;
+  background: #dde7e7;
+}
+
+.partner__link {
+  font-size: 14px;
+  font-weight: 700;
+}
+
+/* --------------------------------------------------------------------------
+   S07 · Why U-teal? (brand mark + text)
+   -------------------------------------------------------------------------- */
+.why__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.7fr) minmax(0, 1.3fr);
+  gap: clamp(32px, 6vw, 96px);
+  align-items: center;
+}
+
+.why__mark {
+  max-width: 320px;
+  aspect-ratio: 1;
+}
+
+.why__mark img {
+  width: 100%;
+  height: 100%;
+}
+
+/* --------------------------------------------------------------------------
+   S08 · My background: 3 columns of dated entries
+   -------------------------------------------------------------------------- */
+.cv__grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(32px, 4vw, 56px);
+}
+
+.cv__col {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.cv__col .h4 {
+  padding-bottom: 14px;
+  border-bottom: 2px solid var(--c-teal-light);
+}
+
+.cv-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.cv-item__title {
+  font-size: 16px;
+  line-height: 1.45;
+  font-weight: 700;
+  color: var(--c-teal-dark);
+}
+
+.cv-item__meta {
+  font-size: 15px;
+  line-height: 1.5;
+  color: var(--c-text);
+}
+
+.cv-item__date {
+  display: block;
+  margin-top: 2px;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--c-teal);
+}
+
+.cv-item a {
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-color: rgba(0, 128, 128, 0.35);
+  text-underline-offset: 3px;
+}
+
+.cv-item a:hover {
+  color: var(--c-teal);
+}
+
+/* --------------------------------------------------------------------------
+   S09 · Final CTA (button only)
+   -------------------------------------------------------------------------- */
+.final-cta {
+  display: flex;
+  justify-content: center;
+  padding-top: 0;
+}
+
+/* ==========================================================================
+   RESPONSIVE (about)
+   ========================================================================== */
+@media (max-width: 999px) {
+  .about-hero__grid,
+  .story__grid,
+  .why__grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .about-hero .picture {
+    order: -1;
+    aspect-ratio: 4 / 3;
+  }
+
+  .story__aside {
+    position: static;
+  }
+
+  .principles__grid,
+  .partners__grid,
+  .cv__grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .why__mark {
+    max-width: 200px;
+  }
+}
