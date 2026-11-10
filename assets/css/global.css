@@ -1116,7 +1116,7 @@ a:hover {
   }
 
   .num-row {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
     align-items: start;
   }
 }
@@ -1124,11 +1124,11 @@ a:hover {
 /* Mobile < 600px */
 @media (max-width: 599px) {
   .site-footer__cols {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
   }
 
   .footer-form {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
   }
 
   .num-row__head {
@@ -1177,5 +1177,13 @@ a:hover {
   /* Don't cover the menu with the header label while it is open */
   .show-notes .site-header.is-open > .dev-note {
     display: none;
+  }
+}
+
+/* Mobile: long button labels wrap instead of widening the page */
+@media (max-width: 599px) {
+  .btn {
+    white-space: normal;
+    text-align: left;
   }
 }

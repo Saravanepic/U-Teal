@@ -470,7 +470,7 @@ a.org-logo:hover {
 }
 
 .start .num-row {
-  grid-template-columns: 1fr;
+  grid-template-columns: minmax(0, 1fr);
   gap: 8px;
   padding: 22px 0;
 }
@@ -519,7 +519,7 @@ a.org-logo:hover {
   .expertise__grid,
   .how__top,
   .start__grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
   }
 
   .hero .picture {
@@ -535,7 +535,7 @@ a.org-logo:hover {
   .services__grid,
   .testimonials__grid,
   .trust__head {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
   }
 
   .trust__cta {
@@ -545,12 +545,12 @@ a.org-logo:hover {
 
 @media (max-width: 699px) {
   .quick-links {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
   }
 
   /* Steps stack vertically; line becomes vertical */
   .steps {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
     gap: 40px;
   }
 
@@ -571,12 +571,20 @@ a.org-logo:hover {
   }
 
   .news-placeholder__cards {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
   }
 
   .org-logo,
   .org-logo--pair {
     min-width: 0;
     width: 100%;
+  }
+}
+
+/* Very small phones: UAB + FAS stack instead of overflowing */
+@media (max-width: 380px) {
+  .org-img--pair {
+    flex-wrap: wrap;
+    gap: 14px;
   }
 }
