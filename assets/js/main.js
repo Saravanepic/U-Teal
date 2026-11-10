@@ -9,6 +9,7 @@
    7. SEO box: copy buttons + character counts (+ 7b heading structure)
    8. Dynamic copyright year
    9. Demo forms: show the success message after submit (data-demo-form)
+   10. Open an accordion item (<details>) when a link points to it
    ======================================================================== */
 (function () {
   var header = document.querySelector(".site-header");
@@ -185,4 +186,16 @@
       ok.focus();
     });
   });
+
+  // 10. Anchor links to accordion items (e.g. #programmes): open the item.
+  //     Elementor: Accordion › item CSS ID + "Open by anchor" (or small JS).
+  function openFromHash() {
+    if (!location.hash) return;
+    var el = document.getElementById(decodeURIComponent(location.hash.slice(1)));
+    if (!el) return;
+    var d = el.tagName === "DETAILS" ? el : el.closest("details");
+    if (d) { d.open = true; el.scrollIntoView(); }
+  }
+  window.addEventListener("hashchange", openFromHash);
+  openFromHash();
 })();

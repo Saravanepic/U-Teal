@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<!--
+================================================================================
+  U-TEAL · Organisational development (EN) · HTML mockup — Draft 1
+  SERVICE PAGE TEMPLATE (same sections + service.css as internationalisation.html)
+================================================================================
+  Content: client Google Doc "Organisational development" (only the doc's texts and links;
+  pictures only at "Picture option"). Headings: "H1/H2/H3" labels win,
+  otherwise doc H3 = page H2, doc H4 = page H3.
+================================================================================
+-->
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- SEO (Yoast: SEO title / Meta description / Social) -->
+    <title>Organisational development and change for universities | U-teal</title>
+    <meta
+      name="description"
+      content="Systemic organisational development and change management for universities across Europe. Shaped together with the people involved."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Organisational development for universities | U-teal" />
+    <meta
+      property="og:description"
+      content="Change that takes hold across the university: clear roles, shorter decision paths and a working culture that learns."
+    />
+    <meta property="og:image" content="assets/images/hero.png" />
+
+    <link rel="icon" type="image/png" href="assets/images/brand/mark-primary-bg-white-square.png" />
+    <link rel="apple-touch-icon" href="assets/images/brand/mark-primary-bg-white-square.png" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap"
+    />
+
+    <link rel="stylesheet" href="assets/css/global.css" />
+    <link rel="stylesheet" href="assets/css/service.css" />
+  </head>
+
+  <body>
+    <!-- ======================================================================
+         S01 · HEADER
+         Elementor: Theme Builder › Header (sticky)
+         Widgets: Site Logo (SVG) · Nav Menu (Home · Services ▾ · About ·
+                  Methods) · Polylang language switcher (dropdown) · Button
+         ====================================================================== -->
+    <header class="site-header" id="top">
+      <div class="dev-note">
+        S01 · Theme Builder › Header (sticky) — Site Logo · Nav Menu with
+        "Services" submenu · Polylang switcher (EN/DE/ES) · Button "Let's talk"
+      </div>
+
+      <div class="container site-header__inner">
+        <a class="site-logo" href="index.html" aria-label="U-teal home">
+          <img src="assets/images/brand/logo-uteal.svg" alt="U-teal" width="117" height="31" />
+        </a>
+
+        <!-- Mobile menu button (designer icon: bar · diamond · bar) -->
+        <button
+          class="menu-toggle"
+          type="button"
+          aria-label="Open menu"
+          aria-expanded="false"
+          aria-controls="site-nav"
+        >
+          <span class="menu-toggle__bar menu-toggle__bar--top"></span>
+          <span class="menu-toggle__diamond"></span>
+          <span class="menu-toggle__bar menu-toggle__bar--bottom"></span>
+        </button>
+
+        <nav class="site-nav" id="site-nav" aria-label="Main">
+          <ul class="nav-list">
+            <li><a class="nav-link" href="index.html">Home</a></li>
+
+            <!-- Services dropdown (final wording tbc by client) -->
+            <li>
+              <button class="nav-link is-active" type="button" aria-expanded="false" aria-controls="submenu-services" data-dropdown>
+                Services <span class="nav-link__chev" aria-hidden="true"></span>
+              </button>
+              <ul class="submenu" id="submenu-services">
+                <li><a href="internationalisation.html">Internationalisation and university alliances</a></li>
+                <li><a href="strategy-consulting.html">Strategy consulting</a></li>
+                <li><a href="organisational-development.html" aria-current="page">Organisational development</a></li>
+                <li><a href="leadership-development.html">Leadership development and coaching</a></li>
+                <li class="submenu__divider" aria-hidden="true"></li>
+                <li><a href="women-in-higher-education-leadership.html">Coaching for women in higher education leadership</a></li>
+              </ul>
+            </li>
+
+            <li><a class="nav-link" href="about-me.html">About</a></li>
+            <li><a class="nav-link" href="methods.html">Methods</a></li>
+
+            <!-- Language switcher (Polylang) -->
+            <li class="lang">
+              <button class="nav-link lang__btn" type="button" aria-expanded="false" aria-controls="submenu-lang" aria-label="Language: English" data-dropdown>
+                <svg viewBox="-1 -1 22 22" fill="none" aria-hidden="true">
+                  <path d="M20 10c0 5.523-4.477 10-10 10m10-10c0-5.523-4.477-10-10-10m10 10H0m10 10C4.477 20 0 15.523 0 10m10 10a14.6 14.6 0 0 1-4-10c0-3.723 1.432-7.304 4-10m0 20a14.6 14.6 0 0 0 4-10c0-3.723-1.432-7.304-4-10M0 10C0 4.477 4.477 0 10 0" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                EN <span class="nav-link__chev" aria-hidden="true"></span>
+              </button>
+              <ul class="submenu lang__menu" id="submenu-lang">
+                <li><a href="organisational-development.html" aria-current="true">English</a></li>
+                <li><a href="#" data-todo="/de/">Deutsch</a></li>
+                <li><a href="#" data-todo="/es/">Español</a></li>
+              </ul>
+            </li>
+          </ul>
+
+          <a class="btn btn--primary" href="contact.html">Let’s talk</a>
+
+          <!-- Elementor build notes for the mobile menu (visible with developer notes on, menu open) -->
+          <div class="dev-note dev-note--inline">
+            <strong>MOBILE MENU · Elementor Pro › Nav Menu widget</strong>
+            <ul>
+              <li>Layout: Horizontal · Breakpoint: Tablet (Site Settings › Layout › Breakpoints: Tablet = 999px).</li>
+              <li>Mobile dropdown: Full width ON · Align: start · Toggle icon: custom SVG (bar · diamond · bar), colour #02383E, size 22px.</li>
+              <li>Dropdown items: Manrope 16px/700 #02383E · padding 15px 0 · divider 1px #E3E8E8 · active: text #008080 + 3px left border.</li>
+              <li>Submenu ("Services"): indicator chevron on the right · bg #F7F7F7 · items 15px/600 · padding 12px 16px.</li>
+              <li>Languages: Polylang adds EN / DE / ES as a "Language switcher" menu item (show names, hide flags).</li>
+              <li>"Let's talk": last menu item with CSS class <code>menu-cta</code> styled as a button (or hide the header button on mobile: the floating Let's talk is always visible).</li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+    </header>
+    <!-- /S01 · HEADER -->
+
+    <!-- ======================================================================
+         SEO BOX (developer only — copy-paste into Yoast for this page)
+         ====================================================================== -->
+    <aside class="seo-box dev-only" aria-label="SEO values for this page">
+      <div class="seo-box__inner">
+        <p class="seo-box__title"><span>SEO · Organisational development (EN) → Yoast SEO</span><span>Slug: /organisational-development</span></p>
+        <dl>
+          <dt>Title tag</dt><dd data-count>Organisational development and change for universities | U-teal</dd><dd><button class="copy-btn" type="button">Copy</button></dd>
+          <dt>Meta description</dt><dd data-count>Systemic organisational development and change management for universities across Europe. Shaped together with the people involved.</dd><dd><button class="copy-btn" type="button">Copy</button></dd>
+          <dt>OG title</dt><dd data-count>Organisational development for universities | U-teal</dd><dd><button class="copy-btn" type="button">Copy</button></dd>
+          <dt>OG description</dt><dd data-count>Change that takes hold across the university: clear roles, shorter decision paths and a working culture that learns.</dd><dd><button class="copy-btn" type="button">Copy</button></dd>
+          <dt>Slug</dt><dd>/organisational-development</dd><dd></dd>
+          <dt>H1</dt><dd>Organisational development and change</dd><dd><button class="copy-btn" type="button">Copy</button></dd>
+        </dl>
+        <div class="seo-box__outline">
+          <p class="seo-box__subtitle">Heading structure (from the client doc; set the same HTML tag in each Elementor Heading widget / Accordion title)</p>
+          <ol class="heading-outline" data-heading-outline></ol>
+          <p class="seo-box__hint">SERVICE PAGE TEMPLATE. Client doc: 1vWuUBkbRWnMAGVx1GeUjTveWPLCMsHlafX-PncXHmfE. "How we work together" + FAQ = Accordion (closed; FAQ first item open).</p>
+        </div>
+      </div>
+    </aside>
+
+    <!-- MOCKUP NOTE (review only — not part of the website, don't build in WordPress) -->
+    <aside class="mockup-banner" aria-label="Note about this draft">
+      <div class="container mockup-banner__inner">
+        <span class="mockup-banner__tag">Draft note</span>
+        <p>
+          <strong>Service page template.</strong> This page shows your texts in
+          the service page template, so you can review them. As agreed, in
+          WordPress we build only the
+          <a href="internationalisation.html">Internationalisation page</a> as
+          the template; you duplicate it and add the content of this page
+          yourself (we show you how in the training session).
+        </p>
+      </div>
+    </aside>
+
+    <main>
+      <!-- ====================================================================
+           S02 · HERO (service template)
+           Elementor: Container › Heading H1 (small, teal) · Heading H2
+                      (display) · Heading H3 (lead style). No picture (none in the doc).
+           ==================================================================== -->
+      <section class="service-hero">
+        <div class="dev-note">S02 · Hero — H1 small · H2 display · H3 (lead style)</div>
+        <div class="container service-hero__grid service-hero__grid--single">
+          <div class="service-hero__content">
+            <h1 class="service-hero__h1">Organisational development and change</h1>
+            <h2 class="display">Making change take hold across the university.</h2>
+            <h3 class="lead service-hero__lead">Consulting for universities that have to change quickly and want to bring everyone involved along.</h3>
+          </div>
+        </div>
+      </section>
+      <!-- /S02 · HERO -->
+
+      <!-- ====================================================================
+           S03 · SITUATIONS
+           Elementor: Container (row) › Text (lead) | Icon List (dash) · Text ·
+                      Image ("Picture option") · Button "What I offer" → #offer
+           ==================================================================== -->
+      <section class="section situations">
+        <div class="dev-note">S03 · Situations — lead | list · text · picture · button (doc order)</div>
+        <div class="container situations__grid">
+          <p class="lead situations__question">Do you sense that something needs to change at your university? It often shows in situations like these:</p>
+          <div class="stack">
+            <ul class="dash-list body">
+              <li>New technologies such as artificial intelligence are changing teaching, research and administration at an ever faster pace. Traditional change management with fixed phases struggles to keep up.</li>
+              <li>Decisions have to be made faster than lengthy coordination processes and hierarchical leadership allow. Your university needs more agility and a culture that learns from mistakes.</li>
+              <li>You are registrar or responsible for organisational or staff development in a central unit, and you are looking for support with a change process.</li>
+              <li>The workload in administration and research management is rising, and it is getting harder to attract and keep good people. You need ways of working that are efficient and sustainable for your staff.</li>
+              <li>An institute, a research centre or a university alliance is growing or being restructured. Unclear roles and responsibilities cost time and cause friction.</li>
+              <li>Important workshops and events consist mostly of presentations, even though you need the knowledge of everyone involved.</li>
+            </ul>
+            <p class="body situations__close">This is where I come in: I support your university in getting change moving, and in developing ways of working that sustain it.</p>
+            <figure class="img-ph situations__img" style="aspect-ratio: 3 / 2" role="img" aria-label="Picture option"><span class="img-ph__mark" aria-hidden="true"></span><figcaption class="img-ph__label"><strong>Picture option</strong>Photo to be chosen.</figcaption></figure>
+            <div><a class="btn btn--outline btn--arrow" href="#offer">What I offer</a></div>
+          </div>
+        </div>
+      </section>
+      <!-- /S03 · SITUATIONS -->
+
+      <!-- S04 · GAINS — Elementor: H2 · 4 cards (shape · H3 · text), global 5.7 -->
+      <section class="section section--soft gains">
+        <div class="dev-note">S04 · What your university gains — H2 · 4 cards (shape · H3 · text)</div>
+        <div class="container">
+          <div class="section-head"><h2 class="h2">What your university gains</h2></div>
+          <div class="principles__grid principles__grid--4">
+            <article class="principle">
+              <span class="principle__shape " aria-hidden="true"></span>
+              <h3 class="h4">Change that lasts.</h3>
+              <p class="body">The people who put change into practice every day help shape it. That builds commitment, and your university can still act decisively as the pressure to change grows.</p>
+            </article>
+            <article class="principle">
+              <span class="principle__shape principle__shape--diamond" aria-hidden="true"></span>
+              <h3 class="h4">Clear roles and responsibilities.</h3>
+              <p class="body">Everyone knows who is responsible for what and who decides what. Less time goes into coordination, and friction decreases.</p>
+            </article>
+            <article class="principle">
+              <span class="principle__shape principle__shape--rounded" aria-hidden="true"></span>
+              <h3 class="h4">A working culture that learns.</h3>
+              <p class="body">Responsibility is shared, mistakes are discussed rather than hidden, and teams work together in a more flexible way. This takes pressure off and supports staff wellbeing.</p>
+            </article>
+            <article class="principle">
+              <span class="principle__shape principle__shape--circle" aria-hidden="true"></span>
+              <h3 class="h4">Trying things out with manageable risk.</h3>
+              <p class="body">You test new formats and processes on a small scale first and learn from what emerges. Only then do you embed them across the whole organisation.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- S05 · EXPECT — Elementor: H2 (sticky) | numbered rows (number · H3 | text) -->
+      <section class="section expect">
+        <div class="dev-note">S05 · What you can expect from me — H2 | 4 numbered rows</div>
+        <div class="container expect__grid">
+          <div class="expect__head"><h2 class="h2">What you can expect from me</h2></div>
+          <div class="num-rows">
+            <div class="num-row expect__row">
+              <div class="num-row__head">
+                <span class="num-row__num">01</span>
+                <h3 class="h4">Inside experience of universities</h3>
+              </div>
+              <p class="body">I know the friction between governing bodies, administration and academic staff first-hand: from sitting on the senate and the Research and Knowledge Transfer Committee at the UOC, and from building an alliance in which ten universities had to align their ways of working. As a senior consultant at joyn-coop, I guided organisational development processes. I bring this experience to my work with your university.</p>
+            </div>
+            <div class="num-row expect__row">
+              <div class="num-row__head">
+                <span class="num-row__num">02</span>
+                <h3 class="h4">Systemic organisational development as a foundation</h3>
+              </div>
+              <p class="body">I’m a certified organisational developer and I work systemically: I see your university as a web of people, structures and relationships that all influence one another. I complement this with <a href="methods.html#theory-u">Theory U</a>, ideas from <a href="methods.html#teal">Frédéric Laloux’s <em>Reinventing Organizations</em></a> and agile ways of working. <a href="methods.html">More on my methods</a>.</p>
+            </div>
+            <div class="num-row expect__row">
+              <div class="num-row__head">
+                <span class="num-row__num">03</span>
+                <h3 class="h4">Working within your own structures</h3>
+              </div>
+              <p class="body">I work with the people who shape your university every day, through your existing committees and teams. No parallel structures.</p>
+            </div>
+            <div class="num-row expect__row">
+              <div class="num-row__head">
+                <span class="num-row__num">04</span>
+                <h3 class="h4">Reliable support all the way</h3>
+              </div>
+              <p class="body">Change at universities often takes time. I stay with you, even when the path isn’t straight.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- S06 · CASES — Elementor: H2 · per case: Container (row) › H3 · text · button | picture · quote -->
+      <section class="section section--soft practice">
+        <div class="dev-note">S06 · From my practice — H2 · 1 case(s): H3 · text · button | picture · quote</div>
+        <div class="container">
+          <div class="section-head">
+            <h2 class="h2">From my practice</h2>
+          </div>
+          <div class="cases">
+            <article class="case">
+              <div class="case__main">
+                <h3 class="h4">Organisational development across university boundaries: the OpenEU Alliance</h3>
+                <p class="body">As Director Europe and Open Knowledge at the Universitat Oberta de Catalunya, I led the creation of the OpenEU Alliance, a European Universities alliance which today brings together ten universities, most of them open and distance universities. We developed shared governance, clarified roles and responsibilities between the partner universities and established ways of working that allowed teams from different countries and university cultures to collaborate.</p>
+              </div>
+              <div class="case__aside">
+                <figure class="img-ph case__picture" style="aspect-ratio: 3 / 2" role="img" aria-label="Picture option"><span class="img-ph__mark" aria-hidden="true"></span><figcaption class="img-ph__label"><strong>Picture option</strong>Photo for this case study.</figcaption></figure>
+                <figure class="quote case__quote">
+                  <blockquote class="quote__text">“Those of us who have worked alongside Nadja, shoulder to shoulder, know that she’s someone who transforms everything around her.”</blockquote>
+                  <figcaption class="quote__author">Pastora Martínez Samper<span class="quote__role">Commissioner for Internationalisation, OpenEU Alliance Coordinator, UOC, Spain</span></figcaption>
+                </figure>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- S07 · CASES — Elementor: H2 · per case: Container (row) › H3 · text · button | picture · quote -->
+      <section class="section practice">
+        <div class="dev-note">S07 · Beyond higher education — H2 · 2 case(s): H3 · text · button | picture · quote</div>
+        <div class="container">
+          <div class="section-head">
+            <h2 class="h2">Beyond higher education</h2>
+            <p class="body">I have used the same approach with other complex, multi-stakeholder organisations. Two examples from my time as a senior consultant at joyn-coop:</p>
+          </div>
+          <div class="cases">
+            <article class="case">
+              <div class="case__main">
+                <h3 class="h4">Supporting a cross-sector network for Ukraine’s reconstruction</h3>
+                <p class="body">The German Platform for the Reconstruction of Ukraine, an initiative of the German Federal Government, brings together companies, municipalities, civil society and academia to strengthen Germany’s contribution to rebuilding Ukraine. As a senior consultant at joyn-coop, I supported the platform’s secretariat with organisational development and process facilitation for over a year, on behalf of GIZ and the BMZ. This included agile ways of working for the distributed team, participatory network events, prototyping workshops and coaching. The platform has since introduced new formats and new ways of working together.</p>
+                <div><a class="btn btn--outline btn--arrow" href="#" data-todo="/case-studies#ukraine-platform">Read the full case study</a></div>
+              </div>
+              <div class="case__aside">
+                <figure class="img-ph case__picture" style="aspect-ratio: 3 / 2" role="img" aria-label="Picture option"><span class="img-ph__mark" aria-hidden="true"></span><figcaption class="img-ph__label"><strong>Picture option</strong>Photo for this case study.</figcaption></figure>
+              </div>
+            </article>
+            <article class="case">
+              <div class="case__main">
+                <h3 class="h4">Organisational change and leadership development in a European climate foundation</h3>
+                <p class="body">A European climate foundation realigned its vision, values, culture, processes and decision-making in a “Fit for Future” process. As a senior consultant at joyn-coop, I supported the core team at the Foundation in designing the process and facilitated groups of 15 to 35 people. For the Foundation’s leadership team, I developed a programme to help them put the new mission statement into practice, with training and coaching on decision-making, roles and self-reflection.</p>
+                <div><a class="btn btn--outline btn--arrow" href="#" data-todo="/case-studies#climate-foundation">Read the full case study</a></div>
+              </div>
+              <div class="case__aside">
+                <figure class="img-ph case__picture" style="aspect-ratio: 3 / 2" role="img" aria-label="Picture option"><span class="img-ph__mark" aria-hidden="true"></span><figcaption class="img-ph__label"><strong>Picture option</strong>Photo for this case study.</figcaption></figure>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- S08 · HOW WE WORK TOGETHER (#offer) — client note: only the titles are
+           visible at first, the text expands on click.
+           Elementor: Container (CSS ID offer, row) › H2 | Accordion (title tag H3,
+                      all closed; CSS ID per item = anchor) -->
+      <section class="section section--soft offer" id="offer">
+        <div class="dev-note">S08 · How we work together (CSS ID offer) — H2 | Accordion (3 items, H3, closed)</div>
+        <div class="container faq__grid">
+          <div class="faq__head"><h2 class="h2">How we work together</h2></div>
+          <div>
+            <div class="faq-list">
+              <details class="faq-item offer-item" id="participatory-change-processes">
+                <summary><h3 class="faq-item__q">Participatory change processes</h3><span class="faq-item__icon" aria-hidden="true"></span></summary>
+                <div class="faq-item__a">
+                  <p class="body">I design and guide change processes that the people involved help shape from the start. This ranges from a close look at the current situation to anchoring the change in practice. I use formats that make participation practical and keep the process moving.</p>
+                </div>
+              </details>
+              <details class="faq-item offer-item" id="rethinking-roles-and-collaboration">
+                <summary><h3 class="faq-item__q">Rethinking roles and collaboration</h3><span class="faq-item__icon" aria-hidden="true"></span></summary>
+                <div class="faq-item__a">
+                  <p class="body">I support institutes, research centres and university alliances that are reorganising or want to clarify roles and responsibilities. Starting from your vision and your challenges, we develop principles for working together. We test these in small experiments before translating them into roles and structures.</p>
+                </div>
+              </details>
+              <details class="faq-item offer-item" id="workshop-and-meeting-design">
+                <summary><h3 class="faq-item__q">Workshop and meeting design</h3><span class="faq-item__icon" aria-hidden="true"></span></summary>
+                <div class="faq-item__a">
+                  <p class="body">I design and facilitate important meetings, workshops and events that are meant to be more than a series of presentations. In these formats, the knowledge of all participants comes into play, whether you need to reach a decision or bring together many different perspectives. Your time together produces concrete proposals and results you can build on.</p>
+                </div>
+              </details>
+            </div>
+            
+          </div>
+        </div>
+      </section>
+
+      <!-- S09 · CTA — Elementor: Container (dark) › H2 · Text · Button "Let's talk" → /contact -->
+      <section class="section service-cta">
+        <div class="dev-note">S09 · CTA — H2 · text · button (dark band)</div>
+        <div class="container cta-block">
+          <h2 class="cta-block__title">What change is ahead for your university?</h2>
+          <p class="body service-cta__text">Whether you want to start a change process, clarify roles and responsibilities or work together in a more agile way: in a free introductory call, we explore what you need and what kind of support makes sense.</p>
+          <a class="btn btn--accent btn--arrow" href="contact.html">Let’s talk</a>
+        </div>
+      </section>
+
+      <!-- S010 · FAQ — Elementor: H2 | Accordion (title tag H3, FAQ Schema ON) · "Last updated" -->
+      <section class="section section--soft faq" id="faq">
+        <div class="dev-note">S010 · FAQ — H2 | Accordion (6 items, H3, FAQ Schema ON)</div>
+        <div class="container faq__grid">
+          <div class="faq__head"><h2 class="h2">Frequently asked questions</h2></div>
+          <div>
+            <div class="faq-list">
+              <details class="faq-item" id="faq-1" open>
+                <summary><h3 class="faq-item__q">How can universities become more agile without giving up participation and careful decision-making?</h3><span class="faq-item__icon" aria-hidden="true"></span></summary>
+                <div class="faq-item__a">
+                  <p class="body">At universities, agility doesn’t mean bypassing governing bodies. It means taking decisions at the right level: what needs to be decided in the senate, and what can teams settle themselves? Clear roles, short feedback loops and trying out new approaches on a small scale make universities more responsive. Participation doesn’t decrease. It becomes more targeted. Committees deal with the questions that are truly theirs to decide and receive better-prepared proposals.</p>
+                </div>
+              </details>
+              <details class="faq-item" id="faq-2">
+                <summary><h3 class="faq-item__q">How can I make a change process at my university participatory?</h3><span class="faq-item__icon" aria-hidden="true"></span></summary>
+                <div class="faq-item__a">
+                  <p class="body">Start by looking closely at how your university actually works before you settle on solutions. Change that lasts comes from a direction developed together, not from a strategy imposed from above or from outside. Involve the people who shape change in day-to-day work, using formats that draw on the knowledge of many. It’s important to say clearly from the start who has a say in what, and who decides what.</p>
+                </div>
+              </details>
+              <details class="faq-item" id="faq-3">
+                <summary><h3 class="faq-item__q">How does systemic organisational development differ from traditional change management?</h3><span class="faq-item__icon" aria-hidden="true"></span></summary>
+                <div class="faq-item__a">
+                  <p class="body">Traditional change management usually plans change top-down, in fixed phases from analysis to roll-out, and relies on communication to get people on board. At universities, this approach soon hits its limits: decisions are made in committees, and many of the people involved can’t simply be told what to do. Systemic organisational development involves the people who carry out the change from the start, tries out new approaches on a small scale and adjusts the path as it goes. That turns change at universities into a shared learning process.</p>
+                </div>
+              </details>
+              <details class="faq-item" id="faq-4">
+                <summary><h3 class="faq-item__q">What does <em>Reinventing Organizations</em> mean for universities?</h3><span class="faq-item__icon" aria-hidden="true"></span></summary>
+                <div class="faq-item__a">
+                  <p class="body">In <em>Reinventing Organizations</em>, Frédéric Laloux describes organisations built on self-management, wholeness and a shared sense of purpose (<a href="methods.html#teal">more on my methods</a>). Universities have a long tradition of academic self-governance. In administration and between units, however, rigid hierarchies and fixed lines of responsibility often prevail. Laloux’s ideas offer a way to rethink collaboration there: with distributed responsibility, clear roles instead of rigid job descriptions, and decisions close to the work.</p>
+                </div>
+              </details>
+              <details class="faq-item" id="faq-5">
+                <summary><h3 class="faq-item__q">What is Theory U, and how can it be applied to change processes at universities?</h3><span class="faq-item__icon" aria-hidden="true"></span></summary>
+                <div class="faq-item__a">
+                  <p class="body">Theory U is a model for change processes in individuals and organisations, developed by Otto Scharmer at MIT. Applied to a university, it involves three movements. First, we look closely at how the institution actually works, beyond its official structures. Then we develop a shared intention for the future that grows out of the needs of the institution and the people who shape it. Finally, we try out new formats and processes on a small scale before embedding them more widely. That way, the university itself owns the change.</p>
+                </div>
+              </details>
+              <details class="faq-item" id="faq-6">
+                <summary><h3 class="faq-item__q">How do we start working together?</h3><span class="faq-item__icon" aria-hidden="true"></span></summary>
+                <div class="faq-item__a">
+                  <p class="body">Every collaboration looks different, from a single workshop to longer-term support. In a free introductory call, we get to know each other and see whether working together feels right for you. Then we clarify what you need, identify the people who should be involved and agree on a shared goal. I then send you a proposal with a timeline and cost estimate.</p>
+                  <div class="faq-item__btns"><a class="btn btn--primary btn--arrow" href="contact.html">Let’s talk</a></div>
+                </div>
+              </details>
+            </div>
+            <p class="service-updated">Last updated: <time datetime="2026-11">November 2026</time></p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- ======================================================================
+         S11 · FOOTER
+         Elementor: Theme Builder › Footer
+         Col 1: Site Logo (white SVG) · Text · Button
+         Col 2: Nav Menu (services)
+         Col 3: Text · Form (Pro: first name + email → Mailchimp/Brevo,
+                double opt-in) · privacy note
+         Bottom bar: copyright · legal links · contact · LinkedIn · EN|DE|ES
+         ====================================================================== -->
+    <footer class="site-footer">
+      <div class="dev-note">
+        S11 · Theme Builder › Footer — 3 cols (logo + text + button · services
+        menu · newsletter form) + bottom bar (Polylang switcher)
+      </div>
+
+      <div class="container">
+        <div class="site-footer__cols">
+          <!-- Column 1 -->
+          <div class="site-footer__col">
+            <a class="site-footer__logo" href="index.html" aria-label="U-teal home">
+              <img src="assets/images/brand/logo-uteal-white.svg" alt="U-teal" width="96" height="26" />
+            </a>
+            <p>
+              U-teal · Nadja Gmelch’s systemic higher education consultancy for
+              internationalisation, strategy, organisational development and
+              leadership in Europe and beyond. · On site and online.
+            </p>
+            <a class="btn btn--accent" href="contact.html">Let’s talk</a>
+          </div>
+
+          <!-- Column 2 -->
+          <div class="site-footer__col">
+            <p class="site-footer__title">Services</p>
+            <ul class="site-footer__links">
+              <li><a href="strategy-consulting.html">Strategy consulting</a></li>
+              <li><a href="internationalisation.html">Internationalisation and university alliances</a></li>
+              <li><a href="organisational-development.html">Organisational development</a></li>
+              <li><a href="leadership-development.html">Leadership development and coaching</a></li>
+              <li><a href="women-in-higher-education-leadership.html">Coaching for women in higher education leadership</a></li>
+            </ul>
+          </div>
+
+          <!-- Column 3: newsletter -->
+          <div class="site-footer__col site-footer__col--newsletter">
+            <p class="site-footer__title">Newsletter</p>
+            <p>
+              Want to stay informed about what I’m working on? Roughly every two
+              months, I write about current projects, new formats and upcoming
+              dates, and share what I’m learning about change in universities.
+            </p>
+            <form class="footer-form" action="#" onsubmit="return false;">
+              <label class="sr-only" for="nl-name">First name</label>
+              <input id="nl-name" type="text" placeholder="First name" autocomplete="given-name" />
+              <label class="sr-only" for="nl-email">Email</label>
+              <input id="nl-email" type="email" placeholder="Email" autocomplete="email" />
+              <button class="btn btn--accent" type="submit">Subscribe</button>
+            </form>
+            <p class="footer-form__note">
+              Unsubscribe at any time.
+              <a href="#" data-todo="/privacy-policy">Privacy information</a>
+            </p>
+
+            <div class="dev-note dev-note--inline">
+              <strong>FORM · Elementor Pro › Form widget</strong>
+              <ul>
+                <li>Fields: First name (text, 50%) + Email (required, 50%) + Submit (100%, auto width). Mobile: all 100%.</li>
+                <li>Action: Mailchimp (native) with double opt-in ON (GDPR/DE). Brevo: Brevo plugin or webhook.</li>
+                <li>Spam: honeypot ON; Cloudflare Turnstile if needed (no reCAPTCHA).</li>
+                <li>Field: transparent bg · border 1px rgba(255,255,255,.35) · radius 8px · padding 11px 14px · Manrope 14px · text #FFF · placeholder #9FB8B6.</li>
+                <li>Button: bg #3DB7BB · text #02383E · 14px/700 · padding 12px 20px · radius 8px · hover bg #FFF.</li>
+                <li>Polylang: translate the success message + privacy link in DE/ES.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bottom bar -->
+        <div class="site-footer__bottom">
+          <ul class="site-footer__meta">
+            <li>© <span class="js-year">2026</span> Nadja Gmelch · U-teal</li>
+            <li><a href="#" data-todo="/legal-notice">Legal notice</a></li>
+            <li><a href="#" data-todo="/privacy-policy">Privacy policy</a></li>
+            <li><a href="#" data-todo="cookie-settings">Cookie settings</a></li>
+            <li><a href="mailto:nadja@u-teal.com">nadja@u-teal.com</a></li>
+            <li><a href="tel:+34697585199">+34 697 585 199</a></li>
+            <li><a href="https://www.linkedin.com/in/nadja-gmelch/" target="_blank" rel="noopener">LinkedIn (Nadja Gmelch)</a></li>
+            <li><a href="https://www.linkedin.com/company/u-teal/" target="_blank" rel="noopener">LinkedIn (U-teal)</a></li>
+          </ul>
+          <!-- Polylang: each link points to the same page in the other language -->
+          <nav class="site-footer__lang" aria-label="Language">
+            <a href="organisational-development.html" aria-current="true">EN</a> |
+            <a href="#" data-todo="/de/">DE</a> |
+            <a href="#" data-todo="/es/">ES</a>
+          </nav>
+        </div>
+      </div>
+    </footer>
+    <!-- /S11 · FOOTER -->
+
+    <!-- ======================================================================
+         FLOATING "LET'S TALK" (always visible — client request)
+         Elementor: Pro Popup (bottom bar, all pages, no close button) or a
+         fixed Container. Triangle = SVG/shape behind the button.
+         ====================================================================== -->
+    <div class="float-cta">
+      <a class="btn btn--primary" href="contact.html">Let’s talk</a>
+    </div>
+
+    <!-- Scripts: menus, developer notes, SEO copy buttons, footer year -->
+    <script src="assets/js/main.js" defer></script>
+  </body>
+</html>

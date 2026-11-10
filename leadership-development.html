@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<!--
+================================================================================
+  U-TEAL · Leadership development (EN) · HTML mockup — Draft 1
+  SERVICE PAGE TEMPLATE (same sections + service.css as internationalisation.html)
+================================================================================
+  Content: client Google Doc "Leadership development" (only the doc's texts and links;
+  pictures only at "Picture option"). Headings: "H1/H2/H3" labels win,
+  otherwise doc H3 = page H2, doc H4 = page H3.
+================================================================================
+-->
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- SEO (Yoast: SEO title / Meta description / Social) -->
+    <title>Leadership development and coaching for universities | U-teal</title>
+    <meta
+      name="description"
+      content="Systemic coaching, training and leadership programmes for university leaders and leadership teams across Europe."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Leading through change: leadership development and coaching | U-teal" />
+    <meta
+      property="og:description"
+      content="Coaching, training and leadership programmes for university leaders, leadership teams and staff development."
+    />
+    <meta property="og:image" content="assets/images/hero.png" />
+
+    <link rel="icon" type="image/png" href="assets/images/brand/mark-primary-bg-white-square.png" />
+    <link rel="apple-touch-icon" href="assets/images/brand/mark-primary-bg-white-square.png" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap"
+    />
+
+    <link rel="stylesheet" href="assets/css/global.css" />
+    <link rel="stylesheet" href="assets/css/service.css" />
+  </head>
+
+  <body>
+    <!-- ======================================================================
+         S01 · HEADER
+         Elementor: Theme Builder › Header (sticky)
+         Widgets: Site Logo (SVG) · Nav Menu (Home · Services ▾ · About ·
+                  Methods) · Polylang language switcher (dropdown) · Button
+         ====================================================================== -->
+    <header class="site-header" id="top">
+      <div class="dev-note">
+        S01 · Theme Builder › Header (sticky) — Site Logo · Nav Menu with
+        "Services" submenu · Polylang switcher (EN/DE/ES) · Button "Let's talk"
+      </div>
+
+      <div class="container site-header__inner">
+        <a class="site-logo" href="index.html" aria-label="U-teal home">
+          <img src="assets/images/brand/logo-uteal.svg" alt="U-teal" width="117" height="31" />
+        </a>
+
+        <!-- Mobile menu button (designer icon: bar · diamond · bar) -->
+        <button
+          class="menu-toggle"
+          type="button"
+          aria-label="Open menu"
+          aria-expanded="false"
+          aria-controls="site-nav"
+        >
+          <span class="menu-toggle__bar menu-toggle__bar--top"></span>
+          <span class="menu-toggle__diamond"></span>
+          <span class="menu-toggle__bar menu-toggle__bar--bottom"></span>
+        </button>
+
+        <nav class="site-nav" id="site-nav" aria-label="Main">
+          <ul class="nav-list">
+            <li><a class="nav-link" href="index.html">Home</a></li>
+
+            <!-- Services dropdown (final wording tbc by client) -->
+            <li>
+              <button class="nav-link is-active" type="button" aria-expanded="false" aria-controls="submenu-services" data-dropdown>
+                Services <span class="nav-link__chev" aria-hidden="true"></span>
+              </button>
+              <ul class="submenu" id="submenu-services">
+                <li><a href="internationalisation.html">Internationalisation and university alliances</a></li>
+                <li><a href="strategy-consulting.html">Strategy consulting</a></li>
+                <li><a href="organisational-development.html">Organisational development</a></li>
+                <li><a href="leadership-development.html" aria-current="page">Leadership development and coaching</a></li>
+                <li class="submenu__divider" aria-hidden="true"></li>
+                <li><a href="women-in-higher-education-leadership.html">Coaching for women in higher education leadership</a></li>
+              </ul>
+            </li>
+
+            <li><a class="nav-link" href="about-me.html">About</a></li>
+            <li><a class="nav-link" href="methods.html">Methods</a></li>
+
+            <!-- Language switcher (Polylang) -->
+            <li class="lang">
+              <button class="nav-link lang__btn" type="button" aria-expanded="false" aria-controls="submenu-lang" aria-label="Language: English" data-dropdown>
+                <svg viewBox="-1 -1 22 22" fill="none" aria-hidden="true">
+                  <path d="M20 10c0 5.523-4.477 10-10 10m10-10c0-5.523-4.477-10-10-10m10 10H0m10 10C4.477 20 0 15.523 0 10m10 10a14.6 14.6 0 0 1-4-10c0-3.723 1.432-7.304 4-10m0 20a14.6 14.6 0 0 0 4-10c0-3.723-1.432-7.304-4-10M0 10C0 4.477 4.477 0 10 0" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                EN <span class="nav-link__chev" aria-hidden="true"></span>
+              </button>
+              <ul class="submenu lang__menu" id="submenu-lang">
+                <li><a href="leadership-development.html" aria-current="true">English</a></li>
+                <li><a href="#" data-todo="/de/">Deutsch</a></li>
+                <li><a href="#" data-todo="/es/">Español</a></li>
+              </ul>
+            </li>
+          </ul>
+
+          <a class="btn btn--primary" href="contact.html">Let’s talk</a>
+
+          <!-- Elementor build notes for the mobile menu (visible with developer notes on, menu open) -->
+          <div class="dev-note dev-note--inline">
+            <strong>MOBILE MENU · Elementor Pro › Nav Menu widget</strong>
+            <ul>
+              <li>Layout: Horizontal · Breakpoint: Tablet (Site Settings › Layout › Breakpoints: Tablet = 999px).</li>
+              <li>Mobile dropdown: Full width ON · Align: start · Toggle icon: custom SVG (bar · diamond · bar), colour #02383E, size 22px.</li>
+              <li>Dropdown items: Manrope 16px/700 #02383E · padding 15px 0 · divider 1px #E3E8E8 · active: text #008080 + 3px left border.</li>
+              <li>Submenu ("Services"): indicator chevron on the right · bg #F7F7F7 · items 15px/600 · padding 12px 16px.</li>
+              <li>Languages: Polylang adds EN / DE / ES as a "Language switcher" menu item (show names, hide flags).</li>
+              <li>"Let's talk": last menu item with CSS class <code>menu-cta</code> styled as a button (or hide the header button on mobile: the floating Let's talk is always visible).</li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+    </header>
+    <!-- /S01 · HEADER -->
+
+    <!-- ======================================================================
+         SEO BOX (developer only — copy-paste into Yoast for this page)
+         ====================================================================== -->
+    <aside class="seo-box dev-only" aria-label="SEO values for this page">
+      <div class="seo-box__inner">
+        <p class="seo-box__title"><span>SEO · Leadership development (EN) → Yoast SEO</span><span>Slug: /leadership-development</span></p>
+        <dl>
+          <dt>Title tag</dt><dd data-count>Leadership development and coaching for universities | U-teal</dd><dd><button class="copy-btn" type="button">Copy</button></dd>
+          <dt>Meta description</dt><dd data-count>Systemic coaching, training and leadership programmes for university leaders and leadership teams across Europe.</dd><dd><button class="copy-btn" type="button">Copy</button></dd>
+          <dt>OG title</dt><dd data-count>Leading through change: leadership development and coaching | U-teal</dd><dd><button class="copy-btn" type="button">Copy</button></dd>
+          <dt>OG description</dt><dd data-count>Coaching, training and leadership programmes for university leaders, leadership teams and staff development.</dd><dd><button class="copy-btn" type="button">Copy</button></dd>
+          <dt>Slug</dt><dd>/leadership-development</dd><dd></dd>
+          <dt>H1</dt><dd>Leadership development and coaching</dd><dd><button class="copy-btn" type="button">Copy</button></dd>
+        </dl>
+        <div class="seo-box__outline">
+          <p class="seo-box__subtitle">Heading structure (from the client doc; set the same HTML tag in each Elementor Heading widget / Accordion title)</p>
+          <ol class="heading-outline" data-heading-outline></ol>
+          <p class="seo-box__hint">SERVICE PAGE TEMPLATE. Client doc: 1rCtrIrKaNmJ8LdL4CRhUK1pVXbYSj0FoIvLg919bdF4. "How we work together" + FAQ = Accordion (closed; FAQ first item open).</p>
+        </div>
+      </div>
+    </aside>
+
+    <!-- MOCKUP NOTE (review only — not part of the website, don't build in WordPress) -->
+    <aside class="mockup-banner" aria-label="Note about this draft">
+      <div class="container mockup-banner__inner">
+        <span class="mockup-banner__tag">Draft note</span>
+        <p>
+          <strong>Service page template.</strong> This page shows your texts in
+          the service page template, so you can review them. As agreed, in
+          WordPress we build only the
+          <a href="internationalisation.html">Internationalisation page</a> as
+          the template; you duplicate it and add the content of this page
+          yourself (we show you how in the training session).
+        </p>
+      </div>
+    </aside>
+
+    <main>
+      <!-- ====================================================================
+           S02 · HERO (service template)
+           Elementor: Container › Heading H1 (small, teal) · Heading H2
+                      (display) · Text (lead style). No picture (none in the doc).
+           ==================================================================== -->
+      <section class="service-hero">
+        <div class="dev-note">S02 · Hero — H1 small · H2 display · text (lead style)</div>
+        <div class="container service-hero__grid service-hero__grid--single">
+          <div class="service-hero__content">
+            <h1 class="service-hero__h1">Leadership development and coaching</h1>
+            <h2 class="display">Leading through change.</h2>
+            <p class="lead service-hero__lead">Support for university leaders, leadership teams and managers in times of uncertainty.</p>
+          </div>
+        </div>
+      </section>
+      <!-- /S02 · HERO -->
+
+      <!-- ====================================================================
+           S03 · SITUATIONS
+           Elementor: Container (row) › Text (lead) | Icon List (dash) · Text ·
+                      Image ("Picture option") · Button "What I offer" → #offer
+           ==================================================================== -->
+      <section class="section situations">
+        <div class="dev-note">S03 · Situations — lead | list · text · picture · button (doc order)</div>
+        <div class="container situations__grid">
+          <p class="lead situations__question">Do you have leadership responsibility at a university, or do you want to strengthen your university’s leaders? Perhaps one of these questions is on your mind:</p>
+          <div class="stack">
+            <ul class="dash-list body">
+              <li>You are taking on a new leadership role and want to lead clearly and effectively from the start.</li>
+              <li>Your university is in the middle of a change process. You want your leaders to help shape it, not just carry it out.</li>
+              <li>You want your rectors’, presidents’ or dean’s office to work together as a real team, rather than in parallel.</li>
+              <li>You are facing decisions where many interests collide.</li>
+              <li>You are responsible for staff development and are looking for a leadership programme that fits the logic of a university, rather than one borrowed from the corporate world.</li>
+            </ul>
+            <p class="body situations__close">These are the questions I’m here for. I support you in clarifying your role in relation to your team, your organisation and its wider environment, and in leading in a way that makes change work.</p>
+            <figure class="img-ph situations__img" style="aspect-ratio: 3 / 2" role="img" aria-label="Picture option"><span class="img-ph__mark" aria-hidden="true"></span><figcaption class="img-ph__label"><strong>Picture option</strong>Photo to be chosen.</figcaption></figure>
+            <div><a class="btn btn--outline btn--arrow" href="#offer">What I offer</a></div>
+          </div>
+        </div>
+      </section>
+      <!-- /S03 · SITUATIONS -->
+
+      <!-- S04 · GAINS — Elementor: H2 · 4 cards (shape · H3 · text), global 5.7 -->
+      <section class="section section--soft gains">
+        <div class="dev-note">S04 · What you and your university gain — H2 · 4 cards (shape · H3 · text)</div>
+        <div class="container">
+          <div class="section-head"><h2 class="h2">What you and your university gain</h2></div>
+          <div class="principles__grid principles__grid--4">
+            <article class="principle">
+              <span class="principle__shape " aria-hidden="true"></span>
+              <h3 class="h4">Leading when so much is uncertain.</h3>
+              <p class="body">You give direction even when not everything can be planned. You learn to live with uncertainty, look closely and take the next step without waiting for every answer.</p>
+            </article>
+            <article class="principle">
+              <span class="principle__shape principle__shape--diamond" aria-hidden="true"></span>
+              <h3 class="h4">Decisions from clarity.</h3>
+              <p class="body">You stay calm and focused, even under pressure. You make decisions based on inner clarity and a good understanding of your institution, rather than simply reacting.</p>
+            </article>
+            <article class="principle">
+              <span class="principle__shape principle__shape--rounded" aria-hidden="true"></span>
+              <h3 class="h4">Leadership teams that pull together.</h3>
+              <p class="body">Your leadership team finds a shared direction, clarifies roles and learns to handle tensions constructively. Trust grows from this, and everyone stands behind the decisions.</p>
+            </article>
+            <article class="principle">
+              <span class="principle__shape principle__shape--circle" aria-hidden="true"></span>
+              <h3 class="h4">Leadership that makes change possible.</h3>
+              <p class="body">Your leaders actively help shape change. New forms of collaboration become tangible in day-to-day work in the university, in leadership as well as in faculties and administration.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- S05 · EXPECT — Elementor: H2 (sticky) | numbered rows (number · H3 | text) -->
+      <section class="section expect">
+        <div class="dev-note">S05 · What you can expect from me — H2 | 4 numbered rows</div>
+        <div class="container expect__grid">
+          <div class="expect__head"><h2 class="h2">What you can expect from me</h2></div>
+          <div class="num-rows">
+            <div class="num-row expect__row">
+              <div class="num-row__head">
+                <span class="num-row__num">01</span>
+                <h3 class="h4">Leadership experience from inside the university</h3>
+              </div>
+              <p class="body">As Director Europe and Open Knowledge at the <a href="https://www.uoc.edu/en" target="_blank" rel="noopener">UOC</a>, I led the creation of the European Universities alliance <a href="https://openeu.eu/" target="_blank" rel="noopener">OpenEU</a>. In this role, I sat on the Research and Knowledge Transfer Committee and, as a representative of administrative staff, on the senate. At the <a href="https://www.acup.cat/en" target="_blank" rel="noopener">ACUP</a>, I chaired committees with vice-rectors from the Catalan universities. I know the responsibility and visibility that leadership positions at universities bring, and how much depends on the way a leadership team works together. I bring this experience into my work and adapt it to your situation.</p>
+            </div>
+            <div class="num-row expect__row">
+              <div class="num-row__head">
+                <span class="num-row__num">02</span>
+                <h3 class="h4">Methods for leadership within the system</h3>
+              </div>
+              <p class="body">I’m a certified organisational developer and systemic coach. I work systemically and with <a href="#faq-awareness-based-leadership">awareness-based methods</a>, drawing on Theory U and Frédéric Laloux’s <em>Reinventing Organizations</em>, among others. This lets us connect work on your own leadership with work on structures and collaboration. <a href="methods.html">More on my methods</a>.</p>
+            </div>
+            <div class="num-row expect__row">
+              <div class="num-row__head">
+                <span class="num-row__num">03</span>
+                <h3 class="h4">Close to your practice</h3>
+              </div>
+              <p class="body">Every conversation and every workshop ends with something you can apply directly in your daily work.</p>
+            </div>
+            <div class="num-row expect__row">
+              <div class="num-row__head">
+                <span class="num-row__num">04</span>
+                <h3 class="h4">Working across languages and academic cultures</h3>
+              </div>
+              <p class="body">I work in English, German, Spanish, Italian and Catalan, and I move confidently between academic cultures.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- S06 · CASES — Elementor: H2 · per case: Container (row) › H3 · text · button | picture · quote -->
+      <section class="section section--soft practice">
+        <div class="dev-note">S06 · From my practice — H2 · 1 case(s): H3 · text · button | picture · quote</div>
+        <div class="container">
+          <div class="section-head">
+            <h2 class="h2">From my practice</h2>
+          </div>
+          <div class="cases">
+            <article class="case">
+              <div class="case__main">
+                <h3 class="h4">A leadership programme for organisational change</h3>
+                <p class="body">A European climate foundation evolved its vision, culture and decision-making in a “Fit for Future” process. As a senior consultant at joyn-coop, I developed a programme to help its leaders put the new mission statement into practice. It included training and coaching on competence-based decision-making, leadership roles and self-reflection.</p>
+                <div><a class="btn btn--outline btn--arrow" href="#" data-todo="/case-studies#climate-foundation">Read the full case study</a></div>
+              </div>
+              <div class="case__aside">
+                <figure class="img-ph case__picture" style="aspect-ratio: 3 / 2" role="img" aria-label="Picture option"><span class="img-ph__mark" aria-hidden="true"></span><figcaption class="img-ph__label"><strong>Picture option</strong>Photo for this case study.</figcaption></figure>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- S07 · HOW WE WORK TOGETHER (#offer) — client note: only the titles are
+           visible at first, the text expands on click.
+           Elementor: Container (CSS ID offer, row) › H2 | Accordion (title tag H3,
+                      all closed; CSS ID per item = anchor) -->
+      <section class="section offer" id="offer">
+        <div class="dev-note">S07 · How we work together (CSS ID offer) — H2 | Accordion (5 items, H3, closed)</div>
+        <div class="container faq__grid">
+          <div class="faq__head"><h2 class="h2">How we work together</h2></div>
+          <div>
+            <div class="faq-list">
+              <details class="faq-item offer-item" id="coaching">
+                <summary><h3 class="faq-item__q">Coaching</h3><span class="faq-item__icon" aria-hidden="true"></span></summary>
+                <div class="faq-item__a">
+                  <p class="body">In coaching, we work on exactly the topic you bring: a decision that needs clarity now, or a change that needs time. You book individual sessions of 45 or 60 minutes as often as you need them, or a coaching programme over three to six months with sessions every two to four weeks. The programme also includes an asynchronous channel for urgent matters between sessions, with a reply within 48 hours. I work according to the principles of systemic coaching and make sure you leave with concrete insights for your practice.</p>
+                  <p class="placeholder-line" title="Placeholder from the client doc">Prices</p>
+                  <div class="offer-item__cta"><a class="btn btn--primary btn--arrow" href="contact.html">Let’s talk</a></div>
+                </div>
+              </details>
+              <details class="faq-item offer-item" id="supporting-leadership-teams">
+                <summary><h3 class="faq-item__q">Supporting leadership teams</h3><span class="faq-item__icon" aria-hidden="true"></span></summary>
+                <div class="faq-item__a">
+                  <p class="body">I work with rectorates, presidencies, dean’s teams and other leadership teams that want to work together more closely. Together, we find a shared direction, clarify roles and responsibilities and <a href="methods.html#circle-way">address tensions openly</a>. This might be a retreat, a series of workshops or support over several months. I always look at the team in relation to the university it works in.</p>
+                </div>
+              </details>
+              <details class="faq-item offer-item" id="training">
+                <summary><h3 class="faq-item__q">Training</h3><span class="faq-item__icon" aria-hidden="true"></span></summary>
+                <div class="faq-item__a">
+                  <p class="body">My training on selected leadership topics builds the skills and tools you need to lead change. It can be tailored to your university and your team, or offered as an open course. Topics include:</p>
+                  <ul class="dash-list body"><li>Leading by listening: how leadership changes when we listen and communicate differently.</li><li>Inner leadership work: change in the system begins with personal change.</li><li>The power of slowing down: often the fastest way to move things forward.</li><li>Attention and awareness: how mindfulness practice helps you direct your attention.</li></ul>
+                  <p class="body">There is plenty of room for practice and reflection, close to real situations from your work.</p>
+                </div>
+              </details>
+              <details class="faq-item offer-item" id="programmes">
+                <summary><h3 class="faq-item__q">Leadership programmes</h3><span class="faq-item__icon" aria-hidden="true"></span></summary>
+                <div class="faq-item__a">
+                  <p class="body">Together with your staff development team, I design programmes that develop leaders at your university in a targeted way, for example in middle management, in the faculties or in administration. The programmes combine training, peer reflection and coaching and are aligned with your university’s strategy. Participants work on real questions from their work, for example in <a href="methods.html#case-clinic">Case Clinics</a>, a peer consultation format. This strengthens individuals and, at the same time, the leadership culture of your university.</p>
+                </div>
+              </details>
+              <details class="faq-item offer-item" id="women-in-university-leadership">
+                <summary><h3 class="faq-item__q">Women in university leadership</h3><span class="faq-item__icon" aria-hidden="true"></span></summary>
+                <div class="faq-item__a">
+                  <p class="body">For women in roles such as rector, president, chief operating officer or dean, and in other leadership positions, I offer a dedicated programme with coaching, support for the first 100 days and a peer community.</p>
+                  <div class="offer-item__cta"><a class="btn btn--outline btn--arrow" href="women-in-higher-education-leadership.html">Explore coaching for women in higher education leadership</a></div>
+                </div>
+              </details>
+            </div>
+            
+          </div>
+        </div>
+      </section>
+
+      <!-- S08 · CTA — Elementor: Container (dark) › H2 · Text · Button "Let's talk" → /contact -->
+      <section class="section service-cta">
+        <div class="dev-note">S08 · CTA — H2 · text · button (dark band)</div>
+        <div class="container cta-block">
+          <h2 class="cta-block__title">What leadership questions are on your mind?</h2>
+          <p class="body service-cta__text">Whether you want to clarify your own role, strengthen a leadership team or develop a programme for your university’s leaders: in a free introductory call, we explore what you need and what kind of support makes sense.</p>
+          <a class="btn btn--accent btn--arrow" href="contact.html">Let’s talk</a>
+        </div>
+      </section>
+
+      <!-- S09 · FAQ — Elementor: H2 | Accordion (title tag H3, FAQ Schema ON) · "Last updated" -->
+      <section class="section section--soft faq" id="faq">
+        <div class="dev-note">S09 · FAQ — H2 | Accordion (6 items, H3, FAQ Schema ON)</div>
+        <div class="container faq__grid">
+          <div class="faq__head"><h2 class="h2">Frequently asked questions</h2></div>
+          <div>
+            <div class="faq-list">
+              <details class="faq-item" id="faq-1" open>
+                <summary><h3 class="faq-item__q">What kind of leadership is needed in times of uncertainty?</h3><span class="faq-item__icon" aria-hidden="true"></span></summary>
+                <div class="faq-item__a">
+                  <p class="body">When conditions change quickly, planning and control alone are no longer enough. What’s needed is leadership that gives direction without having all the answers. That includes looking closely, bringing in different perspectives and trying out new things in small steps rather than waiting for the perfect solution. At universities, it also means combining the culture of committees with more agility. It starts with the leader. If you can live with uncertainty and still act, you give others something to hold on to.</p>
+                </div>
+              </details>
+              <details class="faq-item" id="faq-2">
+                <summary><h3 class="faq-item__q">How does traditional executive coaching differ from coaching and leadership development tailored to universities?</h3><span class="faq-item__icon" aria-hidden="true"></span></summary>
+                <div class="faq-item__a">
+                  <p class="body">Traditional executive coaching usually comes from the corporate world. It assumes clear hierarchies, fixed targets and fast decision-making. Universities work differently: decisions are made in collegial bodies, academic staff and administration have different cultures, leadership positions are often held for a fixed term, and many leaders are responsible for people over whom they have little formal authority. I know these conditions from my own work at universities and in university networks. So you don’t have to explain your context to me first, and we can work on what matters to you straight away.</p>
+                </div>
+              </details>
+              <details class="faq-item" id="faq-awareness-based-leadership">
+                <summary><h3 class="faq-item__q">What is awareness-based leadership?</h3><span class="faq-item__icon" aria-hidden="true"></span></summary>
+                <div class="faq-item__a">
+                  <p class="body">Awareness-based leadership starts from the idea that the quality of leadership depends on the quality of our attention: how we perceive, listen and connect with ourselves and others before we act. The approach comes from the work of the Presencing Institute around Otto Scharmer’s Theory U. For universities, this means change happens not only through new strategies and structures, but just as much through how people talk to each other, listen to one another and recognise together what is needed. In my formats, I combine this way of leading with practical tools for your work.</p>
+                </div>
+              </details>
+              <details class="faq-item" id="faq-4">
+                <summary><h3 class="faq-item__q">How do I work with leadership teams?</h3><span class="faq-item__icon" aria-hidden="true"></span></summary>
+                <div class="faq-item__a">
+                  <p class="body">It starts with a conversation with the person leading the team and, if possible, individual conversations with the team members. This shows where the team stands and what it needs. Building on this, we design retreats or workshops in which the team works on its shared direction, its roles and its collaboration. If you like, I can combine work with the team with individual coaching.</p>
+                </div>
+              </details>
+              <details class="faq-item" id="faq-5">
+                <summary><h3 class="faq-item__q">Is coaching confidential if the university pays for it?</h3><span class="faq-item__icon" aria-hidden="true"></span></summary>
+                <div class="faq-item__a">
+                  <p class="body">Yes. What is discussed in coaching stays between you and me. At the start, I agree the framework and goals of the coaching with the university as the client. I don’t pass on anything from the sessions without your consent.</p>
+                </div>
+              </details>
+              <details class="faq-item" id="faq-6">
+                <summary><h3 class="faq-item__q">How do we start working together?</h3><span class="faq-item__icon" aria-hidden="true"></span></summary>
+                <div class="faq-item__a">
+                  <p class="body">Every collaboration looks different, from a single coaching session to a leadership programme over several months. In a free introductory call, we explore what you need. I then send you a proposal with a timeline and cost estimate. You can also book individual coaching sessions directly as a private client.</p>
+                  <div class="faq-item__btns"><a class="btn btn--outline btn--arrow" href="#" data-todo="coaching booking link (Q35)">Book a coaching session</a><a class="btn btn--primary btn--arrow" href="contact.html">Let’s talk</a></div>
+                </div>
+              </details>
+            </div>
+            <p class="service-updated">Last updated: <time datetime="2026-11">November 2026</time></p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- ======================================================================
+         S11 · FOOTER
+         Elementor: Theme Builder › Footer
+         Col 1: Site Logo (white SVG) · Text · Button
+         Col 2: Nav Menu (services)
+         Col 3: Text · Form (Pro: first name + email → Mailchimp/Brevo,
+                double opt-in) · privacy note
+         Bottom bar: copyright · legal links · contact · LinkedIn · EN|DE|ES
+         ====================================================================== -->
+    <footer class="site-footer">
+      <div class="dev-note">
+        S11 · Theme Builder › Footer — 3 cols (logo + text + button · services
+        menu · newsletter form) + bottom bar (Polylang switcher)
+      </div>
+
+      <div class="container">
+        <div class="site-footer__cols">
+          <!-- Column 1 -->
+          <div class="site-footer__col">
+            <a class="site-footer__logo" href="index.html" aria-label="U-teal home">
+              <img src="assets/images/brand/logo-uteal-white.svg" alt="U-teal" width="96" height="26" />
+            </a>
+            <p>
+              U-teal · Nadja Gmelch’s systemic higher education consultancy for
+              internationalisation, strategy, organisational development and
+              leadership in Europe and beyond. · On site and online.
+            </p>
+            <a class="btn btn--accent" href="contact.html">Let’s talk</a>
+          </div>
+
+          <!-- Column 2 -->
+          <div class="site-footer__col">
+            <p class="site-footer__title">Services</p>
+            <ul class="site-footer__links">
+              <li><a href="strategy-consulting.html">Strategy consulting</a></li>
+              <li><a href="internationalisation.html">Internationalisation and university alliances</a></li>
+              <li><a href="organisational-development.html">Organisational development</a></li>
+              <li><a href="leadership-development.html">Leadership development and coaching</a></li>
+              <li><a href="women-in-higher-education-leadership.html">Coaching for women in higher education leadership</a></li>
+            </ul>
+          </div>
+
+          <!-- Column 3: newsletter -->
+          <div class="site-footer__col site-footer__col--newsletter">
+            <p class="site-footer__title">Newsletter</p>
+            <p>
+              Want to stay informed about what I’m working on? Roughly every two
+              months, I write about current projects, new formats and upcoming
+              dates, and share what I’m learning about change in universities.
+            </p>
+            <form class="footer-form" action="#" onsubmit="return false;">
+              <label class="sr-only" for="nl-name">First name</label>
+              <input id="nl-name" type="text" placeholder="First name" autocomplete="given-name" />
+              <label class="sr-only" for="nl-email">Email</label>
+              <input id="nl-email" type="email" placeholder="Email" autocomplete="email" />
+              <button class="btn btn--accent" type="submit">Subscribe</button>
+            </form>
+            <p class="footer-form__note">
+              Unsubscribe at any time.
+              <a href="#" data-todo="/privacy-policy">Privacy information</a>
+            </p>
+
+            <div class="dev-note dev-note--inline">
+              <strong>FORM · Elementor Pro › Form widget</strong>
+              <ul>
+                <li>Fields: First name (text, 50%) + Email (required, 50%) + Submit (100%, auto width). Mobile: all 100%.</li>
+                <li>Action: Mailchimp (native) with double opt-in ON (GDPR/DE). Brevo: Brevo plugin or webhook.</li>
+                <li>Spam: honeypot ON; Cloudflare Turnstile if needed (no reCAPTCHA).</li>
+                <li>Field: transparent bg · border 1px rgba(255,255,255,.35) · radius 8px · padding 11px 14px · Manrope 14px · text #FFF · placeholder #9FB8B6.</li>
+                <li>Button: bg #3DB7BB · text #02383E · 14px/700 · padding 12px 20px · radius 8px · hover bg #FFF.</li>
+                <li>Polylang: translate the success message + privacy link in DE/ES.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bottom bar -->
+        <div class="site-footer__bottom">
+          <ul class="site-footer__meta">
+            <li>© <span class="js-year">2026</span> Nadja Gmelch · U-teal</li>
+            <li><a href="#" data-todo="/legal-notice">Legal notice</a></li>
+            <li><a href="#" data-todo="/privacy-policy">Privacy policy</a></li>
+            <li><a href="#" data-todo="cookie-settings">Cookie settings</a></li>
+            <li><a href="mailto:nadja@u-teal.com">nadja@u-teal.com</a></li>
+            <li><a href="tel:+34697585199">+34 697 585 199</a></li>
+            <li><a href="https://www.linkedin.com/in/nadja-gmelch/" target="_blank" rel="noopener">LinkedIn (Nadja Gmelch)</a></li>
+            <li><a href="https://www.linkedin.com/company/u-teal/" target="_blank" rel="noopener">LinkedIn (U-teal)</a></li>
+          </ul>
+          <!-- Polylang: each link points to the same page in the other language -->
+          <nav class="site-footer__lang" aria-label="Language">
+            <a href="leadership-development.html" aria-current="true">EN</a> |
+            <a href="#" data-todo="/de/">DE</a> |
+            <a href="#" data-todo="/es/">ES</a>
+          </nav>
+        </div>
+      </div>
+    </footer>
+    <!-- /S11 · FOOTER -->
+
+    <!-- ======================================================================
+         FLOATING "LET'S TALK" (always visible — client request)
+         Elementor: Pro Popup (bottom bar, all pages, no close button) or a
+         fixed Container. Triangle = SVG/shape behind the button.
+         ====================================================================== -->
+    <div class="float-cta">
+      <a class="btn btn--primary" href="contact.html">Let’s talk</a>
+    </div>
+
+    <!-- Scripts: menus, developer notes, SEO copy buttons, footer year -->
+    <script src="assets/js/main.js" defer></script>
+  </body>
+</html>

@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<!--
+================================================================================
+  U-TEAL · Strategy consulting (EN) · HTML mockup — Draft 1
+  SERVICE PAGE TEMPLATE (same sections + service.css as internationalisation.html)
+================================================================================
+  Content: client Google Doc "Strategy consulting" (only the doc's texts and links;
+  pictures only at "Picture option"). Headings: "H1/H2/H3" labels win,
+  otherwise doc H3 = page H2, doc H4 = page H3.
+================================================================================
+-->
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- SEO (Yoast: SEO title / Meta description / Social) -->
+    <title>University strategy consulting and strategic planning | U-teal</title>
+    <meta
+      name="description"
+      content="Systemic strategy consulting for universities across Europe. Participatory by design, so that strategies take effect in practice."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Strategy consulting for universities | U-teal" />
+    <meta
+      property="og:description"
+      content="Strategies that students, academic and administrative staff help shape and put into practice. From analysis to practice."
+    />
+    <meta property="og:image" content="assets/images/hero.png" />
+
+    <link rel="icon" type="image/png" href="assets/images/brand/mark-primary-bg-white-square.png" />
+    <link rel="apple-touch-icon" href="assets/images/brand/mark-primary-bg-white-square.png" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap"
+    />
+
+    <link rel="stylesheet" href="assets/css/global.css" />
+    <link rel="stylesheet" href="assets/css/service.css" />
+  </head>
+
+  <body>
+    <!-- ======================================================================
+         S01 · HEADER
+         Elementor: Theme Builder › Header (sticky)
+         Widgets: Site Logo (SVG) · Nav Menu (Home · Services ▾ · About ·
+                  Methods) · Polylang language switcher (dropdown) · Button
+         ====================================================================== -->
+    <header class="site-header" id="top">
+      <div class="dev-note">
+        S01 · Theme Builder › Header (sticky) — Site Logo · Nav Menu with
+        "Services" submenu · Polylang switcher (EN/DE/ES) · Button "Let's talk"
+      </div>
+
+      <div class="container site-header__inner">
+        <a class="site-logo" href="index.html" aria-label="U-teal home">
+          <img src="assets/images/brand/logo-uteal.svg" alt="U-teal" width="117" height="31" />
+        </a>
+
+        <!-- Mobile menu button (designer icon: bar · diamond · bar) -->
+        <button
+          class="menu-toggle"
+          type="button"
+          aria-label="Open menu"
+          aria-expanded="false"
+          aria-controls="site-nav"
+        >
+          <span class="menu-toggle__bar menu-toggle__bar--top"></span>
+          <span class="menu-toggle__diamond"></span>
+          <span class="menu-toggle__bar menu-toggle__bar--bottom"></span>
+        </button>
+
+        <nav class="site-nav" id="site-nav" aria-label="Main">
+          <ul class="nav-list">
+            <li><a class="nav-link" href="index.html">Home</a></li>
+
+            <!-- Services dropdown (final wording tbc by client) -->
+            <li>
+              <button class="nav-link is-active" type="button" aria-expanded="false" aria-controls="submenu-services" data-dropdown>
+                Services <span class="nav-link__chev" aria-hidden="true"></span>
+              </button>
+              <ul class="submenu" id="submenu-services">
+                <li><a href="internationalisation.html">Internationalisation and university alliances</a></li>
+                <li><a href="strategy-consulting.html" aria-current="page">Strategy consulting</a></li>
+                <li><a href="organisational-development.html">Organisational development</a></li>
+                <li><a href="leadership-development.html">Leadership development and coaching</a></li>
+                <li class="submenu__divider" aria-hidden="true"></li>
+                <li><a href="women-in-higher-education-leadership.html">Coaching for women in higher education leadership</a></li>
+              </ul>
+            </li>
+
+            <li><a class="nav-link" href="about-me.html">About</a></li>
+            <li><a class="nav-link" href="methods.html">Methods</a></li>
+
+            <!-- Language switcher (Polylang) -->
+            <li class="lang">
+              <button class="nav-link lang__btn" type="button" aria-expanded="false" aria-controls="submenu-lang" aria-label="Language: English" data-dropdown>
+                <svg viewBox="-1 -1 22 22" fill="none" aria-hidden="true">
+                  <path d="M20 10c0 5.523-4.477 10-10 10m10-10c0-5.523-4.477-10-10-10m10 10H0m10 10C4.477 20 0 15.523 0 10m10 10a14.6 14.6 0 0 1-4-10c0-3.723 1.432-7.304 4-10m0 20a14.6 14.6 0 0 0 4-10c0-3.723-1.432-7.304-4-10M0 10C0 4.477 4.477 0 10 0" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                EN <span class="nav-link__chev" aria-hidden="true"></span>
+              </button>
+              <ul class="submenu lang__menu" id="submenu-lang">
+                <li><a href="strategy-consulting.html" aria-current="true">English</a></li>
+                <li><a href="#" data-todo="/de/">Deutsch</a></li>
+                <li><a href="#" data-todo="/es/">Español</a></li>
+              </ul>
+            </li>
+          </ul>
+
+          <a class="btn btn--primary" href="contact.html">Let’s talk</a>
+
+          <!-- Elementor build notes for the mobile menu (visible with developer notes on, menu open) -->
+          <div class="dev-note dev-note--inline">
+            <strong>MOBILE MENU · Elementor Pro › Nav Menu widget</strong>
+            <ul>
+              <li>Layout: Horizontal · Breakpoint: Tablet (Site Settings › Layout › Breakpoints: Tablet = 999px).</li>
+              <li>Mobile dropdown: Full width ON · Align: start · Toggle icon: custom SVG (bar · diamond · bar), colour #02383E, size 22px.</li>
+              <li>Dropdown items: Manrope 16px/700 #02383E · padding 15px 0 · divider 1px #E3E8E8 · active: text #008080 + 3px left border.</li>
+              <li>Submenu ("Services"): indicator chevron on the right · bg #F7F7F7 · items 15px/600 · padding 12px 16px.</li>
+              <li>Languages: Polylang adds EN / DE / ES as a "Language switcher" menu item (show names, hide flags).</li>
+              <li>"Let's talk": last menu item with CSS class <code>menu-cta</code> styled as a button (or hide the header button on mobile: the floating Let's talk is always visible).</li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+    </header>
+    <!-- /S01 · HEADER -->
+
+    <!-- ======================================================================
+         SEO BOX (developer only — copy-paste into Yoast for this page)
+         ====================================================================== -->
+    <aside class="seo-box dev-only" aria-label="SEO values for this page">
+      <div class="seo-box__inner">
+        <p class="seo-box__title"><span>SEO · Strategy consulting (EN) → Yoast SEO</span><span>Slug: /strategy-consulting</span></p>
+        <dl>
+          <dt>Title tag</dt><dd data-count>University strategy consulting and strategic planning | U-teal</dd><dd><button class="copy-btn" type="button">Copy</button></dd>
+          <dt>Meta description</dt><dd data-count>Systemic strategy consulting for universities across Europe. Participatory by design, so that strategies take effect in practice.</dd><dd><button class="copy-btn" type="button">Copy</button></dd>
+          <dt>OG title</dt><dd data-count>Strategy consulting for universities | U-teal</dd><dd><button class="copy-btn" type="button">Copy</button></dd>
+          <dt>OG description</dt><dd data-count>Strategies that students, academic and administrative staff help shape and put into practice. From analysis to practice.</dd><dd><button class="copy-btn" type="button">Copy</button></dd>
+          <dt>Slug</dt><dd>/strategy-consulting</dd><dd></dd>
+          <dt>H1</dt><dd>Strategy consulting</dd><dd><button class="copy-btn" type="button">Copy</button></dd>
+        </dl>
+        <div class="seo-box__outline">
+          <p class="seo-box__subtitle">Heading structure (from the client doc; set the same HTML tag in each Elementor Heading widget / Accordion title)</p>
+          <ol class="heading-outline" data-heading-outline></ol>
+          <p class="seo-box__hint">SERVICE PAGE TEMPLATE. Client doc: 1aEZoO9tOreygwA6-riilVa2870VX9Wx8hPKSkbWmHS0. "How we work together" + FAQ = Accordion (closed; FAQ first item open).</p>
+        </div>
+      </div>
+    </aside>
+
+    <!-- MOCKUP NOTE (review only — not part of the website, don't build in WordPress) -->
+    <aside class="mockup-banner" aria-label="Note about this draft">
+      <div class="container mockup-banner__inner">
+        <span class="mockup-banner__tag">Draft note</span>
+        <p>
+          <strong>Service page template.</strong> This page shows your texts in
+          the service page template, so you can review them. As agreed, in
+          WordPress we build only the
+          <a href="internationalisation.html">Internationalisation page</a> as
+          the template; you duplicate it and add the content of this page
+          yourself (we show you how in the training session).
+        </p>
+      </div>
+    </aside>
+
+    <main>
+      <!-- ====================================================================
+           S02 · HERO (service template)
+           Elementor: Container › Heading H1 (small, teal) · Heading H2
+                      (display) · Text (lead style). No picture (none in the doc).
+           ==================================================================== -->
+      <section class="service-hero">
+        <div class="dev-note">S02 · Hero — H1 small · H2 display · text (lead style)</div>
+        <div class="container service-hero__grid service-hero__grid--single">
+          <div class="service-hero__content">
+            <h1 class="service-hero__h1">Strategy consulting</h1>
+            <h2 class="display">Making strategies work across the university.</h2>
+            <p class="lead service-hero__lead">Consulting for university leaders, strategy offices and teams who want to set priorities and develop strategies that actually get implemented.</p>
+          </div>
+        </div>
+      </section>
+      <!-- /S02 · HERO -->
+
+      <!-- ====================================================================
+           S03 · SITUATIONS
+           Elementor: Container (row) › Text (lead) | Icon List (dash) · Text ·
+                      Image ("Picture option") · Button "What I offer" → #offer
+           ==================================================================== -->
+      <section class="section situations">
+        <div class="dev-note">S03 · Situations — lead | list · text · picture · button (doc order)</div>
+        <div class="container situations__grid">
+          <p class="lead situations__question">Are you shaping your university’s strategic direction? Perhaps you’re at one of these points right now?</p>
+          <div class="stack">
+            <ul class="dash-list body">
+              <li>Your university is writing a new strategic plan, or a department or research centre needs a strategy of its own. You want to develop it in a participatory way, so that it will actually be put into practice later.</li>
+              <li>Budgets are getting tighter and you need to set new priorities: what comes first, and what do you choose to leave out?</li>
+              <li>Your next performance agreement with the ministry is coming up, and you want to link them to your own strategic goals.</li>
+              <li>New topics call for a strategic response, such as sustainability, artificial intelligence in teaching and research, or digital and hybrid learning.</li>
+              <li>You have a strategy, but it isn’t reaching practice in the university, or its impact is unclear.</li>
+            </ul>
+            <p class="body situations__close">If you recognise yourself here: I help you set priorities and develop strategies that students, academic and administrative staff help shape, and so make their own.</p>
+            <figure class="img-ph situations__img" style="aspect-ratio: 3 / 2" role="img" aria-label="Picture option"><span class="img-ph__mark" aria-hidden="true"></span><figcaption class="img-ph__label"><strong>Picture option</strong>Photo to be chosen.</figcaption></figure>
+            <div><a class="btn btn--outline btn--arrow" href="#offer">What I offer</a></div>
+          </div>
+        </div>
+      </section>
+      <!-- /S03 · SITUATIONS -->
+
+      <!-- S04 · GAINS — Elementor: H2 · 4 cards (shape · H3 · text), global 5.7 -->
+      <section class="section section--soft gains">
+        <div class="dev-note">S04 · What your university gains — H2 · 4 cards (shape · H3 · text)</div>
+        <div class="container">
+          <div class="section-head"><h2 class="h2">What your university gains</h2></div>
+          <div class="principles__grid principles__grid--4">
+            <article class="principle">
+              <span class="principle__shape " aria-hidden="true"></span>
+              <h3 class="h4">Clear priorities.</h3>
+              <p class="body">You know which goals come first and where to put your limited resources. Whatever doesn’t belong, you choose to leave out.</p>
+            </article>
+            <article class="principle">
+              <span class="principle__shape principle__shape--diamond" aria-hidden="true"></span>
+              <h3 class="h4">A strategy people stand behind.</h3>
+              <p class="body">The people, committees and units key to implementation help shape it from the start. The result is a direction with broad support across your university.</p>
+            </article>
+            <article class="principle">
+              <span class="principle__shape principle__shape--rounded" aria-hidden="true"></span>
+              <h3 class="h4">From paper to practice.</h3>
+              <p class="body">Strategic goals become concrete projects with clear responsibilities. You test new approaches on a small scale before embedding them more widely.</p>
+            </article>
+            <article class="principle">
+              <span class="principle__shape principle__shape--circle" aria-hidden="true"></span>
+              <h3 class="h4">Keeping an eye on impact.</h3>
+              <p class="body">Through regular reviews, you check what your projects are achieving. What works, you build on. What doesn’t, you adjust.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- S05 · EXPECT — Elementor: H2 (sticky) | numbered rows (number · H3 | text) -->
+      <section class="section expect">
+        <div class="dev-note">S05 · What you can expect from me — H2 | 4 numbered rows</div>
+        <div class="container expect__grid">
+          <div class="expect__head"><h2 class="h2">What you can expect from me</h2></div>
+          <div class="num-rows">
+            <div class="num-row expect__row">
+              <div class="num-row__head">
+                <span class="num-row__num">01</span>
+                <h3 class="h4">Strategy work grounded in university practice</h3>
+              </div>
+              <p class="body">I have developed and implemented university strategies, including internationalisation, open knowledge and sustainability strategies, and I led the creation of a European Universities alliance. As an evaluator for public funders, I have assessed what programmes actually achieve. So I know where strategies tend to get stuck during implementation.</p>
+            </div>
+            <div class="num-row expect__row">
+              <div class="num-row__head">
+                <span class="num-row__num">02</span>
+                <h3 class="h4">Experience in digital higher education</h3>
+              </div>
+              <p class="body">For six years, I worked at the Universitat Oberta de Catalunya, one of Europe’s pioneers in online learning, where I led the creation of OpenEU, the alliance of mainly online and distance universities. I have published on digital higher education, e-learning and open knowledge, including for the European University Association. I build on this to work with you on developing teaching, assessment and study programmes in the age of AI.</p>
+            </div>
+            <div class="num-row expect__row">
+              <div class="num-row__head">
+                <span class="num-row__num">03</span>
+                <h3 class="h4">Systemic organisational development as a foundation</h3>
+              </div>
+              <p class="body">Strategy and organisation belong together. I work with systemic organisational development and involve the people, committees and decision-making processes key to implementation. I complement this with methods such as Theory U and design thinking. <a href="methods.html">More on my methods</a>.</p>
+            </div>
+            <div class="num-row expect__row">
+              <div class="num-row__head">
+                <span class="num-row__num">04</span>
+                <h3 class="h4">Reliable support through to implementation</h3>
+              </div>
+              <p class="body">Strategies take time to show results. If you’d like, I’ll stay with you beyond the development phase and into implementation.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- S06 · CASES — Elementor: H2 · per case: Container (row) › H3 · text · button | picture · quote -->
+      <section class="section section--soft practice">
+        <div class="dev-note">S06 · Case studies — H2 · 1 case(s): H3 · text · button | picture · quote</div>
+        <div class="container">
+          <div class="section-head">
+            <h2 class="h2">Case studies</h2>
+          </div>
+          <div class="cases">
+            <article class="case">
+              <div class="case__main">
+                <h3 class="h4">Strengthening international cooperation strategically</h3>
+                <p class="body">The <a href="https://www.uab.cat/fas/" target="_blank" rel="noopener">Fundació Autònoma Solidària</a> is the <a href="https://www.uab.cat/web/universitat-autonoma-de-barcelona-1345467954774.html?param2=1345716706936" target="_blank" rel="noopener">Universitat Autònoma de Barcelona</a>’s foundation for social engagement and development cooperation. As project lead, I evaluated one of the foundation’s long-standing university partnerships together with a colleague. We examined what it had achieved, how lasting its impact had been and what could be transferred to other partnerships. The foundation has since used our recommendations to reorient its approach to international cooperation.</p>
+                <div><a class="btn btn--outline btn--arrow" href="#" data-todo="/case-studies#fas">Read the full case study</a></div>
+              </div>
+              <div class="case__aside">
+                <figure class="img-ph case__picture" style="aspect-ratio: 3 / 2" role="img" aria-label="Picture option"><span class="img-ph__mark" aria-hidden="true"></span><figcaption class="img-ph__label"><strong>Picture option</strong>Photo for this case study.</figcaption></figure>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- S07 · HOW WE WORK TOGETHER (#offer) — client note: only the titles are
+           visible at first, the text expands on click.
+           Elementor: Container (CSS ID offer, row) › H2 | Accordion (title tag H3,
+                      all closed; CSS ID per item = anchor) -->
+      <section class="section offer" id="offer">
+        <div class="dev-note">S07 · How we work together (CSS ID offer) — H2 | Accordion (5 items, H3, closed)</div>
+        <div class="container faq__grid">
+          <div class="faq__head"><h2 class="h2">How we work together</h2></div>
+          <div>
+            <div class="faq-list">
+              <details class="faq-item offer-item" id="strategy-workshops">
+                <summary><h3 class="faq-item__q">Strategy workshops</h3><span class="faq-item__icon" aria-hidden="true"></span></summary>
+                <div class="faq-item__a">
+                  <p class="body">I design and facilitate workshops in which your leadership team or your staff set strategic direction. There is room for different perspectives, and you leave with clear decisions, named owners and next steps. Formats range from a leadership retreat to a workshop with representatives of academic staff, administration and students.</p>
+                </div>
+              </details>
+              <details class="faq-item offer-item" id="supporting-strategy-development">
+                <summary><h3 class="faq-item__q">Supporting strategy development</h3><span class="faq-item__icon" aria-hidden="true"></span></summary>
+                <div class="faq-item__a">
+                  <p class="body">I support the development of strategies for universities, departments and research centres, or for specific areas such as sustainability, artificial intelligence or digital education. The process moves from an analysis of where you stand, to a shared direction, to a formally adopted strategy. I plan participation so that it is meaningful and the process stays manageable.</p>
+                </div>
+              </details>
+              <details class="faq-item offer-item" id="supporting-implementation">
+                <summary><h3 class="faq-item__q">Supporting implementation</h3><span class="faq-item__icon" aria-hidden="true"></span></summary>
+                <div class="faq-item__a">
+                  <p class="body">I help you anchor your adopted strategy in practice. Together we translate goals into concrete projects, clarify responsibilities and test new approaches in pilots first. That way, you can see early on what works and where you need to adjust.</p>
+                </div>
+              </details>
+              <details class="faq-item offer-item" id="impact-reflection">
+                <summary><h3 class="faq-item__q">Impact assessment and participatory evaluation</h3><span class="faq-item__icon" aria-hidden="true"></span></summary>
+                <div class="faq-item__a">
+                  <p class="body">Together with the people involved, we look at what your strategy or programme actually achieves: what has changed, what works and where you need to adjust. Evaluation becomes a shared learning process rather than a box-ticking exercise at the end of a project.</p>
+                </div>
+              </details>
+              <details class="faq-item offer-item" id="internationalisation-strategy">
+                <summary><h3 class="faq-item__q">Internationalisation strategy</h3><span class="faq-item__icon" aria-hidden="true"></span></summary>
+                <div class="faq-item__a">
+                  <p class="body">I support universities in developing their internationalisation strategies and help European Universities alliances strengthen their cooperation.</p>
+                  <div class="offer-item__cta"><a class="btn btn--outline btn--arrow" href="internationalisation.html">More on internationalisation</a></div>
+                </div>
+              </details>
+            </div>
+            
+          </div>
+        </div>
+      </section>
+
+      <!-- S08 · CTA — Elementor: Container (dark) › H2 · Text · Button "Let's talk" → /contact -->
+      <section class="section service-cta">
+        <div class="dev-note">S08 · CTA — H2 · text · button (dark band)</div>
+        <div class="container cta-block">
+          <h2 class="cta-block__title">What strategic questions is your university facing?</h2>
+          <p class="body service-cta__text">Whether you want to develop a new strategy, set priorities or bring an existing one into practice: in a free introductory call, we explore what you need and what kind of support makes sense.</p>
+          <a class="btn btn--accent btn--arrow" href="contact.html">Let’s talk</a>
+        </div>
+      </section>
+
+      <!-- S09 · FAQ — Elementor: H2 | Accordion (title tag H3, FAQ Schema ON) · "Last updated" -->
+      <section class="section section--soft faq" id="faq">
+        <div class="dev-note">S09 · FAQ — H2 | Accordion (6 items, H3, FAQ Schema ON)</div>
+        <div class="container faq__grid">
+          <div class="faq__head"><h2 class="h2">Frequently asked questions</h2></div>
+          <div>
+            <div class="faq-list">
+              <details class="faq-item" id="faq-1" open>
+                <summary><h3 class="faq-item__q">How can universities develop teaching strategically in the age of AI?</h3><span class="faq-item__icon" aria-hidden="true"></span></summary>
+                <div class="faq-item__a">
+                  <p class="body">Artificial intelligence is changing how students learn, how teaching staff assess and which skills graduates will need. AI guidelines alone aren’t enough to respond to this. The real question is what role your university wants to play in the future of education, and what that means for study programmes, teaching formats and assessment. This question can only be answered together with teaching staff, students and the relevant units. New approaches are best tested iteratively, using <a href="methods.html#prototyping">prototypes</a>.</p>
+                </div>
+              </details>
+              <details class="faq-item" id="faq-2">
+                <summary><h3 class="faq-item__q">How does sustainability become part of university strategy?</h3><span class="faq-item__icon" aria-hidden="true"></span></summary>
+                <div class="faq-item__a">
+                  <p class="body">Many universities already have a wealth of sustainability initiatives, often scattered across teaching, research, operations and student life. To turn these into a strategy, you first need an overview of what is already happening, and then a shared direction with clear priorities. Sustainability makes a difference when it shows up in decisions, budgets and processes, rather than being an extra task alongside day-to-day work.</p>
+                </div>
+              </details>
+              <details class="faq-item" id="faq-3">
+                <summary><h3 class="faq-item__q">How do you develop a participatory strategic plan without the process dragging on forever?</h3><span class="faq-item__icon" aria-hidden="true"></span></summary>
+                <div class="faq-item__a">
+                  <p class="body">Participation needs a clear structure. It starts with the question of who is involved, when and for what: where do we gather perspectives, where do we work out solutions together, and where does university leadership decide? Well-designed formats such as <a href="methods.html#art-of-hosting">large-group workshops</a> or short surveys collect many voices quickly. A binding timetable, aligned with your governing bodies’ meeting schedule, keeps the process moving. This way, you get a strategic plan with broad support, without the process stretching over years.</p>
+                </div>
+              </details>
+              <details class="faq-item" id="faq-4">
+                <summary><h3 class="faq-item__q">Why do strategies so often get stuck during implementation?</h3><span class="faq-item__icon" aria-hidden="true"></span></summary>
+                <div class="faq-item__a">
+                  <p class="body">In many cases, a strategy is written by a few people and then handed down to the rest of the university. Those who weren’t involved struggle to see what it means for their own work. Add to that too many goals without clear priorities, and unclear responsibilities. Implementation is more likely to succeed when the people who are meant to carry it out are involved early, when goals are translated into concrete projects, and when there are regular checks on what is working.</p>
+                </div>
+              </details>
+              <details class="faq-item" id="faq-5">
+                <summary><h3 class="faq-item__q">What is participatory evaluation?</h3><span class="faq-item__icon" aria-hidden="true"></span></summary>
+                <div class="faq-item__a">
+                  <p class="body">In a participatory evaluation, it isn’t only external experts who assess what a project has achieved. The people involved reflect together on what has changed, what works well and what doesn’t. This brings out insights that an outside view alone often misses, and it makes people more willing to actually act on the results. For universities and European Universities alliances, it is a way to continuously improve strategies and programmes.</p>
+                </div>
+              </details>
+              <details class="faq-item" id="faq-6">
+                <summary><h3 class="faq-item__q">How do we start working together?</h3><span class="faq-item__icon" aria-hidden="true"></span></summary>
+                <div class="faq-item__a">
+                  <p class="body">Every collaboration looks different, from a single strategy workshop to longer-term support. In a free introductory call, we get to know each other and see whether working together feels right for you. Then we clarify what you need, identify the people who should be involved and agree on a shared goal. I then send you a proposal with a timeline and cost estimate.</p>
+                  <div class="faq-item__btns"><a class="btn btn--primary btn--arrow" href="contact.html">Let’s talk</a></div>
+                </div>
+              </details>
+            </div>
+            <p class="service-updated">Last updated: <time datetime="2026-11">November 2026</time></p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- ======================================================================
+         S11 · FOOTER
+         Elementor: Theme Builder › Footer
+         Col 1: Site Logo (white SVG) · Text · Button
+         Col 2: Nav Menu (services)
+         Col 3: Text · Form (Pro: first name + email → Mailchimp/Brevo,
+                double opt-in) · privacy note
+         Bottom bar: copyright · legal links · contact · LinkedIn · EN|DE|ES
+         ====================================================================== -->
+    <footer class="site-footer">
+      <div class="dev-note">
+        S11 · Theme Builder › Footer — 3 cols (logo + text + button · services
+        menu · newsletter form) + bottom bar (Polylang switcher)
+      </div>
+
+      <div class="container">
+        <div class="site-footer__cols">
+          <!-- Column 1 -->
+          <div class="site-footer__col">
+            <a class="site-footer__logo" href="index.html" aria-label="U-teal home">
+              <img src="assets/images/brand/logo-uteal-white.svg" alt="U-teal" width="96" height="26" />
+            </a>
+            <p>
+              U-teal · Nadja Gmelch’s systemic higher education consultancy for
+              internationalisation, strategy, organisational development and
+              leadership in Europe and beyond. · On site and online.
+            </p>
+            <a class="btn btn--accent" href="contact.html">Let’s talk</a>
+          </div>
+
+          <!-- Column 2 -->
+          <div class="site-footer__col">
+            <p class="site-footer__title">Services</p>
+            <ul class="site-footer__links">
+              <li><a href="strategy-consulting.html">Strategy consulting</a></li>
+              <li><a href="internationalisation.html">Internationalisation and university alliances</a></li>
+              <li><a href="organisational-development.html">Organisational development</a></li>
+              <li><a href="leadership-development.html">Leadership development and coaching</a></li>
+              <li><a href="women-in-higher-education-leadership.html">Coaching for women in higher education leadership</a></li>
+            </ul>
+          </div>
+
+          <!-- Column 3: newsletter -->
+          <div class="site-footer__col site-footer__col--newsletter">
+            <p class="site-footer__title">Newsletter</p>
+            <p>
+              Want to stay informed about what I’m working on? Roughly every two
+              months, I write about current projects, new formats and upcoming
+              dates, and share what I’m learning about change in universities.
+            </p>
+            <form class="footer-form" action="#" onsubmit="return false;">
+              <label class="sr-only" for="nl-name">First name</label>
+              <input id="nl-name" type="text" placeholder="First name" autocomplete="given-name" />
+              <label class="sr-only" for="nl-email">Email</label>
+              <input id="nl-email" type="email" placeholder="Email" autocomplete="email" />
+              <button class="btn btn--accent" type="submit">Subscribe</button>
+            </form>
+            <p class="footer-form__note">
+              Unsubscribe at any time.
+              <a href="#" data-todo="/privacy-policy">Privacy information</a>
+            </p>
+
+            <div class="dev-note dev-note--inline">
+              <strong>FORM · Elementor Pro › Form widget</strong>
+              <ul>
+                <li>Fields: First name (text, 50%) + Email (required, 50%) + Submit (100%, auto width). Mobile: all 100%.</li>
+                <li>Action: Mailchimp (native) with double opt-in ON (GDPR/DE). Brevo: Brevo plugin or webhook.</li>
+                <li>Spam: honeypot ON; Cloudflare Turnstile if needed (no reCAPTCHA).</li>
+                <li>Field: transparent bg · border 1px rgba(255,255,255,.35) · radius 8px · padding 11px 14px · Manrope 14px · text #FFF · placeholder #9FB8B6.</li>
+                <li>Button: bg #3DB7BB · text #02383E · 14px/700 · padding 12px 20px · radius 8px · hover bg #FFF.</li>
+                <li>Polylang: translate the success message + privacy link in DE/ES.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bottom bar -->
+        <div class="site-footer__bottom">
+          <ul class="site-footer__meta">
+            <li>© <span class="js-year">2026</span> Nadja Gmelch · U-teal</li>
+            <li><a href="#" data-todo="/legal-notice">Legal notice</a></li>
+            <li><a href="#" data-todo="/privacy-policy">Privacy policy</a></li>
+            <li><a href="#" data-todo="cookie-settings">Cookie settings</a></li>
+            <li><a href="mailto:nadja@u-teal.com">nadja@u-teal.com</a></li>
+            <li><a href="tel:+34697585199">+34 697 585 199</a></li>
+            <li><a href="https://www.linkedin.com/in/nadja-gmelch/" target="_blank" rel="noopener">LinkedIn (Nadja Gmelch)</a></li>
+            <li><a href="https://www.linkedin.com/company/u-teal/" target="_blank" rel="noopener">LinkedIn (U-teal)</a></li>
+          </ul>
+          <!-- Polylang: each link points to the same page in the other language -->
+          <nav class="site-footer__lang" aria-label="Language">
+            <a href="strategy-consulting.html" aria-current="true">EN</a> |
+            <a href="#" data-todo="/de/">DE</a> |
+            <a href="#" data-todo="/es/">ES</a>
+          </nav>
+        </div>
+      </div>
+    </footer>
+    <!-- /S11 · FOOTER -->
+
+    <!-- ======================================================================
+         FLOATING "LET'S TALK" (always visible — client request)
+         Elementor: Pro Popup (bottom bar, all pages, no close button) or a
+         fixed Container. Triangle = SVG/shape behind the button.
+         ====================================================================== -->
+    <div class="float-cta">
+      <a class="btn btn--primary" href="contact.html">Let’s talk</a>
+    </div>
+
+    <!-- Scripts: menus, developer notes, SEO copy buttons, footer year -->
+    <script src="assets/js/main.js" defer></script>
+  </body>
+</html>

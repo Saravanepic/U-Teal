@@ -242,3 +242,141 @@ html {
     aspect-ratio: 3 / 2;
   }
 }
+
+/* --------------------------------------------------------------------------
+   Variants used by the other service pages (same template, content differs)
+   -------------------------------------------------------------------------- */
+
+/* 4 gains: 4 columns on wide screens, 2 on tablet */
+.principles__grid--4 {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+/* 4th brand shape: rounded diamond (square → diamond → rounded diamond → circle) */
+.principle__shape--rounded {
+  width: 26px;
+  height: 26px;
+  margin-left: 2px;
+  border-radius: 30%;
+  background: var(--c-teal);
+  transform: rotate(45deg);
+}
+
+/* "Picture option" inside the situations column (doc order: text · picture · button) */
+.situations__img {
+  margin-top: 8px;
+}
+
+/* "How we work together" as an accordion (client: titles first, text on click) */
+.offer .faq-item__a > * + *,
+.faq .faq-item__a > * + * {
+  margin-top: 14px;
+}
+
+.offer-item__cta {
+  padding-top: 6px;
+}
+
+.offer__note {
+  margin-top: 24px;
+}
+
+.offer .faq-item__a a:not(.btn),
+.faq-item__a .body a {
+  color: var(--c-teal);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.faq-item__btns {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.faq-item__btns .btn {
+  margin-top: 0;
+}
+
+/* Placeholder from the client doc (e.g. "Prices"): visible, clearly unfinished */
+.placeholder-line {
+  display: inline-block;
+  padding: 6px 12px;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--c-teal);
+  border: 1px dashed rgba(0, 128, 128, 0.5);
+  background: rgba(0, 128, 128, 0.06);
+}
+
+/* Extra lines under the CTA button (women's page) */
+.service-cta__note {
+  max-width: 680px;
+  color: var(--c-on-dark);
+  font-size: 15px;
+}
+
+.service-cta__note a {
+  color: var(--c-white);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+@media (max-width: 1199px) {
+  .principles__grid--4 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 599px) {
+  .principles__grid--4 {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Mockup-only note (review drafts) — NOT part of the WordPress build
+   -------------------------------------------------------------------------- */
+.mockup-banner {
+  background: #fff8d6;
+  border-bottom: 1px solid #ecd97a;
+}
+
+.mockup-banner__inner {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding-top: 14px;
+  padding-bottom: 14px;
+  font-size: 14px;
+  line-height: 1.55;
+  color: var(--c-ink);
+}
+
+.mockup-banner__tag {
+  flex: 0 0 auto;
+  margin-top: 1px;
+  padding: 2px 8px;
+  border-radius: 4px;
+  background: var(--c-ink);
+  color: #fff8d6;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.mockup-banner a {
+  color: var(--c-teal);
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+@media (max-width: 599px) {
+  .mockup-banner__inner {
+    flex-direction: column;
+    gap: 8px;
+  }
+}
