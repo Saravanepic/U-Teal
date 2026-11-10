@@ -6,7 +6,7 @@
    4. Floating "Let's talk": hide when the contact block is on screen
    5. Links to pages that don't exist yet (data-todo)
    6. Developer notes toggle (+ ?notes=1), remembered per browser
-   7. SEO box: copy buttons + character counts
+   7. SEO box: copy buttons + character counts (+ 7b heading structure)
    8. Dynamic copyright year
    ======================================================================== */
 (function () {
@@ -147,6 +147,25 @@
       else done();
     });
   });
+
+  // 7b. Heading structure: list every real heading in <main> (dev only)
+  var outline = document.querySelector("[data-heading-outline]");
+  if (outline) {
+    document.querySelectorAll("main h1, main h2, main h3, main h4, main h5, main h6").forEach(function (h) {
+      var lvl = h.tagName.toLowerCase();
+      var li = document.createElement("li");
+      li.className = "heading-outline__item heading-outline__item--" + lvl;
+      li.innerHTML = '<span class="hl hl--' + lvl + '">' + lvl.toUpperCase() + "</span> ";
+      li.appendChild(document.createTextNode(h.textContent.replace(/\s+/g, " ").trim()));
+      if (h.hasAttribute("data-extra")) {
+        var x = document.createElement("span");
+        x.className = "hl-extra";
+        x.textContent = "Extra";
+        li.appendChild(x);
+      }
+      outline.appendChild(li);
+    });
+  }
 
   // 8. Dynamic copyright year
   document.querySelectorAll(".js-year").forEach(function (el) {

@@ -1187,3 +1187,88 @@ a:hover {
     text-align: left;
   }
 }
+
+/* ==========================================================================
+   HEADING TAGS (developer notes on) — shows H1/H2/H3 on every real heading
+   so the Elementor Heading widget gets the same HTML tag as the client doc
+   ========================================================================== */
+.show-notes main :is(h1, h2, h3, h4, h5, h6)::before {
+  display: inline-block;
+  margin-right: 8px;
+  padding: 2px 6px;
+  border-radius: 4px;
+  background: #ffe14d;
+  color: var(--c-ink);
+  font: 800 11px/1.3 ui-monospace, Menlo, monospace;
+  letter-spacing: 0;
+  vertical-align: middle;
+  text-transform: none;
+}
+
+.show-notes main h1::before { content: "H1"; }
+.show-notes main h2::before { content: "H2"; }
+.show-notes main h3::before { content: "H3"; }
+.show-notes main h4::before { content: "H4"; }
+
+/* Headings that are not in the client doc */
+.show-notes main [data-extra]::before {
+  background: #ffb4a8;
+}
+
+/* Heading outline inside the SEO box */
+.seo-box__outline {
+  margin-top: 18px;
+  padding-top: 14px;
+  border-top: 1px dashed #d8c64a;
+}
+
+.seo-box__subtitle {
+  margin-bottom: 10px;
+  font: 800 12px/1.3 ui-monospace, Menlo, monospace;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.heading-outline {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.heading-outline__item--h2 { padding-left: 18px; }
+.heading-outline__item--h3 { padding-left: 36px; }
+.heading-outline__item--h4 { padding-left: 54px; }
+
+.hl {
+  display: inline-block;
+  min-width: 26px;
+  padding: 1px 5px;
+  border-radius: 4px;
+  background: var(--c-teal-dark);
+  color: var(--c-white);
+  font: 800 11px/1.4 ui-monospace, Menlo, monospace;
+  text-align: center;
+}
+
+.hl--h1 { background: var(--c-teal); }
+
+.hl-extra {
+  display: inline-block;
+  margin-left: 8px;
+  padding: 1px 6px;
+  border-radius: 4px;
+  background: #ffb4a8;
+  font: 700 11px/1.4 ui-monospace, Menlo, monospace;
+  color: var(--c-ink);
+}
+
+.seo-box__hint {
+  margin-top: 12px;
+  font-size: 13px;
+  color: var(--c-muted);
+}
