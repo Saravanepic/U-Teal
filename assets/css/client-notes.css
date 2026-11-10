@@ -351,3 +351,57 @@ tbody tr:last-child td {
   font-size: 15px;
   color: var(--c-muted);
 }
+
+/* --- Pricing table + answered questions --- */
+.price-table {
+  max-width: 520px;
+}
+
+.price-table td {
+  text-align: right;
+  font-weight: 600;
+  color: var(--c-teal-dark);
+  white-space: nowrap;
+}
+
+.price-table__total th,
+.price-table__total td {
+  background: #f1f8f8;
+  font-size: 17px;
+  font-weight: 800;
+  color: var(--c-teal-dark);
+}
+
+.answer {
+  margin-top: 16px;
+  padding: 18px 22px;
+  border: 1px solid var(--c-line);
+  border-radius: 14px;
+}
+
+.answer__q {
+  margin-bottom: 6px;
+  font-weight: 700;
+  color: var(--c-teal-dark);
+}
+
+/* Price tables: keep the bordered box as narrow as the table */
+.table-wrap:has(.price-table) {
+  max-width: 560px;
+}
+
+.price-table {
+  max-width: none;
+}
+
+/* Allow long status badges to wrap inside the narrow column */
+.checklist td:last-child {
+  white-space: normal;
+}
+
+/* Bank details: left-align values */
+.bank-table td {
+  text-align: left;
+  font-family: ui-monospace, Menlo, monospace;
+  font-size: 14px;
+}
