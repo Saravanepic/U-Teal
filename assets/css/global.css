@@ -11,7 +11,7 @@
    5. Global sections    → Header, Footer (Theme Builder) + shared sections
                            used on several pages (Logos, Contact/Newsletter)
    6. Responsive         → Elementor breakpoint: 1000px (custom)
-   7. Elementor notes overlay (internal, ?notes=1)
+   7. Developer notes: floating toggle + ?notes=1 (internal)
 
    Rule: page-specific sections go in assets/css/<page>.css, not here.
    Brand values follow the U-teal Brand Book v1 (2026).
@@ -644,12 +644,15 @@ a:hover {
 }
 
 /* ==========================================================================
-   7. ELEMENTOR NOTES OVERLAY (internal only — visible with ?notes=1)
+   7. DEVELOPER NOTES (internal only)
+   Toggle: floating "Developer notes" button (bottom-right, added by main.js)
+           or open the page with ?notes=1. Choice is remembered per browser.
    ========================================================================== */
 .dev-note {
   display: none;
 }
 
+/* Section labels (yellow tags in the top-left corner of each section) */
 .show-notes .dev-note {
   display: block;
   position: absolute;
@@ -673,4 +676,84 @@ a:hover {
 
 .show-notes .offers .dev-note {
   top: -28px;
+}
+
+/* Inline notes: detailed build specs placed in the flow (e.g. form spec) */
+.show-notes .dev-note--inline {
+  position: static;
+  max-width: none;
+  margin-top: 4px;
+  padding: 12px 14px;
+  border-radius: 8px;
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+.dev-note--inline strong {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 800;
+}
+
+.dev-note--inline ul {
+  margin: 0;
+  padding-left: 16px;
+}
+
+.dev-note--inline li + li {
+  margin-top: 4px;
+}
+
+/* Floating toggle button */
+.dev-toggle {
+  position: fixed;
+  right: 16px;
+  bottom: 16px;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px 10px 12px;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: var(--radius-pill);
+  background: var(--c-ink);
+  color: var(--c-white);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
+  font: 600 13px/1 var(--font);
+  cursor: pointer;
+}
+
+.dev-toggle__switch {
+  position: relative;
+  width: 30px;
+  height: 18px;
+  border-radius: var(--radius-pill);
+  background: #555555;
+  transition: background-color 0.2s ease;
+}
+
+.dev-toggle__switch::after {
+  content: "";
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--c-white);
+  transition: transform 0.2s ease;
+}
+
+.dev-toggle[aria-pressed="true"] .dev-toggle__switch {
+  background: #ffe14d;
+}
+
+.dev-toggle[aria-pressed="true"] .dev-toggle__switch::after {
+  transform: translateX(12px);
+}
+
+@media print {
+  .dev-toggle {
+    display: none;
+  }
 }

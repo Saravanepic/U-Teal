@@ -303,3 +303,51 @@ tbody tr:last-child td {
     font-size: 13px;
   }
 }
+
+/* --- Checklist tables + status badges --- */
+.checklist {
+  table-layout: fixed;
+  min-width: 560px;
+}
+
+.checklist th:nth-child(1) { width: 55%; }
+.checklist th:nth-child(2) { width: 27%; }
+.checklist th:nth-child(3) { width: 18%; }
+
+.checklist tbody th {
+  white-space: normal;
+}
+
+.checklist td:last-child {
+  white-space: nowrap;
+}
+
+.status {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: var(--radius-pill);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.status--needed {
+  background: #fdecea;
+  color: #a1281c;
+}
+
+.status--received {
+  background: #e3f4ef;
+  color: #11734f;
+}
+
+.status--later {
+  background: var(--c-bg-soft);
+  color: var(--c-muted);
+  border: 1px solid var(--c-line);
+}
+
+.notes-hint {
+  margin-top: 20px !important;
+  font-size: 15px;
+  color: var(--c-muted);
+}

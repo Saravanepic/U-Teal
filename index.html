@@ -16,7 +16,8 @@
   4. JS        assets/js/main.js (mobile menu, ?notes=1 overlay, footer year)
 
   Elementor notes overlay
-  - Open the page with ?notes=1 (e.g. index.html?notes=1) to show a yellow
+  - Use the floating "Developer notes" toggle (bottom-right) or open the
+    page with ?notes=1 to show a yellow
     label on every section describing the Elementor widgets to use.
 
   Assets
@@ -601,6 +602,8 @@
            Elementor: Container (gradient bg 45°)
            Widgets: Heading · Button · Icon List · inner Container › Heading ·
                     Form (Pro, 1 email field → Mailchimp/Brevo action)
+           Form spec (plugin, fields, styles): see the inline dev-note in the
+           newsletter card below, or switch on "Developer notes".
            ==================================================================== -->
       <section class="section contact" id="contact">
         <div class="dev-note">
@@ -642,6 +645,28 @@
               />
               <button class="btn btn--accent" type="submit">Subscribe</button>
             </form>
+
+            <!-- Form build spec (shown inline when developer notes are on).
+                 Form plugin: Elementor Pro Form widget. No extra licence; it
+                 lives inside the page, so Polylang translates it with the page.
+                 Gravity Forms (paid, yearly) only if we need multi-step or
+                 conditional logic. Contact Form 7 not recommended (hard to
+                 style, no native Mailchimp). -->
+            <div class="dev-note dev-note--inline">
+              <strong>FORM · Elementor Pro › Form widget</strong>
+              <ul>
+                <li>Plugin: Elementor Pro Form (included). No Gravity Forms / CF7 needed.</li>
+                <li>Fields: Email (required, label hidden, placeholder "Your email") + Submit. Column widths: email 70% / button 30%; mobile 100% / 100%.</li>
+                <li>Action: Mailchimp (native), with double opt-in ON in Mailchimp (GDPR / DE). Brevo: use the Brevo plugin or a webhook.</li>
+                <li>Add a small privacy line below: "By subscribing you agree to the Privacy Policy" (link per language).</li>
+                <li>Spam: honeypot field ON. Avoid reCAPTCHA (GDPR); use Cloudflare Turnstile if needed.</li>
+                <li>Style › Field: bg #FFFFFF · no border · radius 999px · padding 14px 20px · Manrope 15px · text #1E1E1E · placeholder #6B7A7B.</li>
+                <li>Style › Button: bg #3DB7BB · text #02383E · Manrope 15px/700 · padding 14px 24px · radius 999px · hover bg #FFFFFF.</li>
+                <li>Style › Form: column gap 10px · row gap 10px · success/error message text #FFFFFF (dark card).</li>
+                <li>Card (Container): bg rgba(2,56,62,.55) · border 1px rgba(255,255,255,.18) · radius 24px · padding 36px (mobile 24px).</li>
+                <li>Polylang: success message + privacy link must be translated in the DE page.</li>
+              </ul>
+            </div>
           </div>
         </div>
       </section>
