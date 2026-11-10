@@ -34,6 +34,14 @@ html {
   align-items: center;
 }
 
+.service-hero__grid--single {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.service-hero__grid--single .service-hero__content {
+  max-width: 900px;
+}
+
 .service-hero__content {
   display: flex;
   flex-direction: column;
@@ -82,6 +90,12 @@ html {
   color: var(--c-teal);
   text-decoration: underline;
   text-underline-offset: 3px;
+}
+
+/* "Picture option" after the "What I offer" button: wide picture */
+.situations__picture {
+  margin-top: clamp(48px, 6vw, 80px);
+  aspect-ratio: 21 / 8;
 }
 
 .situations__close {
@@ -135,14 +149,20 @@ html {
 
 .case {
   display: grid;
-  grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
   gap: 32px clamp(32px, 5vw, 72px);
-  align-items: center;
+  align-items: start;
   padding: clamp(28px, 3.5vw, 48px);
   background: var(--c-white);
 }
 
-/* Case without a quote: text keeps the same width as the others */
+/* Right column: "Picture option" + quote (if the case has one) */
+.case__aside {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
 .case__main {
   display: flex;
   flex-direction: column;
@@ -218,7 +238,7 @@ html {
     position: static;
   }
 
-  .service-hero__img {
-    order: -1;
+  .situations__picture {
+    aspect-ratio: 3 / 2;
   }
 }

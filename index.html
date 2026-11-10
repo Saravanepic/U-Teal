@@ -194,8 +194,8 @@
           </p>
           <ol class="heading-outline" data-heading-outline></ol>
           <p class="seo-box__hint">
-            <span class="hl-extra">Extra</span> = section not in the client doc (Trust, Q16): confirm before build.
-            Styled lines like "What are you working on…", "How we get started", "Notice." are <strong>not</strong> headings in the doc → use Elementor Heading widget with HTML tag <code>p</code> / <code>div</code>.
+            Only the texts from the client doc (feedback 10 Nov: no texts from earlier drafts).
+            Styled lines like the service labels, "How we get started", "Notice." are <strong>not</strong> headings in the doc → use Elementor Heading widget with HTML tag <code>p</code> / <code>div</code>.
           </p>
         </div>
       </div>
@@ -206,13 +206,13 @@
            S02 · HERO
            Elementor: Container (row, 2 cols)
            Widgets: Heading H1 (small, teal) · Heading H2 (display 60px) ·
-                    2× linked Container (quick access) · Image (rectangular,
+                    Image ("Picture option" in the client doc; rectangular,
                     teal tint = Container bg image + overlay, blend "color")
            ==================================================================== -->
       <section class="hero">
         <div class="dev-note">
-          S02 · Hero — Container (row) › H1 small · H2 display · 2× linked
-          Container · Image (rectangular, teal overlay)
+          S02 · Hero — Container (row) › H1 small · H2 display · Image
+          ("Picture option", rectangular, teal overlay)
         </div>
 
         <div class="container hero__grid">
@@ -224,20 +224,6 @@
 
             <h2 class="display">Making change work in universities.</h2>
 
-            <!-- Quick access to the main offers (client liked these in Draft 1).
-                 Box copy is placeholder: confirm with client (client-notes Q15). -->
-            <div class="quick-links">
-              <a class="quick-link quick-link--dark" href="#services">
-                <span class="quick-link__label">For universities &amp; alliances</span>
-                <span class="quick-link__text">Internationalisation, strategy, organisational development and leadership.</span>
-                <span class="quick-link__go">How I support universities →</span>
-              </a>
-              <a class="quick-link" href="#" data-todo="/women-in-higher-education-leadership">
-                <span class="quick-link__label">For women in leadership</span>
-                <span class="quick-link__text">Leadership development for women in higher education.</span>
-                <span class="quick-link__go">Coaching for women →</span>
-              </a>
-            </div>
           </div>
 
           <figure class="picture picture--tint">
@@ -306,13 +292,12 @@
            ==================================================================== -->
       <section class="section services" id="services">
         <div class="dev-note">
-          S04 · Services — Container › H2 · Text · Grid 2×2 › per box: eyebrow ·
-          H3 · Text · Button (outline + arrow). No images.
+          S04 · Services — Container › H2 · Text · Grid 2×2 › per box: label (p)
+          · H3 · Text · Button (outline + arrow). No images.
         </div>
 
         <div class="container">
           <div class="section-head services__intro">
-            <p class="eyebrow">Services</p>
             <h2 class="h2">How I support universities</h2>
             <p class="body">
               Whether it’s a new strategic direction, international
@@ -395,94 +380,14 @@
       <!-- /S04 · SERVICES -->
 
       <!-- ====================================================================
-           S04b · TRUST (brought back — client liked it in Draft 1, Q16)
-           Texts: designer's proposal (not in the new Home doc) — confirm.
-           Elementor: Container › 2-col head (eyebrow + H2 | Text) ·
-                      4 rows (Container row: number 34px/800 teal + H3 20px |
-                      Text 16px) with top/bottom dividers · CTA row (Text +
-                      Button). Mobile: number + title on one line, text below.
-           ==================================================================== -->
-      <section class="section trust" id="trust">
-        <div class="dev-note">
-          S04b · Trust — Container › head (eyebrow · H2 | Text) · 4 numbered
-          rows with dividers · CTA field (Text + Button) — texts to confirm (Q16)
-        </div>
-
-        <div class="container">
-          <div class="trust__head">
-            <div class="trust__title">
-              <p class="eyebrow">Trust</p>
-              <h2 class="h2" data-extra>Why higher education leaders work with U-teal</h2>
-            </div>
-            <p class="trust__intro">
-              Four reasons why Rectors, Vice-Presidents, Chancellors and Deans
-              bring U-teal to their side.
-            </p>
-          </div>
-
-          <div class="num-rows">
-            <div class="num-row">
-              <div class="num-row__head">
-                <span class="num-row__num">01</span>
-                <h3 class="h4" data-extra>Deep knowledge of the higher education world</h3>
-              </div>
-              <p class="body">
-                I know universities not from theory but from twenty years of
-                first-hand practice, including building a European university
-                alliance.
-              </p>
-            </div>
-            <div class="num-row">
-              <div class="num-row__head">
-                <span class="num-row__num">02</span>
-                <h3 class="h4" data-extra>Holistic methods that work</h3>
-              </div>
-              <p class="body">
-                I think about change systemically. Theory U’s methods work, and
-                I apply them flexibly and precisely to your situation.
-              </p>
-            </div>
-            <div class="num-row">
-              <div class="num-row__head">
-                <span class="num-row__num">03</span>
-                <h3 class="h4" data-extra>Space for the unspoken</h3>
-              </div>
-              <p class="body">
-                I don’t brush conflicts, resistance or doubt aside. With me,
-                they get a confidential, professionally held space.
-              </p>
-            </div>
-            <div class="num-row">
-              <div class="num-row__head">
-                <span class="num-row__num">04</span>
-                <h3 class="h4" data-extra>Reliably by your side</h3>
-              </div>
-              <p class="body">
-                Does your organisation go through turbulence, or does change
-                stretch out over a longer period? I remain reliably by your
-                side, even when progress is not immediately visible.
-              </p>
-            </div>
-          </div>
-
-          <!-- CTA field (client: "keep the CTA field which is nicely visible") -->
-          <div class="trust__cta">
-            <p class="trust__cta-text">Curious what that could look like for your university?</p>
-            <a class="btn btn--primary btn--arrow" href="#get-started">Let’s talk</a>
-          </div>
-        </div>
-      </section>
-      <!-- /S04b · TRUST -->
-
-      <!-- ====================================================================
            S05 · EXPERTISE — designer "About" layout
-           Elementor: Container (row) › Image (rectangular) · Heading (eyebrow)
-                      · Heading H2 · Text Editor · Button
+           Elementor: Container (row) › Image (rectangular) · Heading H2 ·
+                      Text Editor · Button
            ==================================================================== -->
       <section class="section section--soft expertise">
         <div class="dev-note">
-          S05 · Expertise — Container (row) › Image (rectangular, sticky on
-          desktop optional) · eyebrow · H2 · Text Editor · Button
+          S05 · Expertise — Container (row) › Image ("Picture option",
+          rectangular, sticky on desktop) · H2 · Text Editor · Button
         </div>
 
         <div class="container expertise__grid">
@@ -497,7 +402,6 @@
           </figure>
 
           <div class="expertise__content">
-            <p class="eyebrow">About</p>
             <h2 class="h2">Higher education experience and methodological expertise</h2>
 
             <div class="stack body">
@@ -537,18 +441,6 @@
                 online, we do online.
               </p>
             </div>
-
-            <!-- Nadja's own quote (designer citation format) — brought back
-                 from Draft 1; not in the new Home doc, confirm (Q21) -->
-            <figure class="quote expertise__quote">
-              <blockquote class="quote__text">
-                “The answers already lie within the universities themselves, in
-                their people and in their knowledge. All it takes is spaces to
-                recognise them, turn them into intention, and let them become
-                effective.”
-              </blockquote>
-              <figcaption class="quote__author">Nadja Gmelch, founder of U-teal</figcaption>
-            </figure>
 
             <a class="btn btn--outline btn--arrow" href="about-me.html">More about me</a>
           </div>
@@ -598,28 +490,20 @@
 
       <!-- ====================================================================
            S07 · HOW I WORK (#how-i-work)
-           Elementor: Container (soft bg) › Heading (big statement, 3 lines) ·
-                      Heading H2 · Text Editor · 3-col Container (shape icon ·
+           Elementor: Container (soft bg) › Heading H2 · Text Editor ·
+                      3-col Container (shape icon ·
                       title · text; connecting line = SVG bg or Divider) · Button
            ==================================================================== -->
       <section class="section section--soft how" id="how-i-work">
         <div class="dev-note">
-          S07 · How I work — Container › Heading (statement 88px/800) · H2 ·
-          Text · 3 cols (SVG shape · title 28px · text teal) · Button "Methods"
+          S07 · How I work — Container › H2 · Text · 3 cols (SVG shape ·
+          title 28px · text teal) · Button "Methods"
         </div>
 
         <div class="container">
           <div class="how__top">
-            <!-- Key message (client: "I want this quite visible") -->
-            <p class="how__statement" aria-hidden="true">
-              <span>Notice.</span>
-              <span>Align.</span>
-              <span>Act with impact.</span>
-            </p>
-
             <div class="how__intro">
-              <p class="eyebrow">Methodology</p>
-              <h2 class="h2">How I work</h2>
+                <h2 class="h2">How I work</h2>
               <p class="body">
                 Before a university develops a new strategy or sets change in
                 motion, it needs to understand where it stands. What is the real
@@ -743,7 +627,6 @@
 
         <div class="container start__grid">
           <div class="start__head">
-            <p class="eyebrow">Contact</p>
             <h2 class="start__title">What are you working on at your university?</h2>
             <p class="body">
               Perhaps you’re developing a strategy or want to move a European

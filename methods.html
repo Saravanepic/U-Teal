@@ -174,7 +174,7 @@
           <ol class="heading-outline" data-heading-outline></ol>
           <p class="seo-box__hint">
             Anchors (#theory-u … #case-clinic) are from the doc: set them as CSS ID on each method container. Meta description is 140+ characters: Google may shorten it.
-            FAQ: client still deciding whether it stays (Q27). Image placeholders: Q26.
+            FAQ: client still deciding whether it stays (Q27). Picture: one "Picture option" next to the consulting intro (doc v2).
           </p>
         </div>
       </div>
@@ -183,72 +183,24 @@
     <main>
       <!-- ====================================================================
            S02 · HERO
-           Elementor: Container (row, 2 cols) › Heading (eyebrow, p) ·
-                      Heading H1 · Text ("Last updated", small) | Image
+           Elementor: Container › Heading (eyebrow, p) · Heading H1 ·
+                      Text ("Last updated", small)
            ==================================================================== -->
       <section class="methods-hero">
         <div class="dev-note">
-          S02 · Hero — Container (row) › eyebrow (p) · H1 · "Last updated" ·
-          Image (placeholder)
+          S02 · Hero — Container › eyebrow (p) · H1 · "Last updated"
         </div>
 
-        <div class="container methods-hero__grid">
+        <div class="container methods-hero__grid methods-hero__grid--single">
           <div class="methods-hero__content">
             <p class="eyebrow">Methods</p>
             <h1 class="methods-hero__title">Which methods do I use in systemic consulting and coaching for universities?</h1>
             <p class="methods-hero__updated">Last updated: <time datetime="2026-11">November 2026</time></p>
           </div>
 
-          <figure class="img-ph " style="aspect-ratio: 4 / 3.4" role="img" aria-label="Image placeholder: Workshop at a university: a group working together at a wall of notes or around a table (brand style: calm, editorial, soft teal light).">
-                <span class="img-ph__mark" aria-hidden="true"></span>
-                <figcaption class="img-ph__label"><strong>Image placeholder</strong>Workshop at a university: a group working together at a wall of notes or around a table (brand style: calm, editorial, soft teal light).</figcaption>
-              </figure>
         </div>
       </section>
       <!-- /S02 · HERO -->
-
-      <!-- ====================================================================
-           S02b · OVERVIEW (jump links to the 16 methods) — not in the client
-           doc: navigation only, built from the method names (Q28)
-           Elementor: Container (row, 2 cols) › per column: Text (label) ·
-                      Icon List (inline, links to #anchors)
-           ==================================================================== -->
-      <nav class="section methods-toc" aria-label="Methods on this page">
-        <div class="dev-note">
-          S02b · Overview — not in the doc (navigation added, Q28): 2 lists of
-          jump links to the method anchors (Icon List, inline)
-        </div>
-
-        <div class="container methods-toc__grid">
-          <div>
-            <p class="methods-toc__label">Systemic consulting</p>
-            <ul class="methods-toc__list">
-                <li><a href="#theory-u"><span>01</span>Theory U</a></li>
-                <li><a href="#agility"><span>02</span>Agility</a></li>
-                <li><a href="#design-thinking"><span>03</span>Design thinking</a></li>
-                <li><a href="#3d-mapping"><span>04</span>3D mapping</a></li>
-                <li><a href="#art-of-hosting"><span>05</span>Art of Hosting</a></li>
-                <li><a href="#circle-way"><span>06</span>The Circle Way</a></li>
-                <li><a href="#consent"><span>07</span>Consent decision-making</a></li>
-                <li><a href="#prototyping"><span>08</span>Prototyping and retrospectives</a></li>
-                <li><a href="#spiral-dynamics"><span>09</span>Spiral Dynamics</a></li>
-                <li><a href="#teal"><span>10</span>Teal organisation</a></li>
-            </ul>
-          </div>
-          <div>
-            <p class="methods-toc__label">Systemic coaching</p>
-            <ul class="methods-toc__list">
-                <li><a href="#circle-of-influence"><span>11</span>Circle of Influence</a></li>
-                <li><a href="#miracle-question"><span>12</span>Miracle question</a></li>
-                <li><a href="#inner-team"><span>13</span>Inner Team</a></li>
-                <li><a href="#four-rooms"><span>14</span>Four Rooms of Change</a></li>
-                <li><a href="#social-presencing-theater"><span>15</span>Social Presencing Theater</a></li>
-                <li><a href="#case-clinic"><span>16</span>Case Clinic</a></li>
-            </ul>
-          </div>
-        </div>
-      </nav>
-      <!-- /S02b · OVERVIEW -->
 
       <!-- ====================================================================
            S03 · METHODS OF SYSTEMIC CONSULTING (10 methods)
@@ -258,7 +210,7 @@
            ==================================================================== -->
       <section class="section section--soft methods-group" id="consulting">
         <div class="dev-note">
-          S03 · Consulting methods — H2 · intro | Image · 10 rows (number · H3 |
+          S03 · Consulting methods — H2 · intro | Image ("Picture option") · 10 rows (number · H3 |
           text with links), CSS ID per row = doc anchor
         </div>
 
@@ -268,10 +220,11 @@
               <h2 class="h2">Methods of systemic consulting and awareness-based systems change</h2>
               <p class="body">In my work with universities, I use methods that combine analytical systems thinking with a view of the organisation as a whole. The following 10 methods are examples of those I use in my work.</p>
             </div>
-            <figure class="img-ph " style="aspect-ratio: 3 / 2" role="img" aria-label="Image placeholder: Large-group work, e.g. an Art of Hosting / World Café session or a 3D mapping model on a table.">
-                <span class="img-ph__mark" aria-hidden="true"></span>
-                <figcaption class="img-ph__label"><strong>Image placeholder</strong>Large-group work, e.g. an Art of Hosting / World Café session or a 3D mapping model on a table.</figcaption>
-              </figure>
+            <!-- "Picture option" (client doc v2): after the consulting intro -->
+            <figure class="img-ph" style="aspect-ratio: 3 / 2" role="img" aria-label="Picture option">
+              <span class="img-ph__mark" aria-hidden="true"></span>
+              <figcaption class="img-ph__label"><strong>Picture option</strong>Photo to be chosen, e.g. a workshop or large-group session (World Café, 3D mapping).</figcaption>
+            </figure>
           </div>
 
           <div class="methods-list">
@@ -282,10 +235,6 @@
               </div>
               <div class="method__body">
                 <p class="body"><a href="https://ottoscharmer.com/bio/" target="_blank" rel="noopener">Otto Scharmer</a>, Senior Lecturer at MIT and co-founder of the <a href="https://www.presencing.org/theoryu" target="_blank" rel="noopener">Presencing Institute</a>, first published Theory U in 2007 in his book “Theory U: Leading from the Future as It Emerges”. The model describes how attention, intention and the capacity to act shift when a person or group lets go of old knowledge, really listens and develops something new from the future as it emerges. The U-shaped arc that gives the model its name leads down the left-hand side through letting go of old judgements. At the bottom comes presencing: a moment of stillness in which a new direction becomes clear. And the right-hand side leads back into action, into prototypes that connect head, heart and hand. In organisational development for universities, Theory U provides the framework in which methods such as Case Clinic and 3D and 4D mapping find their place.</p>
-              <figure class="img-ph img-ph--diagram" style="aspect-ratio: 16 / 9" role="img" aria-label="Image placeholder: Diagram of the U-curve in Theory U (letting go → presencing → prototyping). Designer to draw it in the brand style; all labels as live text.">
-                <span class="img-ph__mark" aria-hidden="true"></span>
-                <figcaption class="img-ph__label"><strong>Image placeholder</strong>Diagram of the U-curve in Theory U (letting go → presencing → prototyping). Designer to draw it in the brand style; all labels as live text.</figcaption>
-              </figure>
               </div>
             </article>
 
@@ -389,20 +338,16 @@
            ==================================================================== -->
       <section class="section methods-group" id="coaching">
         <div class="dev-note">
-          S04 · Coaching methods — same layout as S03 (H2 · intro | Image ·
-          6 rows)
+          S04 · Coaching methods — same layout as S03 but without image
+          (H2 · intro · 6 rows)
         </div>
 
         <div class="container">
-          <div class="methods-group__head">
+          <div class="methods-group__head methods-group__head--single">
             <div class="stack">
               <h2 class="h2">Methods of systemic coaching</h2>
               <p class="body">In one-to-one support, in coaching leadership teams and in leadership development, I work with tools from systemic coaching. They help clarify your own position in the system and sort out inner contradictions. And they help find the one that works among many possible solutions. The following six tools come from different traditions of systemic practice and can be used individually or in combination.</p>
             </div>
-            <figure class="img-ph " style="aspect-ratio: 3 / 2" role="img" aria-label="Image placeholder: One-to-one coaching conversation (two people, calm room, natural light).">
-                <span class="img-ph__mark" aria-hidden="true"></span>
-                <figcaption class="img-ph__label"><strong>Image placeholder</strong>One-to-one coaching conversation (two people, calm room, natural light).</figcaption>
-              </figure>
           </div>
 
           <div class="methods-list">

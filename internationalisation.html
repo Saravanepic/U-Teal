@@ -174,7 +174,7 @@
           <ol class="heading-outline" data-heading-outline></ol>
           <p class="seo-box__hint">
             SERVICE PAGE TEMPLATE: the same sections are used for all 5 service pages (save each section as an Elementor template; only the content changes).
-            Hero image: placeholder (Q30).
+            Pictures only at the doc's "Picture option" spots (after "What I offer" + one per case study).
           </p>
         </div>
       </div>
@@ -183,17 +183,16 @@
     <main>
       <!-- ====================================================================
            S02 · HERO
-           Elementor: Container (row, 2 cols) › Heading H1 (small, teal) ·
-                      Heading H2 (display) · Heading H3 (lead style) | Image
-                      (rectangular, teal tint)
+           Elementor: Container › Heading H1 (small, teal) · Heading H2
+                      (display) · Heading H3 (lead style). No picture (none in
+                      the client doc).
            ==================================================================== -->
       <section class="service-hero">
         <div class="dev-note">
-          S02 · Hero — Container (row) › H1 small · H2 display · H3 (lead
-          style) | Image (placeholder, teal tint)
+          S02 · Hero — Container › H1 small · H2 display · H3 (lead style)
         </div>
 
-        <div class="container service-hero__grid">
+        <div class="container service-hero__grid service-hero__grid--single">
           <div class="service-hero__content">
             <h1 class="service-hero__h1">Internationalisation and European Universities alliances</h1>
             <h2 class="display">Making international collaboration work.</h2>
@@ -203,11 +202,6 @@
               cultures and funding cycles.
             </h3>
           </div>
-
-          <figure class="img-ph service-hero__img" style="aspect-ratio: 4 / 3.4" role="img" aria-label="Image placeholder: international university team">
-            <span class="img-ph__mark" aria-hidden="true"></span>
-            <figcaption class="img-ph__label"><strong>Image placeholder</strong>International team or alliance meeting: people from different universities working together (rectangular, teal tint like the Home hero).</figcaption>
-          </figure>
         </div>
       </section>
       <!-- /S02 · HERO -->
@@ -221,7 +215,8 @@
       <section class="section situations">
         <div class="dev-note">
           S03 · Situations — Container (row) › lead text | Icon List (6, dash
-          bullets) · Text · Button "What I offer" → #offer
+          bullets) · Text · Button "What I offer" → #offer · Image (full width,
+          "Picture option")
         </div>
 
         <div class="container situations__grid">
@@ -275,6 +270,14 @@
               <a class="btn btn--outline btn--arrow" href="#offer">What I offer</a>
             </div>
           </div>
+        </div>
+
+        <!-- "Picture option" (client doc): after the "What I offer" button -->
+        <div class="container">
+          <figure class="img-ph situations__picture" role="img" aria-label="Picture option">
+            <span class="img-ph__mark" aria-hidden="true"></span>
+            <figcaption class="img-ph__label"><strong>Picture option</strong>Wide photo to be chosen (e.g. an international team or alliance meeting).</figcaption>
+          </figure>
         </div>
       </section>
       <!-- /S03 · SITUATIONS -->
@@ -374,9 +377,8 @@
                 <h3 class="h4">Methods for looking closely</h3>
               </div>
               <p class="body">
-                I work systemically, using methods such as
-                <a href="methods.html#design-thinking">design thinking</a> and
-                <a href="methods.html#3d-mapping">3D mapping</a>. This reveals
+                I work systemically, using methods such as design thinking and
+                3D mapping. This reveals
                 what standardised internationalisation plans tend to miss, and
                 it leads to a strategy that fits your university.
               </p>
@@ -401,12 +403,13 @@
            S06 · FROM MY PRACTICE (case studies + quotes)
            Elementor: Container › Heading H2 · per case: Container (row) ›
                       left: Heading H3 · Text Editor · Button (outline →
-                      /case-studies#anchor) | right: Blockquote (if any)
-           Cases without a quote: text column only (right column hidden).
+                      /case-studies#anchor) | right: Image ("Picture option")
+                      · Blockquote (if any)
            ==================================================================== -->
       <section class="section section--soft practice">
         <div class="dev-note">
-          S06 · From my practice — H2 · 5 cases (H3 · text · button | quote)
+          S06 · From my practice — H2 · 5 cases (H3 · text · button | picture
+          · quote)
         </div>
 
         <div class="container">
@@ -429,18 +432,24 @@
                 </p>
                 <div><a class="btn btn--outline btn--arrow" href="#" data-todo="/case-studies#bifrost">Read the full case study</a></div>
               </div>
-              <figure class="quote case__quote">
-                <blockquote class="quote__text">
-                  “Nadja combines deep knowledge of international higher
-                  education with a clear, participatory process. She listened
-                  carefully to our team, made our situation visible and helped
-                  us find a direction we could all support.”
-                </blockquote>
-                <figcaption class="quote__author">
-                  Margrét Jónsdóttir
-                  <span class="quote__role">Former Rector, Bifröst University, Iceland</span>
-                </figcaption>
-              </figure>
+              <div class="case__aside">
+                <figure class="img-ph case__picture" style="aspect-ratio: 3 / 2" role="img" aria-label="Picture option">
+                  <span class="img-ph__mark" aria-hidden="true"></span>
+                  <figcaption class="img-ph__label"><strong>Picture option</strong>Photo for this case study (Bifröst University).</figcaption>
+                </figure>
+                <figure class="quote case__quote">
+                  <blockquote class="quote__text">
+                    “Nadja combines deep knowledge of international higher
+                    education with a clear, participatory process. She listened
+                    carefully to our team, made our situation visible and helped
+                    us find a direction we could all support.”
+                  </blockquote>
+                  <figcaption class="quote__author">
+                    Margrét Jónsdóttir
+                    <span class="quote__role">Former Rector, Bifröst University, Iceland</span>
+                  </figcaption>
+                </figure>
+              </div>
             </article>
 
             <article class="case">
@@ -460,17 +469,23 @@
                   OpenEU under the European Universities Initiative.
                 </p>
               </div>
-              <figure class="quote case__quote">
-                <blockquote class="quote__text">
-                  “Those of us who have worked alongside Nadja, shoulder to
-                  shoulder, know that she’s someone who transforms everything
-                  around her.”
-                </blockquote>
-                <figcaption class="quote__author">
-                  Pastora Martínez Samper
-                  <span class="quote__role">Commissioner for Internationalisation, OpenEU Alliance Coordinator, UOC, Spain</span>
-                </figcaption>
-              </figure>
+              <div class="case__aside">
+                <figure class="img-ph case__picture" style="aspect-ratio: 3 / 2" role="img" aria-label="Picture option">
+                  <span class="img-ph__mark" aria-hidden="true"></span>
+                  <figcaption class="img-ph__label"><strong>Picture option</strong>Photo for this case study (OpenEU alliance).</figcaption>
+                </figure>
+                <figure class="quote case__quote">
+                  <blockquote class="quote__text">
+                    “Those of us who have worked alongside Nadja, shoulder to
+                    shoulder, know that she’s someone who transforms everything
+                    around her.”
+                  </blockquote>
+                  <figcaption class="quote__author">
+                    Pastora Martínez Samper
+                    <span class="quote__role">Commissioner for Internationalisation, OpenEU Alliance Coordinator, UOC, Spain</span>
+                  </figcaption>
+                </figure>
+              </div>
             </article>
 
             <article class="case">
@@ -485,6 +500,12 @@
                   decisions.
                 </p>
                 <div><a class="btn btn--outline btn--arrow" href="#" data-todo="/case-studies#norpart">Read the full case study</a></div>
+              </div>
+              <div class="case__aside">
+                <figure class="img-ph case__picture" style="aspect-ratio: 3 / 2" role="img" aria-label="Picture option">
+                  <span class="img-ph__mark" aria-hidden="true"></span>
+                  <figcaption class="img-ph__label"><strong>Picture option</strong>Photo for this case study (NORPART).</figcaption>
+                </figure>
               </div>
             </article>
 
@@ -507,18 +528,24 @@
                 </p>
                 <div><a class="btn btn--outline btn--arrow" href="#" data-todo="/case-studies#fas">Read the full case study</a></div>
               </div>
-              <figure class="quote case__quote">
-                <blockquote class="quote__text">
-                  “Nadja’s evaluation gave us a clear picture of what our
-                  activities achieve and where we need to focus. On this basis,
-                  we could reorient the future direction of the Foundation’s
-                  international development cooperation work.”
-                </blockquote>
-                <figcaption class="quote__author">
-                  Jordi Prat
-                  <span class="quote__role">Director, Fundació Autònoma Solidària, Universitat Autònoma de Barcelona, Spain</span>
-                </figcaption>
-              </figure>
+              <div class="case__aside">
+                <figure class="img-ph case__picture" style="aspect-ratio: 3 / 2" role="img" aria-label="Picture option">
+                  <span class="img-ph__mark" aria-hidden="true"></span>
+                  <figcaption class="img-ph__label"><strong>Picture option</strong>Photo for this case study (Fundació Autònoma Solidària).</figcaption>
+                </figure>
+                <figure class="quote case__quote">
+                  <blockquote class="quote__text">
+                    “Nadja’s evaluation gave us a clear picture of what our
+                    activities achieve and where we need to focus. On this basis,
+                    we could reorient the future direction of the Foundation’s
+                    international development cooperation work.”
+                  </blockquote>
+                  <figcaption class="quote__author">
+                    Jordi Prat
+                    <span class="quote__role">Director, Fundació Autònoma Solidària, Universitat Autònoma de Barcelona, Spain</span>
+                  </figcaption>
+                </figure>
+              </div>
             </article>
 
             <article class="case">
@@ -534,6 +561,12 @@
                   programme.
                 </p>
                 <div><a class="btn btn--outline btn--arrow" href="#" data-todo="/case-studies#probral">Read the full case study</a></div>
+              </div>
+              <div class="case__aside">
+                <figure class="img-ph case__picture" style="aspect-ratio: 3 / 2" role="img" aria-label="Picture option">
+                  <span class="img-ph__mark" aria-hidden="true"></span>
+                  <figcaption class="img-ph__label"><strong>Picture option</strong>Photo for this case study (PROBRAL / DAAD).</figcaption>
+                </figure>
               </div>
             </article>
           </div>

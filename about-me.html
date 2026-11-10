@@ -211,27 +211,21 @@
 
       <!-- ====================================================================
            S03 · WHO I AM AND HOW I THINK
-           Elementor: Container (row) › left: Heading H2 + Image (sticky via
-                      Motion Effects) · right: Text Editor (links as in doc)
+           Elementor: Container (row) › left: Heading H2 (sticky via Motion
+                      Effects) · right: Text Editor (links as in doc)
+                      + below: Image (full width) = "Picture option" in the
+                      client doc (end of this section)
            ==================================================================== -->
       <section class="section section--soft story">
         <div class="dev-note">
-          S03 · Who I am — Container (row) › H2 + Image (sticky) | Text Editor
-          (links: ACUP, UOC, OpenEU, dacte, Presencing Institute, ELP)
+          S03 · Who I am — Container (row) › H2 (sticky) | Text Editor
+          (links: ACUP, UOC, OpenEU, dacte, Presencing Institute, ELP) ·
+          Image full width ("Picture option" in the doc)
         </div>
 
         <div class="container story__grid">
           <div class="story__aside">
             <h2 class="h2">Who I am and how I think</h2>
-            <figure class="picture">
-              <img
-                src="assets/images/offering-coaching-women.jpg"
-                alt="Nadja Gmelch taking notes during a conversation"
-                loading="lazy"
-                width="1600"
-                height="1065"
-              />
-            </figure>
           </div>
 
           <div class="stack body story__text">
@@ -312,6 +306,20 @@
               well online, we do online.
             </p>
           </div>
+        </div>
+
+        <!-- "Picture option" (client doc, end of "Who I am"): current photo is
+             a proposal; Nadja may choose another one (Q23). -->
+        <div class="container">
+          <figure class="picture story__picture">
+            <img
+              src="assets/images/offering-coaching-women.jpg"
+              alt="Nadja Gmelch taking notes during a conversation"
+              loading="lazy"
+              width="1600"
+              height="1065"
+            />
+          </figure>
         </div>
       </section>
       <!-- /S03 · WHO I AM -->
@@ -417,19 +425,28 @@
             </p>
             <div class="partners__grid">
               <article class="partner">
-                <span class="partner__photo" aria-hidden="true"></span>
+                <figure class="img-ph partner__photo" role="img" aria-label="Picture option: partner photo">
+                  <span class="img-ph__mark" aria-hidden="true"></span>
+                  <figcaption class="img-ph__label"><strong>Picture option</strong>Partner photo</figcaption>
+                </figure>
                 <h3 class="h4">[Name 1], [role, organisation]</h3>
                 <p class="body">[One sentence on their expertise and what we work on together.]</p>
                 <a class="partner__link" href="#">[Link to website or LinkedIn]</a>
               </article>
               <article class="partner">
-                <span class="partner__photo" aria-hidden="true"></span>
+                <figure class="img-ph partner__photo" role="img" aria-label="Picture option: partner photo">
+                  <span class="img-ph__mark" aria-hidden="true"></span>
+                  <figcaption class="img-ph__label"><strong>Picture option</strong>Partner photo</figcaption>
+                </figure>
                 <h3 class="h4">[Name 2], [role, organisation]</h3>
                 <p class="body">[One sentence on their expertise and what we work on together.]</p>
                 <a class="partner__link" href="#">[Link to website or LinkedIn]</a>
               </article>
               <article class="partner">
-                <span class="partner__photo" aria-hidden="true"></span>
+                <figure class="img-ph partner__photo" role="img" aria-label="Picture option: partner photo">
+                  <span class="img-ph__mark" aria-hidden="true"></span>
+                  <figcaption class="img-ph__label"><strong>Picture option</strong>Partner photo</figcaption>
+                </figure>
                 <h3 class="h4">[Name 3], [role, organisation]</h3>
                 <p class="body">[One sentence on their expertise and what we work on together.]</p>
                 <a class="partner__link" href="#">[Link to website or LinkedIn]</a>
