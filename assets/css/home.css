@@ -1,0 +1,612 @@
+/* ==========================================================================
+   U-TEAL · HOME PAGE STYLES
+   Loaded only on index.html, after global.css.
+   Sections: S02 Hero · S03 Welcome · S04 Offerings · S05 Trust ·
+             S07 About · S08 Perspective
+   (S01 Header, S06 Logos, S09 Contact, S10 Footer live in global.css)
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   S02 · Hero
+   -------------------------------------------------------------------------- */
+.hero__inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: clamp(40px, 5vw, 72px);
+  padding-top: clamp(48px, 7vw, 104px);
+  padding-bottom: clamp(48px, 6vw, 88px);
+}
+
+.hero__content {
+  flex: 1 1 520px;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.hero__content .eyebrow {
+  font-weight: 600;
+}
+
+.hero__title {
+  font-size: clamp(40px, 5.4vw, 76px);
+  line-height: 1.04;
+  font-weight: 800;
+  letter-spacing: -0.035em;
+  color: var(--c-teal-dark);
+  text-wrap: balance;
+}
+
+/* Two linked audience cards (Elementor: Icon Box, linked) */
+.hero__cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 14px;
+  margin-top: 8px;
+}
+
+.path-card {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 22px 22px 20px;
+  border-radius: 18px;
+  border: 1px solid var(--c-line);
+  background: var(--c-white);
+  color: var(--c-ink);
+}
+
+.path-card:hover {
+  border-color: var(--c-teal);
+  color: var(--c-ink);
+}
+
+.path-card__label {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--c-teal);
+}
+
+.path-card__text {
+  font-size: 18px;
+  line-height: 1.4;
+  font-weight: 600;
+  color: var(--c-teal-dark);
+}
+
+.path-card__link {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--c-teal);
+}
+
+/* Dark variant */
+.path-card--dark {
+  background: var(--c-teal-dark);
+  border-color: var(--c-teal-dark);
+  color: var(--c-white);
+}
+
+.path-card--dark:hover {
+  background: var(--c-teal);
+  border-color: var(--c-teal);
+  color: var(--c-white);
+}
+
+.path-card--dark .path-card__label {
+  color: var(--c-teal-light);
+}
+
+.path-card--dark .path-card__text,
+.path-card--dark .path-card__link {
+  color: var(--c-white);
+}
+
+/* Hero image (diamond above an arch-bottom image) */
+.hero__media {
+  flex: 1 1 380px;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+}
+
+.hero__media .diamond {
+  width: 28px;
+  height: 28px;
+}
+
+.hero__image {
+  width: 100%;
+  max-width: 500px;
+  aspect-ratio: 5 / 6;
+  border-radius: 0 0 999px 999px;
+  overflow: hidden;
+  background: var(--c-img-bg);
+}
+
+.hero__image img,
+.offer-card__image img,
+.about__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Steps strip under the hero: See clearly → Align → Become effective */
+.hero__steps {
+  border-top: 1px solid var(--c-line);
+}
+
+.hero__steps-inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px 28px;
+  padding-top: 18px;
+  padding-bottom: 18px;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--c-teal-dark);
+}
+
+.hero__step {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.hero__step .diamond {
+  width: 7px;
+  height: 7px;
+}
+
+.hero__arrow {
+  color: var(--c-muted-2);
+}
+
+/* --------------------------------------------------------------------------
+   S03 · Welcome
+   -------------------------------------------------------------------------- */
+.welcome__inner {
+  display: flex;
+  flex-wrap: wrap;
+  gap: clamp(32px, 6vw, 96px);
+  padding-top: var(--section-y);
+  padding-bottom: var(--section-y);
+}
+
+.welcome__lead-col {
+  flex: 1 1 440px;
+  min-width: 0;
+}
+
+.welcome__lead {
+  font-size: clamp(24px, 2.6vw, 36px);
+  line-height: 1.3;
+  font-weight: 500;
+  letter-spacing: -0.015em;
+  color: var(--c-teal-dark);
+  text-wrap: pretty;
+}
+
+.welcome__body {
+  flex: 1 1 420px;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  font-size: 17px;
+  line-height: 1.7;
+  color: var(--c-text);
+}
+
+.welcome__body p {
+  text-wrap: pretty;
+}
+
+.welcome__question {
+  margin-top: 12px !important;
+  padding-top: 24px;
+  border-top: 1px solid var(--c-line);
+  font-size: clamp(22px, 2vw, 28px);
+  line-height: 1.35;
+  font-weight: 300;
+  color: var(--c-teal);
+}
+
+/* --------------------------------------------------------------------------
+   S04 · Offerings (two cards)
+   -------------------------------------------------------------------------- */
+.offers__inner {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  padding-bottom: var(--section-y);
+}
+
+.offer-card {
+  flex: 1 1 440px;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  background: var(--c-bg-soft);
+  border-radius: 28px;
+  overflow: hidden;
+}
+
+.offer-card__image {
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  background: var(--c-img-bg);
+}
+
+.offer-card__body {
+  flex: 1 1 0%;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  padding: clamp(28px, 3.4vw, 48px);
+}
+
+.offer-card__title {
+  font-size: clamp(28px, 2.8vw, 40px);
+  line-height: 1.12;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  color: var(--c-teal-dark);
+  text-wrap: balance;
+}
+
+.offer-card__text {
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--c-text);
+  text-wrap: pretty;
+}
+
+.offer-card__cta {
+  display: flex;
+  margin-top: auto;
+  padding-top: 10px;
+}
+
+/* Dark variant */
+.offer-card--dark {
+  background: var(--c-teal-dark);
+}
+
+.offer-card--dark .offer-card__image {
+  background: #0b4b52;
+}
+
+.offer-card--dark .offer-card__title {
+  color: var(--c-white);
+}
+
+.offer-card--dark .offer-card__text {
+  color: var(--c-on-dark-2);
+}
+
+/* --------------------------------------------------------------------------
+   S05 · Trust (4 reasons + CTA band)
+   -------------------------------------------------------------------------- */
+.trust__inner {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(40px, 5vw, 64px);
+  padding-top: var(--section-y);
+  padding-bottom: var(--section-y);
+}
+
+.trust__head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px 64px;
+}
+
+.trust__head-title {
+  flex: 1 1 520px;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.trust__intro {
+  flex: 0 1 380px;
+  font-size: 17px;
+  line-height: 1.6;
+  color: var(--c-on-dark-1);
+}
+
+.trust__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 40px 32px;
+}
+
+.reason {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding-top: 24px;
+  border-top: 1px solid rgba(255, 255, 255, 0.22);
+}
+
+.reason__num {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--c-teal-light);
+}
+
+.reason__title {
+  font-size: 21px;
+  line-height: 1.3;
+  font-weight: 600;
+}
+
+.reason__text {
+  font-size: 15px;
+  line-height: 1.65;
+  color: var(--c-on-dark-1);
+  text-wrap: pretty;
+}
+
+/* CTA band (gradient) */
+.cta-band {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px 32px;
+  padding: clamp(28px, 3.4vw, 44px);
+  border-radius: 24px;
+  background: linear-gradient(45deg, var(--c-teal), var(--c-teal-light));
+}
+
+.cta-band__text {
+  flex: 1 1 380px;
+  font-size: clamp(22px, 2.2vw, 30px);
+  line-height: 1.25;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--c-teal-dark);
+  text-wrap: balance;
+}
+
+/* --------------------------------------------------------------------------
+   S07 · About
+   -------------------------------------------------------------------------- */
+.about__inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: clamp(40px, 6vw, 96px);
+  padding-top: var(--section-y);
+  padding-bottom: var(--section-y);
+}
+
+.about__media {
+  flex: 1 1 360px;
+  min-width: 0;
+  max-width: 520px;
+}
+
+/* Arch-top image */
+.about__image {
+  aspect-ratio: 4 / 5;
+  border-radius: 999px 999px 0 0;
+  overflow: hidden;
+  background: var(--c-img-bg);
+}
+
+.about__content {
+  flex: 1 1 480px;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.about__intro {
+  font-size: 17px;
+  line-height: 1.6;
+  color: var(--c-text);
+}
+
+/* Icon list with diamond bullets (Elementor: Icon List) */
+.check-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.check-list li {
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+  font-size: 16px;
+  line-height: 1.55;
+  color: var(--c-ink);
+}
+
+.check-list .diamond {
+  transform: rotate(45deg) translateY(-2px);
+}
+
+.quote {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin: 14px 0 0;
+  padding: 28px 0 0;
+  border-top: 1px solid #dce5e5;
+}
+
+.quote__text {
+  font-size: clamp(20px, 1.9vw, 26px);
+  line-height: 1.45;
+  font-weight: 300;
+  color: var(--c-teal-dark);
+  text-wrap: pretty;
+}
+
+.quote__author {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--c-muted);
+}
+
+/* --------------------------------------------------------------------------
+   S08 · Perspective (3 steps on a "U" line)
+   -------------------------------------------------------------------------- */
+.perspective__inner {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(40px, 5vw, 72px);
+  padding-top: var(--section-y);
+  padding-bottom: var(--section-y);
+}
+
+.perspective__head {
+  max-width: 820px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.perspective__intro {
+  font-size: 18px;
+  line-height: 1.6;
+  color: var(--c-text);
+  text-wrap: pretty;
+}
+
+.steps {
+  position: relative;
+}
+
+/* The "U" curve connecting the 3 steps — desktop only */
+.steps__curve {
+  display: none;
+  position: absolute;
+  left: 16.66%;
+  right: 16.66%;
+  top: 22px;
+  height: 150px;
+  border: 2px solid var(--c-teal-light);
+  border-top: none;
+  border-radius: 0 0 50% 50% / 0 0 100% 100%;
+}
+
+.steps__grid {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 32px;
+}
+
+.step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  text-align: center;
+}
+
+.step__icon {
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.step__diamond {
+  width: 26px;
+  height: 26px;
+  border: 2px solid var(--c-teal);
+  transform: rotate(45deg);
+}
+
+.step__diamond--empty { background: var(--c-white); }
+.step__diamond--half  { background: var(--c-teal-light); }
+.step__diamond--full  { background: var(--c-teal); }
+
+.step__body {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-width: 320px;
+  padding: 0 8px;
+  background: var(--c-white); /* masks the curve behind the text */
+}
+
+.step__num {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: var(--c-teal);
+}
+
+.step__title {
+  font-size: 26px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--c-teal-dark);
+}
+
+.step__text {
+  font-size: 15px;
+  line-height: 1.65;
+  color: var(--c-text);
+  text-wrap: pretty;
+}
+
+.perspective__foot {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 24px 64px;
+  padding-top: 40px;
+  border-top: 1px solid var(--c-line);
+}
+
+.perspective__foot p {
+  flex: 1 1 520px;
+  min-width: 0;
+  font-size: 17px;
+  line-height: 1.7;
+  color: var(--c-text);
+  text-wrap: pretty;
+}
+
+.perspective__foot .btn {
+  flex: 0 0 auto;
+}
+
+/* ==========================================================================
+   RESPONSIVE (home)
+   ========================================================================== */
+
+/* Desktop ≥ 1000px: show the U-curve and drop the middle step */
+@media (min-width: 1000px) {
+  .steps__curve {
+    display: block;
+  }
+
+  .step--offset {
+    padding-top: 150px;
+  }
+}

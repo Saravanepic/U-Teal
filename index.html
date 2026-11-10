@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<!--
+================================================================================
+  U-TEAL · Home page · HTML mockup (Draft 1, shared with client)
+================================================================================
+
+  Purpose
+  - Static HTML mockup used for client review, hosted on GitHub Pages.
+  - It is the build reference for the WordPress + Elementor site.
+
+  How this file is organised
+  1. <head>    Meta, Google Font (Manrope), stylesheets
+  2. CSS       assets/css/global.css (shared, all pages)
+               assets/css/home.css   (Home-only sections)
+  3. <body>    S01 Header … S10 Footer (labels match the Elementor build notes)
+  4. JS        assets/js/main.js (mobile menu, ?notes=1 overlay, footer year)
+
+  Elementor notes overlay
+  - Open the page with ?notes=1 (e.g. index.html?notes=1) to show a yellow
+    label on every section describing the Elementor widgets to use.
+
+  Assets
+  - Images live in assets/images/ (relative paths → work on GitHub Pages).
+  - All links are "#" placeholders until the real pages exist.
+================================================================================
+-->
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>
+      U-teal · Coaching &amp; Organisational Development for Higher Education
+    </title>
+    <meta
+      name="description"
+      content="Systemic coaching and organisational development for higher education leaders across Europe and Latin America."
+    />
+
+    <!-- Font: Manrope 300–800 (Elementor: Site Settings › Global Fonts) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap"
+    />
+
+    <!-- Styles: global (all pages) + page-specific -->
+    <link rel="stylesheet" href="assets/css/global.css" />
+    <link rel="stylesheet" href="assets/css/home.css" />
+  </head>
+
+  <body>
+    <!-- ======================================================================
+         S01 · HEADER
+         Elementor: Theme Builder › Header (sticky)
+         Widgets: Site Logo · Nav Menu · WPML/Polylang switcher · Button
+         ====================================================================== -->
+    <header class="site-header" id="top">
+      <div class="dev-note">
+        S01 · Theme Builder › Header (sticky) — Site Logo · Nav Menu ·
+        WPML/Polylang switcher · Button
+      </div>
+
+      <div class="container site-header__inner">
+        <!-- Logo
+             Mockup: drawn with CSS. Elementor: Site Logo widget using the
+             official U-teal SVG from the Brand Book (min. size 12px high). -->
+        <a class="logo" href="#" aria-label="U-teal home">
+          <span class="logo__mark" aria-hidden="true">
+            <span class="diamond"></span>
+            <span class="logo__cup"></span>
+          </span>
+          <span class="logo__word">u-teal</span>
+        </a>
+
+        <!-- Mobile menu button (shown below 1000px) -->
+        <button
+          class="menu-toggle"
+          type="button"
+          aria-label="Open menu"
+          aria-expanded="false"
+          aria-controls="site-nav"
+        >
+          <span></span>
+          <span></span>
+        </button>
+
+        <!-- Main navigation -->
+        <nav class="site-nav" id="site-nav" aria-label="Main">
+          <div class="site-nav__links">
+            <a href="#">Coaching for Women</a>
+            <a href="#">Organisational Development</a>
+            <a href="#">About</a>
+            <a href="#">Methods</a>
+          </div>
+
+          <!-- Language switcher -->
+          <span class="lang-switch">
+            <span>EN</span>
+            <span class="lang-switch__sep">/</span>
+            <span class="lang-switch__alt">DE</span>
+          </span>
+
+          <a class="btn btn--primary" href="#contact">Let’s talk</a>
+        </nav>
+      </div>
+    </header>
+    <!-- /S01 · HEADER -->
+
+    <main>
+      <!-- ====================================================================
+           S02 · HERO
+           Elementor: Container (row, 2 cols)
+           Widgets: Text · Heading H1 · 2× Icon Box (linked) · Image (custom radius)
+           ==================================================================== -->
+      <section class="section section--soft hero">
+        <div class="dev-note">
+          S02 · Hero — Container (row, 2 cols) › Text · Heading H1 · 2× Icon Box
+          (linked) · Image (custom radius)
+        </div>
+
+        <div class="container hero__inner">
+          <!-- Left column: text + audience cards -->
+          <div class="hero__content">
+            <p class="eyebrow">
+              Coaching &amp; organisational development for higher education
+            </p>
+
+            <h1 class="hero__title">
+              How do you want to shape the future-making university?
+            </h1>
+
+            <div class="hero__cards">
+              <!-- Card 1: Women leaders -->
+              <a class="path-card" href="#">
+                <span class="path-card__label">For women leaders</span>
+                <span class="path-card__text">
+                  Leadership coaching for women in higher education.
+                </span>
+                <span class="path-card__link">Coaching for Women →</span>
+              </a>
+
+              <!-- Card 2: Universities -->
+              <a class="path-card path-card--dark" href="#">
+                <span class="path-card__label">For universities</span>
+                <span class="path-card__text">
+                  Strategic and organisational development for universities in
+                  transformation.
+                </span>
+                <span class="path-card__link"
+                  >Organisational Development →</span
+                >
+              </a>
+            </div>
+          </div>
+
+          <!-- Right column: diamond + arch image
+               Elementor: diamond = Icon widget (custom SVG diamond) or a 28px
+               Container rotated 45° (Advanced › Transform). Image radius
+               0 0 999px 999px set in Image › Style › Border Radius. -->
+          <div class="hero__media">
+            <span class="diamond" aria-hidden="true"></span>
+            <div class="hero__image">
+              <img src="assets/images/hero.png" alt="" />
+            </div>
+          </div>
+        </div>
+
+        <!-- Steps strip -->
+        <div class="hero__steps">
+          <div class="container hero__steps-inner">
+            <span class="hero__step"
+              ><span class="diamond"></span>See clearly</span
+            >
+            <span class="hero__arrow" aria-hidden="true">→</span>
+            <span class="hero__step"><span class="diamond"></span>Align</span>
+            <span class="hero__arrow" aria-hidden="true">→</span>
+            <span class="hero__step"
+              ><span class="diamond"></span>Become effective</span
+            >
+          </div>
+        </div>
+      </section>
+      <!-- /S02 · HERO -->
+
+      <!-- ====================================================================
+           S03 · WELCOME
+           Elementor: Container (row)
+           Widgets: Heading (Lead style) · Text Editor · Heading (Light)
+           ==================================================================== -->
+      <section class="section section--white welcome">
+        <div class="dev-note">
+          S03 · Welcome — Container (row) › Heading (Lead style) · Text Editor ·
+          Heading (Light)
+        </div>
+
+        <div class="container welcome__inner">
+          <!-- Left: lead statement -->
+          <div class="welcome__lead-col">
+            <p class="welcome__lead">
+              Welcome to U-teal. I accompany women in higher education
+              leadership and the universities they shape — with systemic
+              consulting, coaching and sparring for tangible change.
+            </p>
+          </div>
+
+          <!-- Right: body copy + question -->
+          <div class="welcome__body">
+            <p>
+              The pressure on universities to change is growing. Polycrises,
+              generative AI, skills shortages and demographic shifts demand more
+              than adaptation. They demand that universities actively shape
+              their own future.
+            </p>
+            <p>
+              I know the world of higher education from the inside. Together
+              with you, I create spaces where a new quality of decision-making
+              and action emerges.
+            </p>
+            <p class="welcome__question">
+              What space do you want to open, for yourself and for your
+              university?
+            </p>
+          </div>
+        </div>
+      </section>
+      <!-- /S03 · WELCOME -->
+
+      <!-- ====================================================================
+           S04 · OFFERINGS
+           Elementor: Container (row, 2 cards)
+           Per card: Image · Text · Heading H2 · Text Editor · Button
+           Tip: save one card as a Global Widget / Template and reuse it
+           ==================================================================== -->
+      <section class="section section--white offers">
+        <div class="dev-note">
+          S04 · Offerings — Container (row, 2 cards) › per card: Image · Text ·
+          Heading H2 · Text Editor · Button. Save as Global Widget/Template
+        </div>
+
+        <div class="container offers__inner">
+          <!-- Card 1: Coaching for women (light) -->
+          <article class="offer-card">
+            <div class="offer-card__image">
+              <img src="assets/images/offering-coaching-women.jpg" alt="" />
+            </div>
+            <div class="offer-card__body">
+              <p class="eyebrow">For you</p>
+              <h2 class="offer-card__title">
+                Not more pressure to act. More capacity to act.
+              </h2>
+              <p class="offer-card__text">
+                Taking on a new role, going through change, or preparing for
+                your next step? I accompany you through the first hundred days
+                in office, through change and doubt — with space for
+                vulnerability and self-care. Less isolation in the role, more
+                energy for what truly matters.
+              </p>
+              <p class="offer-card__text">
+                Coaching, sparring or peer-group exchange, in a confidential
+                space.
+              </p>
+              <div class="offer-card__cta">
+                <a class="btn btn--primary" href="#"
+                  >Discover coaching for women</a
+                >
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 2: Organisational development (dark) -->
+          <article class="offer-card offer-card--dark">
+            <div class="offer-card__image">
+              <img
+                src="assets/images/offering-organisational-development.jpg"
+                alt=""
+              />
+            </div>
+            <div class="offer-card__body">
+              <p class="eyebrow eyebrow--light">
+                For universities in transformation
+              </p>
+              <h2 class="offer-card__title">
+                Finding new ways, together with your institution.
+              </h2>
+              <p class="offer-card__text">
+                Facing challenges that keep growing more complex, with open
+                questions that have no answer yet? I accompany leadership teams,
+                transformation initiatives and European university alliances
+                with systemic organisational development and strategy
+                consulting.
+              </p>
+              <p class="offer-card__text">
+                U-teal works at the gap between strategy and everyday practice —
+                until people act differently in meetings, decisions and daily
+                life.
+              </p>
+              <div class="offer-card__cta">
+                <a class="btn btn--accent" href="#"
+                  >Discover organisational development</a
+                >
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+      <!-- /S04 · OFFERINGS -->
+
+      <!-- ====================================================================
+           S05 · TRUST
+           Elementor: Container (dark bg)
+           Widgets: Heading · Text · Grid container 4 cols › Icon Box ×4
+                    (number as title prefix) · inner CTA row: Heading + Button
+           ==================================================================== -->
+      <section class="section section--dark trust">
+        <div class="dev-note">
+          S05 · Trust — Container (dark bg) › Heading · Text · Grid container 4
+          cols › Icon Box ×4 (number as title prefix) · inner CTA row: Heading +
+          Button
+        </div>
+
+        <div class="container trust__inner">
+          <!-- Heading row -->
+          <div class="trust__head">
+            <div class="trust__head-title">
+              <p class="eyebrow eyebrow--light">Trust</p>
+              <h2 class="h2">Why higher education leaders work with U-teal</h2>
+            </div>
+            <p class="trust__intro">
+              Four reasons why Rectors, Vice-Presidents, Chancellors and Deans
+              bring U-teal to their side.
+            </p>
+          </div>
+
+          <!-- 4 reasons -->
+          <div class="trust__grid">
+            <div class="reason">
+              <span class="reason__num">01</span>
+              <h3 class="reason__title">
+                Deep knowledge of the higher education world
+              </h3>
+              <p class="reason__text">
+                I know universities not from theory but from twenty years of
+                first-hand practice, including building a European university
+                alliance.
+              </p>
+            </div>
+
+            <div class="reason">
+              <span class="reason__num">02</span>
+              <h3 class="reason__title">Holistic methods that work</h3>
+              <p class="reason__text">
+                I think about change systemically. Theory U’s methods work, and
+                I apply them flexibly and precisely to your situation.
+              </p>
+            </div>
+
+            <div class="reason">
+              <span class="reason__num">03</span>
+              <h3 class="reason__title">Space for the unspoken</h3>
+              <p class="reason__text">
+                Conflicts, resistance and doubt aren’t brushed aside. They get a
+                confidential, professionally held space.
+              </p>
+            </div>
+
+            <div class="reason">
+              <span class="reason__num">04</span>
+              <h3 class="reason__title">Reliably by your side</h3>
+              <p class="reason__text">
+                Through turbulence or long stretches of change, I remain by your
+                side — even when progress isn’t immediately visible.
+              </p>
+            </div>
+          </div>
+
+          <!-- CTA band -->
+          <div class="cta-band">
+            <p class="cta-band__text">
+              Curious what that could look like for your university?
+            </p>
+            <a class="btn btn--dark" href="#contact">Book an intro call</a>
+          </div>
+        </div>
+      </section>
+      <!-- /S05 · TRUST -->
+
+      <!-- ====================================================================
+           S06 · LOGOS
+           Elementor: Container
+           Widgets: Heading · Image ×5 (or Image Carousel on mobile)
+           ==================================================================== -->
+      <section class="section logos">
+        <div class="dev-note">
+          S06 · Logos — Container › Heading · Image ×5 (or Image Carousel on
+          mobile)
+        </div>
+
+        <div class="container logos__inner">
+          <p class="eyebrow logos__title">
+            Experience from and for the world of higher education
+          </p>
+
+          <div class="logos__row">
+            <img
+              class="logo-h-32"
+              src="assets/images/logos/university-alliance.png"
+              alt="University Alliance"
+            />
+            <img
+              class="logo-h-22"
+              src="assets/images/logos/hrk.png"
+              alt="HRK Hochschulrektorenkonferenz"
+            />
+            <img
+              class="logo-h-48"
+              src="assets/images/logos/ewora.png"
+              alt="EWORA – European Women Rectors Association"
+            />
+            <img
+              class="logo-h-32"
+              src="assets/images/logos/coachingnetz-wissenschaft.png"
+              alt="Coachingnetz Wissenschaft"
+            />
+            <img
+              class="logo-h-48"
+              src="assets/images/logos/iau.png"
+              alt="IAU – International Association of Universities"
+            />
+          </div>
+        </div>
+      </section>
+      <!-- /S06 · LOGOS -->
+
+      <!-- ====================================================================
+           S07 · ABOUT
+           Elementor: Container (row)
+           Widgets: Image (arch radius) · Text · Heading · Icon List ·
+                    Blockquote (Pro) · Button
+           ==================================================================== -->
+      <section class="section section--soft about">
+        <div class="dev-note">
+          S07 · About — Container (row) › Image (arch radius) · Text · Heading ·
+          Icon List · Blockquote (Pro) · Button
+        </div>
+
+        <div class="container about__inner">
+          <!-- Left: portrait -->
+          <div class="about__media">
+            <div class="about__image">
+              <img
+                src="assets/images/about-nadja-gmelch.jpg"
+                alt="Nadja Gmelch"
+              />
+            </div>
+          </div>
+
+          <!-- Right: bio -->
+          <div class="about__content">
+            <p class="eyebrow">About</p>
+            <h2 class="h2">Nadja Gmelch</h2>
+            <p class="about__intro">
+              After twenty years in higher education and consulting, I combine:
+            </p>
+
+            <ul class="check-list">
+              <li>
+                <span class="diamond" aria-hidden="true"></span>
+                <span
+                  >Systemic higher education consulting with leadership
+                  development and personal coaching</span
+                >
+              </li>
+              <li>
+                <span class="diamond" aria-hidden="true"></span>
+                <span
+                  >Organisational development with personal development</span
+                >
+              </li>
+              <li>
+                <span class="diamond" aria-hidden="true"></span>
+                <span
+                  >Deep higher education expertise with systems thinking and
+                  Theory U</span
+                >
+              </li>
+            </ul>
+
+            <blockquote class="quote">
+              <p class="quote__text">
+                “The answers already lie within the universities themselves, in
+                their people and in their knowledge. All it takes is spaces to
+                recognise them, turn them into intention, and let them become
+                effective.”
+              </p>
+              <p class="quote__author">Nadja Gmelch, founder of U-teal</p>
+            </blockquote>
+
+            <div>
+              <a class="btn btn--outline" href="#">More about Nadja</a>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- /S07 · ABOUT -->
+
+      <!-- ====================================================================
+           S08 · PERSPECTIVE
+           Elementor: Container
+           Widgets: Heading · Text · 3-col container (middle offset via margin;
+                    U-line = SVG bg image) · Text Editor · Button
+           ==================================================================== -->
+      <section class="section section--white perspective">
+        <div class="dev-note">
+          S08 · Perspective — Container › Heading · Text · 3-col container
+          (middle offset via margin; U-line = SVG bg image) · Text Editor ·
+          Button
+        </div>
+
+        <div class="container perspective__inner">
+          <!-- Heading -->
+          <div class="perspective__head">
+            <p class="eyebrow">Perspective</p>
+            <h2 class="h2">What makes a university future-making?</h2>
+            <p class="perspective__intro">
+              Not predicting the future, but gaining orientation for decisions
+              under uncertainty — in three steps.
+            </p>
+          </div>
+
+          <!-- 3 steps on a U-curve (curve + offset only on desktop) -->
+          <div class="steps">
+            <div class="steps__curve" aria-hidden="true"></div>
+
+            <div class="steps__grid">
+              <!-- Step 01 -->
+              <div class="step">
+                <span class="step__icon" aria-hidden="true">
+                  <span class="step__diamond step__diamond--empty"></span>
+                </span>
+                <div class="step__body">
+                  <span class="step__num">01</span>
+                  <h3 class="step__title">See clearly</h3>
+                  <p class="step__text">
+                    Every change starts with genuine listening. Only those who
+                    pay attention to what is actually there can change it.
+                  </p>
+                </div>
+              </div>
+
+              <!-- Step 02 (pushed down on desktop to sit at the bottom of the U) -->
+              <div class="step step--offset">
+                <span class="step__icon" aria-hidden="true">
+                  <span class="step__diamond step__diamond--half"></span>
+                </span>
+                <div class="step__body">
+                  <span class="step__num">02</span>
+                  <h3 class="step__title">Align</h3>
+                  <p class="step__text">
+                    What future does the university want to create? Once that
+                    intention becomes tangible, people carry it forward
+                    together.
+                  </p>
+                </div>
+              </div>
+
+              <!-- Step 03 -->
+              <div class="step">
+                <span class="step__icon" aria-hidden="true">
+                  <span class="step__diamond step__diamond--full"></span>
+                </span>
+                <div class="step__body">
+                  <span class="step__num">03</span>
+                  <h3 class="step__title">Become effective</h3>
+                  <p class="step__text">
+                    Intention turns into action — visible in decisions, in
+                    structures, in the everyday life of the institution.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Closing text + button -->
+          <div class="perspective__foot">
+            <p>
+              Being future-making doesn’t come from occasionally thinking about
+              the future, but from making future questions part of
+              organisational routines — anchored in strategy, governance and
+              organisational development. I think about shaping the future
+              systemically, drawing on Theory U.
+            </p>
+            <a class="btn btn--outline" href="#">Explore the methods</a>
+          </div>
+        </div>
+      </section>
+      <!-- /S08 · PERSPECTIVE -->
+
+      <!-- ====================================================================
+           S09 · CONTACT + NEWSLETTER
+           Elementor: Container (gradient bg 45°)
+           Widgets: Heading · Button · Icon List · inner Container › Heading ·
+                    Form (Pro, 1 email field → Mailchimp/Brevo action)
+           ==================================================================== -->
+      <section class="section contact" id="contact">
+        <div class="dev-note">
+          S09 · Contact — Container (gradient bg 45°) › Heading · Button · Icon
+          List · inner Container › Heading · Form (Pro, 1 email field →
+          Mailchimp/Brevo action)
+        </div>
+
+        <div class="container contact__inner">
+          <!-- Left: contact CTA -->
+          <div class="contact__main">
+            <p class="eyebrow eyebrow--light">Contact</p>
+            <h2 class="contact__title">Feel like thinking out loud?</h2>
+            <div class="contact__actions">
+              <a class="btn btn--white" href="mailto:nadja@u-teal.com"
+                >Let’s talk</a
+              >
+              <a class="contact__email" href="mailto:nadja@u-teal.com"
+                >nadja@u-teal.com</a
+              >
+            </div>
+          </div>
+
+          <!-- Right: newsletter (mockup only — form is not connected) -->
+          <div class="newsletter">
+            <p class="eyebrow eyebrow--light">Newsletter</p>
+            <p class="newsletter__text">
+              Insights on future-making universities, transformation and
+              leadership.
+            </p>
+            <form class="newsletter__form" action="#" onsubmit="return false;">
+              <label class="sr-only" for="newsletter-email">Your email</label>
+              <input
+                class="newsletter__input"
+                id="newsletter-email"
+                type="email"
+                placeholder="Your email"
+                autocomplete="email"
+              />
+              <button class="btn btn--accent" type="submit">Subscribe</button>
+            </form>
+          </div>
+        </div>
+      </section>
+      <!-- /S09 · CONTACT + NEWSLETTER -->
+    </main>
+
+    <!-- ======================================================================
+         S10 · FOOTER
+         Elementor: Theme Builder › Footer
+         Widgets: Site Logo · Nav Menu ×2 · Icon List · Copyright (dynamic year)
+         ====================================================================== -->
+    <footer class="site-footer section">
+      <div class="dev-note">
+        S10 · Theme Builder › Footer — Site Logo · Nav Menu ×2 · Icon List ·
+        Copyright (dynamic year)
+      </div>
+
+      <div class="container site-footer__inner">
+        <div class="site-footer__top">
+          <!-- Brand (Elementor: Site Logo widget, white/reverse SVG version) -->
+          <div class="site-footer__brand">
+            <span class="logo">
+              <span class="logo__mark" aria-hidden="true">
+                <span class="diamond"></span>
+                <span class="logo__cup"></span>
+              </span>
+              <span class="logo__word">u-teal</span>
+            </span>
+            <p class="site-footer__tagline">
+              Systemic coaching and organisational development for higher
+              education leaders across Europe and Latin America.
+            </p>
+          </div>
+
+          <!-- Pages -->
+          <div class="footer-col">
+            <span class="footer-col__title">Pages</span>
+            <a href="#">Coaching for Women</a>
+            <a href="#">Organisational Development</a>
+            <a href="#">About</a>
+            <a href="#">Methods</a>
+          </div>
+
+          <!-- Connect -->
+          <div class="footer-col">
+            <span class="footer-col__title">Connect</span>
+            <a href="mailto:nadja@u-teal.com">nadja@u-teal.com</a>
+            <a href="#">LinkedIn — Nadja Gmelch</a>
+            <a href="#">LinkedIn — U-teal</a>
+          </div>
+        </div>
+
+        <!-- Bottom bar -->
+        <div class="site-footer__bottom">
+          <span>© <span class="js-year">2026</span> U-teal · Nadja Gmelch</span>
+          <div class="site-footer__legal">
+            <a href="#">Privacy Policy</a>
+            <a href="#">Imprint</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <!-- /S10 · FOOTER -->
+
+    <!-- Scripts: mobile menu, ?notes=1 overlay, footer year -->
+    <script src="assets/js/main.js" defer></script>
+  </body>
+</html>

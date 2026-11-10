@@ -1,0 +1,676 @@
+/* ==========================================================================
+   U-TEAL · GLOBAL STYLES
+   Loaded on EVERY page (Home, About, Methods, Contact, Case Studies,
+   Case Study Detail, Service template, Cookies, 404, Impressum).
+
+   Contents
+   1. Design tokens      → Elementor: Site Settings › Global Colors / Fonts
+   2. Base               → Elementor: Site Settings › Typography / Links
+   3. Layout helpers     → Elementor: Container (Boxed, 1320px)
+   4. Components         → Elementor: Global Widgets / Kit button styles
+   5. Global sections    → Header, Footer (Theme Builder) + shared sections
+                           used on several pages (Logos, Contact/Newsletter)
+   6. Responsive         → Elementor breakpoint: 1000px (custom)
+   7. Elementor notes overlay (internal, ?notes=1)
+
+   Rule: page-specific sections go in assets/css/<page>.css, not here.
+   Brand values follow the U-teal Brand Book v1 (2026).
+   ========================================================================== */
+
+/* ==========================================================================
+   1. DESIGN TOKENS
+   Elementor: Site Settings › Global Colors / Global Fonts
+   ========================================================================== */
+:root {
+  /* Brand colours */
+  --c-teal-dark: #02383e; /* Primary dark – headings, dark sections   */
+  --c-teal: #008080; /* Primary – buttons, links, eyebrows            */
+  --c-teal-light: #3db7bb; /* Accent – diamonds, highlights            */
+  --c-ink: #1e1e1e; /* Body text, footer background                   */
+
+  /* Neutrals */
+  --c-text: #3a4546; /* Paragraph text                                */
+  --c-muted: #6b7a7b; /* Secondary text                               */
+  --c-muted-2: #9aa9aa; /* Separators / arrows                        */
+  --c-bg-soft: #f8f8f8; /* Light grey section background              */
+  --c-line: #e3eaea; /* Borders / dividers                            */
+  --c-line-header: #e8eeee; /* Header + logo strip bottom border      */
+  --c-img-bg: #dde7e7; /* Image placeholder background                */
+  --c-white: #ffffff;
+
+  /* On-dark text */
+  --c-on-dark-1: #c4d7d8; /* Trust section text                       */
+  --c-on-dark-2: #d5e4e5; /* Dark offering card text                  */
+  --c-footer-text: #b5bebf;
+  --c-footer-muted: #8e9a9b;
+
+  /* Layout */
+  --container: 1320px;
+  --gutter: clamp(20px, 4vw, 40px); /* Left/right page padding      */
+  --section-y: clamp(64px, 9vw, 128px); /* Default section padding   */
+  --radius-pill: 999px;
+
+  /* Typography */
+  --font: "Manrope", sans-serif;
+}
+
+/* ==========================================================================
+   2. BASE
+   ========================================================================== */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+}
+
+body {
+  background: var(--c-white);
+  font-family: var(--font);
+  color: var(--c-ink);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+h1,
+h2,
+h3,
+p,
+blockquote {
+  margin: 0;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: var(--c-teal);
+  text-decoration: none;
+  transition: color 0.2s ease, background-color 0.2s ease,
+    border-color 0.2s ease;
+}
+
+a:hover {
+  color: var(--c-teal-dark);
+}
+
+/* ==========================================================================
+   3. LAYOUT HELPERS
+   Elementor: Container › Content Width "Boxed" 1320px, padding = gutter
+   ========================================================================== */
+.container {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding-left: var(--gutter);
+  padding-right: var(--gutter);
+}
+
+.section {
+  position: relative;
+}
+
+.section--soft {
+  background: var(--c-bg-soft);
+}
+
+.section--white {
+  background: var(--c-white);
+}
+
+.section--dark {
+  background: var(--c-teal-dark);
+  color: var(--c-white);
+}
+
+/* ==========================================================================
+   4. COMPONENTS (reusable — map to Elementor Global Widgets / Kit styles)
+   ========================================================================== */
+
+/* --- 4.1 Eyebrow (small uppercase label above headings) --- */
+.eyebrow {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--c-teal);
+}
+
+.eyebrow--light {
+  color: var(--c-teal-light);
+}
+
+/* --- 4.2 Section heading (H2) --- */
+.h2 {
+  font-size: clamp(32px, 3.8vw, 56px);
+  line-height: 1.08;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  color: var(--c-teal-dark);
+  text-wrap: balance;
+}
+
+.section--dark .h2 {
+  color: var(--c-white);
+}
+
+/* --- 4.3 Diamond (brand shape used as bullet / accent) --- */
+.diamond {
+  display: inline-block;
+  flex: 0 0 auto;
+  width: 8px;
+  height: 8px;
+  background: var(--c-teal-light);
+  transform: rotate(45deg);
+}
+
+/* --- 4.4 Logo (diamond + "u" cup + wordmark) --- */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--c-teal-dark);
+}
+
+.logo:hover {
+  color: var(--c-teal-dark);
+}
+
+.logo__mark {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+}
+
+.logo__cup {
+  width: 22px;
+  height: 18px;
+  border: 4px solid var(--c-teal);
+  border-top: none;
+  border-radius: 0 0 11px 11px;
+}
+
+.logo__word {
+  font-weight: 800;
+  font-size: 22px;
+  letter-spacing: -0.03em;
+}
+
+/* --- 4.5 Buttons (Elementor: Button widget, border-radius 999px) --- */
+.btn {
+  display: inline-block;
+  padding: 14px 26px;
+  border-radius: var(--radius-pill);
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1.2;
+  white-space: nowrap;
+}
+
+/* Teal → dark teal on hover */
+.btn--primary {
+  background: var(--c-teal);
+  color: var(--c-white);
+}
+.btn--primary:hover {
+  background: var(--c-teal-dark);
+  color: var(--c-white);
+}
+
+/* Light teal → white on hover (used on dark backgrounds) */
+.btn--accent {
+  background: var(--c-teal-light);
+  color: var(--c-teal-dark);
+}
+.btn--accent:hover {
+  background: var(--c-white);
+  color: var(--c-teal-dark);
+}
+
+/* Dark teal → ink on hover (used on light-teal gradient) */
+.btn--dark {
+  background: var(--c-teal-dark);
+  color: var(--c-white);
+  padding: 15px 28px;
+}
+.btn--dark:hover {
+  background: var(--c-ink);
+  color: var(--c-white);
+}
+
+/* White → light teal on hover (used on contact gradient) */
+.btn--white {
+  background: var(--c-white);
+  color: var(--c-teal-dark);
+  padding: 15px 30px;
+  font-weight: 700;
+}
+.btn--white:hover {
+  background: var(--c-teal-light);
+  color: var(--c-teal-dark);
+}
+
+/* Outline → filled dark teal on hover */
+.btn--outline {
+  border: 1.5px solid var(--c-teal-dark);
+  color: var(--c-teal-dark);
+  padding: 13px 26px;
+}
+.btn--outline:hover {
+  background: var(--c-teal-dark);
+  color: var(--c-white);
+}
+
+/* --- 4.6 Screen-reader only text (visually hidden) --- */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ==========================================================================
+   5. GLOBAL SECTIONS (Theme Builder header/footer + shared sections)
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   S01 · Header
+   -------------------------------------------------------------------------- */
+.site-header {
+  position: relative;
+  background: var(--c-white);
+  border-bottom: 1px solid var(--c-line-header);
+}
+
+.site-header__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding-top: 18px;
+  padding-bottom: 18px;
+}
+
+.site-nav {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  gap: clamp(16px, 2.4vw, 34px);
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.site-nav__links {
+  display: flex;
+  gap: clamp(16px, 2.4vw, 34px);
+}
+
+.site-nav__links a {
+  color: var(--c-ink);
+}
+
+.site-nav__links a:hover {
+  color: var(--c-teal);
+}
+
+/* Language switcher (Elementor: WPML / Polylang widget) */
+.lang-switch {
+  display: flex;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--c-teal-dark);
+}
+
+.lang-switch__sep {
+  color: var(--c-muted-2);
+}
+
+.lang-switch__alt {
+  color: var(--c-muted);
+}
+
+.site-header .btn {
+  padding: 11px 22px;
+  font-size: 14px;
+}
+
+/* Mobile menu button (hamburger) – hidden on desktop */
+.menu-toggle {
+  display: none;
+  width: 44px;
+  height: 44px;
+  border: 0;
+  border-radius: var(--radius-pill);
+  background: var(--c-bg-soft);
+  cursor: pointer;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+}
+
+.menu-toggle span {
+  width: 18px;
+  height: 2px;
+  background: var(--c-teal-dark);
+}
+
+/* --------------------------------------------------------------------------
+   S10 · Footer
+   -------------------------------------------------------------------------- */
+.site-footer {
+  background: var(--c-ink);
+  color: var(--c-white);
+}
+
+.site-footer__inner {
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+  padding-top: clamp(48px, 6vw, 80px);
+  padding-bottom: 28px;
+}
+
+.site-footer__top {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 40px 64px;
+}
+
+.site-footer__brand {
+  flex: 1 1 260px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.site-footer .logo,
+.site-footer .logo:hover {
+  color: var(--c-white);
+}
+
+.site-footer .logo__cup {
+  border-color: var(--c-teal-light);
+}
+
+.site-footer__tagline {
+  max-width: 300px;
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--c-footer-text);
+}
+
+.footer-col {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  font-size: 15px;
+}
+
+.footer-col__title {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--c-footer-muted);
+}
+
+.footer-col a {
+  color: var(--c-white);
+}
+
+.footer-col a:hover {
+  color: var(--c-teal-light);
+}
+
+.site-footer__bottom {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 12px 24px;
+  padding-top: 24px;
+  border-top: 1px solid #333333;
+  font-size: 13px;
+  color: var(--c-footer-muted);
+}
+
+.site-footer__legal {
+  display: flex;
+  gap: 24px;
+}
+
+.site-footer__legal a {
+  color: var(--c-footer-muted);
+}
+
+.site-footer__legal a:hover {
+  color: var(--c-white);
+}
+
+/* --------------------------------------------------------------------------
+   S06 · Logos
+   -------------------------------------------------------------------------- */
+.logos {
+  background: var(--c-white);
+  border-bottom: 1px solid var(--c-line-header);
+}
+
+.logos__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 36px;
+  padding-top: clamp(48px, 6vw, 80px);
+  padding-bottom: clamp(48px, 6vw, 80px);
+}
+
+.logos__title {
+  color: var(--c-muted);
+  text-align: center;
+}
+
+.logos__row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 32px clamp(32px, 5vw, 72px);
+}
+
+.logos__row img {
+  width: auto;
+  filter: grayscale(1);
+  opacity: 0.75;
+}
+
+/* Logo heights (optically balanced per logo) */
+.logo-h-22 { height: 22px; }
+.logo-h-32 { height: 32px; }
+.logo-h-48 { height: 48px; }
+
+/* --------------------------------------------------------------------------
+   S09 · Contact + Newsletter
+   -------------------------------------------------------------------------- */
+.contact {
+  background: linear-gradient(45deg, var(--c-teal-dark) 0%, var(--c-teal) 100%);
+  color: var(--c-white);
+}
+
+.contact__inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: 48px clamp(40px, 6vw, 96px);
+  padding-top: var(--section-y);
+  padding-bottom: var(--section-y);
+}
+
+.contact__main {
+  flex: 1 1 520px;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.contact__title {
+  font-size: clamp(40px, 5.4vw, 76px);
+  line-height: 1.02;
+  font-weight: 800;
+  letter-spacing: -0.035em;
+  text-wrap: balance;
+}
+
+.contact__actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 16px 28px;
+}
+
+.contact__email {
+  padding-bottom: 2px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--c-white);
+}
+
+.contact__email:hover {
+  color: var(--c-teal-light);
+}
+
+/* Newsletter card (Elementor Pro: Form, 1 email field) */
+.newsletter {
+  flex: 1 1 380px;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  padding: clamp(24px, 3vw, 36px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 24px;
+  background: rgba(2, 56, 62, 0.55);
+}
+
+.newsletter__text {
+  font-size: 19px;
+  line-height: 1.45;
+  font-weight: 600;
+  text-wrap: pretty;
+}
+
+.newsletter__form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.newsletter__input {
+  flex: 1 1 200px;
+  min-width: 0;
+  padding: 14px 20px;
+  border: 0;
+  border-radius: var(--radius-pill);
+  background: var(--c-white);
+  font: inherit;
+  font-size: 15px;
+  color: var(--c-ink);
+}
+
+.newsletter__input::placeholder {
+  color: var(--c-muted);
+}
+
+.newsletter__form .btn {
+  flex: 0 0 auto;
+  padding: 14px 24px;
+  border: 0;
+  font: inherit;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+/* ==========================================================================
+   6. RESPONSIVE (global)
+   Desktop layout from 1000px up (Elementor: custom breakpoint 1000px)
+   ========================================================================== */
+
+/* Mobile / tablet < 1000px: hamburger menu */
+@media (max-width: 999px) {
+  .menu-toggle {
+    display: flex;
+  }
+
+  .site-nav {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    z-index: 20;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+    padding: 24px var(--gutter) 28px;
+    background: var(--c-white);
+    border-bottom: 1px solid var(--c-line-header);
+    box-shadow: 0 12px 24px rgba(2, 56, 62, 0.08);
+  }
+
+  .site-header.is-open .site-nav {
+    display: flex;
+  }
+
+  .site-nav__links {
+    flex-direction: column;
+    gap: 16px;
+  }
+}
+
+/* ==========================================================================
+   7. ELEMENTOR NOTES OVERLAY (internal only — visible with ?notes=1)
+   ========================================================================== */
+.dev-note {
+  display: none;
+}
+
+.show-notes .dev-note {
+  display: block;
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  z-index: 5;
+  max-width: 360px;
+  padding: 5px 8px;
+  border-radius: 4px;
+  background: #ffe14d;
+  color: var(--c-ink);
+  font: 600 11px/1.3 ui-monospace, Menlo, monospace;
+}
+
+.show-notes .site-header .dev-note {
+  top: 100%;
+  left: auto;
+  right: 12px;
+  margin-top: 6px;
+}
+
+.show-notes .offers .dev-note {
+  top: -28px;
+}
