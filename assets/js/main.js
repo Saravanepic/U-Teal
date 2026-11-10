@@ -8,6 +8,7 @@
    6. Developer notes toggle (+ ?notes=1), remembered per browser
    7. SEO box: copy buttons + character counts (+ 7b heading structure)
    8. Dynamic copyright year
+   9. Demo forms: show the success message after submit (data-demo-form)
    ======================================================================== */
 (function () {
   var header = document.querySelector(".site-header");
@@ -170,5 +171,18 @@
   // 8. Dynamic copyright year
   document.querySelectorAll(".js-year").forEach(function (el) {
     el.textContent = new Date().getFullYear();
+  });
+
+  // 9. Demo forms (mockup only): after the browser's required-field check,
+  //    hide the form and show its success message (Elementor does this itself)
+  document.querySelectorAll("form[data-demo-form]").forEach(function (form) {
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+      var ok = document.getElementById(form.getAttribute("data-demo-form"));
+      if (!ok) return;
+      form.hidden = true;
+      ok.hidden = false;
+      ok.focus();
+    });
   });
 })();

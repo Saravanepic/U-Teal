@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<!--
+================================================================================
+  U-TEAL · Contact (EN) · HTML mockup — Draft 1
+================================================================================
+  Content: client Google Doc "Contact" (texts, link, heading levels).
+  Heading levels: the doc has one heading only (H1 "Contact"); every other
+  line is styled text (<p>), not a heading.
+  Shared: header + footer are identical to index.html (Theme Builder in WP).
+  CSS: assets/css/global.css + assets/css/contact.css
+  Developer notes: floating switch (bottom-right) or ?notes=1
+================================================================================
+-->
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- SEO (Yoast: SEO title / Meta description / Social) -->
+    <title>Contact Nadja Gmelch | U-teal</title>
+    <meta
+      name="description"
+      content="Book a free introductory call about strategy, internationalisation, organisational development or leadership at your university."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Let’s talk | U-teal" />
+    <meta
+      property="og:description"
+      content="Tell me what you’re working on at your university right now."
+    />
+    <meta property="og:image" content="assets/images/hero.png" />
+
+    <link rel="icon" type="image/png" href="assets/images/brand/mark-primary-bg-white-square.png" />
+    <link rel="apple-touch-icon" href="assets/images/brand/mark-primary-bg-white-square.png" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap"
+    />
+
+    <link rel="stylesheet" href="assets/css/global.css" />
+    <link rel="stylesheet" href="assets/css/contact.css" />
+  </head>
+
+  <body>
+    <!-- ======================================================================
+         S01 · HEADER
+         Elementor: Theme Builder › Header (sticky)
+         Widgets: Site Logo (SVG) · Nav Menu (Home · Services ▾ · About ·
+                  Methods) · Polylang language switcher (dropdown) · Button
+         ====================================================================== -->
+    <header class="site-header" id="top">
+      <div class="dev-note">
+        S01 · Theme Builder › Header (sticky) — Site Logo · Nav Menu with
+        "Services" submenu · Polylang switcher (EN/DE/ES) · Button "Let's talk"
+      </div>
+
+      <div class="container site-header__inner">
+        <a class="site-logo" href="index.html" aria-label="U-teal home">
+          <img src="assets/images/brand/logo-uteal.svg" alt="U-teal" width="117" height="31" />
+        </a>
+
+        <!-- Mobile menu button (designer icon: bar · diamond · bar) -->
+        <button
+          class="menu-toggle"
+          type="button"
+          aria-label="Open menu"
+          aria-expanded="false"
+          aria-controls="site-nav"
+        >
+          <span class="menu-toggle__bar menu-toggle__bar--top"></span>
+          <span class="menu-toggle__diamond"></span>
+          <span class="menu-toggle__bar menu-toggle__bar--bottom"></span>
+        </button>
+
+        <nav class="site-nav" id="site-nav" aria-label="Main">
+          <ul class="nav-list">
+            <li><a class="nav-link" href="index.html">Home</a></li>
+
+            <!-- Services dropdown (final wording tbc by client) -->
+            <li>
+              <button class="nav-link" type="button" aria-expanded="false" aria-controls="submenu-services" data-dropdown>
+                Services <span class="nav-link__chev" aria-hidden="true"></span>
+              </button>
+              <ul class="submenu" id="submenu-services">
+                <li><a href="#" data-todo="/internationalisation">Internationalisation and university alliances</a></li>
+                <li><a href="#" data-todo="/strategy-consulting">Strategy consulting</a></li>
+                <li><a href="#" data-todo="/organisational-development">Organisational development</a></li>
+                <li><a href="#" data-todo="/leadership-development">Leadership development and coaching</a></li>
+                <li class="submenu__divider" aria-hidden="true"></li>
+                <li><a href="#" data-todo="/women-in-higher-education-leadership">Coaching for women in higher education leadership</a></li>
+              </ul>
+            </li>
+
+            <li><a class="nav-link" href="about-me.html">About</a></li>
+            <li><a class="nav-link" href="index.html#how-i-work">Methods</a></li>
+
+            <!-- Language switcher (Polylang) -->
+            <li class="lang">
+              <button class="nav-link lang__btn" type="button" aria-expanded="false" aria-controls="submenu-lang" aria-label="Language: English" data-dropdown>
+                <svg viewBox="-1 -1 22 22" fill="none" aria-hidden="true">
+                  <path d="M20 10c0 5.523-4.477 10-10 10m10-10c0-5.523-4.477-10-10-10m10 10H0m10 10C4.477 20 0 15.523 0 10m10 10a14.6 14.6 0 0 1-4-10c0-3.723 1.432-7.304 4-10m0 20a14.6 14.6 0 0 0 4-10c0-3.723-1.432-7.304-4-10M0 10C0 4.477 4.477 0 10 0" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                EN <span class="nav-link__chev" aria-hidden="true"></span>
+              </button>
+              <ul class="submenu lang__menu" id="submenu-lang">
+                <li><a href="contact.html" aria-current="true">English</a></li>
+                <li><a href="#" data-todo="/de/">Deutsch</a></li>
+                <li><a href="#" data-todo="/es/">Español</a></li>
+              </ul>
+            </li>
+          </ul>
+
+          <a class="btn btn--primary" href="contact.html" aria-current="page">Let’s talk</a>
+
+          <!-- Elementor build notes for the mobile menu (visible with developer notes on, menu open) -->
+          <div class="dev-note dev-note--inline">
+            <strong>MOBILE MENU · Elementor Pro › Nav Menu widget</strong>
+            <ul>
+              <li>Layout: Horizontal · Breakpoint: Tablet (Site Settings › Layout › Breakpoints: Tablet = 999px).</li>
+              <li>Mobile dropdown: Full width ON · Align: start · Toggle icon: custom SVG (bar · diamond · bar), colour #02383E, size 22px.</li>
+              <li>Dropdown items: Manrope 16px/700 #02383E · padding 15px 0 · divider 1px #E3E8E8 · active: text #008080 + 3px left border.</li>
+              <li>Submenu ("Services"): indicator chevron on the right · bg #F7F7F7 · items 15px/600 · padding 12px 16px.</li>
+              <li>Languages: Polylang adds EN / DE / ES as a "Language switcher" menu item (show names, hide flags).</li>
+              <li>"Let's talk": last menu item with CSS class <code>menu-cta</code> styled as a button (or hide the header button on mobile: the floating Let's talk is always visible).</li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+    </header>
+    <!-- /S01 · HEADER -->
+
+    <!-- ======================================================================
+         SEO BOX (developer only — copy-paste into Yoast for this page)
+         ====================================================================== -->
+    <aside class="seo-box dev-only" aria-label="SEO values for this page">
+      <div class="seo-box__inner">
+        <p class="seo-box__title">
+          <span>SEO · Contact (EN) → Yoast SEO</span>
+          <span>Slug: /contact</span>
+        </p>
+        <dl>
+          <dt>Title tag</dt>
+          <dd data-count>Contact Nadja Gmelch | U-teal</dd>
+          <dd><button class="copy-btn" type="button">Copy</button></dd>
+
+          <dt>Meta description</dt>
+          <dd data-count>Book a free introductory call about strategy, internationalisation, organisational development or leadership at your university.</dd>
+          <dd><button class="copy-btn" type="button">Copy</button></dd>
+
+          <dt>OG title</dt>
+          <dd data-count>Let’s talk | U-teal</dd>
+          <dd><button class="copy-btn" type="button">Copy</button></dd>
+
+          <dt>OG description</dt>
+          <dd data-count>Tell me what you’re working on at your university right now.</dd>
+          <dd><button class="copy-btn" type="button">Copy</button></dd>
+
+          <dt>Slug</dt>
+          <dd>/contact</dd>
+          <dd></dd>
+
+          <dt>H1</dt>
+          <dd>Contact</dd>
+          <dd><button class="copy-btn" type="button">Copy</button></dd>
+        </dl>
+
+        <div class="seo-box__outline">
+          <p class="seo-box__subtitle">
+            Heading structure (from the client doc: only one heading, the H1; every other line is styled text, so use p/div in the Elementor Heading widgets)
+          </p>
+          <ol class="heading-outline" data-heading-outline></ol>
+          <p class="seo-box__hint">
+            Booking button: tool and link still to be confirmed by the client (Q24). Phone number: taken from the footer, to be confirmed (Q25).
+            The floating "Let’s talk" is not shown on this page (Popup display condition: exclude /contact).
+          </p>
+        </div>
+      </div>
+    </aside>
+
+    <main>
+      <!-- ====================================================================
+           S02 · CONTACT (intro + form)
+           Elementor: Container (row, 2 cols)
+             Left (sticky on desktop via Motion Effects): Heading H1 (eyebrow
+               style) · Heading p (display) · Text Editor (lead) · Button
+               (booking link) · Text Editor (reassurance)
+             Right: Container (#F7F7F7) › Pro Form widget · below it:
+               Text Editor (email + phone links)
+           ==================================================================== -->
+      <section class="contact" id="contact-form">
+        <div class="dev-note">
+          S02 · Contact — Container (row) › H1 (eyebrow style) · p display ·
+          lead · Button "Choose a time" · Text | Form card (Pro Form) · direct
+          email + phone
+        </div>
+
+        <div class="container contact__grid">
+          <div class="contact__intro">
+            <h1 class="eyebrow">Contact</h1>
+            <p class="display">A first conversation</p>
+            <p class="lead">
+              In a first conversation, we look together at where you are and
+              what you need. Choose a time directly or write to me.
+            </p>
+
+            <!-- Booking tool not chosen yet (Q24): link goes to the booking page
+                 (e.g. Calendly / Microsoft Bookings), opens in a new tab. -->
+            <div class="contact__book">
+              <a class="btn btn--primary btn--arrow" href="#" data-todo="booking link (Q24)">Choose a time</a>
+              <div class="dev-note dev-note--inline">
+                <strong>BOOKING · Button widget</strong>
+                <ul>
+                  <li>Label not in the client doc: "Choose a time" is our proposal (Q24).</li>
+                  <li>Link: the client's booking page (Calendly / Microsoft Bookings / Google appointment schedule), new tab. If she prefers an embedded calendar, replace the button with an HTML widget below the form (loads third-party cookies → behind consent).</li>
+                  <li>If there is no booking tool, remove the button and change the intro to "…or write to me." (client to confirm).</li>
+                </ul>
+              </div>
+            </div>
+
+            <p class="body contact__note">
+              I read your message myself and reply to you personally, usually
+              within one or two working days. Whatever you write to me stays
+              confidential. I work with universities across Europe and come to
+              you whenever your project needs it.
+            </p>
+          </div>
+
+          <div class="contact__side">
+            <div class="contact-card">
+              <form class="contact-form" action="#" data-demo-form="contact-success">
+                <div class="field">
+                  <label for="cf-name">Your name<span class="req" aria-hidden="true">*</span></label>
+                  <input id="cf-name" name="name" type="text" placeholder="First and last name" autocomplete="name" required />
+                </div>
+
+                <div class="field">
+                  <label for="cf-email">Email<span class="req" aria-hidden="true">*</span></label>
+                  <input id="cf-email" name="email" type="email" placeholder="name@uni.edu" autocomplete="email" required />
+                </div>
+
+                <div class="field">
+                  <label for="cf-org">University or organisation <span class="field__opt">(optional)</span></label>
+                  <input id="cf-org" name="organisation" type="text" placeholder="Optional" autocomplete="organization" />
+                </div>
+
+                <div class="field">
+                  <label for="cf-topic">What’s it about?<span class="req" aria-hidden="true">*</span></label>
+                  <textarea id="cf-topic" name="message" rows="5" placeholder="A few keywords are enough. Strategy development, internationalisation, leadership, individual coaching…" required></textarea>
+                </div>
+
+                <p class="contact-form__req">*Required field</p>
+
+                <p class="contact-form__privacy">
+                  I only use your details to reply to your enquiry. More in the
+                  <a href="#" data-todo="/privacy-policy">privacy policy</a>.
+                </p>
+
+                <button class="btn btn--primary btn--arrow" type="submit">Send</button>
+              </form>
+
+              <!-- Success message (Elementor: Form › Additional Options ›
+                   Custom Messages › Success). Shown after "Send" in the
+                   mockup; always visible with developer notes on. -->
+              <div class="contact-success" id="contact-success" role="status" tabindex="-1" hidden>
+                <span class="contact-success__mark" aria-hidden="true"></span>
+                <p class="lead">
+                  Thank you for your message. I’ll get back to you personally,
+                  usually within one or two working days. If it’s urgent, you
+                  can reach me at <a href="mailto:nadja@u-teal.com">nadja@u-teal.com</a>
+                  or by phone on <a href="tel:+34697585199">+34 697 585 199</a>.
+                </p>
+              </div>
+
+              <div class="dev-note dev-note--inline">
+                <strong>FORM · Elementor Pro › Form widget</strong>
+                <ul>
+                  <li>Fields: Name (text, required) · Email (email, required) · University or organisation (text, optional) · What’s it about? (textarea, 5 rows, required). All 100% width. Labels ON, required mark ON. Placeholders as in the doc.</li>
+                  <li>No consent checkbox (client doc): privacy line as an HTML field above the button, linked to the Privacy Policy of the current language.</li>
+                  <li>Actions after submit: Email to nadja@u-teal.com (Reply-To = [field id="email"]) · optional "Email 2" confirmation to the sender. Collect Submissions ON.</li>
+                  <li>Spam: Honeypot field ON; Cloudflare Turnstile only if spam becomes a problem (no reCAPTCHA).</li>
+                  <li>Success message: custom text below (Additional Options › Custom Messages). Error/required messages translated per language.</li>
+                  <li>Style: labels 14px/700 #02383E · fields bg #FFF, border 1px #D5DCDC, radius 8px, padding 12px 14px, 16px · focus border #008080 · button = primary "Let’s talk" style, auto width.</li>
+                  <li>Polylang: one form per language page (EN / DE / ES), all texts and placeholders translated.</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="contact-direct">
+              <p class="body">
+                Prefer to write directly?
+                <a href="mailto:nadja@u-teal.com">nadja@u-teal.com</a>
+              </p>
+              <p class="body">
+                Or call, if you’d rather:
+                <a href="tel:+34697585199">+34 697 585 199</a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- /S02 · CONTACT -->
+    </main>
+
+    <!-- ======================================================================
+         S11 · FOOTER
+         Elementor: Theme Builder › Footer
+         Col 1: Site Logo (white SVG) · Text · Button
+         Col 2: Nav Menu (services)
+         Col 3: Text · Form (Pro: first name + email → Mailchimp/Brevo,
+                double opt-in) · privacy note
+         Bottom bar: copyright · legal links · contact · LinkedIn · EN|DE|ES
+         ====================================================================== -->
+    <footer class="site-footer">
+      <div class="dev-note">
+        S11 · Theme Builder › Footer — 3 cols (logo + text + button · services
+        menu · newsletter form) + bottom bar (Polylang switcher)
+      </div>
+
+      <div class="container">
+        <div class="site-footer__cols">
+          <!-- Column 1 -->
+          <div class="site-footer__col">
+            <a class="site-footer__logo" href="index.html" aria-label="U-teal home">
+              <img src="assets/images/brand/logo-uteal-white.svg" alt="U-teal" width="96" height="26" />
+            </a>
+            <p>
+              U-teal · Nadja Gmelch’s systemic higher education consultancy for
+              internationalisation, strategy, organisational development and
+              leadership in Europe and beyond. · On site and online.
+            </p>
+            <a class="btn btn--accent" href="contact.html">Let’s talk</a>
+          </div>
+
+          <!-- Column 2 -->
+          <div class="site-footer__col">
+            <p class="site-footer__title">Services</p>
+            <ul class="site-footer__links">
+              <li><a href="#" data-todo="/strategy-consulting">Strategy consulting</a></li>
+              <li><a href="#" data-todo="/internationalisation">Internationalisation and university alliances</a></li>
+              <li><a href="#" data-todo="/organisational-development">Organisational development</a></li>
+              <li><a href="#" data-todo="/leadership-development">Leadership development and coaching</a></li>
+              <li><a href="#" data-todo="/women-in-higher-education-leadership">Coaching for women in higher education leadership</a></li>
+            </ul>
+          </div>
+
+          <!-- Column 3: newsletter -->
+          <div class="site-footer__col site-footer__col--newsletter">
+            <p class="site-footer__title">Newsletter</p>
+            <p>
+              Want to stay informed about what I’m working on? Roughly every two
+              months, I write about current projects, new formats and upcoming
+              dates, and share what I’m learning about change in universities.
+            </p>
+            <form class="footer-form" action="#" onsubmit="return false;">
+              <label class="sr-only" for="nl-name">First name</label>
+              <input id="nl-name" type="text" placeholder="First name" autocomplete="given-name" />
+              <label class="sr-only" for="nl-email">Email</label>
+              <input id="nl-email" type="email" placeholder="Email" autocomplete="email" />
+              <button class="btn btn--accent" type="submit">Subscribe</button>
+            </form>
+            <p class="footer-form__note">
+              Unsubscribe at any time.
+              <a href="#" data-todo="/privacy-policy">Privacy information</a>
+            </p>
+
+            <div class="dev-note dev-note--inline">
+              <strong>FORM · Elementor Pro › Form widget</strong>
+              <ul>
+                <li>Fields: First name (text, 50%) + Email (required, 50%) + Submit (100%, auto width). Mobile: all 100%.</li>
+                <li>Action: Mailchimp (native) with double opt-in ON (GDPR/DE). Brevo: Brevo plugin or webhook.</li>
+                <li>Spam: honeypot ON; Cloudflare Turnstile if needed (no reCAPTCHA).</li>
+                <li>Field: transparent bg · border 1px rgba(255,255,255,.35) · radius 8px · padding 11px 14px · Manrope 14px · text #FFF · placeholder #9FB8B6.</li>
+                <li>Button: bg #3DB7BB · text #02383E · 14px/700 · padding 12px 20px · radius 8px · hover bg #FFF.</li>
+                <li>Polylang: translate the success message + privacy link in DE/ES.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bottom bar -->
+        <div class="site-footer__bottom">
+          <ul class="site-footer__meta">
+            <li>© <span class="js-year">2026</span> Nadja Gmelch · U-teal</li>
+            <li><a href="#" data-todo="/legal-notice">Legal notice</a></li>
+            <li><a href="#" data-todo="/privacy-policy">Privacy policy</a></li>
+            <li><a href="#" data-todo="cookie-settings">Cookie settings</a></li>
+            <li><a href="mailto:nadja@u-teal.com">nadja@u-teal.com</a></li>
+            <li><a href="tel:+34697585199">+34 697 585 199</a></li>
+            <li><a href="https://www.linkedin.com/in/nadja-gmelch/" target="_blank" rel="noopener">LinkedIn (Nadja Gmelch)</a></li>
+            <li><a href="https://www.linkedin.com/company/u-teal/" target="_blank" rel="noopener">LinkedIn (U-teal)</a></li>
+          </ul>
+          <!-- Polylang: each link points to the same page in the other language -->
+          <nav class="site-footer__lang" aria-label="Language">
+            <a href="contact.html" aria-current="true">EN</a> |
+            <a href="#" data-todo="/de/">DE</a> |
+            <a href="#" data-todo="/es/">ES</a>
+          </nav>
+        </div>
+      </div>
+    </footer>
+    <!-- /S11 · FOOTER -->
+
+    <!-- FLOATING "LET'S TALK": not shown on the Contact page itself
+         (Elementor Popup › Display Conditions: exclude the Contact page). -->
+
+    <!-- Scripts: menus, developer notes, SEO copy buttons, footer year -->
+    <script src="assets/js/main.js" defer></script>
+  </body>
+</html>
