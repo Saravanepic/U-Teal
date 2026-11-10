@@ -1,0 +1,281 @@
+/* ==========================================================================
+   U-TEAL · METHODS PAGE STYLES
+   Loaded only on methods.html, after global.css.
+   Sections: S02 Hero · S02b Overview (jump links) · S03 Consulting methods ·
+             S04 Coaching methods · S05 FAQ
+   ========================================================================== */
+
+/* Anchors: leave room for the sticky header when jumping to a method */
+html {
+  scroll-behavior: smooth;
+}
+
+.method,
+.methods-group {
+  scroll-margin-top: 110px;
+}
+
+/* --------------------------------------------------------------------------
+   S02 · Hero: eyebrow · H1 · last updated | image
+   -------------------------------------------------------------------------- */
+.methods-hero {
+  padding-top: clamp(40px, 6vw, 88px);
+  padding-bottom: clamp(40px, 5vw, 72px);
+}
+
+.methods-hero__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+  gap: clamp(32px, 5vw, 72px);
+  align-items: center;
+}
+
+.methods-hero__content {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* H1 is a long question: display style, slightly smaller than 60px */
+.methods-hero__title {
+  font-size: clamp(34px, 3.8vw, 52px);
+  line-height: 1.2;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--c-teal-dark);
+  text-wrap: balance;
+}
+
+.methods-hero__updated {
+  font-size: 14px;
+  line-height: 1.5;
+  font-weight: 600;
+  color: var(--c-muted);
+}
+
+/* --------------------------------------------------------------------------
+   S02b · Overview: two lists of jump links
+   -------------------------------------------------------------------------- */
+.methods-toc {
+  padding-top: 0;
+  padding-bottom: clamp(48px, 6vw, 80px);
+}
+
+.methods-toc__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
+  gap: 32px clamp(32px, 5vw, 72px);
+}
+
+.methods-toc__label {
+  margin-bottom: 14px;
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  color: var(--c-teal);
+}
+
+.methods-toc__list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.methods-toc__list a {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 8px;
+  padding: 8px 14px;
+  font-size: 14px;
+  line-height: 1.3;
+  font-weight: 600;
+  color: var(--c-teal-dark);
+  border: 1px solid var(--c-line);
+  border-radius: var(--radius);
+  transition: border-color 0.2s ease, background 0.2s ease;
+}
+
+.methods-toc__list a span {
+  font-size: 12px;
+  font-weight: 800;
+  color: var(--c-teal);
+}
+
+.methods-toc__list a:hover {
+  border-color: var(--c-teal);
+  background: var(--c-bg-soft);
+}
+
+/* --------------------------------------------------------------------------
+   S03 / S04 · Method groups
+   -------------------------------------------------------------------------- */
+.methods-group__head {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+  gap: clamp(32px, 5vw, 72px);
+  align-items: center;
+  margin-bottom: clamp(40px, 5vw, 64px);
+}
+
+.methods-list {
+  border-top: 1px solid var(--c-line);
+}
+
+/* One method: number + H3 | text (designer numbered-row style) */
+.method {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  gap: 16px clamp(32px, 5vw, 72px);
+  padding: clamp(28px, 3.5vw, 44px) 0;
+  border-bottom: 1px solid var(--c-line);
+}
+
+.method__head {
+  display: flex;
+  align-items: flex-start;
+  gap: 24px;
+}
+
+.method__num {
+  flex: 0 0 auto;
+  min-width: 46px;
+  font-size: 34px;
+  line-height: 1.1;
+  font-weight: 800;
+  color: var(--c-teal);
+}
+
+.method__title {
+  font-size: clamp(18px, 1.5vw, 21px);
+  line-height: 1.4;
+  font-weight: 700;
+  color: var(--c-teal-dark);
+  text-wrap: pretty;
+}
+
+.method__body {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.method__body a,
+.faq-item__a a {
+  color: var(--c-teal);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1px;
+}
+
+.method__body a:hover,
+.faq-item__a a:hover {
+  color: var(--c-teal-dark);
+}
+
+/* --------------------------------------------------------------------------
+   S05 · FAQ (Elementor Accordion)
+   -------------------------------------------------------------------------- */
+.faq__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.6fr) minmax(0, 1.4fr);
+  gap: 32px clamp(32px, 5vw, 72px);
+  align-items: start;
+}
+
+.faq__head {
+  position: sticky;
+  top: 120px;
+}
+
+.faq-list {
+  border-top: 1px solid var(--c-line);
+}
+
+.faq-item {
+  border-bottom: 1px solid var(--c-line);
+}
+
+.faq-item summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 22px 0;
+  cursor: pointer;
+  list-style: none;
+}
+
+.faq-item summary::-webkit-details-marker {
+  display: none;
+}
+
+.faq-item__q {
+  font-size: clamp(17px, 1.4vw, 19px);
+  line-height: 1.4;
+  font-weight: 700;
+  color: var(--c-teal-dark);
+}
+
+/* Plus / minus icon */
+.faq-item__icon {
+  position: relative;
+  flex: 0 0 18px;
+  width: 18px;
+  height: 18px;
+}
+
+.faq-item__icon::before,
+.faq-item__icon::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 18px;
+  height: 2px;
+  background: var(--c-teal);
+  transform: translateY(-50%);
+  transition: transform 0.2s ease;
+}
+
+.faq-item__icon::after {
+  transform: translateY(-50%) rotate(90deg);
+}
+
+.faq-item[open] .faq-item__icon::after {
+  transform: translateY(-50%) rotate(0deg);
+}
+
+.faq-item__a {
+  padding-bottom: 24px;
+  max-width: 68ch;
+}
+
+/* --------------------------------------------------------------------------
+   Mobile / tablet (below 1000px): one column
+   -------------------------------------------------------------------------- */
+@media (max-width: 999px) {
+  .methods-hero__grid,
+  .methods-toc__grid,
+  .methods-group__head,
+  .method,
+  .faq__grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .faq__head {
+    position: static;
+  }
+
+  .method__head {
+    gap: 16px;
+  }
+
+  .method__num {
+    min-width: 0;
+    font-size: 28px;
+  }
+}

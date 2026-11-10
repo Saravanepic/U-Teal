@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<!--
+================================================================================
+  U-TEAL · Methods (EN) · HTML mockup — Draft 1
+================================================================================
+  Content: client Google Doc "Methods" (texts, links, anchors, heading levels).
+  Heading levels: written explicitly in the doc ("H1." / "H2." / "H3.");
+  FAQ questions are H3. Image placeholders mark where photos are proposed.
+  Shared: header + footer are identical to index.html (Theme Builder in WP).
+  CSS: assets/css/global.css + assets/css/methods.css
+  Developer notes: floating switch (bottom-right) or ?notes=1
+================================================================================
+-->
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- SEO (Yoast: SEO title / Meta description / Social) -->
+    <title>Methods: Theory U, design thinking, agility and more | U-teal</title>
+    <meta
+      name="description"
+      content="16 methods I use with universities, explained: Theory U, design thinking, Circle of Influence, agility, retrospectives and more | U-teal"
+    />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="Methods for change in universities | U-teal" />
+    <meta
+      property="og:description"
+      content="Theory U, Art of Hosting, consent decision-making, design thinking and twelve more methods for universities"
+    />
+    <meta property="og:image" content="assets/images/hero.png" />
+
+    <link rel="icon" type="image/png" href="assets/images/brand/mark-primary-bg-white-square.png" />
+    <link rel="apple-touch-icon" href="assets/images/brand/mark-primary-bg-white-square.png" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap"
+    />
+
+    <link rel="stylesheet" href="assets/css/global.css" />
+    <link rel="stylesheet" href="assets/css/methods.css" />
+  </head>
+
+  <body>
+    <!-- ======================================================================
+         S01 · HEADER
+         Elementor: Theme Builder › Header (sticky)
+         Widgets: Site Logo (SVG) · Nav Menu (Home · Services ▾ · About ·
+                  Methods) · Polylang language switcher (dropdown) · Button
+         ====================================================================== -->
+    <header class="site-header" id="top">
+      <div class="dev-note">
+        S01 · Theme Builder › Header (sticky) — Site Logo · Nav Menu with
+        "Services" submenu · Polylang switcher (EN/DE/ES) · Button "Let's talk"
+      </div>
+
+      <div class="container site-header__inner">
+        <a class="site-logo" href="index.html" aria-label="U-teal home">
+          <img src="assets/images/brand/logo-uteal.svg" alt="U-teal" width="117" height="31" />
+        </a>
+
+        <!-- Mobile menu button (designer icon: bar · diamond · bar) -->
+        <button
+          class="menu-toggle"
+          type="button"
+          aria-label="Open menu"
+          aria-expanded="false"
+          aria-controls="site-nav"
+        >
+          <span class="menu-toggle__bar menu-toggle__bar--top"></span>
+          <span class="menu-toggle__diamond"></span>
+          <span class="menu-toggle__bar menu-toggle__bar--bottom"></span>
+        </button>
+
+        <nav class="site-nav" id="site-nav" aria-label="Main">
+          <ul class="nav-list">
+            <li><a class="nav-link" href="index.html">Home</a></li>
+
+            <!-- Services dropdown (final wording tbc by client) -->
+            <li>
+              <button class="nav-link" type="button" aria-expanded="false" aria-controls="submenu-services" data-dropdown>
+                Services <span class="nav-link__chev" aria-hidden="true"></span>
+              </button>
+              <ul class="submenu" id="submenu-services">
+                <li><a href="#" data-todo="/internationalisation">Internationalisation and university alliances</a></li>
+                <li><a href="#" data-todo="/strategy-consulting">Strategy consulting</a></li>
+                <li><a href="#" data-todo="/organisational-development">Organisational development</a></li>
+                <li><a href="#" data-todo="/leadership-development">Leadership development and coaching</a></li>
+                <li class="submenu__divider" aria-hidden="true"></li>
+                <li><a href="#" data-todo="/women-in-higher-education-leadership">Coaching for women in higher education leadership</a></li>
+              </ul>
+            </li>
+
+            <li><a class="nav-link" href="about-me.html">About</a></li>
+            <li><a class="nav-link is-active" href="methods.html" aria-current="page">Methods</a></li>
+
+            <!-- Language switcher (Polylang) -->
+            <li class="lang">
+              <button class="nav-link lang__btn" type="button" aria-expanded="false" aria-controls="submenu-lang" aria-label="Language: English" data-dropdown>
+                <svg viewBox="-1 -1 22 22" fill="none" aria-hidden="true">
+                  <path d="M20 10c0 5.523-4.477 10-10 10m10-10c0-5.523-4.477-10-10-10m10 10H0m10 10C4.477 20 0 15.523 0 10m10 10a14.6 14.6 0 0 1-4-10c0-3.723 1.432-7.304 4-10m0 20a14.6 14.6 0 0 0 4-10c0-3.723-1.432-7.304-4-10M0 10C0 4.477 4.477 0 10 0" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                EN <span class="nav-link__chev" aria-hidden="true"></span>
+              </button>
+              <ul class="submenu lang__menu" id="submenu-lang">
+                <li><a href="methods.html" aria-current="true">English</a></li>
+                <li><a href="#" data-todo="/de/">Deutsch</a></li>
+                <li><a href="#" data-todo="/es/">Español</a></li>
+              </ul>
+            </li>
+          </ul>
+
+          <a class="btn btn--primary" href="contact.html">Let’s talk</a>
+
+          <!-- Elementor build notes for the mobile menu (visible with developer notes on, menu open) -->
+          <div class="dev-note dev-note--inline">
+            <strong>MOBILE MENU · Elementor Pro › Nav Menu widget</strong>
+            <ul>
+              <li>Layout: Horizontal · Breakpoint: Tablet (Site Settings › Layout › Breakpoints: Tablet = 999px).</li>
+              <li>Mobile dropdown: Full width ON · Align: start · Toggle icon: custom SVG (bar · diamond · bar), colour #02383E, size 22px.</li>
+              <li>Dropdown items: Manrope 16px/700 #02383E · padding 15px 0 · divider 1px #E3E8E8 · active: text #008080 + 3px left border.</li>
+              <li>Submenu ("Services"): indicator chevron on the right · bg #F7F7F7 · items 15px/600 · padding 12px 16px.</li>
+              <li>Languages: Polylang adds EN / DE / ES as a "Language switcher" menu item (show names, hide flags).</li>
+              <li>"Let's talk": last menu item with CSS class <code>menu-cta</code> styled as a button (or hide the header button on mobile: the floating Let's talk is always visible).</li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+    </header>
+    <!-- /S01 · HEADER -->
+
+    <!-- ======================================================================
+         SEO BOX (developer only — copy-paste into Yoast for this page)
+         ====================================================================== -->
+    <aside class="seo-box dev-only" aria-label="SEO values for this page">
+      <div class="seo-box__inner">
+        <p class="seo-box__title">
+          <span>SEO · Methods (EN) → Yoast SEO</span>
+          <span>Slug: /methods</span>
+        </p>
+        <dl>
+          <dt>Title tag</dt>
+          <dd data-count>Methods: Theory U, design thinking, agility and more | U-teal</dd>
+          <dd><button class="copy-btn" type="button">Copy</button></dd>
+
+          <dt>Meta description</dt>
+          <dd data-count>16 methods I use with universities, explained: Theory U, design thinking, Circle of Influence, agility, retrospectives and more | U-teal</dd>
+          <dd><button class="copy-btn" type="button">Copy</button></dd>
+
+          <dt>OG title</dt>
+          <dd data-count>Methods for change in universities | U-teal</dd>
+          <dd><button class="copy-btn" type="button">Copy</button></dd>
+
+          <dt>OG description</dt>
+          <dd data-count>Theory U, Art of Hosting, consent decision-making, design thinking and twelve more methods for universities</dd>
+          <dd><button class="copy-btn" type="button">Copy</button></dd>
+
+          <dt>Slug</dt>
+          <dd>/methods</dd>
+          <dd></dd>
+
+          <dt>H1</dt>
+          <dd>Which methods do I use in systemic consulting and coaching for universities?</dd>
+          <dd><button class="copy-btn" type="button">Copy</button></dd>
+        </dl>
+
+        <div class="seo-box__outline">
+          <p class="seo-box__subtitle">
+            Heading structure (from the client doc: doc H2 = page H1, doc H3 = page H2, doc H4 = page H3; set the same HTML tag in each Elementor Heading widget / Accordion title)
+          </p>
+          <ol class="heading-outline" data-heading-outline></ol>
+          <p class="seo-box__hint">
+            Anchors (#theory-u … #case-clinic) are from the doc: set them as CSS ID on each method container. Meta description is 140+ characters: Google may shorten it.
+            FAQ: client still deciding whether it stays (Q27). Image placeholders: Q26.
+          </p>
+        </div>
+      </div>
+    </aside>
+
+    <main>
+      <!-- ====================================================================
+           S02 · HERO
+           Elementor: Container (row, 2 cols) › Heading (eyebrow, p) ·
+                      Heading H1 · Text ("Last updated", small) | Image
+           ==================================================================== -->
+      <section class="methods-hero">
+        <div class="dev-note">
+          S02 · Hero — Container (row) › eyebrow (p) · H1 · "Last updated" ·
+          Image (placeholder)
+        </div>
+
+        <div class="container methods-hero__grid">
+          <div class="methods-hero__content">
+            <p class="eyebrow">Methods</p>
+            <h1 class="methods-hero__title">Which methods do I use in systemic consulting and coaching for universities?</h1>
+            <p class="methods-hero__updated">Last updated: <time datetime="2026-11">November 2026</time></p>
+          </div>
+
+          <figure class="img-ph " style="aspect-ratio: 4 / 3.4" role="img" aria-label="Image placeholder: Workshop at a university: a group working together at a wall of notes or around a table (brand style: calm, editorial, soft teal light).">
+                <span class="img-ph__mark" aria-hidden="true"></span>
+                <figcaption class="img-ph__label"><strong>Image placeholder</strong>Workshop at a university: a group working together at a wall of notes or around a table (brand style: calm, editorial, soft teal light).</figcaption>
+              </figure>
+        </div>
+      </section>
+      <!-- /S02 · HERO -->
+
+      <!-- ====================================================================
+           S02b · OVERVIEW (jump links to the 16 methods) — not in the client
+           doc: navigation only, built from the method names (Q28)
+           Elementor: Container (row, 2 cols) › per column: Text (label) ·
+                      Icon List (inline, links to #anchors)
+           ==================================================================== -->
+      <nav class="section methods-toc" aria-label="Methods on this page">
+        <div class="dev-note">
+          S02b · Overview — not in the doc (navigation added, Q28): 2 lists of
+          jump links to the method anchors (Icon List, inline)
+        </div>
+
+        <div class="container methods-toc__grid">
+          <div>
+            <p class="methods-toc__label">Systemic consulting</p>
+            <ul class="methods-toc__list">
+                <li><a href="#theory-u"><span>01</span>Theory U</a></li>
+                <li><a href="#agility"><span>02</span>Agility</a></li>
+                <li><a href="#design-thinking"><span>03</span>Design thinking</a></li>
+                <li><a href="#3d-mapping"><span>04</span>3D mapping</a></li>
+                <li><a href="#art-of-hosting"><span>05</span>Art of Hosting</a></li>
+                <li><a href="#circle-way"><span>06</span>The Circle Way</a></li>
+                <li><a href="#consent"><span>07</span>Consent decision-making</a></li>
+                <li><a href="#prototyping"><span>08</span>Prototyping and retrospectives</a></li>
+                <li><a href="#spiral-dynamics"><span>09</span>Spiral Dynamics</a></li>
+                <li><a href="#teal"><span>10</span>Teal organisation</a></li>
+            </ul>
+          </div>
+          <div>
+            <p class="methods-toc__label">Systemic coaching</p>
+            <ul class="methods-toc__list">
+                <li><a href="#circle-of-influence"><span>11</span>Circle of Influence</a></li>
+                <li><a href="#miracle-question"><span>12</span>Miracle question</a></li>
+                <li><a href="#inner-team"><span>13</span>Inner Team</a></li>
+                <li><a href="#four-rooms"><span>14</span>Four Rooms of Change</a></li>
+                <li><a href="#social-presencing-theater"><span>15</span>Social Presencing Theater</a></li>
+                <li><a href="#case-clinic"><span>16</span>Case Clinic</a></li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      <!-- /S02b · OVERVIEW -->
+
+      <!-- ====================================================================
+           S03 · METHODS OF SYSTEMIC CONSULTING (10 methods)
+           Elementor: Container › head (row: Heading H2 · Text | Image) ·
+                      per method: Container (row, CSS ID = anchor) › number
+                      (Heading p, 34px/800 teal) · Heading H3 | Text Editor
+           ==================================================================== -->
+      <section class="section section--soft methods-group" id="consulting">
+        <div class="dev-note">
+          S03 · Consulting methods — H2 · intro | Image · 10 rows (number · H3 |
+          text with links), CSS ID per row = doc anchor
+        </div>
+
+        <div class="container">
+          <div class="methods-group__head">
+            <div class="stack">
+              <h2 class="h2">Methods of systemic consulting and awareness-based systems change</h2>
+              <p class="body">In my work with universities, I use methods that combine analytical systems thinking with a view of the organisation as a whole. The following 10 methods are examples of those I use in my work.</p>
+            </div>
+            <figure class="img-ph " style="aspect-ratio: 3 / 2" role="img" aria-label="Image placeholder: Large-group work, e.g. an Art of Hosting / World Café session or a 3D mapping model on a table.">
+                <span class="img-ph__mark" aria-hidden="true"></span>
+                <figcaption class="img-ph__label"><strong>Image placeholder</strong>Large-group work, e.g. an Art of Hosting / World Café session or a 3D mapping model on a table.</figcaption>
+              </figure>
+          </div>
+
+          <div class="methods-list">
+            <article class="method" id="theory-u">
+              <div class="method__head">
+                <span class="method__num">01</span>
+                <h3 class="method__title">What is Otto Scharmer’s Theory U, and how does it help with deep change?</h3>
+              </div>
+              <div class="method__body">
+                <p class="body"><a href="https://ottoscharmer.com/bio/" target="_blank" rel="noopener">Otto Scharmer</a>, Senior Lecturer at MIT and co-founder of the <a href="https://www.presencing.org/theoryu" target="_blank" rel="noopener">Presencing Institute</a>, first published Theory U in 2007 in his book “Theory U: Leading from the Future as It Emerges”. The model describes how attention, intention and the capacity to act shift when a person or group lets go of old knowledge, really listens and develops something new from the future as it emerges. The U-shaped arc that gives the model its name leads down the left-hand side through letting go of old judgements. At the bottom comes presencing: a moment of stillness in which a new direction becomes clear. And the right-hand side leads back into action, into prototypes that connect head, heart and hand. In organisational development for universities, Theory U provides the framework in which methods such as Case Clinic and 3D and 4D mapping find their place.</p>
+              <figure class="img-ph img-ph--diagram" style="aspect-ratio: 16 / 9" role="img" aria-label="Image placeholder: Diagram of the U-curve in Theory U (letting go → presencing → prototyping). Designer to draw it in the brand style; all labels as live text.">
+                <span class="img-ph__mark" aria-hidden="true"></span>
+                <figcaption class="img-ph__label"><strong>Image placeholder</strong>Diagram of the U-curve in Theory U (letting go → presencing → prototyping). Designer to draw it in the brand style; all labels as live text.</figcaption>
+              </figure>
+              </div>
+            </article>
+
+            <article class="method" id="agility">
+              <div class="method__head">
+                <span class="method__num">02</span>
+                <h3 class="method__title">What does agility mean, and how can agile ways of working be used at universities?</h3>
+              </div>
+              <div class="method__body">
+                <p class="body">Agility describes an organisation’s ability to respond quickly and purposefully to change. It has its origins in the <a href="https://agilemanifesto.org/" target="_blank" rel="noopener">Agile Manifesto</a>, written in 2001 by 17 people from software development. Among other things, it values collaboration with those involved over rigid agreements, and responding to change over following a plan. Working methods such as <a href="https://en.wikipedia.org/wiki/Scrum_(software_development)" target="_blank" rel="noopener">Scrum</a> and <a href="https://en.wikipedia.org/wiki/Kanban_(development)" target="_blank" rel="noopener">Kanban</a> grew out of it. What they have in common: work is divided into short stages, made visible and reviewed together at regular intervals. Universities don’t have to become software teams for this. Agile principles help break projects into smaller steps, distribute responsibility clearly within teams and negotiate priorities openly, for example with a shared Kanban board for a strategy project or short work cycles in a working group. I use agile ways of working especially where universities want to get moving faster without giving up participation and careful decision-making.</p>
+              </div>
+            </article>
+
+            <article class="method" id="design-thinking">
+              <div class="method__head">
+                <span class="method__num">03</span>
+                <h3 class="method__title">What is design thinking, and how does it help develop services from the perspective of the people they are meant for?</h3>
+              </div>
+              <div class="method__body">
+                <p class="body"><a href="https://en.wikipedia.org/wiki/Design_thinking" target="_blank" rel="noopener">Design thinking</a> emerged in the 1990s around the design agency IDEO and was developed further from 2005 at the <a href="https://dschool.stanford.edu/" target="_blank" rel="noopener">d.school</a> at Stanford University and from 2007 at the <a href="https://hpi.de/en/" target="_blank" rel="noopener">Hasso Plattner Institute</a> in Potsdam. The approach puts the needs of the people a solution is meant for at the centre. In several steps, an interdisciplinary team moves from understanding and observing, through defining the real question, to ideas, prototypes and tests. A frequently used tool is the persona: a concrete profile of a typical user, based on conversations and data. In work with universities, design thinking helps to rethink study programmes, exchange formats or services from the perspective of students, teaching staff and other staff. With the leadership of <a href="#" data-todo="/case-studies#bifrost">Bifröst University</a>, for example, I developed personas for outgoing and incoming exchange students. I use design thinking especially in the “Notice” and “Align” steps, when a university wants to redesign a service and needs to understand what the people who use it really need.</p>
+              </div>
+            </article>
+
+            <article class="method" id="3d-mapping">
+              <div class="method__head">
+                <span class="method__num">04</span>
+                <h3 class="method__title">What is 3D mapping, and how does it help make system dynamics visible?</h3>
+              </div>
+              <div class="method__body">
+                <p class="body">3D mapping is a method from the toolbox of the <a href="https://www.presencing.org/" target="_blank" rel="noopener">Presencing Institute</a> in which participants use tangible materials, objects or symbols to build a model of the current situation and how they would like it to develop. Unlike the physical, theatre-based 4D mapping, <a href="https://www.u-school.org/3dmodelling" target="_blank" rel="noopener">3D mapping</a> works with objects rather than movement, which means it can also be used online. In organisational development for universities, it helps make hidden relationships and tensions within an organisation visible that are often hard to grasp through analysis alone. I use 3D mapping especially to make a system visible to everyone involved and open up new perspectives on it.</p>
+              </div>
+            </article>
+
+            <article class="method" id="art-of-hosting">
+              <div class="method__head">
+                <span class="method__num">05</span>
+                <h3 class="method__title">What is Art of Hosting, and how does participation work in large groups?</h3>
+              </div>
+              <div class="method__body">
+                <p class="body">Art of Hosting, in full “<a href="https://artofhosting.org/" target="_blank" rel="noopener">The Art of Hosting and Harvesting Conversations that Matter</a>”, is a practice for conversations that make a difference. It emerged in the late 1990s and has since been developed further by an international, self-organising community of process facilitators. Art of Hosting brings together several formats, including <a href="https://theworldcafe.com/" target="_blank" rel="noopener">World Café</a>, <a href="https://en.wikipedia.org/wiki/Open_space_technology" target="_blank" rel="noopener">Open Space</a> and <a href="https://en.wikipedia.org/wiki/Appreciative_inquiry" target="_blank" rel="noopener">Appreciative Inquiry</a>, and chooses among them to suit the purpose of a meeting. Harvesting is an integral part: results are captured in a way that keeps them working after the meeting. In <a href="#" data-todo="/organisational-development">organisational development for universities</a>, Art of Hosting makes it possible to include many perspectives without processes getting out of hand, for example in <a href="#" data-todo="/strategy-consulting">strategy processes</a> with teaching staff, students and administration, or at meetings of a university alliance. I use Art of Hosting especially when a university wants to encourage participation and needs formats in which even large groups can think together and reach results.</p>
+              </div>
+            </article>
+
+            <article class="method" id="circle-way">
+              <div class="method__head">
+                <span class="method__num">06</span>
+                <h3 class="method__title">What is Baldwin and Linnea’s The Circle Way, and how can it be used to structure group conversations?</h3>
+              </div>
+              <div class="method__body">
+                <p class="body"><a href="https://www.thecircleway.net/ann-christina" target="_blank" rel="noopener">Christina Baldwin and Ann Linnea</a> developed <a href="https://www.thecircleway.net/the-circle-way" target="_blank" rel="noopener">The Circle Way</a> over a period of around 25 years from circle practices in various cultures, and in 2010 they published the book of the same name, “The Circle Way: A Leader in Every Chair”. The method structures conversations through seating in a circle, a jointly held purpose and clear social agreements in which every voice carries equal weight. In leadership bodies and alliance structures, the seating arrangement alone changes how a conversation unfolds. I work with The Circle Way especially in organisational development for universities, in leadership teams or university alliances where, until now, mostly the loudest voices have been heard.</p>
+              </div>
+            </article>
+
+            <article class="method" id="consent">
+              <div class="method__head">
+                <span class="method__num">07</span>
+                <h3 class="method__title">What is consent decision-making, and how does it help committees make good decisions faster?</h3>
+              </div>
+              <div class="method__body">
+                <p class="body">The consent principle comes from <a href="https://en.wikipedia.org/wiki/Sociocracy" target="_blank" rel="noopener">sociocracy</a>, developed in the 1970s by the Dutch entrepreneur <a href="https://en.wikipedia.org/wiki/Gerard_Endenburg" target="_blank" rel="noopener">Gerard Endenburg</a> in his own company, building on ideas from the educator Kees Boeke. Under consent, a decision counts as made when nobody has a serious, reasoned objection. Unlike consensus, not everyone has to agree. The question is whether a proposal is good enough to try and safe enough to implement. Objections count as valuable information that improves the proposal. For universities, consent decision-making answers a central question: how decisions can be made faster without anyone being overruled. I use consent decision-making especially in leadership teams, working groups and alliance bodies when decisions get stuck in long coordination loops or are postponed again and again.</p>
+              </div>
+            </article>
+
+            <article class="method" id="prototyping">
+              <div class="method__head">
+                <span class="method__num">08</span>
+                <h3 class="method__title">What are prototyping and retrospectives, and how do they turn a strategy into practice?</h3>
+              </div>
+              <div class="method__body">
+                <p class="body">Prototyping forms the right-hand side of the arc in Theory U: instead of working out a plan in full before anything happens, first ideas are tested early in small, concrete experiments and developed further with feedback from those involved. Retrospectives come from agile practice. At fixed intervals, a team looks back together: what worked, what didn’t, and what do we change next? In <a href="#" data-todo="/organisational-development">organisational development for universities</a>, the two approaches combine into a rhythm of trying out, evaluating and adjusting. This makes it possible, for example, to test new teaching formats with AI or <a href="#" data-todo="/internationalisation">new forms of collaboration in an alliance</a> before they are introduced across the university. I use prototyping and retrospectives especially in the “Act with impact” step, so that <a href="#" data-todo="/strategy-consulting">strategies</a> don’t stop at the concept stage but last in day-to-day work at the university.</p>
+              </div>
+            </article>
+
+            <article class="method" id="spiral-dynamics">
+              <div class="method__head">
+                <span class="method__num">09</span>
+                <h3 class="method__title">What is Spiral Dynamics, and how does the model help in understanding organisational culture?</h3>
+              </div>
+              <div class="method__body">
+                <p class="body">The developmental psychologist <a href="https://www.clarewgraves.com/background.html" target="_blank" rel="noopener">Clare W. Graves</a> laid the theoretical foundation in the late 1960s and early 1970s. Don Beck and Christopher Cowan worked with him from 1975 and published their further development in 1996 under the title “<a href="https://spiraldynamics.org/resources/books/" target="_blank" rel="noopener">Spiral Dynamics: Mastering Values, Leadership, and Change</a>”. The model describes how the value systems of individuals, groups and organisations develop in response to their living conditions, not as a ranking but as a development that fits the respective context. In organisational development for universities, the model helps to understand why different faculties or administrative units react differently to the same push for change. I draw on Spiral Dynamics especially to make sense of recurring conflicts between different cultures within a university, for example between established faculties and newly emerging institutes.</p>
+              </div>
+            </article>
+
+            <article class="method" id="teal">
+              <div class="method__head">
+                <span class="method__num">10</span>
+                <h3 class="method__title">What is a teal organisation according to Frédéric Laloux, and what does it mean for universities?</h3>
+              </div>
+              <div class="method__body">
+                <p class="body"><a href="https://en.wikipedia.org/wiki/Reinventing_Organizations" target="_blank" rel="noopener">Frédéric Laloux</a> coined the term in 2014 in his book “Reinventing Organizations”. He describes organisations characterised by self-management and distributed responsibility instead of rigid hierarchy, by wholeness in how they treat their members, and by a deep, shared sense of their purpose in society. For universities, this doesn’t mean copying a particular organisational form wholesale, but a direction: more participation in decisions, faster adaptation to new demands, less friction from rigid responsibilities. I use the concept of the <a href="https://reinventingorganizationswiki.com/en/theory/teal-paradigm-and-organizations/" target="_blank" rel="noopener">teal organisation</a> especially in organisational development for universities, when a university is thinking about its future leadership and organisational structure.</p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+      <!-- /S03 · CONSULTING METHODS -->
+
+      <!-- ====================================================================
+           S04 · METHODS OF SYSTEMIC COACHING (6 methods) — same layout as S03
+           (save S03 as an Elementor template and reuse it)
+           ==================================================================== -->
+      <section class="section methods-group" id="coaching">
+        <div class="dev-note">
+          S04 · Coaching methods — same layout as S03 (H2 · intro | Image ·
+          6 rows)
+        </div>
+
+        <div class="container">
+          <div class="methods-group__head">
+            <div class="stack">
+              <h2 class="h2">Methods of systemic coaching</h2>
+              <p class="body">In one-to-one support, in coaching leadership teams and in leadership development, I work with tools from systemic coaching. They help clarify your own position in the system and sort out inner contradictions. And they help find the one that works among many possible solutions. The following six tools come from different traditions of systemic practice and can be used individually or in combination.</p>
+            </div>
+            <figure class="img-ph " style="aspect-ratio: 3 / 2" role="img" aria-label="Image placeholder: One-to-one coaching conversation (two people, calm room, natural light).">
+                <span class="img-ph__mark" aria-hidden="true"></span>
+                <figcaption class="img-ph__label"><strong>Image placeholder</strong>One-to-one coaching conversation (two people, calm room, natural light).</figcaption>
+              </figure>
+          </div>
+
+          <div class="methods-list">
+            <article class="method" id="circle-of-influence">
+              <div class="method__head">
+                <span class="method__num">11</span>
+                <h3 class="method__title">What is Stephen Covey’s Circle of Influence, and how does it help in leadership roles?</h3>
+              </div>
+              <div class="method__body">
+                <p class="body"><a href="https://en.wikipedia.org/wiki/Stephen_Covey" target="_blank" rel="noopener">Stephen Covey</a> developed the Circle of Influence and published it in 1989 in his book “<a href="https://resources.franklincovey.com/the-7-habits-of-highly-effective-people/circle-of-influence" target="_blank" rel="noopener">The 7 Habits of Highly Effective People</a>”. The model distinguishes two areas: what a person can actually influence (Circle of Influence), and what concerns them but isn’t directly in their hands (Circle of Concern). In coaching, the distinction helps put energy where impact is possible, especially in committees and governance structures where many decisions lie outside your own control. I use the Circle of Influence especially at the <a href="#" data-todo="/leadership-development">start of coaching</a>, when a situation first seems overwhelming. The first step is then to separate real power to act from mere worries.</p>
+              </div>
+            </article>
+
+            <article class="method" id="miracle-question">
+              <div class="method__head">
+                <span class="method__num">12</span>
+                <h3 class="method__title">What is Steve de Shazer’s miracle question, and how does it help in coaching?</h3>
+              </div>
+              <div class="method__body">
+                <p class="body"><a href="https://en.wikipedia.org/wiki/Steve_de_Shazer" target="_blank" rel="noopener">Steve de Shazer</a> and <a href="https://en.wikipedia.org/wiki/Insoo_Kim_Berg" target="_blank" rel="noopener">Insoo Kim Berg</a> developed the miracle question in the 1980s at the Brief Family Therapy Center in Milwaukee, as part of <a href="https://en.wikipedia.org/wiki/Solution-focused_brief_therapy" target="_blank" rel="noopener">solution-focused brief therapy</a>. It invites you to imagine a future in which the current problem has already been solved, and to derive concrete first steps from it. In <a href="#" data-todo="/leadership-development">coaching university leaders</a>, it shifts attention away from the problem and makes visible the resources that are often overlooked in day-to-day work. I use the miracle question especially when a conversation keeps circling around a problem and the goal is still blurred.</p>
+              </div>
+            </article>
+
+            <article class="method" id="inner-team">
+              <div class="method__head">
+                <span class="method__num">13</span>
+                <h3 class="method__title">What is Schulz von Thun’s Inner Team, and how does it help with decisions?</h3>
+              </div>
+              <div class="method__body">
+                <p class="body"><a href="https://en.wikipedia.org/wiki/Friedemann_Schulz_von_Thun" target="_blank" rel="noopener">Friedemann Schulz von Thun</a> introduced the model of the <a href="https://www.schulz-von-thun.de/die-modelle/das-innere-team" target="_blank" rel="noopener">Inner Team</a> in 1998 in “Miteinander reden: Das Innere Team und situationsgerechte Kommunikation”. It describes how every person carries several inner voices with different concerns, such as a cautious one and a brave one. In <a href="#" data-todo="/leadership-development">coaching university leaders</a>, the model makes these voices visible and helps organise them into a team that can act, instead of letting them work against each other. This is especially valuable for decisions with a lot at stake personally. I work with the Inner Team especially before important decisions, when several seemingly contradictory voices within one person are competing to be heard.</p>
+              </div>
+            </article>
+
+            <article class="method" id="four-rooms">
+              <div class="method__head">
+                <span class="method__num">14</span>
+                <h3 class="method__title">What is Claes Janssen’s Four Rooms of Change, and how does it help in change processes?</h3>
+              </div>
+              <div class="method__body">
+                <p class="body">The Swedish psychologist <a href="http://www.claesjanssen.com/four-rooms/about-the-four-rooms-of-change/index.shtml" target="_blank" rel="noopener">Claes Janssen</a> developed the model on the basis of his 1975 doctoral thesis “Personal Dialectics” at Stockholm University. It describes four psychological rooms that people move through in change processes: contentment, denial, confusion and renewal. In <a href="#" data-todo="/leadership-development">coaching leaders and leadership teams</a>, the model helps to recognise which room a person is in right now and which movement comes next. Confusion or denial are not a step backwards. I draw on the Four Rooms of Change especially in transition phases, to place a currently confusing or frustrating situation within a familiar process that people can move through.</p>
+              </div>
+            </article>
+
+            <article class="method" id="social-presencing-theater">
+              <div class="method__head">
+                <span class="method__num">15</span>
+                <h3 class="method__title">What is Social Presencing Theater, and how does it help in coaching?</h3>
+              </div>
+              <div class="method__body">
+                <p class="body">Social Presencing Theater is a body-based practice that <a href="https://arawanahayashi.com/spt/" target="_blank" rel="noopener">Arawana Hayashi</a> developed together with <a href="https://ottoscharmer.com/" target="_blank" rel="noopener">Otto Scharmer</a> at the <a href="https://www.presencing.org/" target="_blank" rel="noopener">Presencing Institute</a>. The exercises work with the body rather than with words, for example in Stuck. A person or group moves from a first, intuitively taken posture representing the current situation (Sculpture 1) to a second posture that suggests a possible development (Sculpture 2). In coaching and in <a href="#" data-todo="/leadership-development">work with leadership teams</a>, Social Presencing Theater comes in where words reach their limits. It makes stuck patterns accessible through body awareness. I use these exercises especially when a topic can no longer be moved forward through language and a physical approach opens up new movement.</p>
+              </div>
+            </article>
+
+            <article class="method" id="case-clinic">
+              <div class="method__head">
+                <span class="method__num">16</span>
+                <h3 class="method__title">What is a Case Clinic, and how does it help in peer community work?</h3>
+              </div>
+              <div class="method__body">
+                <p class="body">The Case Clinic is a structured peer consultation format from the toolbox of the <a href="https://irp.cdn-website.com/53007095/files/uploaded/pi_tool_caseclinic.pdf" target="_blank" rel="noopener">Presencing Institute</a>. One person brings a current question. A small group of three to four colleagues first listens in silence and then shares the images, feelings and gestures they noticed. Afterwards, we move into an open dialogue to open up new perspectives. In leadership programmes, leadership teams and peer groups, for example in my offer for <a href="#" data-todo="/women-in-higher-education-leadership">women in university leadership</a>, this format helps the group benefit from its collective capacity to perceive, rather than just receiving individual pieces of advice. I use the Case Clinic especially to make a new kind of listening and mutual support among colleagues possible.</p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+      <!-- /S04 · COACHING METHODS -->
+
+      <!-- ====================================================================
+           S05 · FAQ — client still deciding whether it stays (Q27)
+           Elementor: Container › Heading H2 · Accordion (Pro/Free) ›
+                      Title HTML tag = H3 · FAQ Schema ON · first item open
+           ==================================================================== -->
+      <section class="section section--soft faq" id="faq">
+        <div class="dev-note">
+          S05 · FAQ — H2 · Accordion (17 items, title tag H3, FAQ Schema ON).
+          Stays or goes: client to decide (Q27)
+        </div>
+
+        <div class="container faq__grid">
+          <div class="faq__head">
+            <h2 class="h2">FAQ</h2>
+          </div>
+
+          <div class="faq-list">
+            <details class="faq-item" open>
+              <summary><h3 class="faq-item__q">Which methods does U-teal use in systemic consulting and coaching for universities?</h3><span class="faq-item__icon" aria-hidden="true"></span></summary>
+              <div class="faq-item__a"><p class="body">I work with 16 proven methods from strategy consulting, organisational development and coaching: Theory U, 3D mapping, Art of Hosting, The Circle Way, consent decision-making, agile ways of working, design thinking, prototyping and retrospectives, teal organisations, Spiral Dynamics, Circle of Influence, the miracle question, the Inner Team, Four Rooms of Change, Social Presencing Theater and Case Clinics.</p></div>
+            </details>
+
+            <details class="faq-item">
+              <summary><h3 class="faq-item__q">When is Theory U relevant as a method for universities?</h3><span class="faq-item__icon" aria-hidden="true"></span></summary>
+              <div class="faq-item__a"><p class="body">In deep change processes, where old knowledge is let go and something new is allowed to emerge from the future as it unfolds.</p></div>
+            </details>
+
+            <details class="faq-item">
+              <summary><h3 class="faq-item__q">How can universities become more agile?</h3><span class="faq-item__icon" aria-hidden="true"></span></summary>
+              <div class="faq-item__a"><p class="body">Agile ways of working help universities break projects into manageable steps and see first results early. They make work and priorities visible to everyone involved, strengthen responsibility within teams and create fixed moments to check together what is working. This lets universities respond faster to new demands while involving everyone who carries out the change.</p></div>
+            </details>
+
+            <details class="faq-item">
+              <summary><h3 class="faq-item__q">What is design thinking used for at universities?</h3><span class="faq-item__icon" aria-hidden="true"></span></summary>
+              <div class="faq-item__a"><p class="body">To design study programmes, exchange formats or services from the perspective of the people who use them. Personas and early prototypes make visible what students, teaching staff and other staff really need.</p></div>
+            </details>
+
+            <details class="faq-item">
+              <summary><h3 class="faq-item__q">What is 3D mapping used for in organisational development?</h3><span class="faq-item__icon" aria-hidden="true"></span></summary>
+              <div class="faq-item__a"><p class="body">To make hidden relationships and tensions within an organisation visible that are often hard to grasp through analysis alone. It can also be used online.</p></div>
+            </details>
+
+            <details class="faq-item">
+              <summary><h3 class="faq-item__q">When is Art of Hosting suitable for universities?</h3><span class="faq-item__icon" aria-hidden="true"></span></summary>
+              <div class="faq-item__a"><p class="body">When many perspectives are meant to feed into a strategy or change process, for example from teaching staff, students and administration, or from the partner universities of an alliance, and the results are meant to keep working afterwards.</p></div>
+            </details>
+
+            <details class="faq-item">
+              <summary><h3 class="faq-item__q">When does working with The Circle Way help in institutional processes?</h3><span class="faq-item__icon" aria-hidden="true"></span></summary>
+              <div class="faq-item__a"><p class="body">Especially in leadership teams or university alliances where, until now, mostly the loudest voices have set the tone: seating in a circle gives every voice equal weight.</p></div>
+            </details>
+
+            <details class="faq-item">
+              <summary><h3 class="faq-item__q">How does consent decision-making help university committees?</h3><span class="faq-item__icon" aria-hidden="true"></span></summary>
+              <div class="faq-item__a"><p class="body">It enables faster decisions without giving up participation: a proposal counts as accepted when nobody has a serious, reasoned objection. Objections improve the proposal instead of blocking it.</p></div>
+            </details>
+
+            <details class="faq-item">
+              <summary><h3 class="faq-item__q">How do prototyping and retrospectives help implement strategies at universities?</h3><span class="faq-item__icon" aria-hidden="true"></span></summary>
+              <div class="faq-item__a"><p class="body">They create a rhythm of trying out, evaluating and adjusting. New approaches are tested on a small scale before they are introduced across the university.</p></div>
+            </details>
+
+            <details class="faq-item">
+              <summary><h3 class="faq-item__q">What does the concept of the teal organisation mean in practice for a university?</h3><span class="faq-item__icon" aria-hidden="true"></span></summary>
+              <div class="faq-item__a"><p class="body">Not copying a particular organisational form wholesale, but a direction: more participation in decisions, faster adaptation, less friction from rigid responsibilities.</p></div>
+            </details>
+
+            <details class="faq-item">
+              <summary><h3 class="faq-item__q">What is Spiral Dynamics used for in university development?</h3><span class="faq-item__icon" aria-hidden="true"></span></summary>
+              <div class="faq-item__a"><p class="body">To make sense of recurring conflicts between different cultures within a university, for example between established faculties and newly emerging institutes.</p></div>
+            </details>
+
+            <details class="faq-item">
+              <summary><h3 class="faq-item__q">When is the Circle of Influence particularly helpful?</h3><span class="faq-item__icon" aria-hidden="true"></span></summary>
+              <div class="faq-item__a"><p class="body">Especially at the start of a coaching process, when a situation seems overwhelming and the task is to separate your own power to act from mere worries.</p></div>
+            </details>
+
+            <details class="faq-item">
+              <summary><h3 class="faq-item__q">What is the miracle question used for in coaching?</h3><span class="faq-item__icon" aria-hidden="true"></span></summary>
+              <div class="faq-item__a"><p class="body">To shift attention away from the problem and make visible resources that are often overlooked in day-to-day work.</p></div>
+            </details>
+
+            <details class="faq-item">
+              <summary><h3 class="faq-item__q">Why is the Inner Team model important for decisions?</h3><span class="faq-item__icon" aria-hidden="true"></span></summary>
+              <div class="faq-item__a"><p class="body">Because it makes contradictory inner voices visible before important decisions. And it helps organise them into a team that can act, instead of letting them work against each other.</p></div>
+            </details>
+
+            <details class="faq-item">
+              <summary><h3 class="faq-item__q">When does the Four Rooms of Change model help in change processes?</h3><span class="faq-item__icon" aria-hidden="true"></span></summary>
+              <div class="faq-item__a"><p class="body">Especially in transition phases, to place a confusing or frustrating situation within a familiar process that people can move through.</p></div>
+            </details>
+
+            <details class="faq-item">
+              <summary><h3 class="faq-item__q">What is Social Presencing Theater used for in coaching?</h3><span class="faq-item__icon" aria-hidden="true"></span></summary>
+              <div class="faq-item__a"><p class="body">Where words reach their limits: the body-based exercises, such as Stuck, make stuck patterns accessible through body awareness.</p></div>
+            </details>
+
+            <details class="faq-item">
+              <summary><h3 class="faq-item__q">When is the Case Clinic used in peer communities?</h3><span class="faq-item__icon" aria-hidden="true"></span></summary>
+              <div class="faq-item__a"><p class="body">When one person brings a current question and the group is meant to benefit from its collective capacity to perceive, rather than just giving individual pieces of advice.</p></div>
+            </details>
+
+            <div class="dev-note dev-note--inline">
+              <strong>FAQ · Elementor › Accordion widget</strong>
+              <ul>
+                <li>Title HTML tag: H3 (as in the client doc). Icon: plus / minus, colour #008080. First item open, others closed.</li>
+                <li>FAQ Schema: ON (adds FAQPage structured data; helps AI search and answer engines even where Google no longer shows FAQ rich results).</li>
+                <li>Style: title Manrope 18–20px/700 #02383E · divider 1px #E3E8E8 · no box background · answer = body text.</li>
+                <li>Client note in doc: "Whether this FAQ stays is still to be decided (see German version)" → Q27.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- /S05 · FAQ -->
+    </main>
+
+    <!-- ======================================================================
+         S11 · FOOTER
+         Elementor: Theme Builder › Footer
+         Col 1: Site Logo (white SVG) · Text · Button
+         Col 2: Nav Menu (services)
+         Col 3: Text · Form (Pro: first name + email → Mailchimp/Brevo,
+                double opt-in) · privacy note
+         Bottom bar: copyright · legal links · contact · LinkedIn · EN|DE|ES
+         ====================================================================== -->
+    <footer class="site-footer">
+      <div class="dev-note">
+        S11 · Theme Builder › Footer — 3 cols (logo + text + button · services
+        menu · newsletter form) + bottom bar (Polylang switcher)
+      </div>
+
+      <div class="container">
+        <div class="site-footer__cols">
+          <!-- Column 1 -->
+          <div class="site-footer__col">
+            <a class="site-footer__logo" href="index.html" aria-label="U-teal home">
+              <img src="assets/images/brand/logo-uteal-white.svg" alt="U-teal" width="96" height="26" />
+            </a>
+            <p>
+              U-teal · Nadja Gmelch’s systemic higher education consultancy for
+              internationalisation, strategy, organisational development and
+              leadership in Europe and beyond. · On site and online.
+            </p>
+            <a class="btn btn--accent" href="contact.html">Let’s talk</a>
+          </div>
+
+          <!-- Column 2 -->
+          <div class="site-footer__col">
+            <p class="site-footer__title">Services</p>
+            <ul class="site-footer__links">
+              <li><a href="#" data-todo="/strategy-consulting">Strategy consulting</a></li>
+              <li><a href="#" data-todo="/internationalisation">Internationalisation and university alliances</a></li>
+              <li><a href="#" data-todo="/organisational-development">Organisational development</a></li>
+              <li><a href="#" data-todo="/leadership-development">Leadership development and coaching</a></li>
+              <li><a href="#" data-todo="/women-in-higher-education-leadership">Coaching for women in higher education leadership</a></li>
+            </ul>
+          </div>
+
+          <!-- Column 3: newsletter -->
+          <div class="site-footer__col site-footer__col--newsletter">
+            <p class="site-footer__title">Newsletter</p>
+            <p>
+              Want to stay informed about what I’m working on? Roughly every two
+              months, I write about current projects, new formats and upcoming
+              dates, and share what I’m learning about change in universities.
+            </p>
+            <form class="footer-form" action="#" onsubmit="return false;">
+              <label class="sr-only" for="nl-name">First name</label>
+              <input id="nl-name" type="text" placeholder="First name" autocomplete="given-name" />
+              <label class="sr-only" for="nl-email">Email</label>
+              <input id="nl-email" type="email" placeholder="Email" autocomplete="email" />
+              <button class="btn btn--accent" type="submit">Subscribe</button>
+            </form>
+            <p class="footer-form__note">
+              Unsubscribe at any time.
+              <a href="#" data-todo="/privacy-policy">Privacy information</a>
+            </p>
+
+            <div class="dev-note dev-note--inline">
+              <strong>FORM · Elementor Pro › Form widget</strong>
+              <ul>
+                <li>Fields: First name (text, 50%) + Email (required, 50%) + Submit (100%, auto width). Mobile: all 100%.</li>
+                <li>Action: Mailchimp (native) with double opt-in ON (GDPR/DE). Brevo: Brevo plugin or webhook.</li>
+                <li>Spam: honeypot ON; Cloudflare Turnstile if needed (no reCAPTCHA).</li>
+                <li>Field: transparent bg · border 1px rgba(255,255,255,.35) · radius 8px · padding 11px 14px · Manrope 14px · text #FFF · placeholder #9FB8B6.</li>
+                <li>Button: bg #3DB7BB · text #02383E · 14px/700 · padding 12px 20px · radius 8px · hover bg #FFF.</li>
+                <li>Polylang: translate the success message + privacy link in DE/ES.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bottom bar -->
+        <div class="site-footer__bottom">
+          <ul class="site-footer__meta">
+            <li>© <span class="js-year">2026</span> Nadja Gmelch · U-teal</li>
+            <li><a href="#" data-todo="/legal-notice">Legal notice</a></li>
+            <li><a href="#" data-todo="/privacy-policy">Privacy policy</a></li>
+            <li><a href="#" data-todo="cookie-settings">Cookie settings</a></li>
+            <li><a href="mailto:nadja@u-teal.com">nadja@u-teal.com</a></li>
+            <li><a href="tel:+34697585199">+34 697 585 199</a></li>
+            <li><a href="https://www.linkedin.com/in/nadja-gmelch/" target="_blank" rel="noopener">LinkedIn (Nadja Gmelch)</a></li>
+            <li><a href="https://www.linkedin.com/company/u-teal/" target="_blank" rel="noopener">LinkedIn (U-teal)</a></li>
+          </ul>
+          <!-- Polylang: each link points to the same page in the other language -->
+          <nav class="site-footer__lang" aria-label="Language">
+            <a href="methods.html" aria-current="true">EN</a> |
+            <a href="#" data-todo="/de/">DE</a> |
+            <a href="#" data-todo="/es/">ES</a>
+          </nav>
+        </div>
+      </div>
+    </footer>
+    <!-- /S11 · FOOTER -->
+
+    <!-- ======================================================================
+         FLOATING "LET'S TALK" (always visible — client request)
+         Elementor: Pro Popup (bottom bar, all pages, no close button) or a
+         fixed Container. Triangle = SVG/shape behind the button.
+         ====================================================================== -->
+    <div class="float-cta">
+      <a class="btn btn--primary" href="contact.html">Let’s talk</a>
+    </div>
+
+    <!-- Scripts: menus, developer notes, SEO copy buttons, footer year -->
+    <script src="assets/js/main.js" defer></script>
+  </body>
+</html>

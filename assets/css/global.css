@@ -400,6 +400,49 @@ a:hover {
   pointer-events: none;
 }
 
+/* --- 5.5b Image placeholder (proposed photo spot, until the client sends
+   pictures). Elementor: Image widget with the real photo, same ratio. --- */
+.img-ph {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  width: 100%;
+  margin: 0;
+  padding: 24px;
+  text-align: center;
+  background:
+    linear-gradient(45deg, rgba(0, 128, 128, 0.14), rgba(61, 183, 187, 0.06)),
+    var(--c-bg-soft);
+  border: 1px dashed rgba(0, 128, 128, 0.45);
+}
+
+.img-ph__mark {
+  width: 22px;
+  height: 22px;
+  border: 2px solid var(--c-teal);
+  transform: rotate(45deg);
+}
+
+.img-ph__label {
+  max-width: 34ch;
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--c-text);
+}
+
+.img-ph__label strong {
+  display: block;
+  margin-bottom: 4px;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  color: var(--c-teal);
+}
+
 /* --- 5.6 Visually hidden (screen-reader only) --- */
 .sr-only {
   position: absolute;
