@@ -1,54 +1,57 @@
 /* ==========================================================================
-   U-TEAL · GLOBAL STYLES
-   Loaded on EVERY page (Home, About, Methods, Contact, Case Studies,
-   Case Study Detail, Service template, Cookies, 404, Impressum).
+   U-TEAL · GLOBAL STYLES (Draft 2 — follows the designer's proposal)
+   Loaded on EVERY page. Page-specific sections go in assets/css/<page>.css.
 
    Contents
    1. Design tokens      → Elementor: Site Settings › Global Colors / Fonts
    2. Base               → Elementor: Site Settings › Typography / Links
-   3. Layout helpers     → Elementor: Container (Boxed, 1320px)
-   4. Components         → Elementor: Global Widgets / Kit button styles
-   5. Global sections    → Header, Footer (Theme Builder) + shared sections
-                           used on several pages (Logos, Contact/Newsletter)
-   6. Responsive         → Elementor breakpoint: 1000px (custom)
-   7. Developer notes: floating toggle + ?notes=1 (internal)
+   3. Layout helpers     → Elementor: Container (Boxed, 1232px content)
+   4. Typography         → Elementor: Global Fonts (see scale below)
+   5. Components         → buttons, eyebrow, quote, numbered rows, dash list
+   6. Header             → Theme Builder › Header (+ Services dropdown)
+   7. Footer             → Theme Builder › Footer
+   8. Floating "Let's talk" button (always visible)
+   9. Developer tools    → notes toggle, SEO box (internal only)
+   10. Responsive        → breakpoints 1000px (tablet) / 600px (mobile)
 
-   Rule: page-specific sections go in assets/css/<page>.css, not here.
-   Brand values follow the U-teal Brand Book v1 (2026).
+   Type scale (designer, desktop → mobile)
+   Display   60/72  700   hero statement           → 40/48
+   H2        34/42  800   section headings         → 28/36
+   H3        28/38  800   card headings            → 22/30
+   H4        20/26  700   row titles               → 18/24
+   Lead      22/32  500   intro paragraphs         → 18/28
+   Body      16/26  400   #3C4A49
+   Eyebrow   16/18  700   uppercase, 1.5px, teal, with a dash before
+   Nav       14/18  700
    ========================================================================== */
 
 /* ==========================================================================
-   1. DESIGN TOKENS
-   Elementor: Site Settings › Global Colors / Global Fonts
+   1. DESIGN TOKENS (Brand Book v1 2026 + designer values)
    ========================================================================== */
 :root {
   /* Brand colours */
-  --c-teal-dark: #02383e; /* Primary dark – headings, dark sections   */
-  --c-teal: #008080; /* Primary – buttons, links, eyebrows            */
-  --c-teal-light: #3db7bb; /* Accent – diamonds, highlights            */
-  --c-ink: #1e1e1e; /* Body text, footer background                   */
+  --c-teal-dark: #02383e; /* Primary dark: headings, footer        */
+  --c-teal: #008080; /* Primary: eyebrows, buttons, links          */
+  --c-teal-light: #3db7bb; /* Accent: dashes, quote line, CTA      */
+  --c-ink: #1e1e1e; /* Charcoal                                    */
 
   /* Neutrals */
-  --c-text: #3a4546; /* Paragraph text                                */
-  --c-muted: #6b7a7b; /* Secondary text                               */
-  --c-muted-2: #9aa9aa; /* Separators / arrows                        */
-  --c-bg-soft: #f8f8f8; /* Light grey section background              */
-  --c-line: #e3eaea; /* Borders / dividers                            */
-  --c-line-header: #e8eeee; /* Header + logo strip bottom border      */
-  --c-img-bg: #dde7e7; /* Image placeholder background                */
+  --c-text: #3c4a49; /* Body text (designer)                      */
+  --c-muted: #6b7a7b;
+  --c-bg-soft: #f7f7f7; /* Off-white section / card background    */
+  --c-line: #e3e8e8; /* Dividers                                 */
   --c-white: #ffffff;
 
-  /* On-dark text */
-  --c-on-dark-1: #c4d7d8; /* Trust section text                       */
-  --c-on-dark-2: #d5e4e5; /* Dark offering card text                  */
-  --c-footer-text: #b5bebf;
-  --c-footer-muted: #8e9a9b;
+  /* On dark (footer) */
+  --c-on-dark: #dfeceb;
+  --c-on-dark-muted: #9fb8b6;
 
   /* Layout */
-  --container: 1320px;
-  --gutter: clamp(20px, 4vw, 40px); /* Left/right page padding      */
-  --section-y: clamp(64px, 9vw, 128px); /* Default section padding   */
-  --radius-pill: 999px;
+  --container: 1280px;
+  --gutter: clamp(20px, 5vw, 80px);
+  --section-y: clamp(64px, 8vw, 112px);
+  --radius: 8px; /* Buttons, inputs (designer)                   */
+  --radius-card: 0px; /* Cards + pictures are rectangular         */
 
   /* Typography */
   --font: "Manrope", sans-serif;
@@ -63,6 +66,10 @@
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 html,
 body {
   margin: 0;
@@ -71,7 +78,9 @@ body {
 body {
   background: var(--c-white);
   font-family: var(--font);
-  color: var(--c-ink);
+  font-size: 16px;
+  line-height: 1.625;
+  color: var(--c-text);
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
 }
@@ -79,8 +88,10 @@ body {
 h1,
 h2,
 h3,
+h4,
 p,
-blockquote {
+blockquote,
+figure {
   margin: 0;
 }
 
@@ -102,7 +113,6 @@ a:hover {
 
 /* ==========================================================================
    3. LAYOUT HELPERS
-   Elementor: Container › Content Width "Boxed" 1320px, padding = gutter
    ========================================================================== */
 .container {
   max-width: var(--container);
@@ -113,161 +123,284 @@ a:hover {
 
 .section {
   position: relative;
+  padding-top: var(--section-y);
+  padding-bottom: var(--section-y);
 }
 
 .section--soft {
   background: var(--c-bg-soft);
 }
 
-.section--white {
-  background: var(--c-white);
+.section-head {
+  max-width: 820px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  margin-bottom: clamp(40px, 5vw, 64px);
 }
 
-.section--dark {
-  background: var(--c-teal-dark);
-  color: var(--c-white);
+.section-head--center {
+  margin-left: auto;
+  margin-right: auto;
+  align-items: center;
+  text-align: center;
+}
+
+/* Stack of paragraphs with consistent spacing */
+.stack > * + * {
+  margin-top: 18px;
 }
 
 /* ==========================================================================
-   4. COMPONENTS (reusable — map to Elementor Global Widgets / Kit styles)
+   4. TYPOGRAPHY
    ========================================================================== */
-
-/* --- 4.1 Eyebrow (small uppercase label above headings) --- */
-.eyebrow {
-  font-size: 13px;
+.display {
+  font-size: clamp(40px, 4.4vw, 60px);
+  line-height: 1.2;
   font-weight: 700;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--c-teal);
-}
-
-.eyebrow--light {
-  color: var(--c-teal-light);
-}
-
-/* --- 4.2 Section heading (H2) --- */
-.h2 {
-  font-size: clamp(32px, 3.8vw, 56px);
-  line-height: 1.08;
-  font-weight: 700;
-  letter-spacing: -0.03em;
+  letter-spacing: -0.01em;
   color: var(--c-teal-dark);
   text-wrap: balance;
 }
 
-.section--dark .h2 {
-  color: var(--c-white);
+.h2 {
+  font-size: clamp(28px, 2.6vw, 34px);
+  line-height: 1.25;
+  font-weight: 800;
+  letter-spacing: -0.3px;
+  color: var(--c-teal-dark);
+  text-wrap: balance;
 }
 
-/* --- 4.3 Diamond (brand shape used as bullet / accent) --- */
-.diamond {
-  display: inline-block;
-  flex: 0 0 auto;
-  width: 8px;
-  height: 8px;
-  background: var(--c-teal-light);
-  transform: rotate(45deg);
+.h3 {
+  font-size: clamp(22px, 2vw, 28px);
+  line-height: 1.36;
+  font-weight: 800;
+  color: var(--c-teal-dark);
+  text-wrap: balance;
 }
 
-/* --- 4.4 Logo (diamond + "u" cup + wordmark) --- */
-.logo {
-  display: flex;
+.h4 {
+  font-size: clamp(18px, 1.5vw, 20px);
+  line-height: 1.3;
+  font-weight: 700;
+  color: var(--c-teal-dark);
+}
+
+.lead {
+  font-size: clamp(18px, 1.6vw, 22px);
+  line-height: 1.45;
+  font-weight: 500;
+  color: var(--c-teal-dark);
+  text-wrap: pretty;
+}
+
+.body {
+  font-size: 16px;
+  line-height: 1.625;
+  color: var(--c-text);
+  text-wrap: pretty;
+}
+
+/* Eyebrow: "— LABEL" (dash + uppercase teal) */
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 16px;
+  line-height: 1.15;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--c-teal);
+}
+
+.eyebrow::before {
+  content: "";
+  width: 16px;
+  height: 2px;
+  background: currentColor;
+}
+
+.eyebrow--plain::before {
+  display: none;
+}
+
+/* ==========================================================================
+   5. COMPONENTS
+   ========================================================================== */
+
+/* --- 5.1 Buttons (Elementor: Button widget, radius 8px) --- */
+.btn {
+  display: inline-flex;
   align-items: center;
   gap: 8px;
-  color: var(--c-teal-dark);
-}
-
-.logo:hover {
-  color: var(--c-teal-dark);
-}
-
-.logo__mark {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 3px;
-}
-
-.logo__cup {
-  width: 22px;
-  height: 18px;
-  border: 4px solid var(--c-teal);
-  border-top: none;
-  border-radius: 0 0 11px 11px;
-}
-
-.logo__word {
-  font-weight: 800;
-  font-size: 22px;
-  letter-spacing: -0.03em;
-}
-
-/* --- 4.5 Buttons (Elementor: Button widget, border-radius 999px) --- */
-.btn {
-  display: inline-block;
-  padding: 14px 26px;
-  border-radius: var(--radius-pill);
-  font-size: 15px;
-  font-weight: 600;
-  line-height: 1.2;
+  padding: 12px 20px;
+  border: 2px solid transparent;
+  border-radius: var(--radius);
+  font-size: 14px;
+  line-height: 1.3;
+  font-weight: 700;
   white-space: nowrap;
 }
 
-/* Teal → dark teal on hover */
-.btn--primary {
-  background: var(--c-teal);
-  color: var(--c-white);
-}
-.btn--primary:hover {
-  background: var(--c-teal-dark);
-  color: var(--c-white);
-}
-
-/* Light teal → white on hover (used on dark backgrounds) */
-.btn--accent {
-  background: var(--c-teal-light);
-  color: var(--c-teal-dark);
-}
-.btn--accent:hover {
-  background: var(--c-white);
-  color: var(--c-teal-dark);
+/* Arrow icon after the label (designer: 16px arrow) */
+.btn--arrow::after {
+  content: "";
+  width: 16px;
+  height: 16px;
+  background: currentColor;
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none'%3E%3Cpath d='M3.33 8h9.34M8 12.67 12.67 8 8 3.33' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / contain no-repeat;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none'%3E%3Cpath d='M3.33 8h9.34M8 12.67 12.67 8 8 3.33' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / contain no-repeat;
+  transition: transform 0.2s ease;
 }
 
-/* Dark teal → ink on hover (used on light-teal gradient) */
-.btn--dark {
-  background: var(--c-teal-dark);
-  color: var(--c-white);
-  padding: 15px 28px;
-}
-.btn--dark:hover {
-  background: var(--c-ink);
-  color: var(--c-white);
+.btn--arrow:hover::after {
+  transform: translateX(3px);
 }
 
-/* White → light teal on hover (used on contact gradient) */
-.btn--white {
-  background: var(--c-white);
-  color: var(--c-teal-dark);
-  padding: 15px 30px;
-  font-weight: 700;
-}
-.btn--white:hover {
-  background: var(--c-teal-light);
-  color: var(--c-teal-dark);
-}
-
-/* Outline → filled dark teal on hover */
+/* Outline (designer default): dark border → filled on hover */
 .btn--outline {
-  border: 1.5px solid var(--c-teal-dark);
+  border-color: var(--c-teal-dark);
   color: var(--c-teal-dark);
-  padding: 13px 26px;
 }
 .btn--outline:hover {
   background: var(--c-teal-dark);
   color: var(--c-white);
 }
 
-/* --- 4.6 Screen-reader only text (visually hidden) --- */
+/* Solid teal: "Let's talk" */
+.btn--primary {
+  background: var(--c-teal);
+  border-color: var(--c-teal);
+  color: var(--c-white);
+}
+.btn--primary:hover {
+  background: var(--c-teal-dark);
+  border-color: var(--c-teal-dark);
+  color: var(--c-white);
+}
+
+/* Light teal: on dark backgrounds (footer) */
+.btn--accent {
+  background: var(--c-teal-light);
+  border-color: var(--c-teal-light);
+  color: var(--c-teal-dark);
+}
+.btn--accent:hover {
+  background: var(--c-white);
+  border-color: var(--c-white);
+  color: var(--c-teal-dark);
+}
+
+/* --- 5.2 Dash list (designer: light-teal dash bullets) --- */
+.dash-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.dash-list li {
+  position: relative;
+  padding-left: 26px;
+}
+
+.dash-list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.8em;
+  width: 14px;
+  height: 2px;
+  background: var(--c-teal-light);
+}
+
+/* --- 5.3 Quote (designer: light-teal line on the left) --- */
+.quote {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.quote__text {
+  padding-left: 14px;
+  border-left: 3px solid var(--c-teal-light);
+  font-size: clamp(18px, 1.5vw, 20px);
+  line-height: 1.6;
+  font-weight: 500;
+  color: var(--c-teal-dark);
+  text-wrap: pretty;
+}
+
+.quote__author {
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 600;
+  color: var(--c-teal);
+}
+
+.quote__role {
+  display: block;
+  font-weight: 500;
+  color: var(--c-muted);
+}
+
+/* --- 5.4 Numbered rows (designer "Trust" style: 01 + title | text) --- */
+.num-rows {
+  border-top: 1px solid var(--c-line);
+}
+
+.num-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 16px 48px;
+  align-items: center;
+  padding: 28px 0;
+  border-bottom: 1px solid var(--c-line);
+}
+
+.num-row__head {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+
+.num-row__num {
+  flex: 0 0 auto;
+  min-width: 46px;
+  font-size: 34px;
+  line-height: 1.35;
+  font-weight: 800;
+  color: var(--c-teal);
+}
+
+/* --- 5.5 Picture (rectangular, optional teal tint like the designer hero) --- */
+.picture {
+  position: relative;
+  overflow: hidden;
+  background: #dde7e7;
+}
+
+.picture img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.picture--tint::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--c-teal);
+  mix-blend-mode: color;
+  opacity: 0.35;
+  pointer-events: none;
+}
+
+/* --- 5.6 Visually hidden (screen-reader only) --- */
 .sr-only {
   position: absolute;
   width: 1px;
@@ -281,16 +414,21 @@ a:hover {
 }
 
 /* ==========================================================================
-   5. GLOBAL SECTIONS (Theme Builder header/footer + shared sections)
+   6. HEADER (S01)
+   Elementor: Theme Builder › Header (sticky) — Site Logo · Nav Menu
+   (with "Services" submenu) · Polylang language switcher · Button
    ========================================================================== */
-
-/* --------------------------------------------------------------------------
-   S01 · Header
-   -------------------------------------------------------------------------- */
 .site-header {
-  position: relative;
+  position: sticky;
+  top: 0;
+  z-index: 50;
   background: var(--c-white);
-  border-bottom: 1px solid var(--c-line-header);
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.2s ease;
+}
+
+.site-header.is-scrolled {
+  border-bottom-color: var(--c-line);
 }
 
 .site-header__inner {
@@ -298,373 +436,409 @@ a:hover {
   align-items: center;
   justify-content: space-between;
   gap: 24px;
-  padding-top: 18px;
-  padding-bottom: 18px;
+  height: 80px;
 }
 
+.site-logo {
+  display: block;
+  flex: 0 0 auto;
+}
+
+.site-logo img {
+  width: 117px;
+  height: auto;
+}
+
+/* Main navigation */
 .site-nav {
   display: flex;
   align-items: center;
-  justify-content: flex-end;
-  flex-wrap: wrap;
-  gap: clamp(16px, 2.4vw, 34px);
-  font-size: 15px;
-  font-weight: 500;
+  gap: 32px;
 }
 
-.site-nav__links {
+.nav-list {
   display: flex;
-  gap: clamp(16px, 2.4vw, 34px);
+  align-items: center;
+  gap: 28px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
 }
 
-.site-nav__links a {
-  color: var(--c-ink);
+.nav-list > li {
+  position: relative;
 }
 
-.site-nav__links a:hover {
+.nav-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 0;
+  border: 0;
+  background: none;
+  font: 700 14px/18px var(--font);
+  color: var(--c-teal-dark);
+  cursor: pointer;
+}
+
+.nav-link:hover,
+.nav-link[aria-expanded="true"] {
   color: var(--c-teal);
 }
 
-/* Language switcher (Polylang: Language Switcher widget / shortcode) */
-.lang-switch {
-  display: flex;
-  gap: 6px;
-  font-size: 13px;
+/* Active page: teal underline (designer) */
+.nav-link.is-active {
+  box-shadow: inset 0 -2px 0 var(--c-teal);
+}
+
+/* Chevron for the Services dropdown */
+.nav-link__chev {
+  width: 10px;
+  height: 10px;
+  border-right: 2px solid currentColor;
+  border-bottom: 2px solid currentColor;
+  transform: translateY(-2px) rotate(45deg) scale(0.7);
+  transition: transform 0.2s ease;
+}
+
+.nav-link[aria-expanded="true"] .nav-link__chev {
+  transform: translateY(2px) rotate(-135deg) scale(0.7);
+}
+
+/* Services submenu (Elementor: Nav Menu › Dropdown) */
+.submenu {
+  position: absolute;
+  top: calc(100% + 12px);
+  left: -20px;
+  z-index: 60;
+  min-width: 340px;
+  margin: 0;
+  padding: 10px;
+  list-style: none;
+  background: var(--c-white);
+  border: 1px solid var(--c-line);
+  border-radius: var(--radius);
+  box-shadow: 0 16px 40px rgba(2, 56, 62, 0.12);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-6px);
+  transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s;
+}
+
+.submenu.is-open {
+  opacity: 1;
+  visibility: visible;
+  transform: none;
+}
+
+.submenu a {
+  display: block;
+  padding: 10px 12px;
+  border-radius: 6px;
+  font-size: 14px;
   font-weight: 600;
+  line-height: 1.35;
   color: var(--c-teal-dark);
 }
 
-.lang-switch__sep {
-  color: var(--c-muted-2);
+.submenu a:hover {
+  background: var(--c-bg-soft);
+  color: var(--c-teal);
 }
 
-.lang-switch__alt {
-  color: var(--c-muted);
+.submenu__divider {
+  height: 1px;
+  margin: 6px 12px;
+  background: var(--c-line);
 }
 
-.site-header .btn {
-  padding: 11px 22px;
-  font-size: 14px;
+/* Language switcher (globe + EN, dropdown EN / DE / ES) */
+.lang {
+  position: relative;
 }
 
-/* Mobile menu button (hamburger) – hidden on desktop */
+.lang__btn {
+  gap: 8px;
+}
+
+.lang__btn svg {
+  width: 20px;
+  height: 20px;
+}
+
+.lang__menu {
+  min-width: 140px;
+  left: auto;
+  right: -10px;
+}
+
+.lang__menu a[aria-current="true"] {
+  color: var(--c-teal);
+}
+
+/* Mobile menu button (designer icon: bar · diamond · bar) */
 .menu-toggle {
   display: none;
+  position: relative;
   width: 44px;
   height: 44px;
   border: 0;
-  border-radius: var(--radius-pill);
-  background: var(--c-bg-soft);
+  background: none;
   cursor: pointer;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 5px;
 }
 
-.menu-toggle span {
-  width: 18px;
-  height: 2px;
+.menu-toggle__bar,
+.menu-toggle__diamond {
+  position: absolute;
+  left: 50%;
+  transition: transform 0.25s ease, opacity 0.25s ease;
+}
+
+.menu-toggle__bar {
+  width: 22px;
+  height: 4px;
   background: var(--c-teal-dark);
 }
 
-/* --------------------------------------------------------------------------
-   S10 · Footer
-   -------------------------------------------------------------------------- */
+.menu-toggle__bar--top {
+  top: 12px;
+  transform: translateX(-60%);
+}
+
+.menu-toggle__bar--bottom {
+  bottom: 12px;
+  transform: translateX(-40%);
+}
+
+.menu-toggle__diamond {
+  top: 50%;
+  width: 7px;
+  height: 7px;
+  background: var(--c-teal);
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.site-header.is-open .menu-toggle__bar--top {
+  transform: translate(-50%, 8px) rotate(45deg);
+}
+
+.site-header.is-open .menu-toggle__bar--bottom {
+  transform: translate(-50%, -8px) rotate(-45deg);
+}
+
+.site-header.is-open .menu-toggle__diamond {
+  opacity: 0;
+}
+
+/* ==========================================================================
+   7. FOOTER (S10)
+   Elementor: Theme Builder › Footer — Site Logo · Text · Button ·
+   Nav Menu (services) · Form (Pro) · bottom bar
+   ========================================================================== */
 .site-footer {
-  background: var(--c-ink);
-  color: var(--c-white);
+  position: relative;
+  background: var(--c-teal-dark);
+  color: var(--c-on-dark);
+  padding-top: clamp(56px, 6vw, 80px);
+  padding-bottom: 32px;
 }
 
-.site-footer__inner {
-  display: flex;
-  flex-direction: column;
+.site-footer a {
+  color: var(--c-on-dark);
+}
+
+.site-footer a:hover {
+  color: var(--c-teal-light);
+}
+
+.site-footer__cols {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr 1.1fr;
   gap: 48px;
-  padding-top: clamp(48px, 6vw, 80px);
-  padding-bottom: 28px;
+  padding-bottom: 48px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 }
 
-.site-footer__top {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  gap: 40px 64px;
-}
-
-.site-footer__brand {
-  flex: 1 1 260px;
+.site-footer__col {
   display: flex;
   flex-direction: column;
-  gap: 16px;
-}
-
-.site-footer .logo,
-.site-footer .logo:hover {
-  color: var(--c-white);
-}
-
-.site-footer .logo__cup {
-  border-color: var(--c-teal-light);
-}
-
-.site-footer__tagline {
-  max-width: 300px;
+  align-items: flex-start;
+  gap: 18px;
   font-size: 14px;
   line-height: 1.6;
-  color: var(--c-footer-text);
 }
 
-.footer-col {
+.site-footer__title {
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--c-teal-light);
+}
+
+.site-footer__logo img {
+  width: 96px;
+  height: auto;
+}
+
+.site-footer__links {
+  margin: 0;
+  padding: 0;
+  list-style: none;
   display: flex;
   flex-direction: column;
   gap: 12px;
-  font-size: 15px;
 }
 
-.footer-col__title {
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--c-footer-muted);
+/* Newsletter form (Elementor Pro Form) */
+.footer-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  width: 100%;
 }
 
-.footer-col a {
+.footer-form input {
+  min-width: 0;
+  padding: 11px 14px;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: var(--radius);
+  background: transparent;
+  font: 400 14px/1.3 var(--font);
   color: var(--c-white);
 }
 
-.footer-col a:hover {
-  color: var(--c-teal-light);
+.footer-form input::placeholder {
+  color: var(--c-on-dark-muted);
+}
+
+.footer-form input:focus {
+  outline: none;
+  border-color: var(--c-teal-light);
+}
+
+.footer-form .btn {
+  grid-column: 1 / -1;
+  justify-self: start;
+  cursor: pointer;
+  font-family: var(--font);
+}
+
+.footer-form__note {
+  font-size: 13px;
+  color: var(--c-on-dark-muted);
+}
+
+.footer-form__note a {
+  text-decoration: underline;
 }
 
 .site-footer__bottom {
   display: flex;
   flex-wrap: wrap;
+  align-items: center;
   justify-content: space-between;
   gap: 12px 24px;
   padding-top: 24px;
-  border-top: 1px solid #333333;
   font-size: 13px;
-  color: var(--c-footer-muted);
+  color: var(--c-on-dark-muted);
 }
 
-.site-footer__legal {
-  display: flex;
-  gap: 24px;
+.site-footer__bottom a {
+  color: var(--c-on-dark-muted);
 }
 
-.site-footer__legal a {
-  color: var(--c-footer-muted);
-}
-
-.site-footer__legal a:hover {
-  color: var(--c-white);
-}
-
-/* --------------------------------------------------------------------------
-   S06 · Logos
-   -------------------------------------------------------------------------- */
-.logos {
-  background: var(--c-white);
-  border-bottom: 1px solid var(--c-line-header);
-}
-
-.logos__inner {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 36px;
-  padding-top: clamp(48px, 6vw, 80px);
-  padding-bottom: clamp(48px, 6vw, 80px);
-}
-
-.logos__title {
-  color: var(--c-muted);
-  text-align: center;
-}
-
-.logos__row {
+.site-footer__meta {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-  gap: 32px clamp(32px, 5vw, 72px);
+  gap: 8px 20px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
 }
 
-.logos__row img {
-  width: auto;
-  filter: grayscale(1);
-  opacity: 0.75;
-}
-
-/* Logo heights (optically balanced per logo) */
-.logo-h-22 { height: 22px; }
-.logo-h-32 { height: 32px; }
-.logo-h-48 { height: 48px; }
-
-/* --------------------------------------------------------------------------
-   S09 · Contact + Newsletter
-   -------------------------------------------------------------------------- */
-.contact {
-  background: linear-gradient(45deg, var(--c-teal-dark) 0%, var(--c-teal) 100%);
-  color: var(--c-white);
-}
-
-.contact__inner {
+.site-footer__lang {
   display: flex;
-  flex-wrap: wrap;
-  align-items: flex-end;
-  gap: 48px clamp(40px, 6vw, 96px);
-  padding-top: var(--section-y);
-  padding-bottom: var(--section-y);
-}
-
-.contact__main {
-  flex: 1 1 520px;
-  min-width: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 28px;
-}
-
-.contact__title {
-  font-size: clamp(40px, 5.4vw, 76px);
-  line-height: 1.02;
-  font-weight: 800;
-  letter-spacing: -0.035em;
-  text-wrap: balance;
-}
-
-.contact__actions {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 16px 28px;
-}
-
-.contact__email {
-  padding-bottom: 2px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.5);
-  font-size: 16px;
-  font-weight: 600;
-  color: var(--c-white);
-}
-
-.contact__email:hover {
-  color: var(--c-teal-light);
-}
-
-/* Newsletter card (Elementor Pro: Form, 1 email field) */
-.newsletter {
-  flex: 1 1 380px;
-  min-width: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 18px;
-  padding: clamp(24px, 3vw, 36px);
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  border-radius: 24px;
-  background: rgba(2, 56, 62, 0.55);
-}
-
-.newsletter__text {
-  font-size: 19px;
-  line-height: 1.45;
-  font-weight: 600;
-  text-wrap: pretty;
-}
-
-.newsletter__form {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-}
-
-.newsletter__input {
-  flex: 1 1 200px;
-  min-width: 0;
-  padding: 14px 20px;
-  border: 0;
-  border-radius: var(--radius-pill);
-  background: var(--c-white);
-  font: inherit;
-  font-size: 15px;
-  color: var(--c-ink);
-}
-
-.newsletter__input::placeholder {
-  color: var(--c-muted);
-}
-
-.newsletter__form .btn {
-  flex: 0 0 auto;
-  padding: 14px 24px;
-  border: 0;
-  font: inherit;
-  font-size: 15px;
+  gap: 8px;
   font-weight: 700;
-  cursor: pointer;
+}
+
+.site-footer__lang a[aria-current="true"] {
+  color: var(--c-white);
 }
 
 /* ==========================================================================
-   6. RESPONSIVE (global)
-   Desktop layout from 1000px up (Elementor: custom breakpoint 1000px)
+   8. FLOATING "LET'S TALK" (designer: teal button on a dark triangle)
+   Elementor: Pro Popup (bar, bottom-centre, shown on all pages) or a
+   fixed-position Container via Advanced › Motion Effects / Custom CSS.
    ========================================================================== */
+.float-cta {
+  position: fixed;
+  left: 50%;
+  bottom: 0;
+  z-index: 40;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transform: translateX(-50%);
+  pointer-events: none;
+}
 
-/* Mobile / tablet < 1000px: hamburger menu */
-@media (max-width: 999px) {
-  .menu-toggle {
-    display: flex;
-  }
+/* Dark triangle base behind the button */
+.float-cta::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 200px;
+  height: 56px;
+  background: var(--c-teal-dark);
+  clip-path: polygon(50% 0, 100% 100%, 0 100%);
+  transform: translateX(-50%);
+}
 
-  .site-nav {
-    display: none;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    right: 0;
-    z-index: 20;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 20px;
-    padding: 24px var(--gutter) 28px;
-    background: var(--c-white);
-    border-bottom: 1px solid var(--c-line-header);
-    box-shadow: 0 12px 24px rgba(2, 56, 62, 0.08);
-  }
+.float-cta .btn {
+  position: relative;
+  margin-bottom: 14px;
+  padding: 12px 26px;
+  pointer-events: auto;
+  box-shadow: 0 8px 20px rgba(2, 56, 62, 0.25);
+}
 
-  .site-header.is-open .site-nav {
-    display: flex;
-  }
+/* Hide while the footer CTA / contact block is on screen (set by main.js) */
+.float-cta.is-hidden {
+  opacity: 0;
+  transform: translate(-50%, 20px);
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
 
-  .site-nav__links {
-    flex-direction: column;
-    gap: 16px;
-  }
+.float-cta {
+  transition: opacity 0.25s ease, transform 0.25s ease;
 }
 
 /* ==========================================================================
-   7. DEVELOPER NOTES (internal only)
-   Toggle: floating "Developer notes" button (bottom-right, added by main.js)
-           or open the page with ?notes=1. Choice is remembered per browser.
+   9. DEVELOPER TOOLS (internal only — hidden for normal visitors)
+   Toggle: floating "Developer notes" switch (bottom-right) or ?notes=1
    ========================================================================== */
-.dev-note {
+.dev-note,
+.dev-only {
   display: none;
 }
 
-/* Section labels (yellow tags in the top-left corner of each section) */
+/* Section labels: yellow tags in the top-left corner of each section */
 .show-notes .dev-note {
   display: block;
   position: absolute;
   top: 12px;
   left: 12px;
   z-index: 5;
-  max-width: 360px;
+  max-width: 380px;
   padding: 5px 8px;
   border-radius: 4px;
   background: #ffe14d;
   color: var(--c-ink);
-  font: 600 11px/1.3 ui-monospace, Menlo, monospace;
+  font: 600 11px/1.35 ui-monospace, Menlo, monospace;
+  text-align: left;
 }
 
 .show-notes .site-header .dev-note {
@@ -674,15 +848,11 @@ a:hover {
   margin-top: 6px;
 }
 
-.show-notes .offers .dev-note {
-  top: -28px;
-}
-
-/* Inline notes: detailed build specs placed in the flow (e.g. form spec) */
+/* Inline notes: detailed specs placed in the flow */
 .show-notes .dev-note--inline {
   position: static;
   max-width: none;
-  margin-top: 4px;
+  margin-top: 16px;
   padding: 12px 14px;
   border-radius: 8px;
   font-weight: 500;
@@ -704,7 +874,85 @@ a:hover {
   margin-top: 4px;
 }
 
-/* Floating toggle button */
+/* Blocks that only exist for the team (e.g. hidden News section) */
+.show-notes .dev-only {
+  display: block;
+  outline: 3px dashed #ffe14d;
+  outline-offset: -3px;
+}
+
+/* --- SEO box: copy-paste values for Yoast (per page) --- */
+.seo-box {
+  margin: 24px auto;
+  max-width: var(--container);
+  padding: 0 var(--gutter);
+}
+
+.seo-box__inner {
+  padding: 20px 22px;
+  border: 2px solid #ffe14d;
+  border-radius: 10px;
+  background: #fffbe0;
+  font-size: 14px;
+  color: var(--c-ink);
+}
+
+.seo-box__title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 12px;
+  font: 800 13px/1.2 ui-monospace, Menlo, monospace;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.seo-box dl {
+  display: grid;
+  grid-template-columns: 170px 1fr auto;
+  gap: 8px 14px;
+  margin: 0;
+  align-items: start;
+}
+
+.seo-box dt {
+  font-weight: 700;
+}
+
+.seo-box dd {
+  margin: 0;
+  font-family: ui-monospace, Menlo, monospace;
+  font-size: 13px;
+  line-height: 1.5;
+  word-break: break-word;
+}
+
+.seo-box__count {
+  display: block;
+  margin-top: 2px;
+  font-family: var(--font);
+  font-size: 12px;
+  color: var(--c-muted);
+}
+
+.copy-btn {
+  padding: 4px 10px;
+  border: 1px solid #d8c64a;
+  border-radius: 6px;
+  background: var(--c-white);
+  font: 700 12px/1.3 var(--font);
+  color: var(--c-ink);
+  cursor: pointer;
+}
+
+.copy-btn.is-copied {
+  background: #11734f;
+  border-color: #11734f;
+  color: var(--c-white);
+}
+
+/* --- Floating developer-notes toggle (added by main.js) --- */
 .dev-toggle {
   position: fixed;
   right: 16px;
@@ -715,7 +963,7 @@ a:hover {
   gap: 10px;
   padding: 10px 14px 10px 12px;
   border: 1px solid rgba(0, 0, 0, 0.08);
-  border-radius: var(--radius-pill);
+  border-radius: 999px;
   background: var(--c-ink);
   color: var(--c-white);
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
@@ -727,7 +975,7 @@ a:hover {
   position: relative;
   width: 30px;
   height: 18px;
-  border-radius: var(--radius-pill);
+  border-radius: 999px;
   background: #555555;
   transition: background-color 0.2s ease;
 }
@@ -753,7 +1001,181 @@ a:hover {
 }
 
 @media print {
-  .dev-toggle {
+  .dev-toggle,
+  .float-cta {
+    display: none;
+  }
+}
+
+/* ==========================================================================
+   10. RESPONSIVE (global)
+   ========================================================================== */
+
+/* Tablet & mobile < 1000px: mobile menu */
+@media (max-width: 999px) {
+  .menu-toggle {
+    display: block;
+  }
+
+  .site-header__inner {
+    height: 68px;
+  }
+
+  .site-nav {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 8px;
+    max-height: calc(100vh - 68px);
+    overflow-y: auto;
+    padding: 12px var(--gutter) 28px;
+    background: var(--c-white);
+    border-bottom: 1px solid var(--c-line);
+    box-shadow: 0 16px 32px rgba(2, 56, 62, 0.1);
+  }
+
+  .site-header.is-open .site-nav {
+    display: flex;
+  }
+
+  .nav-list {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+  }
+
+  /* Elementor Nav Menu › Dropdown look: full-width list, dividers,
+     submenu indicator on the right, submenu indented on a soft bg */
+  .nav-list > li {
+    border-bottom: 1px solid var(--c-line);
+  }
+
+  .nav-link {
+    width: 100%;
+    justify-content: space-between;
+    padding: 15px 0;
+    font-size: 16px;
+    font-weight: 700;
+  }
+
+  .nav-link.is-active {
+    box-shadow: inset 3px 0 0 var(--c-teal);
+    padding-left: 14px;
+    color: var(--c-teal);
+  }
+
+  .submenu {
+    position: static;
+    min-width: 0;
+    margin: 0 0 12px;
+    padding: 6px 0;
+    border: 0;
+    border-radius: 0;
+    background: var(--c-bg-soft);
+    box-shadow: none;
+    display: none;
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+  }
+
+  .submenu a {
+    padding: 12px 16px;
+    border-radius: 0;
+    font-size: 15px;
+    font-weight: 600;
+  }
+
+  .submenu__divider {
+    margin: 4px 16px;
+  }
+
+  .submenu.is-open {
+    display: block;
+  }
+
+  .lang__menu {
+    padding-left: 0;
+  }
+
+  .site-nav > .btn {
+    justify-content: center;
+    margin-top: 12px;
+  }
+
+  .site-footer__cols {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .site-footer__col--newsletter {
+    grid-column: 1 / -1;
+  }
+
+  .num-row {
+    grid-template-columns: 1fr;
+    align-items: start;
+  }
+}
+
+/* Mobile < 600px */
+@media (max-width: 599px) {
+  .site-footer__cols {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-form {
+    grid-template-columns: 1fr;
+  }
+
+  .num-row__head {
+    gap: 20px;
+  }
+
+  .num-row__num {
+    font-size: 30px;
+  }
+
+  .seo-box dl {
+    grid-template-columns: 1fr auto;
+  }
+
+  .seo-box dt {
+    grid-column: 1 / -1;
+  }
+
+  .float-cta::before {
+    width: 170px;
+    height: 48px;
+  }
+
+  .dev-toggle span:last-child {
+    display: none;
+  }
+}
+
+/* Desktop: the mobile-menu build note only makes sense inside the open mobile menu */
+@media (min-width: 1000px) {
+  .site-nav > .dev-note--inline {
+    display: none !important;
+  }
+}
+
+@media (max-width: 999px) {
+  /* Language row: globe + "EN" together, chevron on the right */
+  .lang__btn {
+    justify-content: flex-start;
+  }
+
+  .lang__btn .nav-link__chev {
+    margin-left: auto;
+  }
+
+  /* Don't cover the menu with the header label while it is open */
+  .show-notes .site-header.is-open > .dev-note {
     display: none;
   }
 }
