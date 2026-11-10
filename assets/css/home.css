@@ -351,7 +351,10 @@ a.org-logo:hover {
   align-items: baseline;
 }
 
-.start .num-row p {
+/* Indent only the description (direct child), so it lines up under the
+   title. The titles are <p> too (not headings in the client doc), so a plain
+   ".num-row p" selector would push them to the right as well. */
+.start .num-row > p {
   padding-left: 74px;
 }
 
@@ -428,7 +431,7 @@ a.org-logo:hover {
       linear-gradient(var(--c-teal-light), var(--c-teal-light)) right center / calc(50% - 44px) 1px no-repeat;
   }
 
-  .start .num-row p {
+  .start .num-row > p {
     padding-left: 0;
   }
 
