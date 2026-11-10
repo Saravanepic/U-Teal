@@ -325,7 +325,7 @@ a:hover {
   color: var(--c-teal);
 }
 
-/* Language switcher (Elementor: WPML / Polylang widget) */
+/* Language switcher (Polylang: Language Switcher widget / shortcode) */
 .lang-switch {
   display: flex;
   gap: 6px;

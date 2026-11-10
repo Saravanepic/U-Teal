@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<!--
+================================================================================
+  U-TEAL · Client notes & questions for Nadja (internal sharing page)
+  - Running list of decisions / questions for the client.
+  - Add new questions as a .question block (continue the Q numbering).
+  - Keep "Already agreed" at the bottom up to date.
+  - noindex: not meant for search engines.
+================================================================================
+-->
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex, nofollow" />
+    <title>U-teal · Website Notes &amp; Questions</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap"
+    />
+
+    <!-- Shared brand styles + page styles -->
+    <link rel="stylesheet" href="assets/css/global.css" />
+    <link rel="stylesheet" href="assets/css/client-notes.css" />
+  </head>
+
+  <body>
+    <!-- ======================================================================
+         HEADER
+         ====================================================================== -->
+    <header class="site-header">
+      <div class="container site-header__inner">
+        <a class="logo" href="index.html" aria-label="U-teal home page draft">
+          <span class="logo__mark" aria-hidden="true">
+            <span class="diamond"></span>
+            <span class="logo__cup"></span>
+          </span>
+          <span class="logo__word">u-teal</span>
+        </a>
+        <a class="btn btn--primary" href="index.html">View Home page draft</a>
+      </div>
+    </header>
+
+    <main class="notes">
+      <!-- ====================================================================
+           INTRO
+           ==================================================================== -->
+      <section class="notes-hero">
+        <div class="container notes-container">
+          <p class="eyebrow">Website project · Notes &amp; questions</p>
+          <h1 class="notes-hero__title">Hi Nadja,</h1>
+          <p class="notes-hero__lead">
+            Here's a short summary of a few decisions for the website, plus a
+            few questions. Please reply to our email with your answers. Using
+            the question numbers (Q0, Q1, …) is enough.
+          </p>
+          <p class="notes-hero__meta">Last updated: November 2026</p>
+
+          <!-- Quick index of questions -->
+          <nav class="toc" aria-label="Questions">
+            <a href="#q0">Q0 Home content</a>
+            <a href="#q1">Q1 Case study URLs</a>
+            <a href="#q2">Q2 Main language</a>
+            <a href="#q3">Q3 Page addresses</a>
+            <a href="#q4">Q4 Pages &amp; landing pages</a>
+            <a href="#q5">Q5 Schema details</a>
+            <a href="#q6">Q6–Q10 Content &amp; other</a>
+          </nav>
+        </div>
+      </section>
+
+      <!-- ====================================================================
+           HOW WE'LL WORK
+           ==================================================================== -->
+      <section class="notes-section">
+        <div class="container notes-container">
+          <h2 class="notes-h2">How we'll work</h2>
+
+          <ol class="steps-list">
+            <li>
+              <strong>Home page first.</strong> We update the Home page draft
+              with the final content. You review and give feedback, and we
+              close the Home page.
+            </li>
+            <li>
+              <strong>All other pages as drafts.</strong> We share every page
+              as a clickable draft for your approval.
+            </li>
+            <li>
+              <strong>Build in WordPress.</strong> Only after you approve the
+              drafts do we build the site in WordPress.
+            </li>
+            <li>
+              <strong>English first, then German.</strong> We build the English
+              version, then duplicate it and update it with the German content.
+            </li>
+            <li>
+              <strong>Languages.</strong> English and German. Spanish is added
+              by you later.
+            </li>
+          </ol>
+
+          <div class="question" id="q0">
+            <span class="question__num">Q0</span>
+            <p class="question__text">
+              For the Home page: please send us any content updates (texts,
+              photos), or confirm the current draft texts.
+            </p>
+            <a class="question__link" href="index.html">Open the Home page draft →</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- ====================================================================
+           1. TRANSLATED PAGE ADDRESSES
+           ==================================================================== -->
+      <section class="notes-section">
+        <div class="container notes-container">
+          <p class="eyebrow">01</p>
+          <h2 class="notes-h2">Translated page addresses (URLs)</h2>
+
+          <p>
+            Good news: with <strong>Polylang</strong>, each language version of
+            a page gets its <strong>own address in its own language</strong>,
+            for example:
+          </p>
+          <ul class="url-list">
+            <li><span>English</span><code>u-teal.com/about/</code></li>
+            <li><span>German</span><code>u-teal.com/de/ueber-mich/</code></li>
+          </ul>
+          <p>
+            This works for all main pages, landing pages, legal pages and each
+            individual case study, all in the <strong>free</strong> version of
+            Polylang.
+          </p>
+
+          <h3 class="notes-h3">One exception: the Case Studies section</h3>
+          <p>
+            With the free version, the fixed part of the address in front of
+            each case study stays the same in every language:
+          </p>
+
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th></th>
+                  <th>Free Polylang</th>
+                  <th>Polylang Pro</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th>English</th>
+                  <td><code>/case-studies/project-name/</code></td>
+                  <td><code>/case-studies/project-name/</code></td>
+                </tr>
+                <tr>
+                  <th>German</th>
+                  <td><code>/de/case-studies/projekt-name/</code></td>
+                  <td><code>/de/fallstudien/projekt-name/</code></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <p>
+            Both options work fine for Google. Pro only changes how the address
+            <em>looks</em> in German (and later Spanish). Polylang Pro is
+            licensed per website with a yearly renewal for updates and support.
+            We'll confirm the exact price with you before buying anything.
+          </p>
+
+          <div class="question" id="q1">
+            <span class="question__num">Q1</span>
+            <p class="question__text">
+              Is <code>/de/case-studies/…</code> fine for you (free), or would
+              you like fully translated case-study addresses (Pro)?
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ====================================================================
+           2. DEFAULT LANGUAGE
+           ==================================================================== -->
+      <section class="notes-section">
+        <div class="container notes-container">
+          <p class="eyebrow">02</p>
+          <h2 class="notes-h2">Main language</h2>
+          <p>
+            One language is the "main" one and has no prefix in the address.
+            The other languages get a short prefix (<code>/de/</code>,
+            <code>/en/</code>, later <code>/es/</code>).
+          </p>
+
+          <div class="question" id="q2">
+            <span class="question__num">Q2</span>
+            <p class="question__text">
+              Which language should be the main one: English
+              (<code>u-teal.com/about/</code>) or German
+              (<code>u-teal.com/ueber-mich/</code>)?
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ====================================================================
+           3. PROPOSED PAGE ADDRESSES
+           ==================================================================== -->
+      <section class="notes-section">
+        <div class="container notes-container">
+          <p class="eyebrow">03</p>
+          <h2 class="notes-h2">Proposed page addresses</h2>
+          <p>
+            Please check the German addresses and correct anything that doesn't
+            sound right. Short, clear words work best for SEO. The Spanish
+            column is for you to fill in later.
+          </p>
+
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Page</th>
+                  <th>English</th>
+                  <th>German</th>
+                  <th>Spanish (later)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><th>Home</th><td><code>/</code></td><td><code>/de/</code></td><td><code>/es/</code></td></tr>
+                <tr><th>About</th><td><code>/about/</code></td><td><code>/ueber-mich/</code></td><td></td></tr>
+                <tr><th>Methods</th><td><code>/methods/</code></td><td><code>/methoden/</code></td><td></td></tr>
+                <tr><th>Coaching for Women</th><td><code>/coaching-for-women/</code></td><td><code>/coaching-fuer-frauen/</code></td><td></td></tr>
+                <tr><th>Organisational Development</th><td><code>/organisational-development/</code></td><td><code>/organisationsentwicklung/</code></td><td></td></tr>
+                <tr><th>Case Studies</th><td><code>/case-studies/</code></td><td><code>/fallstudien/</code> or <code>/referenzen/</code></td><td></td></tr>
+                <tr><th>Contact</th><td><code>/contact/</code></td><td><code>/kontakt/</code></td><td></td></tr>
+                <tr><th>Privacy Policy</th><td><code>/privacy-policy/</code></td><td><code>/datenschutz/</code></td><td></td></tr>
+                <tr><th>Imprint</th><td><code>/imprint/</code></td><td><code>/impressum/</code></td><td></td></tr>
+                <tr><th>Cookies</th><td><code>/cookie-policy/</code></td><td><code>/cookie-richtlinie/</code></td><td></td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="question" id="q3">
+            <span class="question__num">Q3</span>
+            <p class="question__text">Are these addresses OK? Any changes?</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ====================================================================
+           4. PAGES & LANDING PAGE TEMPLATES
+           ==================================================================== -->
+      <section class="notes-section">
+        <div class="container notes-container">
+          <p class="eyebrow">04</p>
+          <h2 class="notes-h2">Pages &amp; landing page templates</h2>
+          <p>
+            We agreed on the <strong>6 main pages</strong> (Basic option in
+            Octopus) plus <strong>2–3 reusable landing page templates</strong>.
+            Legal and utility pages (Privacy, Imprint, Cookies, 404) come on
+            top.
+          </p>
+
+          <div class="question" id="q4">
+            <span class="question__num">Q4</span>
+            <p class="question__text">
+              Please confirm the 6 main pages, and tell us what the 2–3 landing
+              pages are for (e.g. a workshop, a programme, an event).
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ====================================================================
+           5. SCHEMA
+           ==================================================================== -->
+      <section class="notes-section">
+        <div class="container notes-container">
+          <p class="eyebrow">05</p>
+          <h2 class="notes-h2">Information for search engines (schema)</h2>
+          <p>
+            We'll set up the structure for <strong>Person</strong> (you) and
+            <strong>Organisation</strong> (U-teal) in Yoast SEO, so you can
+            fill in or update the details yourself. If you already have this
+            information, send it over and we'll enter it for you:
+          </p>
+          <ul class="plain-list">
+            <li><strong>Person:</strong> full name, job title, profile photo, LinkedIn URL</li>
+            <li><strong>Organisation:</strong> official name, logo, address, email, phone (optional), LinkedIn company page</li>
+          </ul>
+
+          <div class="question" id="q5">
+            <span class="question__num">Q5</span>
+            <p class="question__text">
+              Would you like to fill these in yourself, or send them to us?
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ====================================================================
+           6. CONTENT & OTHER OPEN POINTS
+           ==================================================================== -->
+      <section class="notes-section" id="q6">
+        <div class="container notes-container">
+          <p class="eyebrow">06</p>
+          <h2 class="notes-h2">Content &amp; other open points</h2>
+
+          <div class="question">
+            <span class="question__num">Q6</span>
+            <p class="question__text">
+              <strong>German texts:</strong> will you provide the German
+              translations, or should we plan for them?
+            </p>
+          </div>
+
+          <div class="question">
+            <span class="question__num">Q7</span>
+            <p class="question__text">
+              <strong>Newsletter:</strong> which provider do you use or prefer:
+              Mailchimp, Brevo, or another?
+            </p>
+          </div>
+
+          <div class="question">
+            <span class="question__num">Q8</span>
+            <p class="question__text">
+              <strong>Legal texts:</strong> who provides the Imprint, Privacy
+              Policy and Cookie texts (e.g. your lawyer, or a generator such as
+              eRecht24)?
+            </p>
+          </div>
+
+          <div class="question">
+            <span class="question__num">Q9</span>
+            <p class="question__text">
+              <strong>Links:</strong> please share the LinkedIn URLs (your
+              profile + the U-teal page).
+            </p>
+          </div>
+
+          <div class="question">
+            <span class="question__num">Q10</span>
+            <p class="question__text">
+              <strong>Spanish:</strong> should we already add Spanish as a
+              language in Polylang (empty, ready for you to fill), or will you
+              set it up later?
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ====================================================================
+           ALREADY AGREED
+           ==================================================================== -->
+      <section class="notes-section notes-section--soft">
+        <div class="container notes-container">
+          <h2 class="notes-h2">Already agreed</h2>
+          <ul class="agreed-list">
+            <li>English + German built by us; Spanish added by you later.</li>
+            <li>Polylang for languages, Yoast SEO (free) for SEO.</li>
+            <li>Person / Organisation schema prepared for you to fill in.</li>
+            <li>
+              AI crawlers (GPTBot, ClaudeBot, etc.) and search engines are
+              <strong>not blocked</strong>; clean, semantic HTML.
+            </li>
+            <li>Automatic XML sitemap for each language.</li>
+            <li>Basic performance setup: image optimisation, lazy loading, caching.</li>
+          </ul>
+          <p class="notes-thanks">Thank you!</p>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
