@@ -77,67 +77,13 @@
 /* --------------------------------------------------------------------------
    S04 · How I work: intro + 3 principle cards (square · diamond · circle)
    -------------------------------------------------------------------------- */
-.principles__grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 24px;
-}
-
-.principle {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-  padding: clamp(28px, 3vw, 40px);
-  background: var(--c-bg-soft);
-}
-
-.principle__shape {
-  display: block;
-  width: 28px;
-  height: 28px;
-  margin-bottom: 6px;
-  background: var(--c-teal-dark);
-}
-
-.principle__shape--diamond {
-  width: 26px;
-  height: 26px;
-  margin-left: 2px;
-  background: var(--c-teal-light);
-  transform: rotate(45deg);
-}
-
-.principle__shape--circle {
-  border-radius: 50%;
-  background: var(--c-teal);
-}
-
 .principles .section-head a {
   font-weight: 600;
   text-decoration: underline;
   text-underline-offset: 3px;
 }
 
-/* --------------------------------------------------------------------------
-   S05 · CTA (designer "Contact": centred)
-   -------------------------------------------------------------------------- */
-.cta-block {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 24px;
-  text-align: center;
-}
-
-.cta-block__title {
-  max-width: 760px;
-  font-size: clamp(30px, 3.4vw, 40px);
-  line-height: 1.3;
-  font-weight: 800;
-  letter-spacing: -0.3px;
-  color: var(--c-teal-dark);
-  text-wrap: balance;
-}
+/* S04 cards (.principle) + S05 CTA (.cta-block): styles in global.css 5.7 / 5.8 */
 
 /* --------------------------------------------------------------------------
    S06 · Who I work with (partner cards hidden until partners agree)
@@ -282,7 +228,6 @@
     position: static;
   }
 
-  .principles__grid,
   .partners__grid,
   .cv__grid {
     grid-template-columns: minmax(0, 1fr);

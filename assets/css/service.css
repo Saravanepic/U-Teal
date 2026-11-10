@@ -1,0 +1,224 @@
+/* ==========================================================================
+   U-TEAL · SERVICE PAGE TEMPLATE STYLES
+   Shared by all 5 service pages (internationalisation, strategy consulting,
+   organisational development, leadership development, women in leadership).
+   Loaded after global.css. Shared parts live in global.css: dash list (5.2),
+   quote (5.3), numbered rows (5.4), image placeholder (5.5b), shape cards
+   (5.7), CTA block (5.8), FAQ (5.9).
+   Sections: S02 Hero · S03 Situations · S04 Gains · S05 Expect ·
+             S06 From my practice · S07 How we work together (#offer) ·
+             S08 CTA · S09 FAQ
+   ========================================================================== */
+
+html {
+  scroll-behavior: smooth;
+}
+
+#offer,
+#faq {
+  scroll-margin-top: 100px;
+}
+
+/* --------------------------------------------------------------------------
+   S02 · Hero: H1 small · H2 display · H3 lead | image (same as Home hero)
+   -------------------------------------------------------------------------- */
+.service-hero {
+  padding-top: clamp(40px, 6vw, 88px);
+  padding-bottom: clamp(48px, 6vw, 88px);
+}
+
+.service-hero__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+  gap: clamp(32px, 5vw, 72px);
+  align-items: center;
+}
+
+.service-hero__content {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* H1: small type (SEO heading), styled like the Home hero H1 */
+.service-hero__h1 {
+  font-size: clamp(16px, 1.4vw, 18px);
+  line-height: 1.5;
+  font-weight: 600;
+  color: var(--c-teal);
+  text-wrap: balance;
+}
+
+.service-hero__lead {
+  max-width: 34em;
+}
+
+/* --------------------------------------------------------------------------
+   S03 · Situations: question | dash list + closing line + button
+   -------------------------------------------------------------------------- */
+.situations {
+  padding-top: 0;
+}
+
+.situations__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+  gap: 32px clamp(32px, 6vw, 96px);
+  align-items: start;
+}
+
+.situations__question {
+  position: sticky;
+  top: 120px;
+}
+
+.situations .dash-list {
+  gap: 16px;
+}
+
+.situations .dash-list a,
+.expect a,
+.case__main .body a {
+  color: var(--c-teal);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.situations__close {
+  padding-top: 8px;
+  font-weight: 600;
+  color: var(--c-teal-dark);
+}
+
+/* --------------------------------------------------------------------------
+   S04 · Gains: shape cards (global 5.7) — white cards on the soft section
+   -------------------------------------------------------------------------- */
+.gains .principle {
+  background: var(--c-white);
+}
+
+/* --------------------------------------------------------------------------
+   S05 · Expect: sticky H2 | numbered rows (global 5.4)
+   -------------------------------------------------------------------------- */
+.expect__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.6fr) minmax(0, 1.4fr);
+  gap: 32px clamp(32px, 5vw, 72px);
+  align-items: start;
+}
+
+.expect__head {
+  position: sticky;
+  top: 120px;
+}
+
+.expect__row {
+  align-items: start;
+}
+
+.expect__row .num-row__head {
+  align-items: flex-start;
+}
+
+.expect__row .num-row__num {
+  line-height: 1.1;
+}
+
+/* --------------------------------------------------------------------------
+   S06 · From my practice: case (H3 · text · button) | quote
+   -------------------------------------------------------------------------- */
+.cases {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.case {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+  gap: 32px clamp(32px, 5vw, 72px);
+  align-items: center;
+  padding: clamp(28px, 3.5vw, 48px);
+  background: var(--c-white);
+}
+
+/* Case without a quote: text keeps the same width as the others */
+.case__main {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.case__main .h4 {
+  font-size: clamp(19px, 1.7vw, 22px);
+}
+
+/* --------------------------------------------------------------------------
+   S07 · How we work together: 3 offer boxes
+   -------------------------------------------------------------------------- */
+.offer__grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.offer-card {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: clamp(28px, 3vw, 40px);
+  border-top: 3px solid var(--c-teal-light);
+  background: var(--c-bg-soft);
+}
+
+.offer-card .h3 {
+  font-size: clamp(20px, 1.8vw, 24px);
+}
+
+/* --------------------------------------------------------------------------
+   S08 · CTA: dark band (designer "Contact" block)
+   -------------------------------------------------------------------------- */
+.service-cta {
+  background: var(--c-teal-dark);
+}
+
+.service-cta .cta-block__title {
+  color: var(--c-white);
+}
+
+.service-cta__text {
+  max-width: 640px;
+  color: var(--c-on-dark);
+}
+
+/* --------------------------------------------------------------------------
+   S09 · FAQ (global 5.9) + "Last updated"
+   -------------------------------------------------------------------------- */
+.service-updated {
+  margin-top: 28px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--c-muted);
+}
+
+/* --------------------------------------------------------------------------
+   Mobile / tablet (below 1000px): one column
+   -------------------------------------------------------------------------- */
+@media (max-width: 999px) {
+  .service-hero__grid,
+  .situations__grid,
+  .expect__grid,
+  .case,
+  .offer__grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .situations__question,
+  .expect__head {
+    position: static;
+  }
+
+  .service-hero__img {
+    order: -1;
+  }
+}

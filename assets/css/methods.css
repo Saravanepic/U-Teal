@@ -163,97 +163,18 @@ html {
   gap: 24px;
 }
 
-.method__body a,
-.faq-item__a a {
+.method__body a {
   color: var(--c-teal);
   text-decoration: underline;
   text-underline-offset: 3px;
   text-decoration-thickness: 1px;
 }
 
-.method__body a:hover,
-.faq-item__a a:hover {
+.method__body a:hover {
   color: var(--c-teal-dark);
 }
 
-/* --------------------------------------------------------------------------
-   S05 · FAQ (Elementor Accordion)
-   -------------------------------------------------------------------------- */
-.faq__grid {
-  display: grid;
-  grid-template-columns: minmax(0, 0.6fr) minmax(0, 1.4fr);
-  gap: 32px clamp(32px, 5vw, 72px);
-  align-items: start;
-}
-
-.faq__head {
-  position: sticky;
-  top: 120px;
-}
-
-.faq-list {
-  border-top: 1px solid var(--c-line);
-}
-
-.faq-item {
-  border-bottom: 1px solid var(--c-line);
-}
-
-.faq-item summary {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 24px;
-  padding: 22px 0;
-  cursor: pointer;
-  list-style: none;
-}
-
-.faq-item summary::-webkit-details-marker {
-  display: none;
-}
-
-.faq-item__q {
-  font-size: clamp(17px, 1.4vw, 19px);
-  line-height: 1.4;
-  font-weight: 700;
-  color: var(--c-teal-dark);
-}
-
-/* Plus / minus icon */
-.faq-item__icon {
-  position: relative;
-  flex: 0 0 18px;
-  width: 18px;
-  height: 18px;
-}
-
-.faq-item__icon::before,
-.faq-item__icon::after {
-  content: "";
-  position: absolute;
-  top: 50%;
-  left: 0;
-  width: 18px;
-  height: 2px;
-  background: var(--c-teal);
-  transform: translateY(-50%);
-  transition: transform 0.2s ease;
-}
-
-.faq-item__icon::after {
-  transform: translateY(-50%) rotate(90deg);
-}
-
-.faq-item[open] .faq-item__icon::after {
-  transform: translateY(-50%) rotate(0deg);
-}
-
-.faq-item__a {
-  padding-bottom: 24px;
-  max-width: 68ch;
-}
-
+/* S05 · FAQ: styles in global.css (5.9), shared with the service pages */
 /* --------------------------------------------------------------------------
    Mobile / tablet (below 1000px): one column
    -------------------------------------------------------------------------- */
@@ -261,13 +182,8 @@ html {
   .methods-hero__grid,
   .methods-toc__grid,
   .methods-group__head,
-  .method,
-  .faq__grid {
+  .method {
     grid-template-columns: minmax(0, 1fr);
-  }
-
-  .faq__head {
-    position: static;
   }
 
   .method__head {
