@@ -254,7 +254,7 @@
   min-width: 170px;
   min-height: 72px;
   padding: 12px 18px;
-  border: 1px dashed #b9c8c8;
+  border: 1px dashed var(--c-tint-dark-40);
   background: var(--c-white);
   font-size: 13px;
   font-weight: 700;
@@ -309,7 +309,7 @@ a.org-logo:hover {
   display: block;
   font-weight: 500;
   font-size: 12px;
-  color: #9aa9aa;
+  color: var(--c-tint-dark-60);
 }
 
 /* --------------------------------------------------------------------------
@@ -376,7 +376,7 @@ a.org-logo:hover {
 .news-placeholder__card {
   min-height: 140px;
   padding: 20px;
-  border: 1px dashed #b9c8c8;
+  border: 1px dashed var(--c-tint-dark-40);
   background: var(--c-white);
   font-weight: 600;
   color: var(--c-muted);
