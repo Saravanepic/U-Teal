@@ -47,7 +47,7 @@
          S01 · HEADER
          Elementor: Theme Builder › Header (sticky)
          Widgets: Site Logo (SVG) · Nav Menu (Home · Services ▾ · About ·
-                  Methods) · Polylang language switcher (dropdown) · Button
+                  Methods) · Polylang language switcher (codes EN / DE / ES) · Button
          ====================================================================== -->
     <header class="site-header" id="top">
       <div class="dev-note">
@@ -95,19 +95,12 @@
             <li><a class="nav-link" href="about-me.html">About</a></li>
             <li><a class="nav-link" href="methods.html">Methods</a></li>
 
-            <!-- Language switcher (Polylang) -->
-            <li class="lang">
-              <button class="nav-link lang__btn" type="button" aria-expanded="false" aria-controls="submenu-lang" aria-label="Language: English" data-dropdown>
-                <svg viewBox="-1 -1 22 22" fill="none" aria-hidden="true">
-                  <path d="M20 10c0 5.523-4.477 10-10 10m10-10c0-5.523-4.477-10-10-10m10 10H0m10 10C4.477 20 0 15.523 0 10m10 10a14.6 14.6 0 0 1-4-10c0-3.723 1.432-7.304 4-10m0 20a14.6 14.6 0 0 0 4-10c0-3.723-1.432-7.304-4-10M0 10C0 4.477 4.477 0 10 0" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-                EN <span class="nav-link__chev" aria-hidden="true"></span>
-              </button>
-              <ul class="submenu lang__menu" id="submenu-lang">
-                <li><a href="strategy-consulting.html" aria-current="true">English</a></li>
-                <li><a href="#" data-todo="/de/">Deutsch</a></li>
-                <li><a href="#" data-todo="/es/">Español</a></li>
-              </ul>
+            <!-- Language switcher (Polylang): codes only, no globe icon (feedback G2).
+                 ES stays hidden on the live site until Spanish pages exist (T5). -->
+            <li class="lang" aria-label="Language">
+              <a class="lang__link" href="strategy-consulting.html" aria-current="true" lang="en">EN</a>
+              <a class="lang__link" href="#" data-todo="/de/" lang="de">DE</a>
+              <a class="lang__link" href="#" data-todo="/es/" lang="es">ES</a>
             </li>
           </ul>
 
@@ -121,7 +114,7 @@
               <li>Mobile dropdown: Full width ON · Align: start · Toggle icon: custom SVG (bar · diamond · bar), colour #02383E, size 22px.</li>
               <li>Dropdown items: Manrope 16px/700 #02383E · padding 15px 0 · divider 1px #CCD7D8 · active: text #008080 + 3px left border.</li>
               <li>Submenu ("Services"): indicator chevron on the right · bg #F8F8F8 · items 15px/600 · padding 12px 16px.</li>
-              <li>Languages: Polylang adds EN / DE / ES as a "Language switcher" menu item (show names, hide flags).</li>
+              <li>Languages: Polylang "Language switcher" menu item showing <strong>codes only</strong> (EN / DE / ES), no flags, no globe icon (feedback G2).</li>
               <li>"Let's talk": last menu item with CSS class <code>menu-cta</code> styled as a button (or hide the header button on mobile: the floating Let's talk is always visible).</li>
             </ul>
           </div>
@@ -192,7 +185,9 @@
            ==================================================================== -->
       <section class="section situations">
         <div class="dev-note">S03 · Situations — lead | list · text · picture · button (doc order)</div>
-        <div class="container situations__grid">
+        <div class="container situations__flow">
+          <!-- Most visible element (feedback S2). Elementor: Heading, HTML tag p -->
+          <p class="situations__statement">I help you set priorities and develop strategies that students, academic and administrative staff help shape, and so make their own.</p>
           <p class="lead situations__question">Are you shaping your university’s strategic direction? Perhaps you’re at one of these points right now?</p>
           <div class="stack">
             <ul class="dash-list body">
@@ -202,7 +197,6 @@
               <li>New topics call for a strategic response, such as sustainability, artificial intelligence in teaching and research, or digital and hybrid learning.</li>
               <li>You have a strategy, but it isn’t reaching practice in the university, or its impact is unclear.</li>
             </ul>
-            <p class="body situations__close">If you recognise yourself here: I help you set priorities and develop strategies that students, academic and administrative staff help shape, and so make their own.</p>
             <figure class="img-ph situations__img" style="aspect-ratio: 3 / 2" role="img" aria-label="Picture option"><span class="img-ph__mark" aria-hidden="true"></span><figcaption class="img-ph__label"><strong>Picture option</strong>Photo to be chosen.</figcaption></figure>
             <div><a class="btn btn--outline btn--arrow" href="#offer">What I offer</a></div>
           </div>
@@ -278,33 +272,11 @@
         </div>
       </section>
 
-      <!-- S06 · CASES — Elementor: H2 · per case: Container (row) › H3 · text · button | picture · quote -->
-      <section class="section section--soft practice">
-        <div class="dev-note">S06 · Case studies — H2 · 1 case(s): H3 · text · button | picture · quote</div>
-        <div class="container">
-          <div class="section-head">
-            <h2 class="h2">Case studies</h2>
-          </div>
-          <div class="cases">
-            <article class="case">
-              <div class="case__main">
-                <h3 class="h4">Strengthening international cooperation strategically</h3>
-                <p class="body">The <a href="https://www.uab.cat/fas/" target="_blank" rel="noopener">Fundació Autònoma Solidària</a> is the <a href="https://www.uab.cat/web/universitat-autonoma-de-barcelona-1345467954774.html?param2=1345716706936" target="_blank" rel="noopener">Universitat Autònoma de Barcelona</a>’s foundation for social engagement and development cooperation. As project lead, I evaluated one of the foundation’s long-standing university partnerships together with a colleague. We examined what it had achieved, how lasting its impact had been and what could be transferred to other partnerships. The foundation has since used our recommendations to reorient its approach to international cooperation.</p>
-                <div><a class="btn btn--outline btn--arrow" href="#" data-todo="/case-studies#fas">Read the full case study</a></div>
-              </div>
-              <div class="case__aside">
-                <figure class="img-ph case__picture" style="aspect-ratio: 3 / 2" role="img" aria-label="Picture option"><span class="img-ph__mark" aria-hidden="true"></span><figcaption class="img-ph__label"><strong>Picture option</strong>Photo for this case study.</figcaption></figure>
-              </div>
-            </article>
-          </div>
-        </div>
-      </section>
-
       <!-- S07 · HOW WE WORK TOGETHER (#offer) — client note: only the titles are
            visible at first, the text expands on click.
            Elementor: Container (CSS ID offer, row) › H2 | Accordion (title tag H3,
                       all closed; CSS ID per item = anchor) -->
-      <section class="section offer" id="offer">
+      <section class="section section--soft offer" id="offer">
         <div class="dev-note">S07 · How we work together (CSS ID offer) — H2 | Accordion (5 items, H3, closed)</div>
         <div class="container faq__grid">
           <div class="faq__head"><h2 class="h2">How we work together</h2></div>
@@ -354,6 +326,24 @@
           <h2 class="cta-block__title">What strategic questions is your university facing?</h2>
           <p class="body service-cta__text">Whether you want to develop a new strategy, set priorities or bring an existing one into practice: in a free introductory call, we explore what you need and what kind of support makes sense.</p>
           <a class="btn btn--accent btn--arrow" href="contact.html">Let’s talk</a>
+        </div>
+      </section>
+
+      <!-- S06 · CASES — Elementor: H2 · per case: Container (row) › H3 · text · button | picture · quote -->
+      <section class="section practice">
+        <div class="dev-note">From my practice — H2 · case cards (client logo · H3 · teaser · button), 3 per row · quotes below (proposal, feedback S6)</div>
+        <div class="container">
+          <div class="section-head">
+            <h2 class="h2">Case studies</h2>
+          </div>
+          <div class="case-grid">
+            <article class="case-card">
+              <div class="case-card__logo"><img src="assets/images/clients/fas.png" alt="Fundació Autònoma Solidària" loading="lazy" /></div>
+              <h3 class="case-card__title">Strengthening international cooperation strategically</h3>
+              <p class="body">The <a href="https://www.uab.cat/fas/" target="_blank" rel="noopener">Fundació Autònoma Solidària</a> is the <a href="https://www.uab.cat/web/universitat-autonoma-de-barcelona-1345467954774.html?param2=1345716706936" target="_blank" rel="noopener">Universitat Autònoma de Barcelona</a>’s foundation for social engagement and development cooperation. As project lead, I evaluated one of the foundation’s long-standing university partnerships together with a colleague. We examined what it had achieved, how lasting its impact had been and what could be transferred to other partnerships. The foundation has since used our recommendations to reorient its approach to international cooperation.</p>
+              <div><a class="btn btn--outline btn--arrow" href="#" data-todo="/case-studies#fas">Read the full case study</a></div>
+            </article>
+          </div>
         </div>
       </section>
 
@@ -419,13 +409,13 @@
          ====================================================================== -->
     <footer class="site-footer">
       <div class="dev-note">
-        S11 · Theme Builder › Footer — 3 cols (logo + text + button · services
-        menu · newsletter form) + bottom bar (Polylang switcher)
+        S11 · Theme Builder › Footer — 3 cols (logo + text + contact + button ·
+        services menu · newsletter form) + bottom bar (Polylang switcher)
       </div>
 
       <div class="container">
         <div class="site-footer__cols">
-          <!-- Column 1 -->
+          <!-- Column 1: about + contact (feedback F3: contact details moved here) -->
           <div class="site-footer__col">
             <a class="site-footer__logo" href="index.html" aria-label="U-teal home">
               <img src="assets/images/brand/logo-uteal-white.svg" alt="U-teal" width="96" height="26" />
@@ -435,6 +425,28 @@
               internationalisation, strategy, organisational development and
               leadership in Europe and beyond. · On site and online.
             </p>
+            <div class="site-footer__contact">
+              <p class="site-footer__title">Contact</p>
+              <ul class="site-footer__links">
+                <li><a href="mailto:nadja@u-teal.com">nadja@u-teal.com</a></li>
+                <li><a href="tel:+34697585199">+34 697 585 199</a></li>
+              </ul>
+              <!-- Elementor: Icon List (LinkedIn icon) or Social Icons + text -->
+              <ul class="site-footer__social">
+                <li>
+                  <a href="https://www.linkedin.com/in/nadja-gmelch/" target="_blank" rel="noopener">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg>
+                    LinkedIn (Nadja Gmelch)
+                  </a>
+                </li>
+                <li>
+                  <a href="https://www.linkedin.com/company/u-teal/" target="_blank" rel="noopener">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg>
+                    LinkedIn (U-teal)
+                  </a>
+                </li>
+              </ul>
+            </div>
             <a class="btn btn--accent" href="contact.html">Let’s talk</a>
           </div>
 
@@ -450,7 +462,7 @@
             </ul>
           </div>
 
-          <!-- Column 3: newsletter -->
+          <!-- Column 3: newsletter (email only, feedback F1) -->
           <div class="site-footer__col site-footer__col--newsletter">
             <p class="site-footer__title">Newsletter</p>
             <p>
@@ -459,10 +471,8 @@
               dates, and share what I’m learning about change in universities.
             </p>
             <form class="footer-form" action="#" onsubmit="return false;">
-              <label class="sr-only" for="nl-name">First name</label>
-              <input id="nl-name" type="text" placeholder="First name" autocomplete="given-name" />
               <label class="sr-only" for="nl-email">Email</label>
-              <input id="nl-email" type="email" placeholder="Email" autocomplete="email" />
+              <input id="nl-email" type="email" placeholder="Email" autocomplete="email" required />
               <button class="btn btn--accent" type="submit">Subscribe</button>
             </form>
             <p class="footer-form__note">
@@ -473,9 +483,9 @@
             <div class="dev-note dev-note--inline">
               <strong>FORM · Elementor Pro › Form widget</strong>
               <ul>
-                <li>Fields: First name (text, 50%) + Email (required, 50%) + Submit (100%, auto width). Mobile: all 100%.</li>
-                <li>Action: Mailchimp (native) with double opt-in ON (GDPR/DE). Brevo: Brevo plugin or webhook.</li>
-                <li>Spam: honeypot ON; Cloudflare Turnstile if needed (no reCAPTCHA).</li>
+                <li>Fields: Email only (required, 100%) + Submit (100% = same width as the field, desktop and mobile; feedback F1/F2/MO2).</li>
+                <li>Action: Brevo (client's provider) with double opt-in ON (GDPR/DE): Brevo plugin or webhook.</li>
+                <li>Spam: honeypot ON + hCaptcha (free "hCaptcha for WP" plugin, supports Elementor Pro forms). No reCAPTCHA.</li>
                 <li>Field: transparent bg · border 1px rgba(255,255,255,.35) · radius 8px · padding 11px 14px · Manrope 14px · text #FFF · placeholder #9AAFB2.</li>
                 <li>Button: bg #3DB7BB · text #02383E · 14px/700 · padding 12px 20px · radius 8px · hover bg #FFF.</li>
                 <li>Polylang: translate the success message + privacy link in DE/ES.</li>
@@ -491,10 +501,6 @@
             <li><a href="#" data-todo="/legal-notice">Legal notice</a></li>
             <li><a href="#" data-todo="/privacy-policy">Privacy policy</a></li>
             <li><a href="#" data-todo="cookie-settings">Cookie settings</a></li>
-            <li><a href="mailto:nadja@u-teal.com">nadja@u-teal.com</a></li>
-            <li><a href="tel:+34697585199">+34 697 585 199</a></li>
-            <li><a href="https://www.linkedin.com/in/nadja-gmelch/" target="_blank" rel="noopener">LinkedIn (Nadja Gmelch)</a></li>
-            <li><a href="https://www.linkedin.com/company/u-teal/" target="_blank" rel="noopener">LinkedIn (U-teal)</a></li>
           </ul>
           <!-- Polylang: each link points to the same page in the other language -->
           <nav class="site-footer__lang" aria-label="Language">
@@ -508,7 +514,7 @@
     <!-- /S11 · FOOTER -->
 
     <!-- ======================================================================
-         FLOATING "LET'S TALK" (always visible — client request)
+         FLOATING "LET'S TALK" (mobile / tablet only — feedback G1; desktop uses the header button)
          Elementor: Pro Popup (bottom bar, all pages, no close button) or a
          fixed Container. Triangle = SVG/shape behind the button.
          ====================================================================== -->

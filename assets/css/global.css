@@ -353,6 +353,59 @@ a:hover {
   color: var(--c-muted);
 }
 
+/* --- 5.3b Testimonial card: big quotation mark + prominent name
+   (feedback H7 / S6). Used on Home and in the service-page case studies.
+   Elementor: Testimonial widget or Container › Heading (“ 96px) · Text ·
+   Heading (name 20px/800) · Text (role) */
+.testimonial {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  padding: 56px clamp(24px, 3vw, 40px) 32px;
+  background: var(--c-white);
+}
+
+.testimonial__mark {
+  position: absolute;
+  top: 6px;
+  left: clamp(18px, 2.6vw, 34px);
+  font-size: 104px;
+  line-height: 1;
+  font-weight: 800;
+  color: var(--c-teal-light);
+}
+
+.testimonial__text {
+  font-size: clamp(18px, 1.5vw, 20px);
+  line-height: 1.6;
+  font-weight: 500;
+  font-style: italic;
+  color: var(--c-teal-dark);
+  text-wrap: pretty;
+}
+
+.testimonial__author {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  margin-top: auto;
+  padding-top: 16px;
+  border-top: 2px solid var(--c-teal-light);
+}
+
+.testimonial__name {
+  font-size: 20px;
+  font-weight: 800;
+  color: var(--c-teal-dark);
+}
+
+.testimonial__role {
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--c-muted);
+}
+
 /* --- 5.4 Numbered rows (designer "Trust" style: 01 + title | text) --- */
 .num-rows {
   border-top: 1px solid var(--c-line);
@@ -499,6 +552,57 @@ a:hover {
 .principle__shape--circle {
   border-radius: 50%;
   background: var(--c-teal);
+}
+
+/* --- 5.7b Brand shapes (Brand Book p.22): small solid marks used on cards.
+   Elementor: Icon widget with an uploaded SVG (one SVG per shape). --- */
+.shape {
+  display: block;
+  flex: 0 0 auto;
+  width: 30px;
+  height: 30px;
+  background: var(--c-teal-dark);
+}
+
+.shape--square { background: var(--c-teal-dark); }
+
+.shape--diamond {
+  width: 26px;
+  height: 26px;
+  margin: 2px;
+  background: var(--c-teal-light);
+  transform: rotate(45deg);
+}
+
+.shape--circle {
+  border-radius: 50%;
+  background: var(--c-teal);
+}
+
+.shape--triangle {
+  clip-path: polygon(50% 4%, 100% 96%, 0 96%);
+  background: var(--c-tint-dark-60);
+}
+
+.shape--rounded-diamond {
+  width: 26px;
+  height: 26px;
+  margin: 2px;
+  border-radius: 7px;
+  background: var(--c-teal-light);
+  transform: rotate(45deg);
+}
+
+/* --- 5.7c Highlight: a word or sentence the client wants to stand out
+   (feedback H13, A2, A3). Elementor: Text Editor › select text › custom
+   class "highlight" (or bold + Global colour). --- */
+.highlight {
+  padding: 0.05em 0.25em;
+  background: var(--c-tint-teal-20);
+  font-weight: 700;
+  color: var(--c-teal-dark);
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
 }
 
 /* --- 5.8 CTA block (centred: heading · text · button) --- */
@@ -758,27 +862,30 @@ a:hover {
   background: var(--c-line);
 }
 
-/* Language switcher (globe + EN, dropdown EN / DE / ES) */
+/* Language switcher: codes only "EN / DE / ES", no globe (feedback G2).
+   Elementor: Polylang "Language switcher" menu item, show codes, hide flags. */
 .lang {
-  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 2px;
 }
 
-.lang__btn {
-  gap: 8px;
+.lang__link {
+  padding: 6px 4px;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--c-muted);
 }
 
-.lang__btn svg {
-  width: 20px;
-  height: 20px;
+.lang__link + .lang__link::before {
+  content: "/";
+  margin-right: 6px;
+  font-weight: 400;
+  color: var(--c-tint-dark-40);
 }
 
-.lang__menu {
-  min-width: 140px;
-  left: auto;
-  right: -10px;
-}
-
-.lang__menu a[aria-current="true"] {
+.lang__link:hover,
+.lang__link[aria-current="true"] {
   color: var(--c-teal);
 }
 
@@ -896,10 +1003,43 @@ a:hover {
   gap: 12px;
 }
 
-/* Newsletter form (Elementor Pro Form) */
+/* Contact details in column 1 (feedback F3) */
+.site-footer__contact {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.site-footer__contact .site-footer__links {
+  gap: 6px;
+}
+
+.site-footer__social {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.site-footer__social a {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.site-footer__social svg {
+  flex: 0 0 auto;
+  width: 18px;
+  height: 18px;
+}
+
+/* Newsletter form (Elementor Pro Form): email only, button = field width
+   (feedback F1 / F2 / MO2) */
 .footer-form {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: minmax(0, 1fr);
   gap: 10px;
   width: 100%;
 }
@@ -924,8 +1064,8 @@ a:hover {
 }
 
 .footer-form .btn {
-  grid-column: 1 / -1;
-  justify-self: start;
+  justify-content: center;
+  width: 100%;
   cursor: pointer;
   font-family: var(--font);
 }
@@ -1020,6 +1160,15 @@ a:hover {
 
 .float-cta {
   transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+/* Desktop: no floating button, the header "Let's talk" is enough
+   (feedback G1). Mobile/tablet keep it. Elementor: Popup › Advanced ›
+   "Hide on Desktop" (or Container responsive visibility). */
+@media (min-width: 1000px) {
+  .float-cta {
+    display: none;
+  }
 }
 
 /* ==========================================================================
@@ -1304,8 +1453,13 @@ a:hover {
     display: block;
   }
 
-  .lang__menu {
-    padding-left: 0;
+  .lang {
+    gap: 6px;
+    padding: 12px 0;
+  }
+
+  .lang__link {
+    font-size: 16px;
   }
 
   .site-nav > .btn {
@@ -1371,15 +1525,6 @@ a:hover {
 }
 
 @media (max-width: 999px) {
-  /* Language row: globe + "EN" together, chevron on the right */
-  .lang__btn {
-    justify-content: flex-start;
-  }
-
-  .lang__btn .nav-link__chev {
-    margin-left: auto;
-  }
-
   /* Don't cover the menu with the header label while it is open */
   .show-notes .site-header.is-open > .dev-note {
     display: none;

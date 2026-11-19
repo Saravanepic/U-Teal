@@ -1,10 +1,15 @@
 <!DOCTYPE html>
 <!--
 ================================================================================
-  U-TEAL · Home page (EN) · HTML mockup — Draft 2
+  U-TEAL · Home page (EN) · HTML mockup — Version 2
 ================================================================================
 
-  Draft 2 changes (client feedback, Sept 2026)
+  Version 2 (client feedback on version 1, 19 Nov 2026 · client-notes #feedback-3)
+  - New shortened texts (doc 20261119_home-EN), hero IMG_2534 without filter,
+    4 offers in one row + women banner, testimonials with big quote marks,
+    logos UAB · FAS · HK-dir · Bifröst · ICIP, blog preview, less spacing.
+
+  Draft 2 changes (client feedback, Nov 2026)
   - New home texts from Nadja (Google Doc "Homepage - EN").
   - Designer's proposal for fonts/sizes, header, pictures (rectangular),
     About/quote format, "How I work" steps, footer, floating "Let's talk".
@@ -44,7 +49,7 @@
       property="og:description"
       content="Nadja Gmelch’s systemic higher education consultancy for internationalisation, strategy, organisational development and leadership."
     />
-    <meta property="og:image" content="assets/images/hero.png" />
+    <meta property="og:image" content="assets/images/photos/IMG_2534-hero.jpg" />
 
     <!-- Favicon (brand mark: white U on teal). WP: Site Identity › Site Icon -->
     <link rel="icon" type="image/png" href="assets/images/brand/mark-primary-bg-white-square.png" />
@@ -68,7 +73,7 @@
          S01 · HEADER
          Elementor: Theme Builder › Header (sticky)
          Widgets: Site Logo (SVG) · Nav Menu (Home · Services ▾ · About ·
-                  Methods) · Polylang language switcher (dropdown) · Button
+                  Methods) · Polylang language switcher (codes EN / DE / ES) · Button
          ====================================================================== -->
     <header class="site-header" id="top">
       <div class="dev-note">
@@ -116,19 +121,12 @@
             <li><a class="nav-link" href="about-me.html">About</a></li>
             <li><a class="nav-link" href="methods.html">Methods</a></li>
 
-            <!-- Language switcher (Polylang) -->
-            <li class="lang">
-              <button class="nav-link lang__btn" type="button" aria-expanded="false" aria-controls="submenu-lang" aria-label="Language: English" data-dropdown>
-                <svg viewBox="-1 -1 22 22" fill="none" aria-hidden="true">
-                  <path d="M20 10c0 5.523-4.477 10-10 10m10-10c0-5.523-4.477-10-10-10m10 10H0m10 10C4.477 20 0 15.523 0 10m10 10a14.6 14.6 0 0 1-4-10c0-3.723 1.432-7.304 4-10m0 20a14.6 14.6 0 0 0 4-10c0-3.723-1.432-7.304-4-10M0 10C0 4.477 4.477 0 10 0" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-                EN <span class="nav-link__chev" aria-hidden="true"></span>
-              </button>
-              <ul class="submenu lang__menu" id="submenu-lang">
-                <li><a href="index.html" aria-current="true">English</a></li>
-                <li><a href="#" data-todo="/de/">Deutsch</a></li>
-                <li><a href="#" data-todo="/es/">Español</a></li>
-              </ul>
+            <!-- Language switcher (Polylang): codes only, no globe icon (feedback G2).
+                 ES stays hidden on the live site until Spanish pages exist (T5). -->
+            <li class="lang" aria-label="Language">
+              <a class="lang__link" href="index.html" aria-current="true" lang="en">EN</a>
+              <a class="lang__link" href="#" data-todo="/de/" lang="de">DE</a>
+              <a class="lang__link" href="#" data-todo="/es/" lang="es">ES</a>
             </li>
           </ul>
 
@@ -142,7 +140,7 @@
               <li>Mobile dropdown: Full width ON · Align: start · Toggle icon: custom SVG (bar · diamond · bar), colour #02383E, size 22px.</li>
               <li>Dropdown items: Manrope 16px/700 #02383E · padding 15px 0 · divider 1px #CCD7D8 · active: text #008080 + 3px left border.</li>
               <li>Submenu ("Services"): indicator chevron on the right · bg #F8F8F8 · items 15px/600 · padding 12px 16px.</li>
-              <li>Languages: Polylang adds EN / DE / ES as a "Language switcher" menu item (show names, hide flags).</li>
+              <li>Languages: Polylang "Language switcher" menu item showing <strong>codes only</strong> (EN / DE / ES), no flags, no globe icon (feedback G2).</li>
               <li>"Let's talk": last menu item with CSS class <code>menu-cta</code> styled as a button (or hide the header button on mobile: the floating Let's talk is always visible).</li>
             </ul>
           </div>
@@ -182,7 +180,7 @@
           <dd></dd>
 
           <dt>H1</dt>
-          <dd>Consulting for universities and European Universities alliances: internationalisation, strategy and change</dd>
+          <dd>Consulting for universities and European Universities alliances: internationalisation, strategy, change &amp; leadership</dd>
           <dd><button class="copy-btn" type="button">Copy</button></dd>
         </dl>
 
@@ -195,7 +193,7 @@
           <ol class="heading-outline" data-heading-outline></ol>
           <p class="seo-box__hint">
             Only the texts from the client doc (feedback 10 Nov: no texts from earlier drafts).
-            Styled lines like the service labels, "How we get started", "Notice." are <strong>not</strong> headings in the doc → use Elementor Heading widget with HTML tag <code>p</code> / <code>div</code>.
+            Styled lines like the service labels, "Nadja Gmelch", "What are you working on…", "How we get started", "Notice.", "News &amp; insights" are <strong>not</strong> headings in the doc → use Elementor Heading widget with HTML tag <code>p</code> / <code>div</code>.
           </p>
         </div>
       </div>
@@ -203,35 +201,52 @@
 
     <main>
       <!-- ====================================================================
-           S02 · HERO
+           S02 · HERO (doc v3, 19 Nov: shortened texts)
            Elementor: Container (row, 2 cols)
-           Widgets: Heading H1 (small, teal) · Heading H2 (display 60px) ·
-                    Image ("Picture option" in the client doc; rectangular,
-                    teal tint = Container bg image + overlay, blend "color")
+           Left:  Heading H1 (small, teal) · Heading H2 (display) · Text Editor
+                  (intro) · Heading (p, teal question line)
+           Right: Image IMG_2534 ("Picture option"), NO teal filter (feedback H3)
            ==================================================================== -->
       <section class="hero">
         <div class="dev-note">
-          S02 · Hero — Container (row) › H1 small · H2 display · Image
-          ("Picture option", rectangular, teal overlay)
+          S02 · Hero — Container (row) › H1 small · H2 display · Text · question
+          line (p) | Image IMG_2534 (rectangular, no filter)
         </div>
 
         <div class="container hero__grid">
           <div class="hero__content">
             <h1 class="hero__h1">
               Consulting for universities and European Universities alliances:
-              internationalisation, strategy and change
+              internationalisation, strategy, change &amp; leadership
             </h1>
 
             <h2 class="display">Making change work in universities.</h2>
 
+            <p class="body">
+              New technologies and tighter budgets are pushing universities to
+              change faster, without giving up participation and careful
+              decision-making. Since 2007, I have worked in and with
+              universities, and today I support higher education institutions
+              and European Universities alliances in planning and carrying out
+              transformation projects. I combine that experience with systemic
+              approaches to strategy and organisational development. My work
+              addresses structures and processes and, at the same time, the
+              people who shape them, because change works when both change
+              together.
+            </p>
+
+            <p class="hero__question">
+              How can universities become more agile without giving up
+              participation and careful decision-making?
+            </p>
           </div>
 
-          <figure class="picture picture--tint">
+          <figure class="picture hero__picture">
             <img
-              src="assets/images/hero.png"
-              alt="Nadja Gmelch in conversation with a client outdoors"
-              width="1440"
-              height="960"
+              src="assets/images/photos/IMG_2534-hero.jpg"
+              alt="Nadja Gmelch in conversation in a garden"
+              width="2400"
+              height="1600"
             />
           </figure>
         </div>
@@ -239,155 +254,112 @@
       <!-- /S02 · HERO -->
 
       <!-- ====================================================================
-           S03 · INTRO (client liked the "Welcome" layout: lead | body)
-           Elementor: Container (row, 2 cols) › Text Editor (lead) ·
-                      Text Editor (body) · Heading (closing line)
-           ==================================================================== -->
-      <section class="section intro">
-        <div class="dev-note">
-          S03 · Intro — Container (row) › Text Editor (lead style) · Text Editor
-          · Heading (teal closing line)
-        </div>
-
-        <div class="container intro__grid">
-          <p class="lead">
-            New technologies are changing teaching, research and administration
-            at ever shorter intervals. At the same time, budgets are getting
-            tighter. Universities have to respond to mounting pressure to
-            change: what is planned today may already be out of date by the
-            time it is put into practice.
-          </p>
-
-          <div class="stack body">
-            <p>
-              And yet universities depend on committees, participation and the
-              different cultures of academic and administrative staff. How can
-              they become more agile without giving up participation and careful
-              decision-making?
-            </p>
-            <p>
-              I work with universities across Europe and with European
-              Universities alliances to plan and carry out transformation
-              projects. I support leaders and build the kind of collaboration
-              that brings change into day-to-day work. I have worked in and with
-              universities since 2007, and I combine that experience with
-              systemic approaches to strategy and organisational development.
-            </p>
-            <p class="intro__closing">
-              I work on structures and processes and, at the same time, with the
-              people who shape them. Because change works when both change
-              together.
-            </p>
-          </div>
-        </div>
-      </section>
-      <!-- /S03 · INTRO -->
-
-      <!-- ====================================================================
-           S04 · SERVICES — "How I support universities"
-           Elementor: Container › Heading · Text Editor · Grid Container (2×2)
-           Per box: Heading (eyebrow) · Heading H3 · Text Editor · Button
-           Save one box as a Global Widget / Loop item and reuse it.
-           No pictures in the boxes (client request).
+           S03 · SERVICES — "How I support universities" (feedback H2, H5, H6)
+           Elementor: Container › Heading H2 · Text Editor ·
+                      Container (row, 4 cols on desktop; 2 on tablet; 1 on mobile)
+           Per card: Icon/Image (brand shape SVG) · Heading (p, label) ·
+                     Heading H3 · Text Editor · Button
+           Below: "Women leaders" banner (own element, feedback H6)
            ==================================================================== -->
       <section class="section services" id="services">
         <div class="dev-note">
-          S04 · Services — Container › H2 · Text · Grid 2×2 › per box: label (p)
-          · H3 · Text · Button (outline + arrow). No images.
+          S03 · Services — H2 · Text · 4 cards in ONE row (shape · label p · H3
+          · text · button) + women leaders banner
         </div>
 
         <div class="container">
           <div class="section-head services__intro">
             <h2 class="h2">How I support universities</h2>
             <p class="body">
-              Whether it’s a new strategic direction, international
-              collaboration or a change in culture, I help universities turn
-              complex challenges into shared goals and concrete next steps. That
-              way, change doesn’t stop at the concept stage. It takes hold in
-              practice. I work with university leadership teams, strategy and
+              I help universities turn complex challenges into shared goals and
+              concrete next steps. I work with leadership teams, strategy and
               international offices, staff development and alliance teams.
             </p>
           </div>
 
           <div class="services__grid">
-            <!-- Service 1 -->
             <article class="service-card">
-              <p class="eyebrow">Internationalisation and university alliances</p>
-              <h3 class="h3">
-                How do you embed a European Universities alliance so that it
-                lasts beyond its funding?
-              </h3>
+              <span class="service-card__shape shape shape--square" aria-hidden="true"></span>
+              <p class="service-card__label">Internationalisation and university alliances</p>
+              <h3 class="h4">How do you embed a European Universities alliance so that it lasts beyond its funding?</h3>
               <p class="body">
-                I support universities and alliances in developing
-                internationalisation strategies and building partnerships that
-                work across languages, cultures and funding cycles. Together we
-                also look at the impact your programmes and alliances achieve.
+                I support internationalisation strategies and partnerships that
+                last beyond funding cycles, and help you assess the impact of
+                your programmes and alliances.
               </p>
               <div class="service-card__cta">
                 <a class="btn btn--outline btn--arrow" href="internationalisation.html">More on internationalisation</a>
               </div>
             </article>
 
-            <!-- Service 2 -->
             <article class="service-card">
-              <p class="eyebrow">Strategy consulting</p>
-              <h3 class="h3">How do you make your strategic plan work in practice?</h3>
+              <span class="service-card__shape shape shape--diamond" aria-hidden="true"></span>
+              <p class="service-card__label">Strategy consulting</p>
+              <h3 class="h4">How do you make your strategic plan work in practice?</h3>
               <p class="body">
-                I help university leaders and teams set priorities and develop
-                strategies together with the people who will put them into
-                practice.
+                I help university leaders and teams develop strategies together
+                with the people who will put them into practice.
               </p>
               <div class="service-card__cta">
                 <a class="btn btn--outline btn--arrow" href="strategy-consulting.html">More on strategy consulting</a>
               </div>
             </article>
 
-            <!-- Service 3 -->
             <article class="service-card">
-              <p class="eyebrow">Organisational development and change</p>
-              <h3 class="h3">
-                How do you clarify roles and ways of working when your university
-                has to change fast?
-              </h3>
+              <span class="service-card__shape shape shape--circle" aria-hidden="true"></span>
+              <p class="service-card__label">Organisational development and change</p>
+              <!-- Doc typo "How do adapt" corrected to "How do you adapt" (client-notes H1) -->
+              <h3 class="h4">How do you adapt ways of working when your university has to change fast?</h3>
               <p class="body">
-                I guide change processes that the people involved help shape
-                from the start. Together with you, I develop agile ways of
-                working that take the whole organisation into account and hold
-                up under pressure.
+                I guide change processes that the people involved help shape,
+                with agile ways of working that hold up under pressure.
               </p>
               <div class="service-card__cta">
                 <a class="btn btn--outline btn--arrow" href="organisational-development.html">More on organisational development</a>
               </div>
             </article>
 
-            <!-- Service 4 -->
             <article class="service-card">
-              <p class="eyebrow">Leadership development and coaching</p>
-              <h3 class="h3">How do you give direction when so much is uncertain?</h3>
-              <p class="body service-card__extra">
-                Through coaching, training and leadership programmes, I support
-                university leaders and leadership teams in their roles. For women
-                in university leadership, I have a
-                <a href="women-in-higher-education-leadership.html">dedicated leadership development offer</a>.
+              <span class="service-card__shape shape shape--triangle" aria-hidden="true"></span>
+              <p class="service-card__label">Leadership development and coaching</p>
+              <h3 class="h4">How do you give direction when so much is uncertain?</h3>
+              <p class="body">
+                I support university leaders and leadership teams through
+                coaching, training and leadership programmes, with a
+                <a href="women-in-higher-education-leadership.html">dedicated offer for women in university leadership</a>.
               </p>
               <div class="service-card__cta">
                 <a class="btn btn--outline btn--arrow" href="leadership-development.html">More on leadership development and coaching</a>
               </div>
             </article>
           </div>
+
+          <!-- Women leaders: own visible element (feedback H6). Title = the
+               service name, text from the doc ("a dedicated offer for women in
+               university leadership"). Button label "Learn more" is ours. -->
+          <a class="women-banner" href="women-in-higher-education-leadership.html">
+            <span class="women-banner__shape shape shape--rounded-diamond" aria-hidden="true"></span>
+            <span class="women-banner__text">
+              <span class="women-banner__title">Coaching for women in higher education leadership</span>
+              <span class="women-banner__sub">A dedicated offer for women in university leadership.</span>
+            </span>
+            <span class="btn btn--accent btn--arrow">Learn more</span>
+          </a>
         </div>
       </section>
-      <!-- /S04 · SERVICES -->
+      <!-- /S03 · SERVICES -->
 
       <!-- ====================================================================
-           S05 · EXPERTISE — designer "About" layout
-           Elementor: Container (row) › Image (rectangular) · Heading H2 ·
-                      Text Editor · Button
+           S04 · ABOUT ME (+ testimonials)
+           Elementor: Container (row) › Image (top-aligned with the H2,
+                      feedback H10) | Heading H2 · Heading (p, name) ·
+                      Text Editor · Icon List / Text (5 points) · Button
+           Then: Container (row, 2 cols) › 2× Testimonial (feedback H7)
            ==================================================================== -->
       <section class="section section--soft expertise">
         <div class="dev-note">
-          S05 · Expertise — Container (row) › Image ("Picture option",
-          rectangular, sticky on desktop) · H2 · Text Editor · Button
+          S04 · About me — Image ("Picture option", top aligned with the H2) |
+          H2 · name (p) · Text · 5 points · Button · 2 testimonials
         </div>
 
         <div class="container expertise__grid">
@@ -402,116 +374,74 @@
           </figure>
 
           <div class="expertise__content">
-            <h2 class="h2">Higher education experience and methodological expertise</h2>
+            <h2 class="h2">About Me</h2>
+            <p class="expertise__name">Nadja Gmelch</p>
 
-            <div class="stack body">
-              <p>
-                U-teal is a consultancy specialising in universities, with a
-                focus on internationalisation, strategy, organisational
-                development and leadership. I’m Nadja Gmelch, the founder of
-                U-teal, and I support university leaders, teams and European
-                Universities alliances through internationalisation, strategic
-                and organisational change.
-              </p>
-              <p>
-                I spent 15 years working at universities and in university
-                networks, most recently as Director Europe and Open Knowledge at
-                the Universitat Oberta de Catalunya (UOC) in Barcelona. Among
-                other things, I led the creation of a European Universities
-                alliance and developed university strategies. Since 2014 I have
-                advised universities and evaluated international programmes for
-                funders such as the DAAD. I have sat on a university senate and
-                on committees myself, so I know where friction arises between
-                academics, administration and leadership. I also know what it
-                takes for people to work together constructively, and with joy,
-                across disciplines, countries and languages.
-              </p>
-              <p>
-                I combine this experience with systemic consulting and methods
-                for designing strategy and change processes. That lets me keep
-                both in view: the substantive questions your university is
-                facing, and the people, structures and decision-making paths
-                that determine whether things actually get implemented.
-              </p>
-              <p>
-                I work in English, German, Spanish, Italian and Catalan. For
-                larger projects, I work with colleagues whose experience
-                complements mine. I come to you as often as your project needs:
-                for retreats, workshops and important meetings. What works well
-                online, we do online.
-              </p>
-            </div>
+            <p class="body">
+              I’m Nadja Gmelch, founder of U-teal. I know universities from the
+              inside, and I am trained to guide change in them.
+            </p>
+
+            <ul class="facts">
+              <li><strong>Higher education experience.</strong> I have worked in universities and university networks, and I led the creation of a European Universities alliance.</li>
+              <li><strong>Methodological expertise.</strong> As a certified systemic organisational developer and systemic coach, I connect knowledge of how universities work with methods for change.</li>
+              <li><strong>Consultant to universities since 2014.</strong> I have advised universities on internationalisation, strategy and evaluation.</li>
+              <li><strong>Working languages:</strong> English, German, Spanish, Italian and Catalan.</li>
+              <li><strong>On site and online.</strong> I come to you for retreats, workshops and key meetings. What works well online, we do online.</li>
+            </ul>
 
             <a class="btn btn--outline btn--arrow" href="about-me.html">More about me</a>
           </div>
         </div>
-      </section>
-      <!-- /S05 · EXPERTISE -->
 
-      <!-- ====================================================================
-           S06 · TESTIMONIALS (designer quote format)
-           Elementor: Container (row, 2 cols) › Blockquote (Pro) or
-                      Text Editor with left border + author line
-           ==================================================================== -->
-      <section class="section testimonials">
-        <div class="dev-note">
-          S06 · Testimonials — Container (row) › 2× Blockquote (left border
-          #3DB7BB 3px, text 20px/500, author 16px/600 teal)
-        </div>
-
+        <!-- Testimonials: big quotation mark + prominent name (feedback H7) -->
         <div class="container testimonials__grid">
-          <figure class="quote">
-            <blockquote class="quote__text">
-              “Nadja combines deep knowledge of international higher education
+          <figure class="testimonial">
+            <span class="testimonial__mark" aria-hidden="true">“</span>
+            <blockquote class="testimonial__text">
+              Nadja combines deep knowledge of international higher education
               with a clear, participatory process. She listened carefully to our
               team, made our situation visible and helped us find a direction we
-              could all support.”
+              could all support.
             </blockquote>
-            <figcaption class="quote__author">
-              Margrét Jónsdóttir
-              <span class="quote__role">Former Rector, Bifröst University, Iceland</span>
+            <figcaption class="testimonial__author">
+              <span class="testimonial__name">Margrét Jónsdóttir</span>
+              <span class="testimonial__role">Former Rector, Bifröst University, Iceland</span>
             </figcaption>
           </figure>
 
-          <figure class="quote">
-            <blockquote class="quote__text">
-              “Those of us who have worked alongside Nadja, shoulder to
-              shoulder, know that she’s someone who transforms everything around
-              her.”
+          <figure class="testimonial">
+            <span class="testimonial__mark" aria-hidden="true">“</span>
+            <blockquote class="testimonial__text">
+              Those of us who have worked alongside Nadja, shoulder to shoulder,
+              know that she’s someone who transforms everything around her.
             </blockquote>
-            <figcaption class="quote__author">
-              Pastora Martínez Samper
-              <span class="quote__role">Commissioner for Internationalisation, OpenEU Alliance Coordinator, UOC, Spain</span>
+            <figcaption class="testimonial__author">
+              <span class="testimonial__name">Pastora Martínez Samper</span>
+              <span class="testimonial__role">Commissioner for Internationalisation, OpenEU Alliance Coordinator, UOC, Spain</span>
             </figcaption>
           </figure>
         </div>
       </section>
-      <!-- /S06 · TESTIMONIALS -->
+      <!-- /S04 · ABOUT ME -->
 
       <!-- ====================================================================
-           S07 · HOW I WORK (#how-i-work)
-           Elementor: Container (soft bg) › Heading H2 · Text Editor ·
-                      3-col Container (shape icon ·
-                      title · text; connecting line = SVG bg or Divider) · Button
+           S05 · HOW I WORK (#how-i-work)
+           Elementor: Container › Container (row) › [Heading H2 · Text Editor]
+                      | Image (2nd photo option, feedback H16) ·
+                      3-col Container (shape · title · text), centred (H9) ·
+                      Button. Mobile: intro text centred (MO1).
            ==================================================================== -->
-      <section class="section section--soft how" id="how-i-work">
+      <section class="section how" id="how-i-work">
         <div class="dev-note">
-          S07 · How I work — Container › H2 · Text · 3 cols (SVG shape ·
-          title 28px · text teal) · Button "Methods"
+          S05 · How I work — [H2 · Text] | Photo option 2 · 3 steps (centred) ·
+          Button "Methods"
         </div>
 
         <div class="container">
           <div class="how__top">
             <div class="how__intro">
-                <h2 class="h2">How I work</h2>
-              <p class="body">
-                Before a university develops a new strategy or sets change in
-                motion, it needs to understand where it stands. What is the real
-                challenge? Whose perspectives need to be included? What exactly
-                should change, and who needs to help shape the way there? And
-                what attitudes and forms of collaboration will it take to make
-                that change happen?
-              </p>
+              <h2 class="h2">How I work</h2>
               <p class="body">
                 I work systemically: I see a university as a web of people,
                 committees, structures and relationships that all influence one
@@ -519,12 +449,20 @@
                 and decide as to what they decide. Whether change succeeds also
                 depends on how attentively we look and how far we include
                 different perspectives. For this, I draw on
-                <a href="#" data-todo="/methods#theory-u">Theory U</a>. From
-                these approaches, complemented by agile methods and design
-                thinking, I have developed three steps for working with
-                universities:
+                <a href="methods.html#theory-u">Theory U</a>. From these
+                approaches, complemented by agile methods and design thinking, I
+                have developed three steps for working with universities:
               </p>
             </div>
+
+            <!-- Second photo option (feedback H16): which photo is the client's choice -->
+            <figure class="img-ph how__picture" role="img" aria-label="Photo option">
+              <span class="img-ph__mark" aria-hidden="true"></span>
+              <span class="img-ph__label">
+                <strong>Photo option</strong>
+                Which of your photos should go here? (e.g. a workshop moment)
+              </span>
+            </figure>
           </div>
 
           <!-- 3 steps: square → diamond → circle (brand graphic language) -->
@@ -562,18 +500,18 @@
           </div>
         </div>
       </section>
-      <!-- /S07 · HOW I WORK -->
+      <!-- /S05 · HOW I WORK -->
 
       <!-- ====================================================================
-           S08 · ORGANISATIONS I HAVE WORKED FOR
-           Elementor: Container (soft bg) › Heading H2 (centred) ·
-                      Image ×7 with links (greyscale via CSS Filters)
-           Logos: placeholders until files arrive. UAB + FAS side by side.
+           S06 · ORGANISATIONS I HAVE WORKED FOR (feedback H11, H12)
+           Elementor: Container › Heading H2 (centred) · Container (row, wrap,
+                      centred) › Image ×5 with links (greyscale via CSS Filters)
+           Grows: new logos wrap onto a new row, no carousel.
            ==================================================================== -->
-      <section class="section orgs">
+      <section class="section section--soft orgs">
         <div class="dev-note">
-          S08 · Organisations — Container › H2 centred · Image ×7 (linked,
-          greyscale). Placeholders until logo files arrive (client-notes).
+          S06 · Organisations — H2 centred · Image ×5 (linked, greyscale),
+          wrapping grid that grows (no carousel)
         </div>
 
         <div class="container">
@@ -582,28 +520,17 @@
           </div>
 
           <div class="orgs__row">
-            <!-- DAAD, SA DSTI, CAPES, Bifröst, ICIP: logos taken from Wikipedia /
-                 Wikimedia for the mockup. Replace with official files from the
-                 client (client-notes Q18). Three are "tbc" by the client. -->
-            <span class="org-img" title="tbc by client">
-              <img src="assets/images/clients/daad.svg" alt="DAAD – German Academic Exchange Service" class="org-img__daad" loading="lazy" />
-            </span>
-            <span class="org-img" title="tbc by client">
-              <img src="assets/images/clients/sa-dsti.png" alt="South African Department of Science, Technology and Innovation" class="org-img__dsti" loading="lazy" width="794" height="252" />
-            </span>
-            <span class="org-img" title="tbc by client">
-              <img src="assets/images/clients/capes.svg" alt="CAPES" class="org-img__capes" loading="lazy" />
-            </span>
-            <!-- UAB + FAS side by side, one link (client request) -->
-            <a class="org-img org-img--pair" href="https://www.uab.cat/web/universitat-autonoma-de-barcelona-1345467954774.html?param2=1345716706936" target="_blank" rel="noopener">
+            <a class="org-img" href="https://www.uab.cat/web/universitat-autonoma-de-barcelona-1345467954774.html?param2=1345716706936" target="_blank" rel="noopener">
               <img src="assets/images/clients/uab.png" alt="Universitat Autònoma de Barcelona" class="org-img__uab" loading="lazy" width="891" height="336" />
+            </a>
+            <a class="org-img" href="https://www.uab.cat/web/fundacio-autonoma-solidaria-1345819326271.html" target="_blank" rel="noopener">
               <img src="assets/images/clients/fas.png" alt="Fundació Autònoma Solidària" class="org-img__fas" loading="lazy" width="900" height="168" />
             </a>
             <a class="org-img" href="https://hkdir.no/en" target="_blank" rel="noopener">
               <img src="assets/images/clients/hkdir.png" alt="Norwegian Directorate for Higher Education and Skills (HK-dir)" class="org-img__hkdir" loading="lazy" width="725" height="133" />
             </a>
             <a class="org-img" href="https://www.bifrost.is/english/" target="_blank" rel="noopener">
-              <img src="assets/images/clients/bifrost.svg" alt="Bifröst University" class="org-img__bifrost" loading="lazy" />
+              <img src="assets/images/clients/bifrost.png" alt="Bifröst University" class="org-img__bifrost" loading="lazy" width="900" height="176" />
             </a>
             <a class="org-img" href="https://www.icip.cat/en/" target="_blank" rel="noopener">
               <img src="assets/images/clients/icip.png" alt="ICIP – International Catalan Institute for Peace" class="org-img__icip" loading="lazy" width="709" height="488" />
@@ -611,32 +538,31 @@
           </div>
         </div>
       </section>
-      <!-- /S08 · ORGANISATIONS -->
+      <!-- /S06 · ORGANISATIONS -->
 
       <!-- ====================================================================
-           S09 · GET STARTED (contact CTA)
-           Elementor: Container (row) › Heading H2 · Text Editor ·
-                      Heading (small) · 3 numbered rows (Icon List or
-                      3 Containers: number 34px/800 teal + title + text) · Button
+           S07 · GET STARTED (contact CTA)
+           Elementor: Container (row) › Heading (p, not a heading in the doc) ·
+                      Text Editor ("Tell me about it." highlighted, H13) |
+                      Heading (p) · 3 numbered rows (number + title aligned at
+                      the top, H14) · Button
            ==================================================================== -->
-      <section class="section section--soft start" id="get-started">
+      <section class="section start" id="get-started">
         <div class="dev-note">
-          S09 · Get started — Container (row) › H2 · Text · numbered rows
-          (designer "Trust" style) · Button "Let's talk" → /contact
+          S07 · Get started — title (p) · Text with highlight | numbered rows
+          (top-aligned) · Button "Let's talk" → /contact
         </div>
 
         <div class="container start__grid">
           <div class="start__head">
-            <h2 class="start__title">What are you working on at your university?</h2>
+            <p class="start__title">What are you working on at your university?</p>
             <p class="body">
-              Perhaps you’re developing a strategy or want to move a European
-              Universities alliance forward. Perhaps a change process needs
-              fresh momentum, or you want to clarify your role as a leader. Tell
-              me what you’re working on right now.
-            </p>
-            <p class="body">
-              You don’t need to have your request fully worked out. Often it’s
-              only in conversation that it becomes clear what it’s really about.
+              Maybe you’re developing a strategy, moving a European Universities
+              alliance forward, giving a change process fresh momentum or
+              clarifying your role as a leader.
+              <mark class="highlight">Tell me about it.</mark>
+              Your request doesn’t need to be fully worked out. Often it’s only
+              in conversation that it becomes clear what it’s really about.
             </p>
           </div>
 
@@ -650,7 +576,7 @@
                 </div>
                 <p class="body">
                   Free and with no obligation. We get to know each other and see
-                  whether working together feels right for you.
+                  whether working together feels right.
                 </p>
               </div>
               <div class="num-row">
@@ -659,8 +585,7 @@
                   <p class="h4">Getting clear on what you need.</p>
                 </div>
                 <p class="body">
-                  We take time to understand your situation, identify the people
-                  who should be involved and agree on a shared goal.
+                  We agree on a shared goal and on who should be involved.
                 </p>
               </div>
               <div class="num-row">
@@ -681,25 +606,54 @@
           </div>
         </div>
       </section>
-      <!-- /S09 · GET STARTED -->
+      <!-- /S07 · GET STARTED -->
 
       <!-- ====================================================================
-           S10 · NEWS & INSIGHTS — PLACEHOLDER (NOT LIVE)
-           Client note: only goes live once there is real content. Shown here
-           only when developer notes are on.
-           Elementor (later): Loop Grid (Posts) › 3 cards
+           S08 · NEWS & INSIGHTS — PREVIEW (feedback H15)
+           Client note: goes live only once there are posts. Shown in this
+           draft so the client can see the design; example content only.
+           Elementor: Loop Grid (Posts, 3 latest) › Loop Item template:
+                      Featured Image · Post Title (H3) · Excerpt · Read more
            ==================================================================== -->
-      <section class="news-placeholder dev-only" aria-hidden="true">
+      <section class="section section--soft news">
+        <div class="dev-note">
+          S08 · News &amp; insights — Loop Grid (3 latest posts). PREVIEW: not
+          live until there are posts.
+        </div>
+
         <div class="container">
-          <p class="eyebrow">News &amp; insights · placeholder (hidden on live site)</p>
-          <div class="news-placeholder__cards">
-            <div class="news-placeholder__card">LinkedIn highlights</div>
-            <div class="news-placeholder__card">Thought-piece article</div>
-            <div class="news-placeholder__card">Later: playbook / worksheet download (lead magnet)</div>
+          <p class="news__preview-tag">Preview · example posts · goes live once there are real posts</p>
+          <div class="news__head">
+            <p class="news__title">News &amp; insights</p>
+            <a class="btn btn--outline btn--arrow" href="#" data-todo="/blog/">All posts</a>
+          </div>
+
+          <div class="news__grid">
+            <article class="post-card">
+              <div class="img-ph post-card__img" aria-hidden="true"><span class="img-ph__mark"></span></div>
+              <p class="post-card__meta">Example · LinkedIn highlight</p>
+              <h3 class="post-card__title">Example post title: what makes a university alliance last?</h3>
+              <p class="post-card__excerpt">A short teaser of two or three lines, taken from the beginning of the post.</p>
+              <a class="post-card__more" href="#" data-todo="/blog/post-name/">Read more</a>
+            </article>
+            <article class="post-card">
+              <div class="img-ph post-card__img" aria-hidden="true"><span class="img-ph__mark"></span></div>
+              <p class="post-card__meta">Example · Article</p>
+              <h3 class="post-card__title">Example post title: a thought piece on change in universities</h3>
+              <p class="post-card__excerpt">A short teaser of two or three lines, taken from the beginning of the post.</p>
+              <a class="post-card__more" href="#" data-todo="/blog/post-name/">Read more</a>
+            </article>
+            <article class="post-card">
+              <div class="img-ph post-card__img" aria-hidden="true"><span class="img-ph__mark"></span></div>
+              <p class="post-card__meta">Example · Download</p>
+              <h3 class="post-card__title">Example post title: a short playbook to download</h3>
+              <p class="post-card__excerpt">A short teaser of two or three lines, taken from the beginning of the post.</p>
+              <a class="post-card__more" href="#" data-todo="/blog/post-name/">Read more</a>
+            </article>
           </div>
         </div>
       </section>
-      <!-- /S10 · NEWS PLACEHOLDER -->
+      <!-- /S08 · NEWS PREVIEW -->
     </main>
 
     <!-- ======================================================================
@@ -713,13 +667,13 @@
          ====================================================================== -->
     <footer class="site-footer">
       <div class="dev-note">
-        S11 · Theme Builder › Footer — 3 cols (logo + text + button · services
-        menu · newsletter form) + bottom bar (Polylang switcher)
+        S11 · Theme Builder › Footer — 3 cols (logo + text + contact + button ·
+        services menu · newsletter form) + bottom bar (Polylang switcher)
       </div>
 
       <div class="container">
         <div class="site-footer__cols">
-          <!-- Column 1 -->
+          <!-- Column 1: about + contact (feedback F3: contact details moved here) -->
           <div class="site-footer__col">
             <a class="site-footer__logo" href="index.html" aria-label="U-teal home">
               <img src="assets/images/brand/logo-uteal-white.svg" alt="U-teal" width="96" height="26" />
@@ -729,6 +683,28 @@
               internationalisation, strategy, organisational development and
               leadership in Europe and beyond. · On site and online.
             </p>
+            <div class="site-footer__contact">
+              <p class="site-footer__title">Contact</p>
+              <ul class="site-footer__links">
+                <li><a href="mailto:nadja@u-teal.com">nadja@u-teal.com</a></li>
+                <li><a href="tel:+34697585199">+34 697 585 199</a></li>
+              </ul>
+              <!-- Elementor: Icon List (LinkedIn icon) or Social Icons + text -->
+              <ul class="site-footer__social">
+                <li>
+                  <a href="https://www.linkedin.com/in/nadja-gmelch/" target="_blank" rel="noopener">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg>
+                    LinkedIn (Nadja Gmelch)
+                  </a>
+                </li>
+                <li>
+                  <a href="https://www.linkedin.com/company/u-teal/" target="_blank" rel="noopener">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg>
+                    LinkedIn (U-teal)
+                  </a>
+                </li>
+              </ul>
+            </div>
             <a class="btn btn--accent" href="contact.html">Let’s talk</a>
           </div>
 
@@ -744,7 +720,7 @@
             </ul>
           </div>
 
-          <!-- Column 3: newsletter -->
+          <!-- Column 3: newsletter (email only, feedback F1) -->
           <div class="site-footer__col site-footer__col--newsletter">
             <p class="site-footer__title">Newsletter</p>
             <p>
@@ -753,10 +729,8 @@
               dates, and share what I’m learning about change in universities.
             </p>
             <form class="footer-form" action="#" onsubmit="return false;">
-              <label class="sr-only" for="nl-name">First name</label>
-              <input id="nl-name" type="text" placeholder="First name" autocomplete="given-name" />
               <label class="sr-only" for="nl-email">Email</label>
-              <input id="nl-email" type="email" placeholder="Email" autocomplete="email" />
+              <input id="nl-email" type="email" placeholder="Email" autocomplete="email" required />
               <button class="btn btn--accent" type="submit">Subscribe</button>
             </form>
             <p class="footer-form__note">
@@ -767,9 +741,9 @@
             <div class="dev-note dev-note--inline">
               <strong>FORM · Elementor Pro › Form widget</strong>
               <ul>
-                <li>Fields: First name (text, 50%) + Email (required, 50%) + Submit (100%, auto width). Mobile: all 100%.</li>
-                <li>Action: Mailchimp (native) with double opt-in ON (GDPR/DE). Brevo: Brevo plugin or webhook.</li>
-                <li>Spam: honeypot ON; Cloudflare Turnstile if needed (no reCAPTCHA).</li>
+                <li>Fields: Email only (required, 100%) + Submit (100% = same width as the field, desktop and mobile; feedback F1/F2/MO2).</li>
+                <li>Action: Brevo (client's provider) with double opt-in ON (GDPR/DE): Brevo plugin or webhook.</li>
+                <li>Spam: honeypot ON + hCaptcha (free "hCaptcha for WP" plugin, supports Elementor Pro forms). No reCAPTCHA.</li>
                 <li>Field: transparent bg · border 1px rgba(255,255,255,.35) · radius 8px · padding 11px 14px · Manrope 14px · text #FFF · placeholder #9AAFB2.</li>
                 <li>Button: bg #3DB7BB · text #02383E · 14px/700 · padding 12px 20px · radius 8px · hover bg #FFF.</li>
                 <li>Polylang: translate the success message + privacy link in DE/ES.</li>
@@ -785,10 +759,6 @@
             <li><a href="#" data-todo="/legal-notice">Legal notice</a></li>
             <li><a href="#" data-todo="/privacy-policy">Privacy policy</a></li>
             <li><a href="#" data-todo="cookie-settings">Cookie settings</a></li>
-            <li><a href="mailto:nadja@u-teal.com">nadja@u-teal.com</a></li>
-            <li><a href="tel:+34697585199">+34 697 585 199</a></li>
-            <li><a href="https://www.linkedin.com/in/nadja-gmelch/" target="_blank" rel="noopener">LinkedIn (Nadja Gmelch)</a></li>
-            <li><a href="https://www.linkedin.com/company/u-teal/" target="_blank" rel="noopener">LinkedIn (U-teal)</a></li>
           </ul>
           <!-- Polylang: each link points to the same page in the other language -->
           <nav class="site-footer__lang" aria-label="Language">
@@ -802,7 +772,7 @@
     <!-- /S11 · FOOTER -->
 
     <!-- ======================================================================
-         FLOATING "LET'S TALK" (always visible — client request)
+         FLOATING "LET'S TALK" (mobile / tablet only — feedback G1; desktop uses the header button)
          Elementor: Pro Popup (bottom bar, all pages, no close button) or a
          fixed Container. Triangle = SVG/shape behind the button.
          ====================================================================== -->

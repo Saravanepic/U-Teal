@@ -49,7 +49,7 @@
          S01 · HEADER
          Elementor: Theme Builder › Header (sticky)
          Widgets: Site Logo (SVG) · Nav Menu (Home · Services ▾ · About ·
-                  Methods) · Polylang language switcher (dropdown) · Button
+                  Methods) · Polylang language switcher (codes EN / DE / ES) · Button
          ====================================================================== -->
     <header class="site-header" id="top">
       <div class="dev-note">
@@ -97,19 +97,12 @@
             <li><a class="nav-link" href="about-me.html">About</a></li>
             <li><a class="nav-link" href="methods.html">Methods</a></li>
 
-            <!-- Language switcher (Polylang) -->
-            <li class="lang">
-              <button class="nav-link lang__btn" type="button" aria-expanded="false" aria-controls="submenu-lang" aria-label="Language: English" data-dropdown>
-                <svg viewBox="-1 -1 22 22" fill="none" aria-hidden="true">
-                  <path d="M20 10c0 5.523-4.477 10-10 10m10-10c0-5.523-4.477-10-10-10m10 10H0m10 10C4.477 20 0 15.523 0 10m10 10a14.6 14.6 0 0 1-4-10c0-3.723 1.432-7.304 4-10m0 20a14.6 14.6 0 0 0 4-10c0-3.723-1.432-7.304-4-10M0 10C0 4.477 4.477 0 10 0" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-                EN <span class="nav-link__chev" aria-hidden="true"></span>
-              </button>
-              <ul class="submenu lang__menu" id="submenu-lang">
-                <li><a href="internationalisation.html" aria-current="true">English</a></li>
-                <li><a href="#" data-todo="/de/">Deutsch</a></li>
-                <li><a href="#" data-todo="/es/">Español</a></li>
-              </ul>
+            <!-- Language switcher (Polylang): codes only, no globe icon (feedback G2).
+                 ES stays hidden on the live site until Spanish pages exist (T5). -->
+            <li class="lang" aria-label="Language">
+              <a class="lang__link" href="internationalisation.html" aria-current="true" lang="en">EN</a>
+              <a class="lang__link" href="#" data-todo="/de/" lang="de">DE</a>
+              <a class="lang__link" href="#" data-todo="/es/" lang="es">ES</a>
             </li>
           </ul>
 
@@ -123,7 +116,7 @@
               <li>Mobile dropdown: Full width ON · Align: start · Toggle icon: custom SVG (bar · diamond · bar), colour #02383E, size 22px.</li>
               <li>Dropdown items: Manrope 16px/700 #02383E · padding 15px 0 · divider 1px #CCD7D8 · active: text #008080 + 3px left border.</li>
               <li>Submenu ("Services"): indicator chevron on the right · bg #F8F8F8 · items 15px/600 · padding 12px 16px.</li>
-              <li>Languages: Polylang adds EN / DE / ES as a "Language switcher" menu item (show names, hide flags).</li>
+              <li>Languages: Polylang "Language switcher" menu item showing <strong>codes only</strong> (EN / DE / ES), no flags, no globe icon (feedback G2).</li>
               <li>"Let's talk": last menu item with CSS class <code>menu-cta</code> styled as a button (or hide the header button on mobile: the floating Let's talk is always visible).</li>
             </ul>
           </div>
@@ -233,7 +226,9 @@
           "Picture option")
         </div>
 
-        <div class="container situations__grid">
+        <div class="container situations__flow">
+          <!-- Most visible element (feedback S2). Elementor: Heading, HTML tag p -->
+          <p class="situations__statement">I support you in giving internationalisation a strategic direction and building partnerships that benefit everyone involved.</p>
           <p class="lead situations__question">
             Are you responsible for internationalisation at your university or
             alliance? Perhaps one of these topics is on your mind right now:
@@ -273,12 +268,6 @@
                 and academic cultures, and not just exist on paper.
               </li>
             </ul>
-
-            <p class="body situations__close">
-              In situations like these, I support you in giving
-              internationalisation a strategic direction and building
-              partnerships that benefit everyone involved.
-            </p>
 
             <div>
               <a class="btn btn--outline btn--arrow" href="#offer">What I offer</a>
@@ -414,235 +403,40 @@
       <!-- /S05 · EXPECT -->
 
       <!-- ====================================================================
-           S06 · FROM MY PRACTICE (case studies + quotes)
-           Elementor: Container › Heading H2 · per case: Container (row) ›
-                      left: Heading H3 · Text Editor · Button (outline →
-                      /case-studies#anchor) | right: Image ("Picture option")
-                      · Blockquote (if any)
-           ==================================================================== -->
-      <section class="section section--soft practice">
-        <div class="dev-note">
-          S06 · From my practice — H2 · 5 cases (H3 · text · button | picture
-          · quote)
-        </div>
-
-        <div class="container">
-          <div class="section-head">
-            <h2 class="h2">From my practice</h2>
-          </div>
-
-          <div class="cases">
-            <article class="case">
-              <div class="case__main">
-                <h3 class="h4">Rethinking internationalisation for a digital university</h3>
-                <p class="body">
-                  <a href="https://www.bifrost.is/english/" target="_blank" rel="noopener">Bifröst University</a>
-                  in Iceland had moved to fully online teaching, but its
-                  internationalisation strategy still dated from before the
-                  switch. I helped the university’s leadership and international
-                  office develop new exchange models for digital learning and
-                  reorient its international partnerships. The university has
-                  since put both into practice.
-                </p>
-                <div><a class="btn btn--outline btn--arrow" href="#" data-todo="/case-studies#bifrost">Read the full case study</a></div>
-              </div>
-              <div class="case__aside">
-                <figure class="img-ph case__picture" style="aspect-ratio: 3 / 2" role="img" aria-label="Picture option">
-                  <span class="img-ph__mark" aria-hidden="true"></span>
-                  <figcaption class="img-ph__label"><strong>Picture option</strong>Photo for this case study (Bifröst University).</figcaption>
-                </figure>
-                <figure class="quote case__quote">
-                  <blockquote class="quote__text">
-                    “Nadja combines deep knowledge of international higher
-                    education with a clear, participatory process. She listened
-                    carefully to our team, made our situation visible and helped
-                    us find a direction we could all support.”
-                  </blockquote>
-                  <figcaption class="quote__author">
-                    Margrét Jónsdóttir
-                    <span class="quote__role">Former Rector, Bifröst University, Iceland</span>
-                  </figcaption>
-                </figure>
-              </div>
-            </article>
-
-            <article class="case">
-              <div class="case__main">
-                <h3 class="h4">Building a European Universities alliance from the first idea: OpenEU</h3>
-                <p class="body">
-                  OpenEU brings together ten universities from across Europe,
-                  most of them open and distance universities, to create the
-                  first pan-European open university. As Director Europe and
-                  Open Knowledge at the Universitat Oberta de Catalunya (UOC), I
-                  led the creation of the alliance. I brought the partner
-                  universities together and developed a shared vision with them
-                  across different national higher education systems, languages
-                  and academic cultures. Together, we agreed on how the partners
-                  would work together and what the alliance would offer students
-                  across Europe. In 2024, the European Commission selected
-                  OpenEU under the European Universities Initiative.
-                </p>
-              </div>
-              <div class="case__aside">
-                <figure class="img-ph case__picture" style="aspect-ratio: 3 / 2" role="img" aria-label="Picture option">
-                  <span class="img-ph__mark" aria-hidden="true"></span>
-                  <figcaption class="img-ph__label"><strong>Picture option</strong>Photo for this case study (OpenEU alliance).</figcaption>
-                </figure>
-                <figure class="quote case__quote">
-                  <blockquote class="quote__text">
-                    “Those of us who have worked alongside Nadja, shoulder to
-                    shoulder, know that she’s someone who transforms everything
-                    around her.”
-                  </blockquote>
-                  <figcaption class="quote__author">
-                    Pastora Martínez Samper
-                    <span class="quote__role">Commissioner for Internationalisation, OpenEU Alliance Coordinator, UOC, Spain</span>
-                  </figcaption>
-                </figure>
-              </div>
-            </article>
-
-            <article class="case">
-              <div class="case__main">
-                <h3 class="h4">International university partnerships: expert reviewer for Norway’s NORPART programme</h3>
-                <p class="body">
-                  NORPART funds long-term academic cooperation and mutual
-                  student mobility between Norwegian universities and partner
-                  institutions in the Global South. As a member of the external
-                  expert panel, I assessed funding applications from university
-                  partnerships. Our assessments formed the basis for the funding
-                  decisions.
-                </p>
-                <div><a class="btn btn--outline btn--arrow" href="#" data-todo="/case-studies#norpart">Read the full case study</a></div>
-              </div>
-              <div class="case__aside">
-                <figure class="img-ph case__picture" style="aspect-ratio: 3 / 2" role="img" aria-label="Picture option">
-                  <span class="img-ph__mark" aria-hidden="true"></span>
-                  <figcaption class="img-ph__label"><strong>Picture option</strong>Photo for this case study (NORPART).</figcaption>
-                </figure>
-              </div>
-            </article>
-
-            <article class="case">
-              <div class="case__main">
-                <h3 class="h4">Strengthening international cooperation strategically</h3>
-                <p class="body">
-                  The
-                  <a href="https://www.uab.cat/fas/" target="_blank" rel="noopener">Fundació Autònoma Solidària</a>
-                  is the
-                  <a href="https://www.uab.cat/web/universitat-autonoma-de-barcelona-1345467954774.html?param2=1345716706936" target="_blank" rel="noopener">Universitat Autònoma de Barcelona</a>’s
-                  foundation for social engagement and development cooperation.
-                  As project lead, I evaluated one of the foundation’s
-                  long-standing university partnerships together with a
-                  colleague. We examined what it had achieved, how lasting its
-                  impact had been and what could be transferred to other
-                  partnerships. The foundation has since used our
-                  recommendations to reorient its approach to international
-                  cooperation.
-                </p>
-                <div><a class="btn btn--outline btn--arrow" href="#" data-todo="/case-studies#fas">Read the full case study</a></div>
-              </div>
-              <div class="case__aside">
-                <figure class="img-ph case__picture" style="aspect-ratio: 3 / 2" role="img" aria-label="Picture option">
-                  <span class="img-ph__mark" aria-hidden="true"></span>
-                  <figcaption class="img-ph__label"><strong>Picture option</strong>Photo for this case study (Fundació Autònoma Solidària).</figcaption>
-                </figure>
-                <figure class="quote case__quote">
-                  <blockquote class="quote__text">
-                    “Nadja’s evaluation gave us a clear picture of what our
-                    activities achieve and where we need to focus. On this basis,
-                    we could reorient the future direction of the Foundation’s
-                    international development cooperation work.”
-                  </blockquote>
-                  <figcaption class="quote__author">
-                    Jordi Prat
-                    <span class="quote__role">Director, Fundació Autònoma Solidària, Universitat Autònoma de Barcelona, Spain</span>
-                  </figcaption>
-                </figure>
-              </div>
-            </article>
-
-            <article class="case">
-              <div class="case__main">
-                <h3 class="h4">Developing international research funding further: impact evaluation for the DAAD</h3>
-                <p class="body">
-                  Since 1994, PROBRAL has funded joint research projects between
-                  German and Brazilian research groups. For the programme’s 20th
-                  anniversary, I was part of the team that evaluated it on
-                  behalf of the DAAD, as an associate of joyn-coop, in close
-                  dialogue with programme participants. The DAAD and Brazil’s
-                  CAPES implemented our recommendations to further develop the
-                  programme.
-                </p>
-                <div><a class="btn btn--outline btn--arrow" href="#" data-todo="/case-studies#probral">Read the full case study</a></div>
-              </div>
-              <div class="case__aside">
-                <figure class="img-ph case__picture" style="aspect-ratio: 3 / 2" role="img" aria-label="Picture option">
-                  <span class="img-ph__mark" aria-hidden="true"></span>
-                  <figcaption class="img-ph__label"><strong>Picture option</strong>Photo for this case study (PROBRAL / DAAD).</figcaption>
-                </figure>
-              </div>
-            </article>
-          </div>
-        </div>
-      </section>
-      <!-- /S06 · FROM MY PRACTICE -->
-
-      <!-- ====================================================================
            S07 · HOW WE WORK TOGETHER (#offer — target of "What I offer")
-           Elementor: Container (CSS ID "offer") › Heading H2 · 3-col
-                      Container › per box: Heading H3 · Text Editor
+           Same version as the other service pages (feedback S4): only the
+           offer titles are visible, the text opens on click.
+           Elementor: Container (CSS ID offer, row) › Heading H2 | Accordion
+                      (title tag H3, all closed; CSS ID per item = anchor)
            ==================================================================== -->
-      <section class="section offer" id="offer">
+      <section class="section section--soft offer" id="offer">
         <div class="dev-note">
-          S07 · How we work together (CSS ID: offer) — H2 · 3 boxes (H3 · text)
+          S07 · How we work together (CSS ID offer) — H2 | Accordion (3 items, H3, closed)
         </div>
 
-        <div class="container">
-          <div class="section-head">
-            <h2 class="h2">How we work together</h2>
-          </div>
-
-          <div class="offer__grid">
-            <article class="offer-card">
-              <h3 class="h3">Internationalisation</h3>
-              <p class="body">
-                I support universities in positioning themselves internationally
-                and building their networks. Together, we develop an
-                internationalisation strategy that fits your university’s
-                overall direction, and we rethink partnership and exchange
-                models. Growing digitalisation and rising sustainability
-                requirements are changing the landscape. I work systemically and
-                involve the people, committees and decision-making processes key
-                to implementation.
-              </p>
-            </article>
-            <article class="offer-card">
-              <h3 class="h3">European Universities alliances</h3>
-              <p class="body">
-                I support European Universities alliances from set-up through to
-                maturity, with a systemic and intercultural approach. The aim is
-                reliable partnerships in which people enjoy working together.
-                This is about more than project work: I help the member
-                institutions build the alliance into their own strategy,
-                structures and decisions, so that its impact reaches beyond
-                individual funding cycles. This includes workshops with alliance
-                teams, both at alliance level and in the member institutions,
-                and work with alliance leadership on governance and
-                transformation.
-              </p>
-            </article>
-            <article class="offer-card">
-              <h3 class="h3">EU projects</h3>
-              <p class="body">
-                I support EU projects and consortia whose change processes are
-                meant to last beyond the project’s end. I help you carry the
-                change from your project into your institutions and build strong
-                collaboration within the consortium, across countries and
-                cultures. This can include, for example, kick-off workshops and
-                closing conferences.
-              </p>
-            </article>
+        <div class="container faq__grid">
+          <div class="faq__head"><h2 class="h2">How we work together</h2></div>
+          <div>
+            <div class="faq-list">
+              <details class="faq-item offer-item" id="internationalisation">
+                <summary><h3 class="faq-item__q">Internationalisation</h3><span class="faq-item__icon" aria-hidden="true"></span></summary>
+                <div class="faq-item__a">
+                  <p class="body">I support universities in positioning themselves internationally and building their networks. Together, we develop an internationalisation strategy that fits your university’s overall direction, and we rethink partnership and exchange models. Growing digitalisation and rising sustainability requirements are changing the landscape. I work systemically and involve the people, committees and decision-making processes key to implementation.</p>
+                </div>
+              </details>
+              <details class="faq-item offer-item" id="european-universities-alliances">
+                <summary><h3 class="faq-item__q">European Universities alliances</h3><span class="faq-item__icon" aria-hidden="true"></span></summary>
+                <div class="faq-item__a">
+                  <p class="body">I support European Universities alliances from set-up through to maturity, with a systemic and intercultural approach. The aim is reliable partnerships in which people enjoy working together. This is about more than project work: I help the member institutions build the alliance into their own strategy, structures and decisions, so that its impact reaches beyond individual funding cycles. This includes workshops with alliance teams, both at alliance level and in the member institutions, and work with alliance leadership on governance and transformation.</p>
+                </div>
+              </details>
+              <details class="faq-item offer-item" id="eu-projects">
+                <summary><h3 class="faq-item__q">EU projects</h3><span class="faq-item__icon" aria-hidden="true"></span></summary>
+                <div class="faq-item__a">
+                  <p class="body">I support EU projects and consortia whose change processes are meant to last beyond the project’s end. I help you carry the change from your project into your institutions and build strong collaboration within the consortium, across countries and cultures. This can include, for example, kick-off workshops and closing conferences.</p>
+                </div>
+              </details>
+            </div>
           </div>
         </div>
       </section>
@@ -668,6 +462,90 @@
         </div>
       </section>
       <!-- /S08 · CTA -->
+
+      <!-- ====================================================================
+           FROM MY PRACTICE — moved directly before the FAQ (feedback S1)
+           New format proposal (feedback S6, inspired by joyn-coop.org/category/cases):
+           Elementor: Container › Heading H2 · Loop Grid (CPT "Case Study",
+                      3 per row) › Loop Item: Image (client logo, CB3) ·
+                      Post Title H3 · Excerpt · Button "Read the full case study"
+                      Then: Container (row) › Testimonials (big “ + name)
+           ==================================================================== -->
+      <section class="section practice">
+        <div class="dev-note">From my practice — H2 · case cards (client logo · H3 · teaser · button), 3 per row · quotes below (proposal, feedback S6)</div>
+
+        <div class="container">
+          <div class="section-head">
+            <h2 class="h2">From my practice</h2>
+          </div>
+
+          <div class="case-grid">
+            <article class="case-card">
+              <div class="case-card__logo"><img src="assets/images/clients/bifrost.png" alt="Bifröst University" loading="lazy" /></div>
+              <h3 class="case-card__title">Rethinking internationalisation for a digital university</h3>
+              <p class="body"><a href="https://www.bifrost.is/english/" target="_blank" rel="noopener">Bifröst University</a> in Iceland had moved to fully online teaching, but its internationalisation strategy still dated from before the switch. I helped the university’s leadership and international office develop new exchange models for digital learning and reorient its international partnerships. The university has since put both into practice.</p>
+              <div><a class="btn btn--outline btn--arrow" href="#" data-todo="/case-studies#bifrost">Read the full case study</a></div>
+            </article>
+
+            <article class="case-card">
+              <div class="case-card__logo"><span class="case-card__logo-ph">Logo: OpenEU<br /><small>file needed</small></span></div>
+              <h3 class="case-card__title">Building a European Universities alliance from the first idea: OpenEU</h3>
+              <p class="body">OpenEU brings together ten universities from across Europe, most of them open and distance universities, to create the first pan-European open university. As Director Europe and Open Knowledge at the Universitat Oberta de Catalunya (UOC), I led the creation of the alliance. I brought the partner universities together and developed a shared vision with them across different national higher education systems, languages and academic cultures. Together, we agreed on how the partners would work together and what the alliance would offer students across Europe. In 2024, the European Commission selected OpenEU under the European Universities Initiative.</p>
+              
+            </article>
+
+            <article class="case-card">
+              <div class="case-card__logo"><img src="assets/images/clients/hkdir.png" alt="Norwegian Directorate for Higher Education and Skills (HK-dir)" loading="lazy" /></div>
+              <h3 class="case-card__title">International university partnerships: expert reviewer for Norway’s NORPART programme</h3>
+              <p class="body">NORPART funds long-term academic cooperation and mutual student mobility between Norwegian universities and partner institutions in the Global South. As a member of the external expert panel, I assessed funding applications from university partnerships. Our assessments formed the basis for the funding decisions.</p>
+              <div><a class="btn btn--outline btn--arrow" href="#" data-todo="/case-studies#norpart">Read the full case study</a></div>
+            </article>
+
+            <article class="case-card">
+              <div class="case-card__logo"><img src="assets/images/clients/fas.png" alt="Fundació Autònoma Solidària" loading="lazy" /></div>
+              <h3 class="case-card__title">Strengthening international cooperation strategically</h3>
+              <p class="body">The <a href="https://www.uab.cat/fas/" target="_blank" rel="noopener">Fundació Autònoma Solidària</a> is the <a href="https://www.uab.cat/web/universitat-autonoma-de-barcelona-1345467954774.html?param2=1345716706936" target="_blank" rel="noopener">Universitat Autònoma de Barcelona</a>’s foundation for social engagement and development cooperation. As project lead, I evaluated one of the foundation’s long-standing university partnerships together with a colleague. We examined what it had achieved, how lasting its impact had been and what could be transferred to other partnerships. The foundation has since used our recommendations to reorient its approach to international cooperation.</p>
+              <div><a class="btn btn--outline btn--arrow" href="#" data-todo="/case-studies#fas">Read the full case study</a></div>
+            </article>
+
+            <article class="case-card">
+              <div class="case-card__logo"><img src="assets/images/clients/daad.svg" alt="DAAD – German Academic Exchange Service" loading="lazy" /></div>
+              <h3 class="case-card__title">Developing international research funding further: impact evaluation for the DAAD</h3>
+              <p class="body">Since 1994, PROBRAL has funded joint research projects between German and Brazilian research groups. For the programme’s 20th anniversary, I was part of the team that evaluated it on behalf of the DAAD, as an associate of joyn-coop, in close dialogue with programme participants. The DAAD and Brazil’s CAPES implemented our recommendations to further develop the programme.</p>
+              <div><a class="btn btn--outline btn--arrow" href="#" data-todo="/case-studies#probral">Read the full case study</a></div>
+            </article>
+          </div>
+
+          <!-- Quotes shown prominently, separate from the cards (feedback S6) -->
+          <div class="case-quotes">
+              <figure class="testimonial">
+                <span class="testimonial__mark" aria-hidden="true">“</span>
+                <blockquote class="testimonial__text">Nadja combines deep knowledge of international higher education with a clear, participatory process. She listened carefully to our team, made our situation visible and helped us find a direction we could all support.</blockquote>
+                <figcaption class="testimonial__author">
+                  <span class="testimonial__name">Margrét Jónsdóttir</span>
+                  <span class="testimonial__role">Former Rector, Bifröst University, Iceland</span>
+                </figcaption>
+              </figure>
+              <figure class="testimonial">
+                <span class="testimonial__mark" aria-hidden="true">“</span>
+                <blockquote class="testimonial__text">Those of us who have worked alongside Nadja, shoulder to shoulder, know that she’s someone who transforms everything around her.</blockquote>
+                <figcaption class="testimonial__author">
+                  <span class="testimonial__name">Pastora Martínez Samper</span>
+                  <span class="testimonial__role">Commissioner for Internationalisation, OpenEU Alliance Coordinator, UOC, Spain</span>
+                </figcaption>
+              </figure>
+              <figure class="testimonial">
+                <span class="testimonial__mark" aria-hidden="true">“</span>
+                <blockquote class="testimonial__text">Nadja’s evaluation gave us a clear picture of what our activities achieve and where we need to focus. On this basis, we could reorient the future direction of the Foundation’s international development cooperation work.</blockquote>
+                <figcaption class="testimonial__author">
+                  <span class="testimonial__name">Jordi Prat</span>
+                  <span class="testimonial__role">Director, Fundació Autònoma Solidària, Universitat Autònoma de Barcelona, Spain</span>
+                </figcaption>
+              </figure>
+          </div>
+        </div>
+      </section>
+      <!-- /S06 · FROM MY PRACTICE -->
 
       <!-- ====================================================================
            S09 · FAQ (answer expands on click — client note)
@@ -769,13 +647,13 @@
          ====================================================================== -->
     <footer class="site-footer">
       <div class="dev-note">
-        S11 · Theme Builder › Footer — 3 cols (logo + text + button · services
-        menu · newsletter form) + bottom bar (Polylang switcher)
+        S11 · Theme Builder › Footer — 3 cols (logo + text + contact + button ·
+        services menu · newsletter form) + bottom bar (Polylang switcher)
       </div>
 
       <div class="container">
         <div class="site-footer__cols">
-          <!-- Column 1 -->
+          <!-- Column 1: about + contact (feedback F3: contact details moved here) -->
           <div class="site-footer__col">
             <a class="site-footer__logo" href="index.html" aria-label="U-teal home">
               <img src="assets/images/brand/logo-uteal-white.svg" alt="U-teal" width="96" height="26" />
@@ -785,6 +663,28 @@
               internationalisation, strategy, organisational development and
               leadership in Europe and beyond. · On site and online.
             </p>
+            <div class="site-footer__contact">
+              <p class="site-footer__title">Contact</p>
+              <ul class="site-footer__links">
+                <li><a href="mailto:nadja@u-teal.com">nadja@u-teal.com</a></li>
+                <li><a href="tel:+34697585199">+34 697 585 199</a></li>
+              </ul>
+              <!-- Elementor: Icon List (LinkedIn icon) or Social Icons + text -->
+              <ul class="site-footer__social">
+                <li>
+                  <a href="https://www.linkedin.com/in/nadja-gmelch/" target="_blank" rel="noopener">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg>
+                    LinkedIn (Nadja Gmelch)
+                  </a>
+                </li>
+                <li>
+                  <a href="https://www.linkedin.com/company/u-teal/" target="_blank" rel="noopener">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg>
+                    LinkedIn (U-teal)
+                  </a>
+                </li>
+              </ul>
+            </div>
             <a class="btn btn--accent" href="contact.html">Let’s talk</a>
           </div>
 
@@ -800,7 +700,7 @@
             </ul>
           </div>
 
-          <!-- Column 3: newsletter -->
+          <!-- Column 3: newsletter (email only, feedback F1) -->
           <div class="site-footer__col site-footer__col--newsletter">
             <p class="site-footer__title">Newsletter</p>
             <p>
@@ -809,10 +709,8 @@
               dates, and share what I’m learning about change in universities.
             </p>
             <form class="footer-form" action="#" onsubmit="return false;">
-              <label class="sr-only" for="nl-name">First name</label>
-              <input id="nl-name" type="text" placeholder="First name" autocomplete="given-name" />
               <label class="sr-only" for="nl-email">Email</label>
-              <input id="nl-email" type="email" placeholder="Email" autocomplete="email" />
+              <input id="nl-email" type="email" placeholder="Email" autocomplete="email" required />
               <button class="btn btn--accent" type="submit">Subscribe</button>
             </form>
             <p class="footer-form__note">
@@ -823,9 +721,9 @@
             <div class="dev-note dev-note--inline">
               <strong>FORM · Elementor Pro › Form widget</strong>
               <ul>
-                <li>Fields: First name (text, 50%) + Email (required, 50%) + Submit (100%, auto width). Mobile: all 100%.</li>
-                <li>Action: Mailchimp (native) with double opt-in ON (GDPR/DE). Brevo: Brevo plugin or webhook.</li>
-                <li>Spam: honeypot ON; Cloudflare Turnstile if needed (no reCAPTCHA).</li>
+                <li>Fields: Email only (required, 100%) + Submit (100% = same width as the field, desktop and mobile; feedback F1/F2/MO2).</li>
+                <li>Action: Brevo (client's provider) with double opt-in ON (GDPR/DE): Brevo plugin or webhook.</li>
+                <li>Spam: honeypot ON + hCaptcha (free "hCaptcha for WP" plugin, supports Elementor Pro forms). No reCAPTCHA.</li>
                 <li>Field: transparent bg · border 1px rgba(255,255,255,.35) · radius 8px · padding 11px 14px · Manrope 14px · text #FFF · placeholder #9AAFB2.</li>
                 <li>Button: bg #3DB7BB · text #02383E · 14px/700 · padding 12px 20px · radius 8px · hover bg #FFF.</li>
                 <li>Polylang: translate the success message + privacy link in DE/ES.</li>
@@ -841,10 +739,6 @@
             <li><a href="#" data-todo="/legal-notice">Legal notice</a></li>
             <li><a href="#" data-todo="/privacy-policy">Privacy policy</a></li>
             <li><a href="#" data-todo="cookie-settings">Cookie settings</a></li>
-            <li><a href="mailto:nadja@u-teal.com">nadja@u-teal.com</a></li>
-            <li><a href="tel:+34697585199">+34 697 585 199</a></li>
-            <li><a href="https://www.linkedin.com/in/nadja-gmelch/" target="_blank" rel="noopener">LinkedIn (Nadja Gmelch)</a></li>
-            <li><a href="https://www.linkedin.com/company/u-teal/" target="_blank" rel="noopener">LinkedIn (U-teal)</a></li>
           </ul>
           <!-- Polylang: each link points to the same page in the other language -->
           <nav class="site-footer__lang" aria-label="Language">
@@ -858,7 +752,7 @@
     <!-- /S11 · FOOTER -->
 
     <!-- ======================================================================
-         FLOATING "LET'S TALK" (always visible — client request)
+         FLOATING "LET'S TALK" (mobile / tablet only — feedback G1; desktop uses the header button)
          Elementor: Pro Popup (bottom bar, all pages, no close button) or a
          fixed Container. Triangle = SVG/shape behind the button.
          ====================================================================== -->

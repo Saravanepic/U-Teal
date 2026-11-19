@@ -36,17 +36,6 @@
   border-top: 1px solid var(--c-line);
 }
 
-/* "Picture option" (client doc): portrait under the intro */
-.contact__picture {
-  margin-top: 8px;
-  max-width: 420px;
-  aspect-ratio: 5 / 4;
-}
-
-.contact__picture img {
-  object-position: center 22%;
-}
-
 /* Form card (Elementor: Container bg #F8F8F8, no radius) */
 .contact-card {
   padding: clamp(24px, 3.5vw, 48px);
@@ -132,8 +121,10 @@
   text-underline-offset: 3px;
 }
 
+/* Send button as wide as the fields (feedback C3) */
 .contact-form .btn {
-  align-self: flex-start;
+  align-self: stretch;
+  justify-content: center;
 }
 
 /* Success message (replaces the form after "Send") */
@@ -188,12 +179,4 @@
     position: static;
   }
 
-  .contact__picture {
-    max-width: none;
-  }
-
-  .contact-form .btn {
-    align-self: stretch;
-    justify-content: center;
-  }
 }

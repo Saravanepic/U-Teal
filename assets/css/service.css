@@ -6,8 +6,8 @@
    quote (5.3), numbered rows (5.4), image placeholder (5.5b), shape cards
    (5.7), CTA block (5.8), FAQ (5.9).
    Sections: S02 Hero · S03 Situations · S04 Gains · S05 Expect ·
-             S06 From my practice · S07 How we work together (#offer) ·
-             S08 CTA · S09 FAQ
+             S07 How we work together (#offer, accordion) ·
+             S08 CTA · From my practice (cards + quotes) · S09 FAQ
    ========================================================================== */
 
 html {
@@ -62,22 +62,34 @@ html {
 }
 
 /* --------------------------------------------------------------------------
-   S03 · Situations: question | dash list + closing line + button
+   S03 · Situations (feedback S2): key sentence first and most visible, then
+   the question and its bullet points together in ONE column (no sticky
+   column, so they scroll together).
    -------------------------------------------------------------------------- */
 .situations {
   padding-top: 0;
 }
 
-.situations__grid {
-  display: grid;
-  grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
-  gap: 32px clamp(32px, 6vw, 96px);
-  align-items: start;
+.situations__flow {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
 }
 
-.situations__question {
-  position: sticky;
-  top: 120px;
+.situations__flow > :not(.situations__statement) {
+  max-width: 880px;
+}
+
+.situations__statement {
+  max-width: 1000px;
+  margin-bottom: 12px;
+  padding-left: clamp(18px, 2vw, 28px);
+  border-left: 4px solid var(--c-teal-light);
+  font-size: clamp(24px, 2.4vw, 32px);
+  line-height: 1.35;
+  font-weight: 800;
+  color: var(--c-teal-dark);
+  text-wrap: balance;
 }
 
 .situations .dash-list {
@@ -86,7 +98,7 @@ html {
 
 .situations .dash-list a,
 .expect a,
-.case__main .body a {
+.case-card .body a {
   color: var(--c-teal);
   text-decoration: underline;
   text-underline-offset: 3px;
@@ -96,12 +108,6 @@ html {
 .situations__picture {
   margin-top: clamp(48px, 6vw, 80px);
   aspect-ratio: 21 / 8;
-}
-
-.situations__close {
-  padding-top: 8px;
-  font-weight: 600;
-  color: var(--c-teal-dark);
 }
 
 /* --------------------------------------------------------------------------
@@ -139,60 +145,99 @@ html {
 }
 
 /* --------------------------------------------------------------------------
-   S06 · From my practice: case (H3 · text · button) | quote
+   From my practice (moved before the FAQ, feedback S1).
+   Proposal (feedback S6): case cards with the client logo as picture (CB3),
+   3 per row, like joyn-coop.org/category/cases; quotes shown prominently
+   below the cards (testimonial card, global 5.3b).
    -------------------------------------------------------------------------- */
-.cases {
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
-}
-
-.case {
-  display: grid;
-  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
-  gap: 32px clamp(32px, 5vw, 72px);
-  align-items: start;
-  padding: clamp(28px, 3.5vw, 48px);
-  background: var(--c-white);
-}
-
-/* Right column: "Picture option" + quote (if the case has one) */
-.case__aside {
-  display: flex;
-  flex-direction: column;
-  gap: 28px;
-}
-
-.case__main {
-  display: flex;
-  flex-direction: column;
-  gap: 18px;
-}
-
-.case__main .h4 {
-  font-size: clamp(19px, 1.7vw, 22px);
-}
-
-/* --------------------------------------------------------------------------
-   S07 · How we work together: 3 offer boxes
-   -------------------------------------------------------------------------- */
-.offer__grid {
+.case-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 24px;
 }
 
-.offer-card {
+.case-card {
   display: flex;
   flex-direction: column;
-  gap: 16px;
-  padding: clamp(28px, 3vw, 40px);
-  border-top: 3px solid var(--c-teal-light);
+  gap: 14px;
+  padding: 0 0 28px;
   background: var(--c-bg-soft);
 }
 
-.offer-card .h3 {
-  font-size: clamp(20px, 1.8vw, 24px);
+.practice.section--soft .case-card {
+  background: var(--c-white);
+}
+
+.case-card > :not(.case-card__logo) {
+  margin-left: clamp(20px, 2vw, 28px);
+  margin-right: clamp(20px, 2vw, 28px);
+}
+
+/* Logo tile (Elementor: Featured Image = client logo, contain, padded) */
+.case-card__logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  aspect-ratio: 16 / 9;
+  margin-bottom: 8px;
+  padding: 12% 14%;
+  background: var(--c-white);
+  border-bottom: 3px solid var(--c-teal-light);
+}
+
+.practice.section--soft .case-card__logo {
+  background: var(--c-bg-soft);
+}
+
+.case-card__logo img {
+  max-width: 100%;
+  max-height: 72px;
+  width: auto;
+  object-fit: contain;
+}
+
+.case-card__logo-ph {
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.4;
+  text-align: center;
+  color: var(--c-tint-dark-60);
+}
+
+.case-card__logo-ph small {
+  font-weight: 500;
+}
+
+.case-card__title {
+  font-size: clamp(18px, 1.5vw, 20px);
+  line-height: 1.35;
+  font-weight: 800;
+  color: var(--c-teal-dark);
+  text-wrap: balance;
+}
+
+.case-card .body {
+  font-size: 15px;
+}
+
+.case-card > div:last-child {
+  margin-top: auto;
+  padding-top: 6px;
+}
+
+.case-card .btn {
+  white-space: normal;
+}
+
+.case-quotes {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 24px;
+  margin-top: clamp(32px, 4vw, 48px);
+}
+
+.practice:not(.section--soft) .testimonial {
+  background: var(--c-bg-soft);
 }
 
 /* --------------------------------------------------------------------------
@@ -226,14 +271,11 @@ html {
    -------------------------------------------------------------------------- */
 @media (max-width: 999px) {
   .service-hero__grid,
-  .situations__grid,
   .expect__grid,
-  .case,
-  .offer__grid {
+  .case-grid {
     grid-template-columns: minmax(0, 1fr);
   }
 
-  .situations__question,
   .expect__head {
     position: static;
   }
@@ -252,13 +294,14 @@ html {
   grid-template-columns: repeat(4, minmax(0, 1fr));
 }
 
-/* 4th brand shape: rounded diamond (square → diamond → rounded diamond → circle) */
+/* 4th brand shape: rounded diamond (square → diamond → rounded diamond → circle).
+   Own colour, so the last two boxes differ (feedback S3): Teal Dark 60%. */
 .principle__shape--rounded {
   width: 26px;
   height: 26px;
   margin-left: 2px;
   border-radius: 30%;
-  background: var(--c-teal);
+  background: var(--c-tint-dark-60);
   transform: rotate(45deg);
 }
 
@@ -321,6 +364,12 @@ html {
   color: var(--c-white);
   text-decoration: underline;
   text-underline-offset: 3px;
+}
+
+@media (min-width: 700px) and (max-width: 999px) {
+  .case-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }
 
 @media (max-width: 1199px) {

@@ -3,7 +3,7 @@
    Loaded only on about-me.html, after global.css.
    Sections: S02 Hero · S03 Who I am · S04 How I work (principles) ·
              S05 CTA · S06 Who I work with (partly hidden) · S07 Why U-teal ·
-             S08 My background · S09 Final CTA
+             S08 My background (final CTA button removed, feedback A4)
    ========================================================================== */
 
 /* --------------------------------------------------------------------------
@@ -55,8 +55,9 @@
   aspect-ratio: 21 / 9;
 }
 
+/* Links not bold (feedback A1) */
 .story__text a {
-  font-weight: 600;
+  font-weight: inherit;
   text-decoration: underline;
   text-decoration-color: rgba(0, 128, 128, 0.35);
   text-underline-offset: 3px;
@@ -66,7 +67,7 @@
   text-decoration-color: currentColor;
 }
 
-/* "These questions are at the heart of my work." */
+/* Highlighted questions (feedback A2) */
 .story__highlight {
   padding: 4px 0 4px 14px;
   border-left: 3px solid var(--c-teal-light);
@@ -80,7 +81,7 @@
    S04 · How I work: intro + 3 principle cards (square · diamond · circle)
    -------------------------------------------------------------------------- */
 .principles .section-head a {
-  font-weight: 600;
+  font-weight: inherit;
   text-decoration: underline;
   text-underline-offset: 3px;
 }
@@ -199,15 +200,6 @@
 
 .cv-item a:hover {
   color: var(--c-teal);
-}
-
-/* --------------------------------------------------------------------------
-   S09 · Final CTA (button only)
-   -------------------------------------------------------------------------- */
-.final-cta {
-  display: flex;
-  justify-content: center;
-  padding-top: 0;
 }
 
 /* ==========================================================================

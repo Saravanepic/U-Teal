@@ -49,7 +49,7 @@
          S01 · HEADER
          Elementor: Theme Builder › Header (sticky)
          Widgets: Site Logo (SVG) · Nav Menu (Home · Services ▾ · About ·
-                  Methods) · Polylang language switcher (dropdown) · Button
+                  Methods) · Polylang language switcher (codes EN / DE / ES) · Button
          ====================================================================== -->
     <header class="site-header" id="top">
       <div class="dev-note">
@@ -97,19 +97,12 @@
             <li><a class="nav-link is-active" href="about-me.html" aria-current="page">About</a></li>
             <li><a class="nav-link" href="methods.html">Methods</a></li>
 
-            <!-- Language switcher (Polylang) -->
-            <li class="lang">
-              <button class="nav-link lang__btn" type="button" aria-expanded="false" aria-controls="submenu-lang" aria-label="Language: English" data-dropdown>
-                <svg viewBox="-1 -1 22 22" fill="none" aria-hidden="true">
-                  <path d="M20 10c0 5.523-4.477 10-10 10m10-10c0-5.523-4.477-10-10-10m10 10H0m10 10C4.477 20 0 15.523 0 10m10 10a14.6 14.6 0 0 1-4-10c0-3.723 1.432-7.304 4-10m0 20a14.6 14.6 0 0 0 4-10c0-3.723-1.432-7.304-4-10M0 10C0 4.477 4.477 0 10 0" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-                EN <span class="nav-link__chev" aria-hidden="true"></span>
-              </button>
-              <ul class="submenu lang__menu" id="submenu-lang">
-                <li><a href="about-me.html" aria-current="true">English</a></li>
-                <li><a href="#" data-todo="/de/">Deutsch</a></li>
-                <li><a href="#" data-todo="/es/">Español</a></li>
-              </ul>
+            <!-- Language switcher (Polylang): codes only, no globe icon (feedback G2).
+                 ES stays hidden on the live site until Spanish pages exist (T5). -->
+            <li class="lang" aria-label="Language">
+              <a class="lang__link" href="about-me.html" aria-current="true" lang="en">EN</a>
+              <a class="lang__link" href="#" data-todo="/de/" lang="de">DE</a>
+              <a class="lang__link" href="#" data-todo="/es/" lang="es">ES</a>
             </li>
           </ul>
 
@@ -123,7 +116,7 @@
               <li>Mobile dropdown: Full width ON · Align: start · Toggle icon: custom SVG (bar · diamond · bar), colour #02383E, size 22px.</li>
               <li>Dropdown items: Manrope 16px/700 #02383E · padding 15px 0 · divider 1px #CCD7D8 · active: text #008080 + 3px left border.</li>
               <li>Submenu ("Services"): indicator chevron on the right · bg #F8F8F8 · items 15px/600 · padding 12px 16px.</li>
-              <li>Languages: Polylang adds EN / DE / ES as a "Language switcher" menu item (show names, hide flags).</li>
+              <li>Languages: Polylang "Language switcher" menu item showing <strong>codes only</strong> (EN / DE / ES), no flags, no globe icon (feedback G2).</li>
               <li>"Let's talk": last menu item with CSS class <code>menu-cta</code> styled as a button (or hide the header button on mobile: the floating Let's talk is always visible).</li>
             </ul>
           </div>
@@ -198,11 +191,12 @@
           </div>
 
           <figure class="picture">
+            <!-- Portrait IMG_2632 (feedback A6) -->
             <img
-              src="assets/images/about-nadja-gmelch.jpg"
+              src="assets/images/photos/IMG_2632-portrait.jpg"
               alt="Portrait of Nadja Gmelch, founder of U-teal"
-              width="1065"
-              height="1600"
+              width="1333"
+              height="2000"
             />
           </figure>
         </div>
@@ -246,10 +240,13 @@
               AI is changing teaching, research and university management,
               budgets are shrinking, and society is asking more of them. Those
               who shape and lead universities are searching for new answers.
+            </p>
+            <!-- Highlight moved here (feedback A2) -->
+            <p class="story__highlight">
               How can we rethink universities so they can continue to serve
               society? And what kind of leadership will get them there?
             </p>
-            <p class="story__highlight">These questions are at the heart of my work.</p>
+            <p>These questions are at the heart of my work.</p>
             <p>
               I’m interested not only in the what of change, but also in the
               how. What inner and outer conditions does change really need? How
@@ -301,9 +298,15 @@
               Barcelona. Today, home is a small mountain village in the
               Apennines, Munich and wherever my camper van happens to be parked.
               I’m happy to work with you in English, German, Spanish, Italian or
-              Catalan. I’ll come to you whenever your project needs it: for
-              retreats, workshops and important meetings. Anything that works
-              well online, we do online.
+              Catalan.
+              <mark class="highlight">I’ll come to you whenever your project needs it: for
+              retreats, workshops and important meetings.</mark>
+              Anything that works well online, we do online.
+            </p>
+            <!-- Added at the end of this text (feedback A5); the team section is hidden -->
+            <p>
+              For larger projects, I work with colleagues whose experience
+              complements mine.
             </p>
           </div>
         </div>
@@ -402,10 +405,10 @@
                       Advanced › Responsive › hide on all devices) › per card:
                       Image · Heading H3 · Text · Link
            ==================================================================== -->
-      <section class="section partners">
+      <section class="section partners dev-only">
         <div class="dev-note">
-          S06 · Who I work with — H2 · Text (live). Partner cards: hidden until
-          partners agree (Q22)
+          S06 · Who I work with — WHOLE SECTION HIDDEN for now (feedback A5 / Q22).
+          Elementor: keep the container, Advanced › Responsive › hide on all devices
         </div>
 
         <div class="container">
@@ -462,7 +465,7 @@
            Elementor: Container (row) › Image (brand mark) · Heading H2 ·
                       Text Editor
            ==================================================================== -->
-      <section class="section section--soft why">
+      <section class="section why">
         <div class="dev-note">S07 · Why U-teal? — Container (row) › Image (brand mark) | H2 · Text</div>
 
         <div class="container why__grid">
@@ -498,7 +501,7 @@
            Elementor: Container › Heading H2 · 3-col Container › per column:
                       Heading H3 · Icon List / Text Editor (title, place, years)
            ==================================================================== -->
-      <section class="section cv">
+      <section class="section section--soft cv">
         <div class="dev-note">S08 · My background — H2 · 3 cols (H3 · list: title · organisation · years)</div>
 
         <div class="container">
@@ -592,16 +595,6 @@
         </div>
       </section>
       <!-- /S08 · MY BACKGROUND -->
-
-      <!-- ====================================================================
-           S09 · FINAL CTA (button only, as in the doc)
-           Elementor: Container (centred) › Button → /contact
-           ==================================================================== -->
-      <section class="section final-cta">
-        <div class="dev-note">S09 · Final CTA — Button "Let's talk" → /contact</div>
-        <a class="btn btn--primary btn--arrow" href="contact.html">Let’s talk</a>
-      </section>
-      <!-- /S09 · FINAL CTA -->
     </main>
 
     <!-- ======================================================================
@@ -615,13 +608,13 @@
          ====================================================================== -->
     <footer class="site-footer">
       <div class="dev-note">
-        S11 · Theme Builder › Footer — 3 cols (logo + text + button · services
-        menu · newsletter form) + bottom bar (Polylang switcher)
+        S11 · Theme Builder › Footer — 3 cols (logo + text + contact + button ·
+        services menu · newsletter form) + bottom bar (Polylang switcher)
       </div>
 
       <div class="container">
         <div class="site-footer__cols">
-          <!-- Column 1 -->
+          <!-- Column 1: about + contact (feedback F3: contact details moved here) -->
           <div class="site-footer__col">
             <a class="site-footer__logo" href="index.html" aria-label="U-teal home">
               <img src="assets/images/brand/logo-uteal-white.svg" alt="U-teal" width="96" height="26" />
@@ -631,6 +624,28 @@
               internationalisation, strategy, organisational development and
               leadership in Europe and beyond. · On site and online.
             </p>
+            <div class="site-footer__contact">
+              <p class="site-footer__title">Contact</p>
+              <ul class="site-footer__links">
+                <li><a href="mailto:nadja@u-teal.com">nadja@u-teal.com</a></li>
+                <li><a href="tel:+34697585199">+34 697 585 199</a></li>
+              </ul>
+              <!-- Elementor: Icon List (LinkedIn icon) or Social Icons + text -->
+              <ul class="site-footer__social">
+                <li>
+                  <a href="https://www.linkedin.com/in/nadja-gmelch/" target="_blank" rel="noopener">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg>
+                    LinkedIn (Nadja Gmelch)
+                  </a>
+                </li>
+                <li>
+                  <a href="https://www.linkedin.com/company/u-teal/" target="_blank" rel="noopener">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg>
+                    LinkedIn (U-teal)
+                  </a>
+                </li>
+              </ul>
+            </div>
             <a class="btn btn--accent" href="contact.html">Let’s talk</a>
           </div>
 
@@ -646,7 +661,7 @@
             </ul>
           </div>
 
-          <!-- Column 3: newsletter -->
+          <!-- Column 3: newsletter (email only, feedback F1) -->
           <div class="site-footer__col site-footer__col--newsletter">
             <p class="site-footer__title">Newsletter</p>
             <p>
@@ -655,10 +670,8 @@
               dates, and share what I’m learning about change in universities.
             </p>
             <form class="footer-form" action="#" onsubmit="return false;">
-              <label class="sr-only" for="nl-name">First name</label>
-              <input id="nl-name" type="text" placeholder="First name" autocomplete="given-name" />
               <label class="sr-only" for="nl-email">Email</label>
-              <input id="nl-email" type="email" placeholder="Email" autocomplete="email" />
+              <input id="nl-email" type="email" placeholder="Email" autocomplete="email" required />
               <button class="btn btn--accent" type="submit">Subscribe</button>
             </form>
             <p class="footer-form__note">
@@ -669,9 +682,9 @@
             <div class="dev-note dev-note--inline">
               <strong>FORM · Elementor Pro › Form widget</strong>
               <ul>
-                <li>Fields: First name (text, 50%) + Email (required, 50%) + Submit (100%, auto width). Mobile: all 100%.</li>
-                <li>Action: Mailchimp (native) with double opt-in ON (GDPR/DE). Brevo: Brevo plugin or webhook.</li>
-                <li>Spam: honeypot ON; Cloudflare Turnstile if needed (no reCAPTCHA).</li>
+                <li>Fields: Email only (required, 100%) + Submit (100% = same width as the field, desktop and mobile; feedback F1/F2/MO2).</li>
+                <li>Action: Brevo (client's provider) with double opt-in ON (GDPR/DE): Brevo plugin or webhook.</li>
+                <li>Spam: honeypot ON + hCaptcha (free "hCaptcha for WP" plugin, supports Elementor Pro forms). No reCAPTCHA.</li>
                 <li>Field: transparent bg · border 1px rgba(255,255,255,.35) · radius 8px · padding 11px 14px · Manrope 14px · text #FFF · placeholder #9AAFB2.</li>
                 <li>Button: bg #3DB7BB · text #02383E · 14px/700 · padding 12px 20px · radius 8px · hover bg #FFF.</li>
                 <li>Polylang: translate the success message + privacy link in DE/ES.</li>
@@ -687,10 +700,6 @@
             <li><a href="#" data-todo="/legal-notice">Legal notice</a></li>
             <li><a href="#" data-todo="/privacy-policy">Privacy policy</a></li>
             <li><a href="#" data-todo="cookie-settings">Cookie settings</a></li>
-            <li><a href="mailto:nadja@u-teal.com">nadja@u-teal.com</a></li>
-            <li><a href="tel:+34697585199">+34 697 585 199</a></li>
-            <li><a href="https://www.linkedin.com/in/nadja-gmelch/" target="_blank" rel="noopener">LinkedIn (Nadja Gmelch)</a></li>
-            <li><a href="https://www.linkedin.com/company/u-teal/" target="_blank" rel="noopener">LinkedIn (U-teal)</a></li>
           </ul>
           <!-- Polylang: each link points to the same page in the other language -->
           <nav class="site-footer__lang" aria-label="Language">
@@ -704,7 +713,7 @@
     <!-- /S11 · FOOTER -->
 
     <!-- ======================================================================
-         FLOATING "LET'S TALK" (always visible — client request)
+         FLOATING "LET'S TALK" (mobile / tablet only — feedback G1; desktop uses the header button)
          Elementor: Pro Popup (bottom bar, all pages, no close button) or a
          fixed Container. Triangle = SVG/shape behind the button.
          ====================================================================== -->
