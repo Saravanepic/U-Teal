@@ -56,8 +56,9 @@ html {
 }
 
 /* H1: small type (SEO heading), styled like the Home hero H1 */
+/* Slightly bigger (round 3, G1): was 16–18px */
 .service-hero__h1 {
-  font-size: clamp(16px, 1.4vw, 18px);
+  font-size: clamp(18px, 1.6vw, 21px);
   line-height: 1.5;
   font-weight: 600;
   color: var(--c-teal);
@@ -146,6 +147,21 @@ html {
 .expect__head {
   position: sticky;
   top: 120px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+/* Second picture (round 3, S1): under the sticky H2, next to the numbered
+   points, on desktop. Elementor: Image in the left column · Responsive ›
+   Hide on Mobile. The picture under the bullet points: Hide on Desktop,
+   Laptop and Tablet (visible below 1000px only). */
+.expect__picture {
+  aspect-ratio: 4 / 5;
+}
+
+.mobile-only {
+  display: none;
 }
 
 .expect__row {
@@ -271,6 +287,28 @@ html {
   margin-bottom: clamp(32px, 4vw, 48px);
 }
 
+/* Full-width single testimonial (round 3, S2): Bifröst under the gains
+   boxes, FAS before the "From my practice" heading */
+.testimonial--wide {
+  grid-template-rows: auto auto;
+  margin-top: clamp(32px, 4vw, 48px);
+  padding-left: clamp(56px, 7vw, 96px);
+}
+
+.testimonial--wide .testimonial__text {
+  max-width: 60em;
+}
+
+.testimonial--wide .testimonial__author {
+  justify-self: start;
+  min-width: 280px;
+}
+
+.practice .testimonial--wide {
+  margin-top: 0;
+  margin-bottom: clamp(48px, 6vw, 72px);
+}
+
 .practice:not(.section--soft) .testimonial {
   background: var(--c-bg-soft);
 }
@@ -313,6 +351,14 @@ html {
 
   .expect__head {
     position: static;
+  }
+
+  .expect__picture {
+    display: none;
+  }
+
+  .mobile-only {
+    display: flex; /* img-ph is a flex box */
   }
 
   .situations__picture {
@@ -462,5 +508,16 @@ html {
   .mockup-banner__inner {
     flex-direction: column;
     gap: 8px;
+  }
+}
+
+/* Full-width testimonial on mobile: normal side padding (round 3, S2) */
+@media (max-width: 599px) {
+  .testimonial--wide {
+    padding-left: clamp(24px, 3vw, 40px);
+  }
+
+  .testimonial--wide .testimonial__author {
+    min-width: 0;
   }
 }

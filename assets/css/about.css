@@ -31,6 +31,11 @@
   aspect-ratio: 4 / 4.8;
 }
 
+/* H1 slightly bigger than the standard display (round 3, G1): 44–64px */
+.about-hero h1.display {
+  font-size: clamp(44px, 4.7vw, 64px);
+}
+
 /* Head more in the centre of the frame (round 2, A1).
    Elementor: Image › Object position "Top center" or custom Y 10%. */
 .about-hero .picture img {

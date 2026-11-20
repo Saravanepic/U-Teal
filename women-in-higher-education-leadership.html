@@ -204,11 +204,11 @@
 
       <!-- ====================================================================
            S02 · HERO (service template)
-           Elementor: Container › Heading H1 (small, teal) · Heading H2
+           Elementor: Container › Heading H1 (small, teal, 18–21px) · Heading H2
                       (display) · Text (lead style). No picture (none in the doc).
            ==================================================================== -->
       <section class="service-hero">
-        <div class="dev-note">S02 · Hero — H1 small · H2 display · text (lead style)</div>
+        <div class="dev-note">S02 · Hero — H1 small (teal 21px/600 · clamp(18px, 1.6vw, 21px), round 3 G1) · H2 display · text (lead style)</div>
         <div class="dev-note dev-note--inline">
           <strong>HERO · build notes</strong>
           <ul>
@@ -224,9 +224,9 @@
           </div>
           <!-- Photo option next to the title (round 2, S1). Mobile: after the
                subtitle, before "In situations like these". -->
-          <figure class="img-ph service-hero__picture" role="img" aria-label="Photo option">
-            <span class="img-ph__mark" aria-hidden="true"></span>
-            <figcaption class="img-ph__label"><strong>Photo option</strong>Photo to be chosen.</figcaption>
+          <!-- IMG_2468 (nature, women in conversation) moved here from Home (round 3, H2) -->
+          <figure class="picture service-hero__picture">
+            <img src="assets/images/photos/IMG_2468-how-i-work.jpg" alt="Nadja Gmelch in conversation with a woman, sitting under trees by a river" width="2400" height="1600" />
           </figure>
         </div>
       </section>
@@ -265,7 +265,7 @@
               <li>In your new role, you sometimes wonder whether you can live up to <mark class="highlight">expectations</mark>.</li>
               <li>You have to make <mark class="highlight">decisions under pressure</mark> and want to stay true to yourself and your values while you do.</li>
             </ul>
-            <figure class="img-ph situations__img" style="aspect-ratio: 3 / 2" role="img" aria-label="Picture option"><span class="img-ph__mark" aria-hidden="true"></span><figcaption class="img-ph__label"><strong>Picture option</strong>Photo to be chosen.</figcaption></figure>
+            <figure class="img-ph situations__img mobile-only" style="aspect-ratio: 3 / 2" role="img" aria-label="Picture option"><span class="img-ph__mark" aria-hidden="true"></span><figcaption class="img-ph__label"><strong>Picture option</strong>Photo to be chosen.</figcaption></figure>
             <div><a class="btn btn--outline btn--arrow" href="#offer">What I offer</a></div>
           </div>
         </div>
@@ -351,7 +351,9 @@ Each card container › Layout: Grid › CSS Classes: subgrid-3</code></pre>
       <section class="section expect">
         <div class="dev-note">S05 · What you can expect from me — H2 | 4 numbered rows</div>
         <div class="container expect__grid">
-          <div class="expect__head"><h2 class="h2">What you can expect from me</h2></div>
+          <div class="expect__head"><h2 class="h2">What you can expect from me</h2>
+            <!-- Second picture on desktop/tablet ≥1000px (round 3, S1); mobile uses the one under the bullet points -->
+            <figure class="img-ph expect__picture" role="img" aria-label="Picture option"><span class="img-ph__mark" aria-hidden="true"></span><figcaption class="img-ph__label"><strong>Picture option (desktop)</strong>Second photo to be chosen. Under the heading, next to the numbered points (round 3, S1).</figcaption></figure></div>
           <div class="num-rows">
             <div class="num-row expect__row">
               <div class="num-row__head">

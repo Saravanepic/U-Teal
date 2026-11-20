@@ -180,3 +180,8 @@
   }
 
 }
+
+/* H1 "Contact" eyebrow slightly bigger (round 3, G1): 16px → 18px */
+.contact__intro h1.eyebrow {
+  font-size: 18px;
+}

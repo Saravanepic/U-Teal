@@ -402,9 +402,9 @@ document.addEventListener(&quot;DOMContentLoaded&quot;, function () {
             <li><strong>Option B:</strong> classic px per device (Desktop / Laptop / Tablet / Mobile fields) from the table, measured at 1440 / 1100 / 850 / 390px.</li>
             <li>Create the first table as <strong>Global Fonts</strong>; the second table is set per widget (or as extra Global Fonts if reused).</li>
           </ul>
-          <div class="dev-table-wrap"><table class="dev-table"><tr><th>Style</th><th>Used for</th><th>Desktop ≥1200</th><th>Laptop 1000–1199</th><th>Tablet 600–999</th><th>Mobile &lt;600</th><th>Line height</th><th>Weight</th><th>Fluid value (Custom unit)</th><th>Notes</th></tr><tr><td>Display</td><td>Hero statement (H2 on Home/services, H1 on About), "Let's talk" on Contact</td><td>60</td><td>48</td><td>40</td><td>40</td><td>1.2</td><td>700</td><td><code>clamp(40px, 4.4vw, 60px)</code></td><td>letter-spacing −0.01em · #02383E</td></tr><tr><td>H2 · section heading</td><td>All section H2s, "News &amp; insights"</td><td>34</td><td>29</td><td>28</td><td>28</td><td>1.25</td><td>800</td><td><code>clamp(28px, 2.6vw, 34px)</code></td><td>letter-spacing −0.3px · #02383E</td></tr><tr><td>H3 · card heading</td><td>About principle cards</td><td>28</td><td>22</td><td>22</td><td>22</td><td>1.36</td><td>800</td><td><code>clamp(22px, 2vw, 28px)</code></td><td>#02383E</td></tr><tr><td>H4 · row / card title</td><td>Service-card questions, gains titles, numbered-row titles</td><td>20</td><td>18</td><td>18</td><td>18</td><td>1.3</td><td>700</td><td><code>clamp(18px, 1.5vw, 20px)</code></td><td>#02383E</td></tr><tr><td>Lead</td><td>Intro paragraphs, situations question</td><td>22</td><td>18</td><td>18</td><td>18</td><td>1.45</td><td>500</td><td><code>clamp(18px, 1.6vw, 22px)</code></td><td>#02383E</td></tr><tr><td>Body</td><td>All body text</td><td>16</td><td>16</td><td>16</td><td>16</td><td>1.625</td><td>400</td><td><code>16px</code></td><td>#4B4B4B</td></tr><tr><td>Eyebrow</td><td>"— CONTACT", "— ABOUT ME"</td><td>16</td><td>16</td><td>16</td><td>16</td><td>1.15</td><td>700</td><td><code>16px</code></td><td>uppercase · letter-spacing 1.5px · #008080</td></tr><tr><td>Button</td><td>All buttons</td><td>14</td><td>14</td><td>14</td><td>14</td><td>1.3</td><td>700</td><td><code>14px</code></td><td>radius 8px · padding 12px 20px</td></tr><tr><td>Nav</td><td>Header menu</td><td>16</td><td>16</td><td>16</td><td>16</td><td>—</td><td>700</td><td><code>16px</code></td><td>mobile menu items 16px/700</td></tr><tr><td>Small H1 (SEO)</td><td>Small teal H1 above the statement (Home + service pages)</td><td>18</td><td>16</td><td>16</td><td>16</td><td>1.5</td><td>600</td><td><code>clamp(16px, 1.4vw, 18px)</code></td><td>#008080</td></tr></table></div>
+          <div class="dev-table-wrap"><table class="dev-table"><tr><th>Style</th><th>Used for</th><th>Desktop ≥1200</th><th>Laptop 1000–1199</th><th>Tablet 600–999</th><th>Mobile &lt;600</th><th>Line height</th><th>Weight</th><th>Fluid value (Custom unit)</th><th>Notes</th></tr><tr><td>Display</td><td>Hero statement (H2 on Home/services), "Let's talk" on Contact. About H1: see "About H1" row</td><td>60</td><td>48</td><td>40</td><td>40</td><td>1.2</td><td>700</td><td><code>clamp(40px, 4.4vw, 60px)</code></td><td>letter-spacing −0.01em · #02383E</td></tr><tr><td>H2 · section heading</td><td>All section H2s, "News &amp; insights"</td><td>34</td><td>29</td><td>28</td><td>28</td><td>1.25</td><td>800</td><td><code>clamp(28px, 2.6vw, 34px)</code></td><td>letter-spacing −0.3px · #02383E</td></tr><tr><td>H3 · card heading</td><td>About principle cards</td><td>28</td><td>22</td><td>22</td><td>22</td><td>1.36</td><td>800</td><td><code>clamp(22px, 2vw, 28px)</code></td><td>#02383E</td></tr><tr><td>H4 · row / card title</td><td>Service-card questions, gains titles, numbered-row titles</td><td>20</td><td>18</td><td>18</td><td>18</td><td>1.3</td><td>700</td><td><code>clamp(18px, 1.5vw, 20px)</code></td><td>#02383E</td></tr><tr><td>Lead</td><td>Intro paragraphs, situations question</td><td>22</td><td>18</td><td>18</td><td>18</td><td>1.45</td><td>500</td><td><code>clamp(18px, 1.6vw, 22px)</code></td><td>#02383E</td></tr><tr><td>Body</td><td>All body text</td><td>16</td><td>16</td><td>16</td><td>16</td><td>1.625</td><td>400</td><td><code>16px</code></td><td>#4B4B4B</td></tr><tr><td>Eyebrow</td><td>"— CONTACT", "— ABOUT ME"</td><td>16</td><td>16</td><td>16</td><td>16</td><td>1.15</td><td>700</td><td><code>16px</code></td><td>uppercase · letter-spacing 1.5px · #008080</td></tr><tr><td>Button</td><td>All buttons</td><td>14</td><td>14</td><td>14</td><td>14</td><td>1.3</td><td>700</td><td><code>14px</code></td><td>radius 8px · padding 12px 20px</td></tr><tr><td>Nav</td><td>Header menu</td><td>16</td><td>16</td><td>16</td><td>16</td><td>—</td><td>700</td><td><code>16px</code></td><td>mobile menu items 16px/700</td></tr><tr><td>Small H1 (SEO)</td><td>Small teal H1 above the statement (Home + service pages)</td><td>21</td><td>18</td><td>18</td><td>18</td><td>1.5</td><td>600</td><td><code>clamp(18px, 1.6vw, 21px)</code></td><td>#008080 · bigger in round 3 (G1)</td></tr><tr><td>About H1</td><td>"Nadja Gmelch: systemic consulting…" (display style)</td><td>64</td><td>52</td><td>44</td><td>44</td><td>1.2</td><td>700</td><td><code>clamp(44px, 4.7vw, 64px)</code></td><td>round 3 (G1)</td></tr><tr><td>Contact H1</td><td>"CONTACT" (eyebrow style)</td><td>18</td><td>18</td><td>18</td><td>18</td><td>1.15</td><td>700</td><td><code>18px</code></td><td>round 3 (G1)</td></tr></table></div>
           <p class="dev-svgs__label" style="margin-top:12px">Other text styles (set in the widget)</p>
-          <div class="dev-table-wrap"><table class="dev-table"><tr><th>Page</th><th>Element</th><th>Desktop ≥1200</th><th>Laptop 1000–1199</th><th>Tablet 600–999</th><th>Mobile &lt;600</th><th>Line height</th><th>Weight</th><th>Fluid value</th></tr><tr><td>Home</td><td>Hero question line</td><td>20</td><td>18</td><td>18</td><td>18</td><td>1.45</td><td>700</td><td><code>clamp(18px, 1.5vw, 20px)</code></td></tr><tr><td>Home</td><td>Service-card label (uppercase)</td><td>13</td><td>13</td><td>13</td><td>13</td><td>1.35</td><td>800</td><td>—</td></tr><tr><td>Home</td><td>Women banner title</td><td>22</td><td>18</td><td>18</td><td>18</td><td>1.3</td><td>800</td><td><code>clamp(18px, 1.6vw, 22px)</code></td></tr><tr><td>Home</td><td>About: name "Nadja Gmelch"</td><td>20</td><td>20</td><td>20</td><td>20</td><td>—</td><td>700</td><td>—</td></tr><tr><td>Home</td><td>Steps: "Notice." / "Align." / "Act with impact."</td><td>28</td><td>24</td><td>24</td><td>24</td><td>1.15</td><td>800</td><td><code>clamp(24px, 2vw, 28px)</code></td></tr><tr><td>Home</td><td>Steps text (teal)</td><td>16</td><td>16</td><td>16</td><td>16</td><td>1.6</td><td>500</td><td>—</td></tr><tr><td>Home</td><td>"What are you working on…"</td><td>40</td><td>37</td><td>32</td><td>32</td><td>1.3</td><td>800</td><td><code>clamp(32px, 3.4vw, 40px)</code></td></tr><tr><td>Home</td><td>Numbered rows: number 01/02/03</td><td>34</td><td>34</td><td>34</td><td>30</td><td>1</td><td>800</td><td>—</td></tr><tr><td>Home</td><td>Blog card title / excerpt</td><td>19 / 15</td><td>19 / 15</td><td>19 / 15</td><td>19 / 15</td><td>1.35 / 1.6</td><td>800 / 400</td><td>—</td></tr><tr><td>Global</td><td>Testimonial quote (italic)</td><td>20</td><td>18</td><td>18</td><td>18</td><td>1.6</td><td>500</td><td><code>clamp(18px, 1.5vw, 20px)</code></td></tr><tr><td>Global</td><td>Testimonial “ mark</td><td>104</td><td>104</td><td>104</td><td>104</td><td>1</td><td>800</td><td>—</td></tr><tr><td>Global</td><td>Testimonial name / role</td><td>20 / 14</td><td>20 / 14</td><td>20 / 14</td><td>20 / 14</td><td>— / 1.5</td><td>800 / 400</td><td>—</td></tr><tr><td>Global</td><td>CTA band title</td><td>40</td><td>37</td><td>30</td><td>30</td><td>1.3</td><td>800</td><td><code>clamp(30px, 3.4vw, 40px)</code></td></tr><tr><td>Global</td><td>Accordion / FAQ question</td><td>19</td><td>17</td><td>17</td><td>17</td><td>1.4</td><td>700</td><td><code>clamp(17px, 1.4vw, 19px)</code></td></tr><tr><td>Global</td><td>Footer text / titles / bottom bar</td><td>14 / 16 / 13</td><td>14 / 16 / 13</td><td>14 / 16 / 13</td><td>14 / 16 / 13</td><td>1.6</td><td>400 / 700 / 400</td><td>—</td></tr><tr><td>Service</td><td>Key sentence (situations)</td><td>32</td><td>26</td><td>24</td><td>24</td><td>1.35</td><td>800</td><td><code>clamp(24px, 2.4vw, 32px)</code></td></tr><tr><td>Service</td><td>Case card title / text</td><td>20 / 15</td><td>18 / 15</td><td>18 / 15</td><td>18 / 15</td><td>1.35</td><td>800 / 400</td><td><code>clamp(18px, 1.5vw, 20px) / 15px</code></td></tr><tr><td>About</td><td>Background: title / meta / years (teal)</td><td>16 / 15 / 14</td><td>16 / 15 / 14</td><td>16 / 15 / 14</td><td>16 / 15 / 14</td><td>1.45 / 1.5</td><td>700 / 400 / 700</td><td>—</td></tr><tr><td>Contact</td><td>Form labels / privacy line</td><td>14</td><td>14</td><td>14</td><td>14</td><td>1.3 / 1.55</td><td>700 / 400</td><td>—</td></tr><tr><td>Methods</td><td>Page title</td><td>52</td><td>42</td><td>34</td><td>34</td><td>1.2</td><td>700</td><td><code>clamp(34px, 3.8vw, 52px)</code></td></tr><tr><td>Methods</td><td>Method number / title</td><td>34 / 21</td><td>34 / 18</td><td>34 / 18</td><td>28 / 18</td><td>1.1 / 1.4</td><td>800 / 700</td><td><code>34px (mobile 28px) / clamp(18px, 1.5vw, 21px)</code></td></tr></table></div>
+          <div class="dev-table-wrap"><table class="dev-table"><tr><th>Page</th><th>Element</th><th>Desktop ≥1200</th><th>Laptop 1000–1199</th><th>Tablet 600–999</th><th>Mobile &lt;600</th><th>Line height</th><th>Weight</th><th>Fluid value</th></tr><tr><td>Home</td><td>Service-card label (uppercase)</td><td>13</td><td>13</td><td>13</td><td>13</td><td>1.35</td><td>800</td><td>—</td></tr><tr><td>Home</td><td>Women banner title</td><td>22</td><td>18</td><td>18</td><td>18</td><td>1.3</td><td>800</td><td><code>clamp(18px, 1.6vw, 22px)</code></td></tr><tr><td>Home</td><td>About: name "Nadja Gmelch"</td><td>20</td><td>20</td><td>20</td><td>20</td><td>—</td><td>700</td><td>—</td></tr><tr><td>Home</td><td>Steps: "Notice." / "Align." / "Act with impact."</td><td>28</td><td>24</td><td>24</td><td>24</td><td>1.15</td><td>800</td><td><code>clamp(24px, 2vw, 28px)</code></td></tr><tr><td>Home</td><td>Steps text (teal)</td><td>16</td><td>16</td><td>16</td><td>16</td><td>1.6</td><td>500</td><td>—</td></tr><tr><td>Home</td><td>"What are you working on…"</td><td>40</td><td>37</td><td>32</td><td>32</td><td>1.3</td><td>800</td><td><code>clamp(32px, 3.4vw, 40px)</code></td></tr><tr><td>Home</td><td>Numbered rows: number 01/02/03</td><td>34</td><td>34</td><td>34</td><td>30</td><td>1</td><td>800</td><td>—</td></tr><tr><td>Home</td><td>Blog card title / excerpt</td><td>19 / 15</td><td>19 / 15</td><td>19 / 15</td><td>19 / 15</td><td>1.35 / 1.6</td><td>800 / 400</td><td>—</td></tr><tr><td>Global</td><td>Testimonial quote (italic)</td><td>20</td><td>18</td><td>18</td><td>18</td><td>1.6</td><td>500</td><td><code>clamp(18px, 1.5vw, 20px)</code></td></tr><tr><td>Global</td><td>Testimonial “ mark</td><td>104</td><td>104</td><td>104</td><td>104</td><td>1</td><td>800</td><td>—</td></tr><tr><td>Global</td><td>Testimonial name / role</td><td>20 / 14</td><td>20 / 14</td><td>20 / 14</td><td>20 / 14</td><td>— / 1.5</td><td>800 / 400</td><td>—</td></tr><tr><td>Global</td><td>CTA band title</td><td>40</td><td>37</td><td>30</td><td>30</td><td>1.3</td><td>800</td><td><code>clamp(30px, 3.4vw, 40px)</code></td></tr><tr><td>Global</td><td>Accordion / FAQ question</td><td>19</td><td>17</td><td>17</td><td>17</td><td>1.4</td><td>700</td><td><code>clamp(17px, 1.4vw, 19px)</code></td></tr><tr><td>Global</td><td>Footer text / titles / bottom bar</td><td>14 / 16 / 13</td><td>14 / 16 / 13</td><td>14 / 16 / 13</td><td>14 / 16 / 13</td><td>1.6</td><td>400 / 700 / 400</td><td>—</td></tr><tr><td>Service</td><td>Key sentence (situations)</td><td>32</td><td>26</td><td>24</td><td>24</td><td>1.35</td><td>800</td><td><code>clamp(24px, 2.4vw, 32px)</code></td></tr><tr><td>Service</td><td>Case card title / text</td><td>20 / 15</td><td>18 / 15</td><td>18 / 15</td><td>18 / 15</td><td>1.35</td><td>800 / 400</td><td><code>clamp(18px, 1.5vw, 20px) / 15px</code></td></tr><tr><td>About</td><td>Background: title / meta / years (teal)</td><td>16 / 15 / 14</td><td>16 / 15 / 14</td><td>16 / 15 / 14</td><td>16 / 15 / 14</td><td>1.45 / 1.5</td><td>700 / 400 / 700</td><td>—</td></tr><tr><td>Contact</td><td>Form labels / privacy line</td><td>14</td><td>14</td><td>14</td><td>14</td><td>1.3 / 1.55</td><td>700 / 400</td><td>—</td></tr><tr><td>Methods</td><td>Page title (H1)</td><td>56</td><td>44</td><td>36</td><td>36</td><td>1.2</td><td>700</td><td><code>clamp(36px, 4vw, 56px)</code></td></tr><tr><td>Methods</td><td>Method number / title</td><td>34 / 21</td><td>34 / 18</td><td>34 / 18</td><td>28 / 18</td><td>1.1 / 1.4</td><td>800 / 700</td><td><code>34px (mobile 28px) / clamp(18px, 1.5vw, 21px)</code></td></tr></table></div>
           <div class="dev-code">
             <div class="dev-code__head"><span>Global Colors (names + HEX)</span><button class="copy-btn" type="button" data-copy>Copy</button></div>
             <pre><code>Teal Dark   #02383E  headings, footer bg
@@ -440,7 +440,7 @@ On dark     #D8F1F1  text on dark bg (Light Teal 20%)</code></pre>
         <div class="dev-note dev-note--inline">
           <strong>MOBILE &amp; TABLET · this page</strong>
           <ul>
-            <li><strong>Hero</strong>: one column; order H1 · H2 · intro · question · picture (16:10, no min-height). H1 line break hidden on mobile (class hero-h1).</li>
+            <li><strong>Hero</strong>: one column; order H1 · H2 · intro · picture (question removed, round 3 H3) (16:10, no min-height). H1 line break hidden on mobile (class hero-h1).</li>
             <li><strong>Services</strong>: 4 cols → 2 cols up to 1199px → 1 col below 700px. Women banner: wraps, button below the text.</li>
             <li><strong>About me</strong>: one column; picture first (4:3, focus top), then H2 · name · text · facts · button. Testimonials: 2 cols → 1 col below 1000px.</li>
             <li><strong>How I work</strong>: one column; H2 + text <strong>centred</strong> below 700px (MO1), then picture (3:2). Steps stack vertically; each shape has a short line left and right (Divider with element), no long connector.</li>
@@ -454,8 +454,8 @@ On dark     #D8F1F1  text on dark bg (Light Teal 20%)</code></pre>
       <!-- ====================================================================
            S02 · HERO (doc v3, 19 Nov: shortened texts)
            Elementor: Container (row, 2 cols)
-           Left:  Heading H1 (small, teal) · Heading H2 (display) · Text Editor
-                  (intro) · Heading (p, teal question line)
+           Left:  Heading H1 (small, teal, 18–21px · round 3 G1) · Heading H2 (display) · Text Editor
+                  (intro) · (question line removed, round 3, H3)
            Right: Image IMG_2534 ("Picture option"), NO teal filter (feedback H3)
            ==================================================================== -->
       <section class="hero">
@@ -499,11 +499,7 @@ On dark     #D8F1F1  text on dark bg (Light Teal 20%)</code></pre>
               people who shape them, because change works when both change
               together.
             </p>
-
-            <p class="hero__question">
-              How can universities become more agile without giving up
-              participation and careful decision-making?
-            </p>
+            <!-- Hero question removed (round 3, H3) -->
           </div>
 
           <figure class="picture hero__picture">
@@ -538,13 +534,28 @@ On dark     #D8F1F1  text on dark bg (Light Teal 20%)</code></pre>
             <li>Each card: class <code>subgrid-5</code> (shape · label · H3 · text · button) so questions and texts start at the same height (round 2, H3).</li>
             <li>Card: bg #F8F8F8 · border-top 4px (#02383E / #3DB7BB / #008080 / #67888B) · hover: Transform translateY -3px + box shadow.</li>
             <li>Shapes: Icon widget with uploaded SVGs (square, diamond, circle, triangle). Triangle = SVG, not CSS.</li>
-            <li>Buttons (max 2 lines, round 2, H4): "More on internationalisation" · "More on strategy consulting" · "More on change" · "More on leadership development".</li>
+            <li>Buttons (max 2 lines, round 2, H4): "More on internationalisation" · "More on strategy consulting" · "More on organisational development" (round 3, H5) · "More on leadership development".</li>
+            <li>Whole card clickable (round 3, H4): give each card container the class <code>card-link</code> and each "More on …" Button the class <code>card-link__btn</code> (CSS below stretches the button's link over the card). Do NOT set a Link on the card container itself: the button and the women link inside it would become nested links.</li>
             <li>Women banner: Container (link) bg #02383E › Icon · Heading (p) · Text · Button "More on coaching for women". Set the text colour to white for Normal AND Hover (round 2, H5: links turn #02383E on hover, which hid the title).</li>
           </ul>
           <div class="dev-code">
             <div class="dev-code__head"><span>CSS classes · parent Grid container + each card</span><button class="copy-btn" type="button" data-copy>Copy</button></div>
             <pre><code>Parent container › Layout: Grid › 4 columns
-Each card container › Layout: Grid › CSS Classes: subgrid-5</code></pre>
+Each card container › Layout: Grid › CSS Classes: subgrid-5 card-link</code></pre>
+          </div>
+          <div class="dev-code">
+            <div class="dev-code__head"><span>CSS · Site Custom CSS · full-card link (round 3, H4)</span><button class="copy-btn" type="button" data-copy>Copy</button></div>
+            <pre><code>.card-link { position: relative; }
+.card-link .card-link__btn a::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+}
+/* other links inside the card stay clickable */
+.card-link .elementor-widget-text-editor a {
+  position: relative;
+  z-index: 1;
+}</code></pre>
           </div>
           <div class="dev-svgs">
             <p class="dev-svgs__label">SVG · card shapes (square · diamond · circle · triangle) + women banner (rounded diamond)</p>
@@ -636,7 +647,7 @@ Each card container › Layout: Grid › CSS Classes: subgrid-5</code></pre>
                 with agile ways of working that hold up under pressure.
               </p>
               <div class="service-card__cta">
-                <a class="btn btn--outline btn--arrow" href="organisational-development.html">More on change</a>
+                <a class="btn btn--outline btn--arrow" href="organisational-development.html">More on organisational development</a>
               </div>
             </article>
 
@@ -700,10 +711,10 @@ Each testimonial container › Layout: Grid › CSS Classes: subgrid-2</code></p
         <div class="container expertise__grid">
           <figure class="picture">
             <img
-              src="assets/images/about-nadja-gmelch.jpg"
+              src="assets/images/photos/IMG_2612-portrait.jpg"
               alt="Portrait of Nadja Gmelch, founder of U-teal"
               loading="lazy"
-              width="1065"
+              width="1066"
               height="1600"
             />
           </figure>
@@ -775,7 +786,7 @@ Each testimonial container › Layout: Grid › CSS Classes: subgrid-2</code></p
         <div class="dev-note dev-note--inline">
           <strong>HOW I WORK · build notes</strong>
           <ul>
-            <li>Row Container: [H2 · Text] | Image IMG_2468 (3:2, round 2, H7). Mobile: text centred (MO1).</li>
+            <li>Row Container: [H2 · Text] | Image baumstuhl-how-i-work.jpg (3:2, round 3, H2). Mobile: text centred (MO1).</li>
             <li>Steps: 3-col Container centred; connecting line = Divider widgets between the shapes (or one SVG background). Mobile: each shape = Divider with element (shape icon in the middle).</li>
           </ul>
         </div>
@@ -797,14 +808,15 @@ Each testimonial container › Layout: Grid › CSS Classes: subgrid-2</code></p
               </p>
             </div>
 
-            <!-- Second photo (feedback H16): IMG_2468 for now (round 2, H7) -->
+            <!-- Second photo: "Minimalistischer Innenraum mit Baumstuhl" (round 3, H2).
+                 IMG_2468 (nature/women) moves to the Coaching for women page. -->
             <figure class="picture how__picture">
               <img
-                src="assets/images/photos/IMG_2468-how-i-work.jpg"
-                alt="Nadja Gmelch in conversation with a woman, sitting under trees by a river"
+                src="assets/images/photos/baumstuhl-how-i-work.jpg"
+                alt="Bright minimalist room with a wooden chair growing out of a tree"
                 loading="lazy"
-                width="2400"
-                height="1600"
+                width="2000"
+                height="1125"
               />
             </figure>
           </div>

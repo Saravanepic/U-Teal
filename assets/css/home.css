@@ -37,20 +37,11 @@
 }
 
 /* H1: small type (SEO heading), styled like the designer's sub-line */
+/* Slightly bigger (round 3, G1): was 16–18px */
 .hero__h1 {
-  font-size: clamp(16px, 1.4vw, 18px);
+  font-size: clamp(18px, 1.6vw, 21px);
   line-height: 1.5;
   font-weight: 600;
-  color: var(--c-teal);
-  text-wrap: balance;
-}
-
-.hero__question {
-  padding-top: 18px;
-  border-top: 1px solid var(--c-line);
-  font-size: clamp(18px, 1.5vw, 20px);
-  line-height: 1.45;
-  font-weight: 700;
   color: var(--c-teal);
   text-wrap: balance;
 }
@@ -86,6 +77,7 @@
 }
 
 .service-card {
+  position: relative; /* for the full-card link (round 3, H4) */
   display: grid;
   grid-row: span 5;
   grid-template-rows: subgrid;
@@ -100,6 +92,19 @@
 .service-card:nth-child(2) { border-top-color: var(--c-teal-light); }
 .service-card:nth-child(3) { border-top-color: var(--c-teal); }
 .service-card:nth-child(4) { border-top-color: var(--c-tint-dark-60); }
+
+/* Whole card clickable (round 3, H4): the "More on …" button's link is
+   stretched over the card. The women link in the text stays on top. */
+.service-card__cta .btn::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+}
+
+.service-card .body a {
+  position: relative;
+  z-index: 1;
+}
 
 .service-card:hover {
   transform: translateY(-3px);
@@ -563,8 +568,9 @@
     aspect-ratio: 4 / 3;
   }
 
+  /* More of the body visible (round 3, H1) */
   .expertise .picture img {
-    object-position: 50% 20%;
+    object-position: 50% 30%;
   }
 
   .testimonials__grid,
@@ -611,5 +617,13 @@
 
   .orgs__row {
     gap: 12px 28px;
+  }
+}
+
+/* Mobile: taller frame for the portrait so more of the body shows (round 3, H1).
+   Elementor (Mobile): Image › Aspect ratio 4:5 · Object position 50% 30%. */
+@media (max-width: 599px) {
+  .expertise .picture {
+    aspect-ratio: 4 / 5;
   }
 }

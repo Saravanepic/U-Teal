@@ -231,13 +231,13 @@
 
       <!-- ====================================================================
            S02 · HERO
-           Elementor: Container › Heading H1 (small, teal) · Heading H2
+           Elementor: Container › Heading H1 (small, teal, 18–21px) · Heading H2
                       (display) · Heading H3 (lead style). No picture (none in
                       the client doc).
            ==================================================================== -->
       <section class="service-hero">
         <div class="dev-note">
-          S02 · Hero — Container › H1 small · H2 display · H3 (lead style)
+          S02 · Hero — Container › H1 small (teal 21px/600 · clamp(18px, 1.6vw, 21px), round 3 G1) · H2 display · H3 (lead style)
         </div>
         <div class="dev-note dev-note--inline">
           <strong>HERO · build notes</strong>
@@ -343,9 +343,10 @@
           </div>
         </div>
 
-        <!-- "Picture option" (client doc): after the "What I offer" button -->
+        <!-- "Picture option" (client doc): after the "What I offer" button.
+             Mobile only (< 1000px); on desktop it sits in "What you can expect" (round 3, S1). -->
         <div class="container">
-          <figure class="img-ph situations__picture" role="img" aria-label="Picture option">
+          <figure class="img-ph situations__picture mobile-only" role="img" aria-label="Picture option">
             <span class="img-ph__mark" aria-hidden="true"></span>
             <figcaption class="img-ph__label"><strong>Picture option</strong>Wide photo to be chosen (e.g. an international team or alliance meeting).</figcaption>
           </figure>
@@ -443,6 +444,16 @@ Each card container › Layout: Grid › CSS Classes: subgrid-3</code></pre>
               </p>
             </article>
           </div>
+
+          <!-- Bifröst testimonial: under the gains boxes, full width (round 3, S2) -->
+          <figure class="testimonial testimonial--wide">
+            <span class="testimonial__mark" aria-hidden="true">“</span>
+            <blockquote class="testimonial__text">Nadja combines deep knowledge of international higher education with a clear, participatory process. She listened carefully to our team, made our situation visible and helped us find a direction we could all support.</blockquote>
+            <figcaption class="testimonial__author">
+              <span class="testimonial__name">Margrét Jónsdóttir</span>
+              <span class="testimonial__role">Former Rector, Bifröst University, Iceland</span>
+            </figcaption>
+          </figure>
         </div>
       </section>
       <!-- /S04 · GAINS -->
@@ -460,6 +471,9 @@ Each card container › Layout: Grid › CSS Classes: subgrid-3</code></pre>
         <div class="container expect__grid">
           <div class="expect__head">
             <h2 class="h2">What you can expect from me</h2>
+            <!-- Second picture on desktop/tablet ≥1000px (round 3, S1).
+                 On mobile the picture under the bullet points is used instead. -->
+            <figure class="img-ph expect__picture" role="img" aria-label="Picture option"><span class="img-ph__mark" aria-hidden="true"></span><figcaption class="img-ph__label"><strong>Picture option (desktop)</strong>Second photo to be chosen. Under the heading, next to the numbered points (round 3, S1).</figcaption></figure>
           </div>
 
           <div class="num-rows">
@@ -589,50 +603,35 @@ Each card container › Layout: Grid › CSS Classes: subgrid-3</code></pre>
         <div class="dev-note dev-note--inline">
           <strong>CASE STUDIES · build notes</strong>
           <ul>
-            <li>Section sits directly before the FAQ (feedback S1). Order inside: H2 · quotes · case cards (round 2, S4).</li>
-            <li>Quotes: Grid Container (auto-fit, min 300px) › testimonial Containers class <code>subgrid-2</code> (line above names aligned).</li>
+            <li>Section sits directly before the FAQ (feedback S1). Order inside (round 3, S2): FAS testimonial (full width) · H2 · case cards. The Bifröst testimonial sits under the gains boxes; Pastora's quote is not on this page.</li>
+            <li>Full-width testimonial: Container (bg #F8F8F8 here, white on the soft gains section) · quote text max-width 60em · name block below.</li>
             <li>Cards: Loop Grid (CPT "Case Study" via CPT UI or ACF; Elementor can't create the post type) › Loop Item: Featured Image (client logo: contain + padding · or photo: cover, class <code>case-card__logo--photo</code>) · Post Title H3 · Excerpt · Button "Read the full case study".</li>
             <li>Unsplash photos (PROBRAL: Yen Vu · Ukraine: FORTYTWO · climate foundation: Kvalifik) — credit them in the legal notice.</li>
           </ul>
           <div class="dev-code">
             <div class="dev-code__head"><span>CSS classes</span><button class="copy-btn" type="button" data-copy>Copy</button></div>
-            <pre><code>Quotes container › Layout: Grid › columns: repeat(auto-fit, minmax(300px, 1fr))
-Each quote container › Layout: Grid › CSS Classes: subgrid-2</code></pre>
+            <pre><code>Full-width testimonial container › padding 56px 40px 32px 96px (mobile 56px 24px 32px)
+Quote text › max-width 60em · Name block › border-top 2px #3DB7BB, min-width 280px
+Case cards › Loop Grid 3 columns (tablet 2, mobile 1)</code></pre>
           </div>
         </div>
 
         <div class="container">
+          <!-- FAS testimonial: before the H2, full width (round 3, S2).
+               Pastora's quote removed here (already on Home + Organisational development). -->
+          <figure class="testimonial testimonial--wide">
+            <span class="testimonial__mark" aria-hidden="true">“</span>
+            <blockquote class="testimonial__text">Nadja’s evaluation gave us a clear picture of what our activities achieve and where we need to focus. On this basis, we could reorient the future direction of the Foundation’s international development cooperation work.</blockquote>
+            <figcaption class="testimonial__author">
+              <span class="testimonial__name">Jordi Prat</span>
+              <span class="testimonial__role">Director, Fundació Autònoma Solidària, Universitat Autònoma de Barcelona, Spain</span>
+            </figcaption>
+          </figure>
+
           <div class="section-head">
             <h2 class="h2">From my practice</h2>
           </div>
 
-          <!-- Quotes first, then the case cards (round 2, S4) -->
-          <div class="case-quotes">
-              <figure class="testimonial">
-                <span class="testimonial__mark" aria-hidden="true">“</span>
-                <blockquote class="testimonial__text">Nadja combines deep knowledge of international higher education with a clear, participatory process. She listened carefully to our team, made our situation visible and helped us find a direction we could all support.</blockquote>
-                <figcaption class="testimonial__author">
-                  <span class="testimonial__name">Margrét Jónsdóttir</span>
-                  <span class="testimonial__role">Former Rector, Bifröst University, Iceland</span>
-                </figcaption>
-              </figure>
-              <figure class="testimonial">
-                <span class="testimonial__mark" aria-hidden="true">“</span>
-                <blockquote class="testimonial__text">Those of us who have worked alongside Nadja, shoulder to shoulder, know that she’s someone who transforms everything around her.</blockquote>
-                <figcaption class="testimonial__author">
-                  <span class="testimonial__name">Pastora Martínez Samper</span>
-                  <span class="testimonial__role">Commissioner for Internationalisation, OpenEU Alliance Coordinator, UOC, Spain</span>
-                </figcaption>
-              </figure>
-              <figure class="testimonial">
-                <span class="testimonial__mark" aria-hidden="true">“</span>
-                <blockquote class="testimonial__text">Nadja’s evaluation gave us a clear picture of what our activities achieve and where we need to focus. On this basis, we could reorient the future direction of the Foundation’s international development cooperation work.</blockquote>
-                <figcaption class="testimonial__author">
-                  <span class="testimonial__name">Jordi Prat</span>
-                  <span class="testimonial__role">Director, Fundació Autònoma Solidària, Universitat Autònoma de Barcelona, Spain</span>
-                </figcaption>
-              </figure>
-          </div>
 
 
           <div class="case-grid">
