@@ -1219,9 +1219,14 @@ a:hover {
   margin: 16px auto 24px;
 }
 
-.dev-note--inline strong {
+/* Title of the note = first <strong>; bold words inside the list stay inline */
+.dev-note--inline > strong {
   display: block;
   margin-bottom: 6px;
+  font-weight: 800;
+}
+
+.dev-note--inline li strong {
   font-weight: 800;
 }
 
@@ -1310,6 +1315,41 @@ a:hover {
   background: #11734f;
   border-color: #11734f;
   color: var(--c-white);
+}
+
+/* --- Spec tables inside developer notes (typography) --- */
+.dev-table-wrap {
+  margin-top: 10px;
+  overflow-x: auto;
+  border: 1px solid #d8c64a;
+  border-radius: 6px;
+  background: var(--c-white);
+}
+
+.dev-table {
+  width: 100%;
+  border-collapse: collapse;
+  font: 500 12px/1.4 ui-monospace, Menlo, monospace;
+}
+
+.dev-table th,
+.dev-table td {
+  padding: 6px 8px;
+  border-bottom: 1px solid #efe3a0;
+  text-align: left;
+  vertical-align: top;
+  white-space: nowrap;
+}
+
+.dev-table td:nth-child(2),
+.dev-table td:last-child {
+  white-space: normal;
+  min-width: 180px;
+}
+
+.dev-table th {
+  background: #fff6c2;
+  font-weight: 800;
 }
 
 /* --- Copy-paste snippets inside developer notes (CSS / PHP / JS / SVG) --- */
