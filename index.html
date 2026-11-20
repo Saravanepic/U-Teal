@@ -4,7 +4,7 @@
   U-TEAL · Home page (EN) · HTML mockup — Version 2
 ================================================================================
 
-  Version 2 (client feedback on version 1, 19 Nov 2026 · client-notes #feedback-3)
+  Version 2 (client feedback on version 1, 19 Nov 2026)
   - New shortened texts (doc 20261119_home-EN), hero IMG_2534 without filter,
     4 offers in one row + women banner, testimonials with big quote marks,
     logos UAB · FAS · HK-dir · Bifröst · ICIP, blog preview, less spacing.
@@ -28,7 +28,7 @@
     Yoast), inline build specs and hidden placeholder sections.
 
   Links
-  - Internal links use the planned EN slugs (see client-notes Q3). Pages
+  - Internal links use the planned EN slugs (planned slugs). Pages
     that don't exist yet are marked with data-todo and point to "#".
 ================================================================================
 -->
@@ -149,6 +149,25 @@
               <li>Languages: Polylang "Language switcher" menu item, "Displays as dropdown": parent shows the current code (EN ▾), sub-items the other languages. No flags, no globe icon (round 2, G1).</li>
               <li>"Let's talk": last menu item with CSS class <code>menu-cta</code> styled as a button (or hide the header button on mobile: the floating Let's talk is always visible).</li>
             </ul>
+            <div class="dev-svgs">
+              <p class="dev-svgs__label">SVG · Nav Menu › Toggle icon (normal / active)</p>
+              <div class="dev-svgs__grid">
+                <div class="dev-svg">
+                  <img src="assets/images/svg/icon-menu.svg" alt="" width="28" height="28" />
+                  <span class="dev-svg__name">icon-menu.svg</span>
+                  <button class="copy-btn" type="button" data-copy>Copy</button>
+                  <a class="copy-btn" href="assets/images/svg/icon-menu.svg" download>Download</a>
+                  <code hidden>&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 26 22&quot; width=&quot;26&quot; height=&quot;22&quot;&gt;&lt;rect x=&quot;0&quot; y=&quot;2&quot; width=&quot;22&quot; height=&quot;4&quot; fill=&quot;#02383E&quot;/&gt;&lt;rect x=&quot;9.5&quot; y=&quot;7.5&quot; width=&quot;7&quot; height=&quot;7&quot; transform=&quot;rotate(45 13 11)&quot; fill=&quot;#008080&quot;/&gt;&lt;rect x=&quot;4&quot; y=&quot;16&quot; width=&quot;22&quot; height=&quot;4&quot; fill=&quot;#02383E&quot;/&gt;&lt;/svg&gt;</code>
+                </div>
+                <div class="dev-svg">
+                  <img src="assets/images/svg/icon-menu-close.svg" alt="" width="28" height="28" />
+                  <span class="dev-svg__name">icon-menu-close.svg</span>
+                  <button class="copy-btn" type="button" data-copy>Copy</button>
+                  <a class="copy-btn" href="assets/images/svg/icon-menu-close.svg" download>Download</a>
+                  <code hidden>&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 22 22&quot; width=&quot;22&quot; height=&quot;22&quot;&gt;&lt;rect x=&quot;-2&quot; y=&quot;9&quot; width=&quot;26&quot; height=&quot;4&quot; transform=&quot;rotate(45 11 11)&quot; fill=&quot;#02383E&quot;/&gt;&lt;rect x=&quot;-2&quot; y=&quot;9&quot; width=&quot;26&quot; height=&quot;4&quot; transform=&quot;rotate(-45 11 11)&quot; fill=&quot;#02383E&quot;/&gt;&lt;/svg&gt;</code>
+                </div>
+              </div>
+            </div>
           </div>
         </nav>
       </div>
@@ -206,18 +225,171 @@
     </aside>
 
     <main>
-      <!-- Site-wide build notes (developer notes only) -->
+      <!-- Site-wide build notes (developer notes only): copy-paste snippets -->
       <div class="container dev-only">
-          <div class="dev-note dev-note--inline">
-            <strong>SITE-WIDE CUSTOM CSS · Site Settings › Custom CSS (needs Elementor plan Advanced Solo)</strong>
-            <ul>
-              <li><code>.highlight, mark { background:#CCE6E6; color:#02383E; font-weight:700; padding:.05em .25em; -webkit-box-decoration-break:clone; box-decoration-break:clone; }</code> — highlights (Home H13, About A2/A3, service bullets S3). In the Text Editor switch to the "Text" tab and wrap words in <code>&lt;mark&gt;…&lt;/mark&gt;</code> (training item for the client).</li>
-              <li><code>.subgrid-2 { grid-row:span 2; grid-template-rows:subgrid; } .subgrid-3 { grid-row:span 3; grid-template-rows:subgrid; } .subgrid-5 { grid-row:span 5; grid-template-rows:subgrid; }</code> — equal rows across cards. Parent = Container with Layout Grid; each card = Container (Full width, Layout Grid) with CSS class subgrid-N; N = number of widgets in the card.</li>
-              <li>Uses: Home service cards (subgrid-5), testimonials (subgrid-2), service-page gains cards (subgrid-3), case-study quotes (subgrid-2).</li>
-              <li>Polylang: <code>define('PLL_COOKIE', false);</code> in wp-config.php or Code Snippets — no language cookie (privacy info promises no visitor cookies).</li>
-              <li>Fonts: Elementor › Settings › Performance › Google Fonts "Load locally" (Manrope self-hosted).</li>
-            </ul>
+        <div class="dev-note dev-note--inline">
+          <strong>SITE-WIDE BUILD SNIPPETS · copy with the buttons</strong>
+          <ul>
+            <li>CSS → Elementor › Site Settings › Custom CSS (plan Advanced Solo). Classes are set in each widget/container › Advanced › CSS Classes.</li>
+            <li>PHP → wp-config.php. JS → Elementor › Custom Code. SVGs → Icon widget › Upload SVG (Elementor Pro allows SVG uploads; set the colour in the widget).</li>
+            <li>Fonts: Elementor › Settings › Performance › Google Fonts "Load locally" (Manrope self-hosted).</li>
+          </ul>
+          <div class="dev-code">
+            <div class="dev-code__head"><span>CSS · Site Settings › Custom CSS</span><button class="copy-btn" type="button" data-copy>Copy</button></div>
+            <pre><code>/* U-teal · Elementor › Site Settings › Custom CSS
+   (needs the Elementor plan &quot;Advanced Solo&quot;: Essential has no Custom CSS) */
+
+/* 1. Highlight a word or sentence (Home, About, service bullets).
+   Text Editor › &quot;Text&quot; tab: &lt;mark&gt;words to highlight&lt;/mark&gt; */
+mark,
+.highlight {
+  padding: 0.05em 0.25em;
+  background: #CCE6E6;
+  color: #02383E;
+  font-weight: 700;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+}
+
+/* 2. Equal rows across cards (questions / texts / lines start at the same height).
+   Parent Container: Layout = Grid. Each card: Container (Full width),
+   Layout = Grid, CSS class subgrid-2 / subgrid-3 / subgrid-5
+   (= number of widgets in the card). */
+.subgrid-2,
+.subgrid-3,
+.subgrid-5 {
+  display: grid !important;
+  grid-template-rows: subgrid !important;
+  align-content: start;
+}
+.subgrid-2 { grid-row: span 2; }
+.subgrid-3 { grid-row: span 3; }
+.subgrid-5 { grid-row: span 5; }
+
+/* 3. Dash bullets for lists (service pages &quot;situations&quot;).
+   Text Editor list inside a widget with CSS class dash-list */
+.dash-list ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.dash-list li {
+  position: relative;
+  padding-left: 26px;
+  margin-bottom: 16px;
+}
+.dash-list li::before {
+  content: &quot;&quot;;
+  position: absolute;
+  left: 0;
+  top: 0.8em;
+  width: 14px;
+  height: 2px;
+  background: #3DB7BB;
+}
+
+/* 4. Home H1: line break after &quot;alliances:&quot; only on desktop/tablet.
+   Heading widget: CSS class hero-h1 */
+@media (max-width: 767px) {
+  .hero-h1 br { display: none; }
+}</code></pre>
           </div>
+          <div class="dev-code">
+            <div class="dev-code__head"><span>PHP · wp-config.php</span><button class="copy-btn" type="button" data-copy>Copy</button></div>
+            <pre><code>&lt;?php
+// wp-config.php — above the line &quot;That&#x27;s all, stop editing!&quot;
+// Polylang: no language cookie (the language is in the URL: /de/, /es/).
+// Needed because the privacy information says: no cookies for visitors.
+define( &#x27;PLL_COOKIE&#x27;, false );</code></pre>
+          </div>
+          <div class="dev-code">
+            <div class="dev-code__head"><span>JS · Elementor › Custom Code (body end)</span><button class="copy-btn" type="button" data-copy>Copy</button></div>
+            <pre><code>&lt;script&gt;
+/* Elementor › Custom Code (Location: &lt;/body&gt; end, all pages)
+   Opens an accordion item when a link points to it, e.g. /strategy-consulting/#impact-reflection
+   (Nested Accordion uses &lt;details&gt;; give each item its anchor as CSS ID). */
+document.addEventListener(&quot;DOMContentLoaded&quot;, function () {
+  function openFromHash() {
+    if (!location.hash) return;
+    var el = document.getElementById(decodeURIComponent(location.hash.slice(1)));
+    if (!el) return;
+    var d = el.tagName === &quot;DETAILS&quot; ? el : el.closest(&quot;details&quot;);
+    if (d) { d.open = true; el.scrollIntoView(); }
+  }
+  window.addEventListener(&quot;hashchange&quot;, openFromHash);
+  openFromHash();
+});
+&lt;/script&gt;</code></pre>
+          </div>
+          <div class="dev-svgs">
+            <p class="dev-svgs__label">SVG library · brand shapes (Brand Book p.22), button arrow, menu icons, LinkedIn</p>
+            <div class="dev-svgs__grid">
+              <div class="dev-svg">
+                <img src="assets/images/svg/shape-square.svg" alt="" width="28" height="28" />
+                <span class="dev-svg__name">shape-square.svg</span>
+                <button class="copy-btn" type="button" data-copy>Copy</button>
+                <a class="copy-btn" href="assets/images/svg/shape-square.svg" download>Download</a>
+                <code hidden>&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 24 24&quot; width=&quot;24&quot; height=&quot;24&quot;&gt;&lt;rect width=&quot;24&quot; height=&quot;24&quot; fill=&quot;#02383E&quot;/&gt;&lt;/svg&gt;</code>
+              </div>
+              <div class="dev-svg">
+                <img src="assets/images/svg/shape-diamond.svg" alt="" width="28" height="28" />
+                <span class="dev-svg__name">shape-diamond.svg</span>
+                <button class="copy-btn" type="button" data-copy>Copy</button>
+                <a class="copy-btn" href="assets/images/svg/shape-diamond.svg" download>Download</a>
+                <code hidden>&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 24 24&quot; width=&quot;24&quot; height=&quot;24&quot;&gt;&lt;path d=&quot;M12 0 24 12 12 24 0 12Z&quot; fill=&quot;#3DB7BB&quot;/&gt;&lt;/svg&gt;</code>
+              </div>
+              <div class="dev-svg">
+                <img src="assets/images/svg/shape-circle.svg" alt="" width="28" height="28" />
+                <span class="dev-svg__name">shape-circle.svg</span>
+                <button class="copy-btn" type="button" data-copy>Copy</button>
+                <a class="copy-btn" href="assets/images/svg/shape-circle.svg" download>Download</a>
+                <code hidden>&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 24 24&quot; width=&quot;24&quot; height=&quot;24&quot;&gt;&lt;circle cx=&quot;12&quot; cy=&quot;12&quot; r=&quot;12&quot; fill=&quot;#008080&quot;/&gt;&lt;/svg&gt;</code>
+              </div>
+              <div class="dev-svg">
+                <img src="assets/images/svg/shape-triangle.svg" alt="" width="28" height="28" />
+                <span class="dev-svg__name">shape-triangle.svg</span>
+                <button class="copy-btn" type="button" data-copy>Copy</button>
+                <a class="copy-btn" href="assets/images/svg/shape-triangle.svg" download>Download</a>
+                <code hidden>&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 24 24&quot; width=&quot;24&quot; height=&quot;24&quot;&gt;&lt;path d=&quot;M12 1 24 23H0Z&quot; fill=&quot;#67888B&quot;/&gt;&lt;/svg&gt;</code>
+              </div>
+              <div class="dev-svg">
+                <img src="assets/images/svg/shape-rounded-diamond.svg" alt="" width="28" height="28" />
+                <span class="dev-svg__name">shape-rounded-diamond.svg</span>
+                <button class="copy-btn" type="button" data-copy>Copy</button>
+                <a class="copy-btn" href="assets/images/svg/shape-rounded-diamond.svg" download>Download</a>
+                <code hidden>&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 24 24&quot; width=&quot;24&quot; height=&quot;24&quot;&gt;&lt;rect x=&quot;4.5&quot; y=&quot;4.5&quot; width=&quot;15&quot; height=&quot;15&quot; rx=&quot;3&quot; transform=&quot;rotate(45 12 12)&quot; fill=&quot;#3DB7BB&quot;/&gt;&lt;/svg&gt;</code>
+              </div>
+              <div class="dev-svg">
+                <img src="assets/images/svg/icon-arrow.svg" alt="" width="28" height="28" />
+                <span class="dev-svg__name">icon-arrow.svg</span>
+                <button class="copy-btn" type="button" data-copy>Copy</button>
+                <a class="copy-btn" href="assets/images/svg/icon-arrow.svg" download>Download</a>
+                <code hidden>&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot; height=&quot;16&quot; fill=&quot;none&quot;&gt;&lt;path d=&quot;M3.33 8h9.34M8 12.67 12.67 8 8 3.33&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;2&quot; stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot;/&gt;&lt;/svg&gt;</code>
+              </div>
+              <div class="dev-svg">
+                <img src="assets/images/svg/icon-menu.svg" alt="" width="28" height="28" />
+                <span class="dev-svg__name">icon-menu.svg</span>
+                <button class="copy-btn" type="button" data-copy>Copy</button>
+                <a class="copy-btn" href="assets/images/svg/icon-menu.svg" download>Download</a>
+                <code hidden>&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 26 22&quot; width=&quot;26&quot; height=&quot;22&quot;&gt;&lt;rect x=&quot;0&quot; y=&quot;2&quot; width=&quot;22&quot; height=&quot;4&quot; fill=&quot;#02383E&quot;/&gt;&lt;rect x=&quot;9.5&quot; y=&quot;7.5&quot; width=&quot;7&quot; height=&quot;7&quot; transform=&quot;rotate(45 13 11)&quot; fill=&quot;#008080&quot;/&gt;&lt;rect x=&quot;4&quot; y=&quot;16&quot; width=&quot;22&quot; height=&quot;4&quot; fill=&quot;#02383E&quot;/&gt;&lt;/svg&gt;</code>
+              </div>
+              <div class="dev-svg">
+                <img src="assets/images/svg/icon-menu-close.svg" alt="" width="28" height="28" />
+                <span class="dev-svg__name">icon-menu-close.svg</span>
+                <button class="copy-btn" type="button" data-copy>Copy</button>
+                <a class="copy-btn" href="assets/images/svg/icon-menu-close.svg" download>Download</a>
+                <code hidden>&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 22 22&quot; width=&quot;22&quot; height=&quot;22&quot;&gt;&lt;rect x=&quot;-2&quot; y=&quot;9&quot; width=&quot;26&quot; height=&quot;4&quot; transform=&quot;rotate(45 11 11)&quot; fill=&quot;#02383E&quot;/&gt;&lt;rect x=&quot;-2&quot; y=&quot;9&quot; width=&quot;26&quot; height=&quot;4&quot; transform=&quot;rotate(-45 11 11)&quot; fill=&quot;#02383E&quot;/&gt;&lt;/svg&gt;</code>
+              </div>
+              <div class="dev-svg">
+                <img src="assets/images/svg/icon-linkedin.svg" alt="" width="28" height="28" />
+                <span class="dev-svg__name">icon-linkedin.svg</span>
+                <button class="copy-btn" type="button" data-copy>Copy</button>
+                <a class="copy-btn" href="assets/images/svg/icon-linkedin.svg" download>Download</a>
+                <code hidden>&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 24 24&quot; width=&quot;24&quot; height=&quot;24&quot;&gt;&lt;path fill=&quot;currentColor&quot; d=&quot;M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z&quot;/&gt;&lt;/svg&gt;</code>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
 
       <!-- ====================================================================
@@ -239,6 +411,12 @@
             <li>Picture fills the full height next to the text (round 2, H2): row Container › Align items: Stretch; Image widget › Height 100% · Object fit Cover · Object position Center Center; min-height 420px desktop. Tablet/mobile: picture below the H2, ratio 16:10.</li>
             <li>No colour overlay/filter on the photo (feedback H3).</li>
           </ul>
+          <div class="dev-code">
+            <div class="dev-code__head"><span>CSS · already in Site Custom CSS (§4) · Heading widget class: hero-h1</span><button class="copy-btn" type="button" data-copy>Copy</button></div>
+            <pre><code>@media (max-width: 767px) {
+  .hero-h1 br { display: none; }
+}</code></pre>
+          </div>
         </div>
 
         <div class="container hero__grid">
@@ -304,6 +482,51 @@
             <li>Buttons (max 2 lines, round 2, H4): "More on internationalisation" · "More on strategy consulting" · "More on change" · "More on leadership development".</li>
             <li>Women banner: Container (link) bg #02383E › Icon · Heading (p) · Text · Button "More on coaching for women". Set the text colour to white for Normal AND Hover (round 2, H5: links turn #02383E on hover, which hid the title).</li>
           </ul>
+          <div class="dev-code">
+            <div class="dev-code__head"><span>CSS classes · parent Grid container + each card</span><button class="copy-btn" type="button" data-copy>Copy</button></div>
+            <pre><code>Parent container › Layout: Grid › 4 columns
+Each card container › Layout: Grid › CSS Classes: subgrid-5</code></pre>
+          </div>
+          <div class="dev-svgs">
+            <p class="dev-svgs__label">SVG · card shapes (square · diamond · circle · triangle) + women banner (rounded diamond)</p>
+            <div class="dev-svgs__grid">
+              <div class="dev-svg">
+                <img src="assets/images/svg/shape-square.svg" alt="" width="28" height="28" />
+                <span class="dev-svg__name">shape-square.svg</span>
+                <button class="copy-btn" type="button" data-copy>Copy</button>
+                <a class="copy-btn" href="assets/images/svg/shape-square.svg" download>Download</a>
+                <code hidden>&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 24 24&quot; width=&quot;24&quot; height=&quot;24&quot;&gt;&lt;rect width=&quot;24&quot; height=&quot;24&quot; fill=&quot;#02383E&quot;/&gt;&lt;/svg&gt;</code>
+              </div>
+              <div class="dev-svg">
+                <img src="assets/images/svg/shape-diamond.svg" alt="" width="28" height="28" />
+                <span class="dev-svg__name">shape-diamond.svg</span>
+                <button class="copy-btn" type="button" data-copy>Copy</button>
+                <a class="copy-btn" href="assets/images/svg/shape-diamond.svg" download>Download</a>
+                <code hidden>&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 24 24&quot; width=&quot;24&quot; height=&quot;24&quot;&gt;&lt;path d=&quot;M12 0 24 12 12 24 0 12Z&quot; fill=&quot;#3DB7BB&quot;/&gt;&lt;/svg&gt;</code>
+              </div>
+              <div class="dev-svg">
+                <img src="assets/images/svg/shape-circle.svg" alt="" width="28" height="28" />
+                <span class="dev-svg__name">shape-circle.svg</span>
+                <button class="copy-btn" type="button" data-copy>Copy</button>
+                <a class="copy-btn" href="assets/images/svg/shape-circle.svg" download>Download</a>
+                <code hidden>&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 24 24&quot; width=&quot;24&quot; height=&quot;24&quot;&gt;&lt;circle cx=&quot;12&quot; cy=&quot;12&quot; r=&quot;12&quot; fill=&quot;#008080&quot;/&gt;&lt;/svg&gt;</code>
+              </div>
+              <div class="dev-svg">
+                <img src="assets/images/svg/shape-triangle.svg" alt="" width="28" height="28" />
+                <span class="dev-svg__name">shape-triangle.svg</span>
+                <button class="copy-btn" type="button" data-copy>Copy</button>
+                <a class="copy-btn" href="assets/images/svg/shape-triangle.svg" download>Download</a>
+                <code hidden>&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 24 24&quot; width=&quot;24&quot; height=&quot;24&quot;&gt;&lt;path d=&quot;M12 1 24 23H0Z&quot; fill=&quot;#67888B&quot;/&gt;&lt;/svg&gt;</code>
+              </div>
+              <div class="dev-svg">
+                <img src="assets/images/svg/shape-rounded-diamond.svg" alt="" width="28" height="28" />
+                <span class="dev-svg__name">shape-rounded-diamond.svg</span>
+                <button class="copy-btn" type="button" data-copy>Copy</button>
+                <a class="copy-btn" href="assets/images/svg/shape-rounded-diamond.svg" download>Download</a>
+                <code hidden>&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 24 24&quot; width=&quot;24&quot; height=&quot;24&quot;&gt;&lt;rect x=&quot;4.5&quot; y=&quot;4.5&quot; width=&quot;15&quot; height=&quot;15&quot; rx=&quot;3&quot; transform=&quot;rotate(45 12 12)&quot; fill=&quot;#3DB7BB&quot;/&gt;&lt;/svg&gt;</code>
+              </div>
+            </div>
+          </div>
         </div>
 
         <div class="container">
@@ -347,7 +570,7 @@
             <article class="service-card">
               <span class="service-card__shape shape shape--circle" aria-hidden="true"></span>
               <p class="service-card__label">Organisational development and change</p>
-              <!-- Doc typo "How do adapt" corrected to "How do you adapt" (client-notes H1) -->
+              <!-- Doc typo "How do adapt" corrected to "How do you adapt" -->
               <h3 class="h4">How do you adapt ways of working when your university has to change fast?</h3>
               <p class="body">
                 I guide change processes that the people involved help shape,
@@ -408,6 +631,11 @@
             <li>Grid Container 2 cols › each testimonial = Container class <code>subgrid-2</code> (quote text · name block), so the line above the names sits at the same height (round 2, S4).</li>
             <li>Big “ : Heading 104px/800 #3DB7BB, position absolute top-left. Quote 20px/500 italic. Name block: border-top 2px #3DB7BB · name 20px/800 · role 14px #356065.</li>
           </ul>
+          <div class="dev-code">
+            <div class="dev-code__head"><span>CSS classes</span><button class="copy-btn" type="button" data-copy>Copy</button></div>
+            <pre><code>Parent container › Layout: Grid › 2 columns
+Each testimonial container › Layout: Grid › CSS Classes: subgrid-2</code></pre>
+          </div>
         </div>
 
         <div class="container expertise__grid">
@@ -615,6 +843,10 @@
             <li>"Tell me about it." wrapped in <code>&lt;mark&gt;</code> (site-wide highlight CSS).</li>
             <li>Number rows: Container (row) › number + title, Align items: Start, so 01/02/03 and titles start at the same height when a title wraps (H14).</li>
           </ul>
+          <div class="dev-code">
+            <div class="dev-code__head"><span>HTML · Text Editor › Text tab</span><button class="copy-btn" type="button" data-copy>Copy</button></div>
+            <pre><code>Tell me about it. → &lt;mark&gt;Tell me about it.&lt;/mark&gt;</code></pre>
+          </div>
         </div>
 
         <div class="container start__grid">
@@ -742,6 +974,18 @@
           <li>LinkedIn: Icon List with the LinkedIn icon + text "Nadja Gmelch" / "U-teal" only (no word "LinkedIn", round 2, F2). Set aria-label "LinkedIn: …" via Custom Attributes.</li>
           <li>Bottom bar language list: Polylang switcher widget, codes, separator "|".</li>
         </ul>
+        <div class="dev-svgs">
+          <p class="dev-svgs__label">SVG · LinkedIn icon (Icon List › Upload SVG)</p>
+          <div class="dev-svgs__grid">
+            <div class="dev-svg">
+              <img src="assets/images/svg/icon-linkedin.svg" alt="" width="28" height="28" />
+              <span class="dev-svg__name">icon-linkedin.svg</span>
+              <button class="copy-btn" type="button" data-copy>Copy</button>
+              <a class="copy-btn" href="assets/images/svg/icon-linkedin.svg" download>Download</a>
+              <code hidden>&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 24 24&quot; width=&quot;24&quot; height=&quot;24&quot;&gt;&lt;path fill=&quot;currentColor&quot; d=&quot;M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z&quot;/&gt;&lt;/svg&gt;</code>
+            </div>
+          </div>
+        </div>
       </div>
 
       <div class="container">

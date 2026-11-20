@@ -123,6 +123,25 @@
               <li>Languages: Polylang "Language switcher" menu item, "Displays as dropdown": parent shows the current code (EN ▾), sub-items the other languages. No flags, no globe icon (round 2, G1).</li>
               <li>"Let's talk": last menu item with CSS class <code>menu-cta</code> styled as a button (or hide the header button on mobile: the floating Let's talk is always visible).</li>
             </ul>
+            <div class="dev-svgs">
+              <p class="dev-svgs__label">SVG · Nav Menu › Toggle icon (normal / active)</p>
+              <div class="dev-svgs__grid">
+                <div class="dev-svg">
+                  <img src="assets/images/svg/icon-menu.svg" alt="" width="28" height="28" />
+                  <span class="dev-svg__name">icon-menu.svg</span>
+                  <button class="copy-btn" type="button" data-copy>Copy</button>
+                  <a class="copy-btn" href="assets/images/svg/icon-menu.svg" download>Download</a>
+                  <code hidden>&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 26 22&quot; width=&quot;26&quot; height=&quot;22&quot;&gt;&lt;rect x=&quot;0&quot; y=&quot;2&quot; width=&quot;22&quot; height=&quot;4&quot; fill=&quot;#02383E&quot;/&gt;&lt;rect x=&quot;9.5&quot; y=&quot;7.5&quot; width=&quot;7&quot; height=&quot;7&quot; transform=&quot;rotate(45 13 11)&quot; fill=&quot;#008080&quot;/&gt;&lt;rect x=&quot;4&quot; y=&quot;16&quot; width=&quot;22&quot; height=&quot;4&quot; fill=&quot;#02383E&quot;/&gt;&lt;/svg&gt;</code>
+                </div>
+                <div class="dev-svg">
+                  <img src="assets/images/svg/icon-menu-close.svg" alt="" width="28" height="28" />
+                  <span class="dev-svg__name">icon-menu-close.svg</span>
+                  <button class="copy-btn" type="button" data-copy>Copy</button>
+                  <a class="copy-btn" href="assets/images/svg/icon-menu-close.svg" download>Download</a>
+                  <code hidden>&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 22 22&quot; width=&quot;22&quot; height=&quot;22&quot;&gt;&lt;rect x=&quot;-2&quot; y=&quot;9&quot; width=&quot;26&quot; height=&quot;4&quot; transform=&quot;rotate(45 11 11)&quot; fill=&quot;#02383E&quot;/&gt;&lt;rect x=&quot;-2&quot; y=&quot;9&quot; width=&quot;26&quot; height=&quot;4&quot; transform=&quot;rotate(-45 11 11)&quot; fill=&quot;#02383E&quot;/&gt;&lt;/svg&gt;</code>
+                </div>
+              </div>
+            </div>
           </div>
         </nav>
       </div>
@@ -210,6 +229,13 @@
             <li>Order: key sentence (Heading, tag p, 24–32px/800, border-left 4px #3DB7BB) · question (lead) · bullet list · picture · button — ONE column, nothing sticky (feedback S2).</li>
             <li>Bullets: Text Editor list (dash bullets via Custom CSS or Icon List). Highlighted words wrapped in <code>&lt;mark&gt;</code> (round 2, S3).</li>
           </ul>
+          <div class="dev-code">
+            <div class="dev-code__head"><span>HTML · Text Editor › Text tab (widget CSS class: dash-list)</span><button class="copy-btn" type="button" data-copy>Copy</button></div>
+            <pre><code>&lt;ul&gt;
+  &lt;li&gt;Your university … there is &lt;mark&gt;no shared strategy&lt;/mark&gt; that …&lt;/li&gt;
+  &lt;li&gt;…&lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+          </div>
         </div>
         <div class="container situations__flow">
           <!-- Most visible element (feedback S2). Elementor: Heading, HTML tag p -->
@@ -239,6 +265,44 @@
             <li>Grid Container (3 or 4 cols) › each card class <code>subgrid-3</code> (shape · H3 · text), so all texts start at the same height (round 2, S5).</li>
             <li>Shape colours: square #02383E · diamond #3DB7BB · rounded diamond #67888B · circle #008080 (last two differ, feedback S3).</li>
           </ul>
+          <div class="dev-code">
+            <div class="dev-code__head"><span>CSS classes</span><button class="copy-btn" type="button" data-copy>Copy</button></div>
+            <pre><code>Parent container › Layout: Grid › 3 or 4 columns
+Each card container › Layout: Grid › CSS Classes: subgrid-3</code></pre>
+          </div>
+          <div class="dev-svgs">
+            <p class="dev-svgs__label">SVG · gain card shapes (set rounded diamond colour #67888B in the widget)</p>
+            <div class="dev-svgs__grid">
+              <div class="dev-svg">
+                <img src="assets/images/svg/shape-square.svg" alt="" width="28" height="28" />
+                <span class="dev-svg__name">shape-square.svg</span>
+                <button class="copy-btn" type="button" data-copy>Copy</button>
+                <a class="copy-btn" href="assets/images/svg/shape-square.svg" download>Download</a>
+                <code hidden>&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 24 24&quot; width=&quot;24&quot; height=&quot;24&quot;&gt;&lt;rect width=&quot;24&quot; height=&quot;24&quot; fill=&quot;#02383E&quot;/&gt;&lt;/svg&gt;</code>
+              </div>
+              <div class="dev-svg">
+                <img src="assets/images/svg/shape-diamond.svg" alt="" width="28" height="28" />
+                <span class="dev-svg__name">shape-diamond.svg</span>
+                <button class="copy-btn" type="button" data-copy>Copy</button>
+                <a class="copy-btn" href="assets/images/svg/shape-diamond.svg" download>Download</a>
+                <code hidden>&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 24 24&quot; width=&quot;24&quot; height=&quot;24&quot;&gt;&lt;path d=&quot;M12 0 24 12 12 24 0 12Z&quot; fill=&quot;#3DB7BB&quot;/&gt;&lt;/svg&gt;</code>
+              </div>
+              <div class="dev-svg">
+                <img src="assets/images/svg/shape-rounded-diamond.svg" alt="" width="28" height="28" />
+                <span class="dev-svg__name">shape-rounded-diamond.svg</span>
+                <button class="copy-btn" type="button" data-copy>Copy</button>
+                <a class="copy-btn" href="assets/images/svg/shape-rounded-diamond.svg" download>Download</a>
+                <code hidden>&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 24 24&quot; width=&quot;24&quot; height=&quot;24&quot;&gt;&lt;rect x=&quot;4.5&quot; y=&quot;4.5&quot; width=&quot;15&quot; height=&quot;15&quot; rx=&quot;3&quot; transform=&quot;rotate(45 12 12)&quot; fill=&quot;#3DB7BB&quot;/&gt;&lt;/svg&gt;</code>
+              </div>
+              <div class="dev-svg">
+                <img src="assets/images/svg/shape-circle.svg" alt="" width="28" height="28" />
+                <span class="dev-svg__name">shape-circle.svg</span>
+                <button class="copy-btn" type="button" data-copy>Copy</button>
+                <a class="copy-btn" href="assets/images/svg/shape-circle.svg" download>Download</a>
+                <code hidden>&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 24 24&quot; width=&quot;24&quot; height=&quot;24&quot;&gt;&lt;circle cx=&quot;12&quot; cy=&quot;12&quot; r=&quot;12&quot; fill=&quot;#008080&quot;/&gt;&lt;/svg&gt;</code>
+              </div>
+            </div>
+          </div>
         </div>
         <div class="container">
           <div class="section-head"><h2 class="h2">What you gain</h2></div>
@@ -451,6 +515,18 @@
           <li>LinkedIn: Icon List with the LinkedIn icon + text "Nadja Gmelch" / "U-teal" only (no word "LinkedIn", round 2, F2). Set aria-label "LinkedIn: …" via Custom Attributes.</li>
           <li>Bottom bar language list: Polylang switcher widget, codes, separator "|".</li>
         </ul>
+        <div class="dev-svgs">
+          <p class="dev-svgs__label">SVG · LinkedIn icon (Icon List › Upload SVG)</p>
+          <div class="dev-svgs__grid">
+            <div class="dev-svg">
+              <img src="assets/images/svg/icon-linkedin.svg" alt="" width="28" height="28" />
+              <span class="dev-svg__name">icon-linkedin.svg</span>
+              <button class="copy-btn" type="button" data-copy>Copy</button>
+              <a class="copy-btn" href="assets/images/svg/icon-linkedin.svg" download>Download</a>
+              <code hidden>&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 24 24&quot; width=&quot;24&quot; height=&quot;24&quot;&gt;&lt;path fill=&quot;currentColor&quot; d=&quot;M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z&quot;/&gt;&lt;/svg&gt;</code>
+            </div>
+          </div>
+        </div>
       </div>
 
       <div class="container">

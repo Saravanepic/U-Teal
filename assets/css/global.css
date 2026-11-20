@@ -1312,6 +1312,82 @@ a:hover {
   color: var(--c-white);
 }
 
+/* --- Copy-paste snippets inside developer notes (CSS / PHP / JS / SVG) --- */
+.dev-code {
+  margin-top: 12px;
+  border-radius: 6px;
+  overflow: hidden;
+  background: #1e1e1e;
+  font-family: ui-monospace, Menlo, monospace;
+}
+
+.dev-code__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 6px 8px 6px 12px;
+  background: #2d2d2d;
+  color: #ffe14d;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.dev-code pre {
+  margin: 0;
+  padding: 12px;
+  max-height: 340px;
+  overflow: auto;
+  color: #f1f1f1;
+  font-size: 12px;
+  line-height: 1.55;
+  white-space: pre;
+}
+
+.dev-svgs {
+  margin-top: 12px;
+}
+
+.dev-svgs__label {
+  margin-bottom: 8px;
+  font-weight: 700;
+}
+
+.dev-svgs__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+  gap: 8px;
+}
+
+.dev-svg {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 8px;
+  border: 1px solid #d8c64a;
+  border-radius: 6px;
+  background: var(--c-white);
+}
+
+.dev-svg img {
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
+  color: var(--c-teal-dark);
+}
+
+.dev-svg__name {
+  flex: 1 1 100%;
+  order: -1;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.dev-svg a.copy-btn {
+  text-decoration: none;
+}
+
 /* --- Floating developer-notes toggle (added by main.js) --- */
 .dev-toggle {
   position: fixed;

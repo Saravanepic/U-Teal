@@ -6,7 +6,7 @@
    4. Floating "Let's talk": hide when the contact block is on screen
    5. Links to pages that don't exist yet (data-todo)
    6. Developer notes toggle (+ ?notes=1), remembered per browser
-   7. SEO box: copy buttons + character counts (+ 7b heading structure)
+   7. SEO box: copy buttons + character counts (+ 7a dev snippets, 7b heading structure)
    8. Dynamic copyright year
    9. Demo forms: show the success message after submit (data-demo-form)
    10. Open an accordion item (<details>) when a link points to it
@@ -146,6 +146,22 @@
         setTimeout(function () { b.textContent = "Copy"; b.classList.remove("is-copied"); }, 1500);
       }
       if (navigator.clipboard) navigator.clipboard.writeText(text).then(done, done);
+      else done();
+    });
+  });
+
+  // 7a. Developer snippets: copy the CSS / PHP / JS / SVG next to a [data-copy] button
+  document.querySelectorAll("[data-copy]").forEach(function (b) {
+    b.addEventListener("click", function () {
+      var box = b.closest(".dev-code, .dev-svg");
+      var code = box && box.querySelector("code");
+      if (!code) return;
+      function done() {
+        b.textContent = "Copied";
+        b.classList.add("is-copied");
+        setTimeout(function () { b.textContent = "Copy"; b.classList.remove("is-copied"); }, 1500);
+      }
+      if (navigator.clipboard) navigator.clipboard.writeText(code.textContent).then(done, done);
       else done();
     });
   });
