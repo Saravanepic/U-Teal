@@ -15,3 +15,6 @@ memory.md
 
 # Client reference files (repo is public: keep local only)
 *.pdf
+
+# Credentials (never commit: repo is public)
+credentials.local.txt
