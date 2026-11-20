@@ -34,6 +34,13 @@ html {
   align-items: center;
 }
 
+/* Photo option next to the title (round 2, S1). On mobile the grid is one
+   column, so the photo follows the subtitle. */
+.service-hero__picture {
+  align-self: stretch;
+  min-height: 320px;
+}
+
 .service-hero__grid--single {
   grid-template-columns: minmax(0, 1fr);
 }
@@ -117,6 +124,15 @@ html {
   background: var(--c-white);
 }
 
+/* Texts start at the same height in every card (round 2, S5): cards share the
+   grid rows (shape · title · text). Elementor: Custom CSS on each card. */
+.gains .principle {
+  display: grid;
+  grid-row: span 3;
+  grid-template-rows: subgrid;
+  row-gap: 16px;
+}
+
 /* --------------------------------------------------------------------------
    S05 · Expect: sticky H2 | numbered rows (global 5.4)
    -------------------------------------------------------------------------- */
@@ -196,6 +212,24 @@ html {
   object-fit: contain;
 }
 
+/* Photo instead of a logo (round 2, S6: Unsplash photos where no logo can
+   be used). Full-bleed, cropped. */
+/* Tall logos (e.g. OpenEU) may use more height */
+.case-card__logo img[src*="openeu"] {
+  max-height: 110px;
+}
+
+.case-card__logo--photo {
+  padding: 0;
+}
+
+.case-card__logo--photo img {
+  width: 100%;
+  height: 100%;
+  max-height: none;
+  object-fit: cover;
+}
+
 .case-card__logo-ph {
   font-size: 14px;
   font-weight: 700;
@@ -229,11 +263,12 @@ html {
   white-space: normal;
 }
 
+/* Quotes come first, then the case cards (round 2, S4) */
 .case-quotes {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 24px;
-  margin-top: clamp(32px, 4vw, 48px);
+  margin-bottom: clamp(32px, 4vw, 48px);
 }
 
 .practice:not(.section--soft) .testimonial {

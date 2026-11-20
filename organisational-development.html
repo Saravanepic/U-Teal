@@ -52,7 +52,7 @@
     <header class="site-header" id="top">
       <div class="dev-note">
         S01 · Theme Builder › Header (sticky) — Site Logo · Nav Menu with
-        "Services" submenu · Polylang switcher (EN/DE/ES) · Button "Let's talk"
+        "Services" submenu · Polylang switcher as dropdown (EN ▾) · Button "Let's talk"
       </div>
 
       <div class="container site-header__inner">
@@ -95,12 +95,18 @@
             <li><a class="nav-link" href="about-me.html">About</a></li>
             <li><a class="nav-link" href="methods.html">Methods</a></li>
 
-            <!-- Language switcher (Polylang): codes only, no globe icon (feedback G2).
-                 ES stays hidden on the live site until Spanish pages exist (T5). -->
-            <li class="lang" aria-label="Language">
-              <a class="lang__link" href="organisational-development.html" aria-current="true" lang="en">EN</a>
-              <a class="lang__link" href="#" data-todo="/de/" lang="de">DE</a>
-              <a class="lang__link" href="#" data-todo="/es/" lang="es">ES</a>
+            <!-- Language switcher (Polylang, menu item "Displays as dropdown"):
+                 current code + arrow, the other languages in the dropdown.
+                 Scales to 4+ languages (feedback round 2, G1). No globe icon. -->
+            <li class="lang">
+              <button class="nav-link lang__btn" type="button" aria-expanded="false" aria-controls="submenu-lang" aria-label="Language: English. Change language" data-dropdown>
+                EN <span class="nav-link__chev" aria-hidden="true"></span>
+              </button>
+              <ul class="submenu lang__menu" id="submenu-lang">
+                <li><a href="organisational-development.html" aria-current="true" lang="en">English</a></li>
+                <li><a href="#" data-todo="/de/" lang="de">Deutsch</a></li>
+                <li><a href="#" data-todo="/es/" lang="es">Español</a></li>
+              </ul>
             </li>
           </ul>
 
@@ -114,7 +120,7 @@
               <li>Mobile dropdown: Full width ON · Align: start · Toggle icon: custom SVG (bar · diamond · bar), colour #02383E, size 22px.</li>
               <li>Dropdown items: Manrope 16px/700 #02383E · padding 15px 0 · divider 1px #CCD7D8 · active: text #008080 + 3px left border.</li>
               <li>Submenu ("Services"): indicator chevron on the right · bg #F8F8F8 · items 15px/600 · padding 12px 16px.</li>
-              <li>Languages: Polylang "Language switcher" menu item showing <strong>codes only</strong> (EN / DE / ES), no flags, no globe icon (feedback G2).</li>
+              <li>Languages: Polylang "Language switcher" menu item, "Displays as dropdown": parent shows the current code (EN ▾), sub-items the other languages. No flags, no globe icon (round 2, G1).</li>
               <li>"Let's talk": last menu item with CSS class <code>menu-cta</code> styled as a button (or hide the header button on mobile: the floating Let's talk is always visible).</li>
             </ul>
           </div>
@@ -168,12 +174,25 @@
            ==================================================================== -->
       <section class="service-hero">
         <div class="dev-note">S02 · Hero — H1 small · H2 display · H3 (lead style)</div>
-        <div class="container service-hero__grid service-hero__grid--single">
+        <div class="dev-note dev-note--inline">
+          <strong>HERO · build notes</strong>
+          <ul>
+            <li>Row Container: [H1 · H2 · subtitle] | Image (photo option, round 2, S1), Align items: Stretch, image Object fit Cover.</li>
+            <li>Mobile: photo after the subtitle, before the situations section (column order = content first).</li>
+          </ul>
+        </div>
+        <div class="container service-hero__grid">
           <div class="service-hero__content">
             <h1 class="service-hero__h1">Organisational development and change</h1>
             <h2 class="display">Making change take hold across the university.</h2>
             <h3 class="lead service-hero__lead">Consulting for universities that have to change quickly and want to bring everyone involved along.</h3>
           </div>
+          <!-- Photo option next to the title (round 2, S1). Mobile: after the
+               subtitle, before "In situations like these". -->
+          <figure class="img-ph service-hero__picture" role="img" aria-label="Photo option">
+            <span class="img-ph__mark" aria-hidden="true"></span>
+            <figcaption class="img-ph__label"><strong>Photo option</strong>Photo to be chosen.</figcaption>
+          </figure>
         </div>
       </section>
       <!-- /S02 · HERO -->
@@ -185,18 +204,25 @@
            ==================================================================== -->
       <section class="section situations">
         <div class="dev-note">S03 · Situations — lead | list · text · picture · button (doc order)</div>
+        <div class="dev-note dev-note--inline">
+          <strong>SITUATIONS · build notes</strong>
+          <ul>
+            <li>Order: key sentence (Heading, tag p, 24–32px/800, border-left 4px #3DB7BB) · question (lead) · bullet list · picture · button — ONE column, nothing sticky (feedback S2).</li>
+            <li>Bullets: Text Editor list (dash bullets via Custom CSS or Icon List). Highlighted words wrapped in <code>&lt;mark&gt;</code> (round 2, S3).</li>
+          </ul>
+        </div>
         <div class="container situations__flow">
           <!-- Most visible element (feedback S2). Elementor: Heading, HTML tag p -->
           <p class="situations__statement">I support your university in getting change moving, and in developing ways of working that sustain it.</p>
           <p class="lead situations__question">Do you sense that something needs to change at your university? It often shows in situations like these:</p>
           <div class="stack">
             <ul class="dash-list body">
-              <li>New technologies such as artificial intelligence are changing teaching, research and administration at an ever faster pace. Traditional change management with fixed phases struggles to keep up.</li>
-              <li>Decisions have to be made faster than lengthy coordination processes and hierarchical leadership allow. Your university needs more agility and a culture that learns from mistakes.</li>
-              <li>You are registrar or responsible for organisational or staff development in a central unit, and you are looking for support with a change process.</li>
-              <li>The workload in administration and research management is rising, and it is getting harder to attract and keep good people. You need ways of working that are efficient and sustainable for your staff.</li>
-              <li>An institute, a research centre or a university alliance is growing or being restructured. Unclear roles and responsibilities cost time and cause friction.</li>
-              <li>Important workshops and events consist mostly of presentations, even though you need the knowledge of everyone involved.</li>
+              <li>New technologies such as artificial intelligence are changing teaching, research and administration at an ever <mark class="highlight">faster pace</mark>. Traditional change management with fixed phases struggles to keep up.</li>
+              <li>Decisions have to be made faster than lengthy coordination processes and hierarchical leadership allow. Your university needs more <mark class="highlight">agility</mark> and a culture that learns from mistakes.</li>
+              <li>You are registrar or responsible for organisational or staff development in a central unit, and you are looking for support with a <mark class="highlight">change process</mark>.</li>
+              <li>The <mark class="highlight">workload</mark> in administration and research management is rising, and it is getting harder to attract and keep good people. You need <mark class="highlight">ways of working</mark> that are efficient and sustainable for your staff.</li>
+              <li>An institute, a research centre or a university alliance is growing or being restructured. Unclear <mark class="highlight">roles and responsibilities</mark> cost time and cause friction.</li>
+              <li>Important workshops and events consist mostly of presentations, even though you need the <mark class="highlight">knowledge of everyone involved</mark>.</li>
             </ul>
             <figure class="img-ph situations__img" style="aspect-ratio: 3 / 2" role="img" aria-label="Picture option"><span class="img-ph__mark" aria-hidden="true"></span><figcaption class="img-ph__label"><strong>Picture option</strong>Photo to be chosen.</figcaption></figure>
             <div><a class="btn btn--outline btn--arrow" href="#offer">What I offer</a></div>
@@ -208,6 +234,13 @@
       <!-- S04 · GAINS — Elementor: H2 · 4 cards (shape · H3 · text), global 5.7 -->
       <section class="section section--soft gains">
         <div class="dev-note">S04 · What your university gains — H2 · 4 cards (shape · H3 · text)</div>
+        <div class="dev-note dev-note--inline">
+          <strong>GAINS · build notes</strong>
+          <ul>
+            <li>Grid Container (3 or 4 cols) › each card class <code>subgrid-3</code> (shape · H3 · text), so all texts start at the same height (round 2, S5).</li>
+            <li>Shape colours: square #02383E · diamond #3DB7BB · rounded diamond #67888B · circle #008080 (last two differ, feedback S3).</li>
+          </ul>
+        </div>
         <div class="container">
           <div class="section-head"><h2 class="h2">What your university gains</h2></div>
           <div class="principles__grid principles__grid--4">
@@ -320,20 +353,21 @@
       <!-- S06 · CASES — Elementor: H2 · per case: Container (row) › H3 · text · button | picture · quote -->
       <section class="section section--soft practice">
         <div class="dev-note">From my practice — H2 · case cards (client logo · H3 · teaser · button), 3 per row · quotes below (proposal, feedback S6)</div>
+        <div class="dev-note dev-note--inline">
+          <strong>CASE STUDIES · build notes</strong>
+          <ul>
+            <li>Section sits directly before the FAQ (feedback S1). Order inside: H2 · quotes · case cards (round 2, S4).</li>
+            <li>Quotes: Grid Container (auto-fit, min 300px) › testimonial Containers class <code>subgrid-2</code> (line above names aligned).</li>
+            <li>Cards: Loop Grid (CPT "Case Study" via CPT UI or ACF; Elementor can't create the post type) › Loop Item: Featured Image (client logo: contain + padding · or photo: cover, class <code>case-card__logo--photo</code>) · Post Title H3 · Excerpt · Button "Read the full case study".</li>
+            <li>Unsplash photos (PROBRAL: Yen Vu · Ukraine: FORTYTWO · climate foundation: Kvalifik) — credit them in the legal notice.</li>
+          </ul>
+        </div>
         <div class="container">
           <div class="section-head">
             <h2 class="h2">From my practice</h2>
           </div>
-          <div class="case-grid">
-            <article class="case-card">
-              <div class="case-card__logo"><span class="case-card__logo-ph">Logo: OpenEU<br /><small>file needed</small></span></div>
-              <h3 class="case-card__title">Organisational development across university boundaries: the OpenEU Alliance</h3>
-              <p class="body">As Director Europe and Open Knowledge at the Universitat Oberta de Catalunya, I led the creation of the OpenEU Alliance, a European Universities alliance which today brings together ten universities, most of them open and distance universities. We developed shared governance, clarified roles and responsibilities between the partner universities and established ways of working that allowed teams from different countries and university cultures to collaborate.</p>
-              
-            </article>
-          </div>
 
-          <!-- Quotes shown prominently, separate from the cards (feedback S6) -->
+          <!-- Quotes first, then the case cards (round 2, S4) -->
           <div class="case-quotes">
               <figure class="testimonial">
                 <span class="testimonial__mark" aria-hidden="true">“</span>
@@ -343,6 +377,15 @@
                   <span class="testimonial__role">Commissioner for Internationalisation, OpenEU Alliance Coordinator, UOC, Spain</span>
                 </figcaption>
               </figure>
+          </div>
+
+          <div class="case-grid">
+            <article class="case-card">
+              <div class="case-card__logo"><img src="assets/images/clients/openeu.png" alt="OpenEU – The Open European University" loading="lazy" /></div>
+              <h3 class="case-card__title">Organisational development across university boundaries: the OpenEU Alliance</h3>
+              <p class="body">As Director Europe and Open Knowledge at the Universitat Oberta de Catalunya, I led the creation of the OpenEU Alliance, a European Universities alliance which today brings together ten universities, most of them open and distance universities. We developed shared governance, clarified roles and responsibilities between the partner universities and established ways of working that allowed teams from different countries and university cultures to collaborate.</p>
+              
+            </article>
           </div>
         </div>
       </section>
@@ -357,13 +400,13 @@
           </div>
           <div class="case-grid">
             <article class="case-card">
-              <div class="case-card__logo"><span class="case-card__logo-ph">Logo: Ukraine platform<br /><small>file needed</small></span></div>
+              <div class="case-card__logo case-card__logo--photo"><!-- Unsplash: FORTYTWO (credit in legal notice) --><img src="assets/images/photos/unsplash-fortytwo-ukraine.jpg" alt="Hands placing sticky notes on a hand-drawn map of connections" loading="lazy" /></div>
               <h3 class="case-card__title">Supporting a cross-sector network for Ukraine’s reconstruction</h3>
               <p class="body">The German Platform for the Reconstruction of Ukraine, an initiative of the German Federal Government, brings together companies, municipalities, civil society and academia to strengthen Germany’s contribution to rebuilding Ukraine. As a senior consultant at joyn-coop, I supported the platform’s secretariat with organisational development and process facilitation for over a year, on behalf of GIZ and the BMZ. This included agile ways of working for the distributed team, participatory network events, prototyping workshops and coaching. The platform has since introduced new formats and new ways of working together.</p>
               <div><a class="btn btn--outline btn--arrow" href="#" data-todo="/case-studies#ukraine-platform">Read the full case study</a></div>
             </article>
             <article class="case-card">
-              <div class="case-card__logo"><span class="case-card__logo-ph">Logo: climate foundation<br /><small>file needed</small></span></div>
+              <div class="case-card__logo case-card__logo--photo"><!-- Unsplash: Kvalifik (credit in legal notice) --><img src="assets/images/photos/unsplash-kvalifik-climate.jpg" alt="A hand pinning a sticky note labelled “Team” to a wall of notes" loading="lazy" /></div>
               <h3 class="case-card__title">Organisational change and leadership development in a European climate foundation</h3>
               <p class="body">A European climate foundation realigned its vision, values, culture, processes and decision-making in a “Fit for Future” process. As a senior consultant at joyn-coop, I supported the core team at the Foundation in designing the process and facilitated groups of 15 to 35 people. For the Foundation’s leadership team, I developed a programme to help them put the new mission statement into practice, with training and coaching on decision-making, roles and self-reflection.</p>
               <div><a class="btn btn--outline btn--arrow" href="#" data-todo="/case-studies#climate-foundation">Read the full case study</a></div>
@@ -434,8 +477,17 @@
          ====================================================================== -->
     <footer class="site-footer">
       <div class="dev-note">
-        S11 · Theme Builder › Footer — 3 cols (logo + text + contact + button ·
+        S11 · Theme Builder › Footer — 3 cols (logo + text + contact ·
         services menu · newsletter form) + bottom bar (Polylang switcher)
+      </div>
+      <div class="dev-note dev-note--inline">
+        <strong>FOOTER · build notes</strong>
+        <ul>
+          <li>No "Let's talk" button in the footer (round 2, F1).</li>
+          <li>Contact: Heading (p) "Contact" · Icon List (email, phone; links mailto: / tel:).</li>
+          <li>LinkedIn: Icon List with the LinkedIn icon + text "Nadja Gmelch" / "U-teal" only (no word "LinkedIn", round 2, F2). Set aria-label "LinkedIn: …" via Custom Attributes.</li>
+          <li>Bottom bar language list: Polylang switcher widget, codes, separator "|".</li>
+        </ul>
       </div>
 
       <div class="container">
@@ -459,20 +511,19 @@
               <!-- Elementor: Icon List (LinkedIn icon) or Social Icons + text -->
               <ul class="site-footer__social">
                 <li>
-                  <a href="https://www.linkedin.com/in/nadja-gmelch/" target="_blank" rel="noopener">
+                  <a href="https://www.linkedin.com/in/nadja-gmelch/" target="_blank" rel="noopener" aria-label="LinkedIn: Nadja Gmelch">
                     <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg>
-                    LinkedIn (Nadja Gmelch)
+                    Nadja Gmelch
                   </a>
                 </li>
                 <li>
-                  <a href="https://www.linkedin.com/company/u-teal/" target="_blank" rel="noopener">
+                  <a href="https://www.linkedin.com/company/u-teal/" target="_blank" rel="noopener" aria-label="LinkedIn: U-teal">
                     <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg>
-                    LinkedIn (U-teal)
+                    U-teal
                   </a>
                 </li>
               </ul>
             </div>
-            <a class="btn btn--accent" href="contact.html">Let’s talk</a>
           </div>
 
           <!-- Column 2 -->

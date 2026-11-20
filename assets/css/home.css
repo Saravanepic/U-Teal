@@ -20,11 +20,14 @@
   padding-bottom: clamp(32px, 4vw, 56px);
 }
 
+/* Picture fills the full height next to the text (round 2, H2): the grid
+   stretches both columns; the image covers its box (parts may be cropped).
+   Elementor: Container (row, align stretch) › Image: height 100%, object-fit cover. */
 .hero__grid {
   display: grid;
   grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
   gap: clamp(32px, 4vw, 64px);
-  align-items: center;
+  align-items: stretch;
 }
 
 .hero__content {
@@ -53,7 +56,7 @@
 }
 
 .hero__picture {
-  aspect-ratio: 3 / 2;
+  min-height: 420px;
 }
 
 .hero__picture img {
@@ -72,6 +75,10 @@
   max-width: none;
 }
 
+/* Rows aligned across the cards (round 2, H3): every card uses the same
+   5 rows (shape · label · question · text · button), so all questions and
+   all texts start at the same height. Elementor: Container (grid) + Custom
+   CSS on each card: grid-row: span 5; grid-template-rows: subgrid. */
 .services__grid {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -79,9 +86,11 @@
 }
 
 .service-card {
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
+  display: grid;
+  grid-row: span 5;
+  grid-template-rows: subgrid;
+  row-gap: 14px;
+  align-content: start;
   padding: 28px 24px;
   background: var(--c-bg-soft);
   border-top: 4px solid var(--c-teal-dark);
@@ -121,7 +130,7 @@
 }
 
 .service-card__cta {
-  margin-top: auto;
+  align-self: end;
   padding-top: 8px;
 }
 
@@ -158,6 +167,14 @@
 .women-banner__sub {
   font-size: 16px;
   color: var(--c-on-dark);
+}
+
+/* Keep the text white on hover/focus/click (round 2, H5: the title
+   disappeared because links turn Teal Dark on hover). */
+.women-banner:hover,
+.women-banner:focus,
+.women-banner:active {
+  color: var(--c-white);
 }
 
 .women-banner:hover .btn {
@@ -538,6 +555,7 @@
   }
 
   .hero__picture {
+    min-height: 0;
     aspect-ratio: 16 / 10;
   }
 

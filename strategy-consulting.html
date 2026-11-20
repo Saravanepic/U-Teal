@@ -52,7 +52,7 @@
     <header class="site-header" id="top">
       <div class="dev-note">
         S01 · Theme Builder › Header (sticky) — Site Logo · Nav Menu with
-        "Services" submenu · Polylang switcher (EN/DE/ES) · Button "Let's talk"
+        "Services" submenu · Polylang switcher as dropdown (EN ▾) · Button "Let's talk"
       </div>
 
       <div class="container site-header__inner">
@@ -95,12 +95,18 @@
             <li><a class="nav-link" href="about-me.html">About</a></li>
             <li><a class="nav-link" href="methods.html">Methods</a></li>
 
-            <!-- Language switcher (Polylang): codes only, no globe icon (feedback G2).
-                 ES stays hidden on the live site until Spanish pages exist (T5). -->
-            <li class="lang" aria-label="Language">
-              <a class="lang__link" href="strategy-consulting.html" aria-current="true" lang="en">EN</a>
-              <a class="lang__link" href="#" data-todo="/de/" lang="de">DE</a>
-              <a class="lang__link" href="#" data-todo="/es/" lang="es">ES</a>
+            <!-- Language switcher (Polylang, menu item "Displays as dropdown"):
+                 current code + arrow, the other languages in the dropdown.
+                 Scales to 4+ languages (feedback round 2, G1). No globe icon. -->
+            <li class="lang">
+              <button class="nav-link lang__btn" type="button" aria-expanded="false" aria-controls="submenu-lang" aria-label="Language: English. Change language" data-dropdown>
+                EN <span class="nav-link__chev" aria-hidden="true"></span>
+              </button>
+              <ul class="submenu lang__menu" id="submenu-lang">
+                <li><a href="strategy-consulting.html" aria-current="true" lang="en">English</a></li>
+                <li><a href="#" data-todo="/de/" lang="de">Deutsch</a></li>
+                <li><a href="#" data-todo="/es/" lang="es">Español</a></li>
+              </ul>
             </li>
           </ul>
 
@@ -114,7 +120,7 @@
               <li>Mobile dropdown: Full width ON · Align: start · Toggle icon: custom SVG (bar · diamond · bar), colour #02383E, size 22px.</li>
               <li>Dropdown items: Manrope 16px/700 #02383E · padding 15px 0 · divider 1px #CCD7D8 · active: text #008080 + 3px left border.</li>
               <li>Submenu ("Services"): indicator chevron on the right · bg #F8F8F8 · items 15px/600 · padding 12px 16px.</li>
-              <li>Languages: Polylang "Language switcher" menu item showing <strong>codes only</strong> (EN / DE / ES), no flags, no globe icon (feedback G2).</li>
+              <li>Languages: Polylang "Language switcher" menu item, "Displays as dropdown": parent shows the current code (EN ▾), sub-items the other languages. No flags, no globe icon (round 2, G1).</li>
               <li>"Let's talk": last menu item with CSS class <code>menu-cta</code> styled as a button (or hide the header button on mobile: the floating Let's talk is always visible).</li>
             </ul>
           </div>
@@ -168,12 +174,25 @@
            ==================================================================== -->
       <section class="service-hero">
         <div class="dev-note">S02 · Hero — H1 small · H2 display · text (lead style)</div>
-        <div class="container service-hero__grid service-hero__grid--single">
+        <div class="dev-note dev-note--inline">
+          <strong>HERO · build notes</strong>
+          <ul>
+            <li>Row Container: [H1 · H2 · subtitle] | Image (photo option, round 2, S1), Align items: Stretch, image Object fit Cover.</li>
+            <li>Mobile: photo after the subtitle, before the situations section (column order = content first).</li>
+          </ul>
+        </div>
+        <div class="container service-hero__grid">
           <div class="service-hero__content">
             <h1 class="service-hero__h1">Strategy consulting</h1>
             <h2 class="display">Making strategies work across the university.</h2>
             <p class="lead service-hero__lead">Consulting for university leaders, strategy offices and teams who want to set priorities and develop strategies that actually get implemented.</p>
           </div>
+          <!-- Photo option next to the title (round 2, S1). Mobile: after the
+               subtitle, before "In situations like these". -->
+          <figure class="img-ph service-hero__picture" role="img" aria-label="Photo option">
+            <span class="img-ph__mark" aria-hidden="true"></span>
+            <figcaption class="img-ph__label"><strong>Photo option</strong>Photo to be chosen.</figcaption>
+          </figure>
         </div>
       </section>
       <!-- /S02 · HERO -->
@@ -185,17 +204,24 @@
            ==================================================================== -->
       <section class="section situations">
         <div class="dev-note">S03 · Situations — lead | list · text · picture · button (doc order)</div>
+        <div class="dev-note dev-note--inline">
+          <strong>SITUATIONS · build notes</strong>
+          <ul>
+            <li>Order: key sentence (Heading, tag p, 24–32px/800, border-left 4px #3DB7BB) · question (lead) · bullet list · picture · button — ONE column, nothing sticky (feedback S2).</li>
+            <li>Bullets: Text Editor list (dash bullets via Custom CSS or Icon List). Highlighted words wrapped in <code>&lt;mark&gt;</code> (round 2, S3).</li>
+          </ul>
+        </div>
         <div class="container situations__flow">
           <!-- Most visible element (feedback S2). Elementor: Heading, HTML tag p -->
           <p class="situations__statement">I help you set priorities and develop strategies that students, academic and administrative staff help shape, and so make their own.</p>
           <p class="lead situations__question">Are you shaping your university’s strategic direction? Perhaps you’re at one of these points right now?</p>
           <div class="stack">
             <ul class="dash-list body">
-              <li>Your university is writing a new strategic plan, or a department or research centre needs a strategy of its own. You want to develop it in a participatory way, so that it will actually be put into practice later.</li>
-              <li>Budgets are getting tighter and you need to set new priorities: what comes first, and what do you choose to leave out?</li>
-              <li>Your next performance agreement with the ministry is coming up, and you want to link them to your own strategic goals.</li>
-              <li>New topics call for a strategic response, such as sustainability, artificial intelligence in teaching and research, or digital and hybrid learning.</li>
-              <li>You have a strategy, but it isn’t reaching practice in the university, or its impact is unclear.</li>
+              <li>Your university is writing a <mark class="highlight">new strategic plan</mark>, or a department or research centre needs a strategy of its own. You want to develop it in a participatory way, so that it will actually be put into practice later.</li>
+              <li>Budgets are getting tighter and you need to <mark class="highlight">set new priorities</mark>: what comes first, and what do you choose to leave out?</li>
+              <li>Your next <mark class="highlight">performance agreement</mark> with the ministry is coming up, and you want to link them to your own strategic goals.</li>
+              <li>New topics call for a strategic response, such as <mark class="highlight">sustainability</mark>, <mark class="highlight">artificial intelligence</mark> in teaching and research, or <mark class="highlight">digital and hybrid learning</mark>.</li>
+              <li>You have a strategy, but it isn’t reaching <mark class="highlight">practice</mark> in the university, or its <mark class="highlight">impact</mark> is unclear.</li>
             </ul>
             <figure class="img-ph situations__img" style="aspect-ratio: 3 / 2" role="img" aria-label="Picture option"><span class="img-ph__mark" aria-hidden="true"></span><figcaption class="img-ph__label"><strong>Picture option</strong>Photo to be chosen.</figcaption></figure>
             <div><a class="btn btn--outline btn--arrow" href="#offer">What I offer</a></div>
@@ -207,6 +233,13 @@
       <!-- S04 · GAINS — Elementor: H2 · 4 cards (shape · H3 · text), global 5.7 -->
       <section class="section section--soft gains">
         <div class="dev-note">S04 · What your university gains — H2 · 4 cards (shape · H3 · text)</div>
+        <div class="dev-note dev-note--inline">
+          <strong>GAINS · build notes</strong>
+          <ul>
+            <li>Grid Container (3 or 4 cols) › each card class <code>subgrid-3</code> (shape · H3 · text), so all texts start at the same height (round 2, S5).</li>
+            <li>Shape colours: square #02383E · diamond #3DB7BB · rounded diamond #67888B · circle #008080 (last two differ, feedback S3).</li>
+          </ul>
+        </div>
         <div class="container">
           <div class="section-head"><h2 class="h2">What your university gains</h2></div>
           <div class="principles__grid principles__grid--4">
@@ -332,6 +365,15 @@
       <!-- S06 · CASES — Elementor: H2 · per case: Container (row) › H3 · text · button | picture · quote -->
       <section class="section practice">
         <div class="dev-note">From my practice — H2 · case cards (client logo · H3 · teaser · button), 3 per row · quotes below (proposal, feedback S6)</div>
+        <div class="dev-note dev-note--inline">
+          <strong>CASE STUDIES · build notes</strong>
+          <ul>
+            <li>Section sits directly before the FAQ (feedback S1). Order inside: H2 · quotes · case cards (round 2, S4).</li>
+            <li>Quotes: Grid Container (auto-fit, min 300px) › testimonial Containers class <code>subgrid-2</code> (line above names aligned).</li>
+            <li>Cards: Loop Grid (CPT "Case Study" via CPT UI or ACF; Elementor can't create the post type) › Loop Item: Featured Image (client logo: contain + padding · or photo: cover, class <code>case-card__logo--photo</code>) · Post Title H3 · Excerpt · Button "Read the full case study".</li>
+            <li>Unsplash photos (PROBRAL: Yen Vu · Ukraine: FORTYTWO · climate foundation: Kvalifik) — credit them in the legal notice.</li>
+          </ul>
+        </div>
         <div class="container">
           <div class="section-head">
             <h2 class="h2">Case studies</h2>
@@ -409,8 +451,17 @@
          ====================================================================== -->
     <footer class="site-footer">
       <div class="dev-note">
-        S11 · Theme Builder › Footer — 3 cols (logo + text + contact + button ·
+        S11 · Theme Builder › Footer — 3 cols (logo + text + contact ·
         services menu · newsletter form) + bottom bar (Polylang switcher)
+      </div>
+      <div class="dev-note dev-note--inline">
+        <strong>FOOTER · build notes</strong>
+        <ul>
+          <li>No "Let's talk" button in the footer (round 2, F1).</li>
+          <li>Contact: Heading (p) "Contact" · Icon List (email, phone; links mailto: / tel:).</li>
+          <li>LinkedIn: Icon List with the LinkedIn icon + text "Nadja Gmelch" / "U-teal" only (no word "LinkedIn", round 2, F2). Set aria-label "LinkedIn: …" via Custom Attributes.</li>
+          <li>Bottom bar language list: Polylang switcher widget, codes, separator "|".</li>
+        </ul>
       </div>
 
       <div class="container">
@@ -434,20 +485,19 @@
               <!-- Elementor: Icon List (LinkedIn icon) or Social Icons + text -->
               <ul class="site-footer__social">
                 <li>
-                  <a href="https://www.linkedin.com/in/nadja-gmelch/" target="_blank" rel="noopener">
+                  <a href="https://www.linkedin.com/in/nadja-gmelch/" target="_blank" rel="noopener" aria-label="LinkedIn: Nadja Gmelch">
                     <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg>
-                    LinkedIn (Nadja Gmelch)
+                    Nadja Gmelch
                   </a>
                 </li>
                 <li>
-                  <a href="https://www.linkedin.com/company/u-teal/" target="_blank" rel="noopener">
+                  <a href="https://www.linkedin.com/company/u-teal/" target="_blank" rel="noopener" aria-label="LinkedIn: U-teal">
                     <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg>
-                    LinkedIn (U-teal)
+                    U-teal
                   </a>
                 </li>
               </ul>
             </div>
-            <a class="btn btn--accent" href="contact.html">Let’s talk</a>
           </div>
 
           <!-- Column 2 -->

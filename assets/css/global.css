@@ -355,13 +355,17 @@ a:hover {
 
 /* --- 5.3b Testimonial card: big quotation mark + prominent name
    (feedback H7 / S6). Used on Home and in the service-page case studies.
-   Elementor: Testimonial widget or Container › Heading (“ 96px) · Text ·
-   Heading (name 20px/800) · Text (role) */
+   The line between quote and name sits at the same height in every card of
+   a row (round 2, S4): each card uses the parent grid's rows (subgrid).
+   Elementor: Container (grid) › per card Container › Heading (“ 96px) ·
+   Text · Container (name 20px/800 + role, top border). Custom CSS on the
+   card: grid-row: span 2; grid-template-rows: subgrid. */
 .testimonial {
   position: relative;
-  display: flex;
-  flex-direction: column;
-  gap: 18px;
+  display: grid;
+  grid-row: span 2;
+  grid-template-rows: subgrid;
+  row-gap: 18px;
   padding: 56px clamp(24px, 3vw, 40px) 32px;
   background: var(--c-white);
 }
@@ -389,7 +393,7 @@ a:hover {
   display: flex;
   flex-direction: column;
   gap: 2px;
-  margin-top: auto;
+  align-self: start;
   padding-top: 16px;
   border-top: 2px solid var(--c-teal-light);
 }
@@ -862,30 +866,24 @@ a:hover {
   background: var(--c-line);
 }
 
-/* Language switcher: codes only "EN / DE / ES", no globe (feedback G2).
-   Elementor: Polylang "Language switcher" menu item, show codes, hide flags. */
+/* Language switcher: current code + arrow ("EN ▾"), other languages in a
+   dropdown (round 2, G1: scales to 4+ languages). No globe icon.
+   Elementor: Polylang "Language switcher" menu item › "Displays as dropdown". */
 .lang {
-  display: flex;
-  align-items: center;
-  gap: 2px;
+  position: relative;
 }
 
-.lang__link {
-  padding: 6px 4px;
-  font-size: 14px;
-  font-weight: 700;
-  color: var(--c-muted);
+.lang__btn {
+  gap: 6px;
 }
 
-.lang__link + .lang__link::before {
-  content: "/";
-  margin-right: 6px;
-  font-weight: 400;
-  color: var(--c-tint-dark-40);
+.lang__menu {
+  min-width: 150px;
+  left: auto;
+  right: -10px;
 }
 
-.lang__link:hover,
-.lang__link[aria-current="true"] {
+.lang__menu a[aria-current="true"] {
   color: var(--c-teal);
 }
 
@@ -1214,6 +1212,13 @@ a:hover {
   line-height: 1.5;
 }
 
+/* Build notes placed directly in a section/footer: keep them at content width */
+.show-notes section > .dev-note--inline,
+.show-notes footer > .dev-note--inline {
+  width: calc(min(var(--container), 100%) - 2 * var(--gutter));
+  margin: 16px auto 24px;
+}
+
 .dev-note--inline strong {
   display: block;
   margin-bottom: 6px;
@@ -1453,13 +1458,12 @@ a:hover {
     display: block;
   }
 
-  .lang {
-    gap: 6px;
-    padding: 12px 0;
+  .lang__menu {
+    padding-left: 0;
   }
 
-  .lang__link {
-    font-size: 16px;
+  .lang__btn .nav-link__chev {
+    margin-left: auto;
   }
 
   .site-nav > .btn {

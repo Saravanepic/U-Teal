@@ -31,6 +31,12 @@
   aspect-ratio: 4 / 4.8;
 }
 
+/* Head more in the centre of the frame (round 2, A1).
+   Elementor: Image › Object position "Top center" or custom Y 10%. */
+.about-hero .picture img {
+  object-position: 50% 8%;
+}
+
 /* --------------------------------------------------------------------------
    S03 · Who I am: sticky H2 + picture on the left, long text on the right
    -------------------------------------------------------------------------- */
@@ -80,6 +86,11 @@
 /* --------------------------------------------------------------------------
    S04 · How I work: intro + 3 principle cards (square · diamond · circle)
    -------------------------------------------------------------------------- */
+/* Intro text uses the full width (round 2, G3) */
+.principles .section-head {
+  max-width: none;
+}
+
 .principles .section-head a {
   font-weight: inherit;
   text-decoration: underline;

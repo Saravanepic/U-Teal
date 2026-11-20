@@ -78,7 +78,7 @@
     <header class="site-header" id="top">
       <div class="dev-note">
         S01 · Theme Builder › Header (sticky) — Site Logo · Nav Menu with
-        "Services" submenu · Polylang switcher (EN/DE/ES) · Button "Let's talk"
+        "Services" submenu · Polylang switcher as dropdown (EN ▾) · Button "Let's talk"
       </div>
 
       <div class="container site-header__inner">
@@ -121,12 +121,18 @@
             <li><a class="nav-link" href="about-me.html">About</a></li>
             <li><a class="nav-link" href="methods.html">Methods</a></li>
 
-            <!-- Language switcher (Polylang): codes only, no globe icon (feedback G2).
-                 ES stays hidden on the live site until Spanish pages exist (T5). -->
-            <li class="lang" aria-label="Language">
-              <a class="lang__link" href="index.html" aria-current="true" lang="en">EN</a>
-              <a class="lang__link" href="#" data-todo="/de/" lang="de">DE</a>
-              <a class="lang__link" href="#" data-todo="/es/" lang="es">ES</a>
+            <!-- Language switcher (Polylang, menu item "Displays as dropdown"):
+                 current code + arrow, the other languages in the dropdown.
+                 Scales to 4+ languages (feedback round 2, G1). No globe icon. -->
+            <li class="lang">
+              <button class="nav-link lang__btn" type="button" aria-expanded="false" aria-controls="submenu-lang" aria-label="Language: English. Change language" data-dropdown>
+                EN <span class="nav-link__chev" aria-hidden="true"></span>
+              </button>
+              <ul class="submenu lang__menu" id="submenu-lang">
+                <li><a href="index.html" aria-current="true" lang="en">English</a></li>
+                <li><a href="#" data-todo="/de/" lang="de">Deutsch</a></li>
+                <li><a href="#" data-todo="/es/" lang="es">Español</a></li>
+              </ul>
             </li>
           </ul>
 
@@ -140,7 +146,7 @@
               <li>Mobile dropdown: Full width ON · Align: start · Toggle icon: custom SVG (bar · diamond · bar), colour #02383E, size 22px.</li>
               <li>Dropdown items: Manrope 16px/700 #02383E · padding 15px 0 · divider 1px #CCD7D8 · active: text #008080 + 3px left border.</li>
               <li>Submenu ("Services"): indicator chevron on the right · bg #F8F8F8 · items 15px/600 · padding 12px 16px.</li>
-              <li>Languages: Polylang "Language switcher" menu item showing <strong>codes only</strong> (EN / DE / ES), no flags, no globe icon (feedback G2).</li>
+              <li>Languages: Polylang "Language switcher" menu item, "Displays as dropdown": parent shows the current code (EN ▾), sub-items the other languages. No flags, no globe icon (round 2, G1).</li>
               <li>"Let's talk": last menu item with CSS class <code>menu-cta</code> styled as a button (or hide the header button on mobile: the floating Let's talk is always visible).</li>
             </ul>
           </div>
@@ -200,6 +206,20 @@
     </aside>
 
     <main>
+      <!-- Site-wide build notes (developer notes only) -->
+      <div class="container dev-only">
+          <div class="dev-note dev-note--inline">
+            <strong>SITE-WIDE CUSTOM CSS · Site Settings › Custom CSS (needs Elementor plan Advanced Solo)</strong>
+            <ul>
+              <li><code>.highlight, mark { background:#CCE6E6; color:#02383E; font-weight:700; padding:.05em .25em; -webkit-box-decoration-break:clone; box-decoration-break:clone; }</code> — highlights (Home H13, About A2/A3, service bullets S3). In the Text Editor switch to the "Text" tab and wrap words in <code>&lt;mark&gt;…&lt;/mark&gt;</code> (training item for the client).</li>
+              <li><code>.subgrid-2 { grid-row:span 2; grid-template-rows:subgrid; } .subgrid-3 { grid-row:span 3; grid-template-rows:subgrid; } .subgrid-5 { grid-row:span 5; grid-template-rows:subgrid; }</code> — equal rows across cards. Parent = Container with Layout Grid; each card = Container (Full width, Layout Grid) with CSS class subgrid-N; N = number of widgets in the card.</li>
+              <li>Uses: Home service cards (subgrid-5), testimonials (subgrid-2), service-page gains cards (subgrid-3), case-study quotes (subgrid-2).</li>
+              <li>Polylang: <code>define('PLL_COOKIE', false);</code> in wp-config.php or Code Snippets — no language cookie (privacy info promises no visitor cookies).</li>
+              <li>Fonts: Elementor › Settings › Performance › Google Fonts "Load locally" (Manrope self-hosted).</li>
+            </ul>
+          </div>
+      </div>
+
       <!-- ====================================================================
            S02 · HERO (doc v3, 19 Nov: shortened texts)
            Elementor: Container (row, 2 cols)
@@ -212,11 +232,19 @@
           S02 · Hero — Container (row) › H1 small · H2 display · Text · question
           line (p) | Image IMG_2534 (rectangular, no filter)
         </div>
+        <div class="dev-note dev-note--inline">
+          <strong>HERO · build notes</strong>
+          <ul>
+            <li>H1: line break after "alliances:" (round 2, H1): Heading widget, Shift+Enter or <code>&lt;br&gt;</code>. Remove the break on mobile if it looks odd (Custom CSS <code>br{display:none}</code> on mobile).</li>
+            <li>Picture fills the full height next to the text (round 2, H2): row Container › Align items: Stretch; Image widget › Height 100% · Object fit Cover · Object position Center Center; min-height 420px desktop. Tablet/mobile: picture below the H2, ratio 16:10.</li>
+            <li>No colour overlay/filter on the photo (feedback H3).</li>
+          </ul>
+        </div>
 
         <div class="container hero__grid">
           <div class="hero__content">
             <h1 class="hero__h1">
-              Consulting for universities and European Universities alliances:
+              Consulting for universities and European Universities alliances:<br />
               internationalisation, strategy, change &amp; leadership
             </h1>
 
@@ -264,7 +292,18 @@
       <section class="section services" id="services">
         <div class="dev-note">
           S03 · Services — H2 · Text · 4 cards in ONE row (shape · label p · H3
-          · text · button) + women leaders banner
+          · text · button), rows aligned across cards + women leaders banner
+        </div>
+        <div class="dev-note dev-note--inline">
+          <strong>SERVICE CARDS · build notes</strong>
+          <ul>
+            <li>Grid Container 4 cols (desktop) · 2 cols up to 1199px (enable breakpoint "Laptop"/"Tablet extra") · 1 col mobile; gap 20px.</li>
+            <li>Each card: class <code>subgrid-5</code> (shape · label · H3 · text · button) so questions and texts start at the same height (round 2, H3).</li>
+            <li>Card: bg #F8F8F8 · border-top 4px (#02383E / #3DB7BB / #008080 / #67888B) · hover: Transform translateY -3px + box shadow.</li>
+            <li>Shapes: Icon widget with uploaded SVGs (square, diamond, circle, triangle). Triangle = SVG, not CSS.</li>
+            <li>Buttons (max 2 lines, round 2, H4): "More on internationalisation" · "More on strategy consulting" · "More on change" · "More on leadership development".</li>
+            <li>Women banner: Container (link) bg #02383E › Icon · Heading (p) · Text · Button "More on coaching for women". Set the text colour to white for Normal AND Hover (round 2, H5: links turn #02383E on hover, which hid the title).</li>
+          </ul>
         </div>
 
         <div class="container">
@@ -315,7 +354,7 @@
                 with agile ways of working that hold up under pressure.
               </p>
               <div class="service-card__cta">
-                <a class="btn btn--outline btn--arrow" href="organisational-development.html">More on organisational development</a>
+                <a class="btn btn--outline btn--arrow" href="organisational-development.html">More on change</a>
               </div>
             </article>
 
@@ -329,21 +368,23 @@
                 <a href="women-in-higher-education-leadership.html">dedicated offer for women in university leadership</a>.
               </p>
               <div class="service-card__cta">
-                <a class="btn btn--outline btn--arrow" href="leadership-development.html">More on leadership development and coaching</a>
+                <a class="btn btn--outline btn--arrow" href="leadership-development.html">More on leadership development</a>
               </div>
             </article>
           </div>
 
           <!-- Women leaders: own visible element (feedback H6). Title = the
                service name, text from the doc ("a dedicated offer for women in
-               university leadership"). Button label "Learn more" is ours. -->
+               university leadership"). Button label from the client (round 2, H6).
+               Hover: keep the text white (round 2, H5: the title must not
+               disappear; set Normal + Hover colours on the container link). -->
           <a class="women-banner" href="women-in-higher-education-leadership.html">
             <span class="women-banner__shape shape shape--rounded-diamond" aria-hidden="true"></span>
             <span class="women-banner__text">
               <span class="women-banner__title">Coaching for women in higher education leadership</span>
               <span class="women-banner__sub">A dedicated offer for women in university leadership.</span>
             </span>
-            <span class="btn btn--accent btn--arrow">Learn more</span>
+            <span class="btn btn--accent btn--arrow">More on coaching for women</span>
           </a>
         </div>
       </section>
@@ -360,6 +401,13 @@
         <div class="dev-note">
           S04 · About me — Image ("Picture option", top aligned with the H2) |
           H2 · name (p) · Text · 5 points · Button · 2 testimonials
+        </div>
+        <div class="dev-note dev-note--inline">
+          <strong>TESTIMONIALS · build notes</strong>
+          <ul>
+            <li>Grid Container 2 cols › each testimonial = Container class <code>subgrid-2</code> (quote text · name block), so the line above the names sits at the same height (round 2, S4).</li>
+            <li>Big “ : Heading 104px/800 #3DB7BB, position absolute top-left. Quote 20px/500 italic. Name block: border-top 2px #3DB7BB · name 20px/800 · role 14px #356065.</li>
+          </ul>
         </div>
 
         <div class="container expertise__grid">
@@ -437,6 +485,13 @@
           S05 · How I work — [H2 · Text] | Photo option 2 · 3 steps (centred) ·
           Button "Methods"
         </div>
+        <div class="dev-note dev-note--inline">
+          <strong>HOW I WORK · build notes</strong>
+          <ul>
+            <li>Row Container: [H2 · Text] | Image IMG_2468 (3:2, round 2, H7). Mobile: text centred (MO1).</li>
+            <li>Steps: 3-col Container centred; connecting line = Divider widgets between the shapes (or one SVG background). Mobile: each shape = Divider with element (shape icon in the middle).</li>
+          </ul>
+        </div>
 
         <div class="container">
           <div class="how__top">
@@ -455,13 +510,15 @@
               </p>
             </div>
 
-            <!-- Second photo option (feedback H16): which photo is the client's choice -->
-            <figure class="img-ph how__picture" role="img" aria-label="Photo option">
-              <span class="img-ph__mark" aria-hidden="true"></span>
-              <span class="img-ph__label">
-                <strong>Photo option</strong>
-                Which of your photos should go here? (e.g. a workshop moment)
-              </span>
+            <!-- Second photo (feedback H16): IMG_2468 for now (round 2, H7) -->
+            <figure class="picture how__picture">
+              <img
+                src="assets/images/photos/IMG_2468-how-i-work.jpg"
+                alt="Nadja Gmelch in conversation with a woman, sitting under trees by a river"
+                loading="lazy"
+                width="2400"
+                height="1600"
+              />
             </figure>
           </div>
 
@@ -551,6 +608,13 @@
         <div class="dev-note">
           S07 · Get started — title (p) · Text with highlight | numbered rows
           (top-aligned) · Button "Let's talk" → /contact
+        </div>
+        <div class="dev-note dev-note--inline">
+          <strong>GET STARTED · build notes</strong>
+          <ul>
+            <li>"Tell me about it." wrapped in <code>&lt;mark&gt;</code> (site-wide highlight CSS).</li>
+            <li>Number rows: Container (row) › number + title, Align items: Start, so 01/02/03 and titles start at the same height when a title wraps (H14).</li>
+          </ul>
         </div>
 
         <div class="container start__grid">
@@ -667,8 +731,17 @@
          ====================================================================== -->
     <footer class="site-footer">
       <div class="dev-note">
-        S11 · Theme Builder › Footer — 3 cols (logo + text + contact + button ·
+        S11 · Theme Builder › Footer — 3 cols (logo + text + contact ·
         services menu · newsletter form) + bottom bar (Polylang switcher)
+      </div>
+      <div class="dev-note dev-note--inline">
+        <strong>FOOTER · build notes</strong>
+        <ul>
+          <li>No "Let's talk" button in the footer (round 2, F1).</li>
+          <li>Contact: Heading (p) "Contact" · Icon List (email, phone; links mailto: / tel:).</li>
+          <li>LinkedIn: Icon List with the LinkedIn icon + text "Nadja Gmelch" / "U-teal" only (no word "LinkedIn", round 2, F2). Set aria-label "LinkedIn: …" via Custom Attributes.</li>
+          <li>Bottom bar language list: Polylang switcher widget, codes, separator "|".</li>
+        </ul>
       </div>
 
       <div class="container">
@@ -692,20 +765,19 @@
               <!-- Elementor: Icon List (LinkedIn icon) or Social Icons + text -->
               <ul class="site-footer__social">
                 <li>
-                  <a href="https://www.linkedin.com/in/nadja-gmelch/" target="_blank" rel="noopener">
+                  <a href="https://www.linkedin.com/in/nadja-gmelch/" target="_blank" rel="noopener" aria-label="LinkedIn: Nadja Gmelch">
                     <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg>
-                    LinkedIn (Nadja Gmelch)
+                    Nadja Gmelch
                   </a>
                 </li>
                 <li>
-                  <a href="https://www.linkedin.com/company/u-teal/" target="_blank" rel="noopener">
+                  <a href="https://www.linkedin.com/company/u-teal/" target="_blank" rel="noopener" aria-label="LinkedIn: U-teal">
                     <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg>
-                    LinkedIn (U-teal)
+                    U-teal
                   </a>
                 </li>
               </ul>
             </div>
-            <a class="btn btn--accent" href="contact.html">Let’s talk</a>
           </div>
 
           <!-- Column 2 -->

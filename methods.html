@@ -54,7 +54,7 @@
     <header class="site-header" id="top">
       <div class="dev-note">
         S01 · Theme Builder › Header (sticky) — Site Logo · Nav Menu with
-        "Services" submenu · Polylang switcher (EN/DE/ES) · Button "Let's talk"
+        "Services" submenu · Polylang switcher as dropdown (EN ▾) · Button "Let's talk"
       </div>
 
       <div class="container site-header__inner">
@@ -97,12 +97,18 @@
             <li><a class="nav-link" href="about-me.html">About</a></li>
             <li><a class="nav-link is-active" href="methods.html" aria-current="page">Methods</a></li>
 
-            <!-- Language switcher (Polylang): codes only, no globe icon (feedback G2).
-                 ES stays hidden on the live site until Spanish pages exist (T5). -->
-            <li class="lang" aria-label="Language">
-              <a class="lang__link" href="methods.html" aria-current="true" lang="en">EN</a>
-              <a class="lang__link" href="#" data-todo="/de/" lang="de">DE</a>
-              <a class="lang__link" href="#" data-todo="/es/" lang="es">ES</a>
+            <!-- Language switcher (Polylang, menu item "Displays as dropdown"):
+                 current code + arrow, the other languages in the dropdown.
+                 Scales to 4+ languages (feedback round 2, G1). No globe icon. -->
+            <li class="lang">
+              <button class="nav-link lang__btn" type="button" aria-expanded="false" aria-controls="submenu-lang" aria-label="Language: English. Change language" data-dropdown>
+                EN <span class="nav-link__chev" aria-hidden="true"></span>
+              </button>
+              <ul class="submenu lang__menu" id="submenu-lang">
+                <li><a href="methods.html" aria-current="true" lang="en">English</a></li>
+                <li><a href="#" data-todo="/de/" lang="de">Deutsch</a></li>
+                <li><a href="#" data-todo="/es/" lang="es">Español</a></li>
+              </ul>
             </li>
           </ul>
 
@@ -116,7 +122,7 @@
               <li>Mobile dropdown: Full width ON · Align: start · Toggle icon: custom SVG (bar · diamond · bar), colour #02383E, size 22px.</li>
               <li>Dropdown items: Manrope 16px/700 #02383E · padding 15px 0 · divider 1px #CCD7D8 · active: text #008080 + 3px left border.</li>
               <li>Submenu ("Services"): indicator chevron on the right · bg #F8F8F8 · items 15px/600 · padding 12px 16px.</li>
-              <li>Languages: Polylang "Language switcher" menu item showing <strong>codes only</strong> (EN / DE / ES), no flags, no globe icon (feedback G2).</li>
+              <li>Languages: Polylang "Language switcher" menu item, "Displays as dropdown": parent shows the current code (EN ▾), sub-items the other languages. No flags, no globe icon (round 2, G1).</li>
               <li>"Let's talk": last menu item with CSS class <code>menu-cta</code> styled as a button (or hide the header button on mobile: the floating Let's talk is always visible).</li>
             </ul>
           </div>
@@ -585,8 +591,17 @@
          ====================================================================== -->
     <footer class="site-footer">
       <div class="dev-note">
-        S11 · Theme Builder › Footer — 3 cols (logo + text + contact + button ·
+        S11 · Theme Builder › Footer — 3 cols (logo + text + contact ·
         services menu · newsletter form) + bottom bar (Polylang switcher)
+      </div>
+      <div class="dev-note dev-note--inline">
+        <strong>FOOTER · build notes</strong>
+        <ul>
+          <li>No "Let's talk" button in the footer (round 2, F1).</li>
+          <li>Contact: Heading (p) "Contact" · Icon List (email, phone; links mailto: / tel:).</li>
+          <li>LinkedIn: Icon List with the LinkedIn icon + text "Nadja Gmelch" / "U-teal" only (no word "LinkedIn", round 2, F2). Set aria-label "LinkedIn: …" via Custom Attributes.</li>
+          <li>Bottom bar language list: Polylang switcher widget, codes, separator "|".</li>
+        </ul>
       </div>
 
       <div class="container">
@@ -610,20 +625,19 @@
               <!-- Elementor: Icon List (LinkedIn icon) or Social Icons + text -->
               <ul class="site-footer__social">
                 <li>
-                  <a href="https://www.linkedin.com/in/nadja-gmelch/" target="_blank" rel="noopener">
+                  <a href="https://www.linkedin.com/in/nadja-gmelch/" target="_blank" rel="noopener" aria-label="LinkedIn: Nadja Gmelch">
                     <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg>
-                    LinkedIn (Nadja Gmelch)
+                    Nadja Gmelch
                   </a>
                 </li>
                 <li>
-                  <a href="https://www.linkedin.com/company/u-teal/" target="_blank" rel="noopener">
+                  <a href="https://www.linkedin.com/company/u-teal/" target="_blank" rel="noopener" aria-label="LinkedIn: U-teal">
                     <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg>
-                    LinkedIn (U-teal)
+                    U-teal
                   </a>
                 </li>
               </ul>
             </div>
-            <a class="btn btn--accent" href="contact.html">Let’s talk</a>
           </div>
 
           <!-- Column 2 -->
