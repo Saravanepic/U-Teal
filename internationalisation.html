@@ -337,14 +337,14 @@
               </li>
             </ul>
 
-            <div>
+            <div class="situations__cta">
               <a class="btn btn--outline btn--arrow" href="#offer">What I offer</a>
             </div>
           </div>
         </div>
 
         <!-- "Picture option" (client doc): after the "What I offer" button.
-             Mobile only (< 1000px); on desktop it sits in "What you can expect" (round 3, S1). -->
+             Mobile only (< 1000px); on desktop the wide picture after "What you can expect" is used (round 4). -->
         <div class="container">
           <figure class="img-ph situations__picture mobile-only" role="img" aria-label="Picture option">
             <span class="img-ph__mark" aria-hidden="true"></span>
@@ -471,9 +471,6 @@ Each card container › Layout: Grid › CSS Classes: subgrid-3</code></pre>
         <div class="container expect__grid">
           <div class="expect__head">
             <h2 class="h2">What you can expect from me</h2>
-            <!-- Second picture on desktop/tablet ≥1000px (round 3, S1).
-                 On mobile the picture under the bullet points is used instead. -->
-            <figure class="img-ph expect__picture" role="img" aria-label="Picture option"><span class="img-ph__mark" aria-hidden="true"></span><figcaption class="img-ph__label"><strong>Picture option (desktop)</strong>Second photo to be chosen. Under the heading, next to the numbered points (round 3, S1).</figcaption></figure>
           </div>
 
           <div class="num-rows">
@@ -525,6 +522,13 @@ Each card container › Layout: Grid › CSS Classes: subgrid-3</code></pre>
               </p>
             </div>
           </div>
+        </div>
+        <!-- Second picture (round 4): wide, full container width, between
+             "What you can expect from me" and "How we work together" (like the
+             About page). Desktop/laptop only; mobile uses the picture under
+             the bullet points. Elementor: Image · Hide on Tablet + Mobile. -->
+        <div class="container">
+          <figure class="img-ph expect__wide desktop-only" role="img" aria-label="Picture option"><span class="img-ph__mark" aria-hidden="true"></span><figcaption class="img-ph__label"><strong>Picture option (desktop)</strong>Wide photo to be chosen, like the one on the About page.</figcaption></figure>
         </div>
       </section>
       <!-- /S05 · EXPECT -->

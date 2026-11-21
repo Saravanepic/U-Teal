@@ -266,7 +266,7 @@
               <li>You are responsible for <mark class="highlight">staff development</mark> and are looking for a <mark class="highlight">leadership programme</mark> that fits the logic of a university, rather than one borrowed from the corporate world.</li>
             </ul>
             <figure class="img-ph situations__img mobile-only" style="aspect-ratio: 3 / 2" role="img" aria-label="Picture option"><span class="img-ph__mark" aria-hidden="true"></span><figcaption class="img-ph__label"><strong>Picture option</strong>Photo to be chosen.</figcaption></figure>
-            <div><a class="btn btn--outline btn--arrow" href="#offer">What I offer</a></div>
+            <div class="situations__cta"><a class="btn btn--outline btn--arrow" href="#offer">What I offer</a></div>
           </div>
         </div>
       </section>
@@ -351,9 +351,7 @@ Each card container › Layout: Grid › CSS Classes: subgrid-3</code></pre>
       <section class="section expect">
         <div class="dev-note">S05 · What you can expect from me — H2 | 4 numbered rows</div>
         <div class="container expect__grid">
-          <div class="expect__head"><h2 class="h2">What you can expect from me</h2>
-            <!-- Second picture on desktop/tablet ≥1000px (round 3, S1); mobile uses the one under the bullet points -->
-            <figure class="img-ph expect__picture" role="img" aria-label="Picture option"><span class="img-ph__mark" aria-hidden="true"></span><figcaption class="img-ph__label"><strong>Picture option (desktop)</strong>Second photo to be chosen. Under the heading, next to the numbered points (round 3, S1).</figcaption></figure></div>
+          <div class="expect__head"><h2 class="h2">What you can expect from me</h2></div>
           <div class="num-rows">
             <div class="num-row expect__row">
               <div class="num-row__head">
@@ -384,6 +382,13 @@ Each card container › Layout: Grid › CSS Classes: subgrid-3</code></pre>
               <p class="body">I work in English, German, Spanish, Italian and Catalan, and I move confidently between academic cultures.</p>
             </div>
           </div>
+        </div>
+        <!-- Second picture (round 4): wide, full container width, between
+             "What you can expect from me" and "How we work together" (like the
+             About page). Desktop/laptop only; mobile uses the picture under
+             the bullet points. Elementor: Image · Hide on Tablet + Mobile. -->
+        <div class="container">
+          <figure class="img-ph expect__wide desktop-only" role="img" aria-label="Picture option"><span class="img-ph__mark" aria-hidden="true"></span><figcaption class="img-ph__label"><strong>Picture option (desktop)</strong>Wide photo to be chosen, like the one on the About page.</figcaption></figure>
         </div>
       </section>
 

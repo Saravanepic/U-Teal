@@ -147,17 +147,22 @@ html {
 .expect__head {
   position: sticky;
   top: 120px;
-  display: flex;
-  flex-direction: column;
-  gap: 32px;
 }
 
-/* Second picture (round 3, S1): under the sticky H2, next to the numbered
-   points, on desktop. Elementor: Image in the left column · Responsive ›
-   Hide on Mobile. The picture under the bullet points: Hide on Desktop,
-   Laptop and Tablet (visible below 1000px only). */
-.expect__picture {
-  aspect-ratio: 4 / 5;
+/* More space between the bullet points and "What I offer" (round 4):
+   24px flow gap + 24px = 48px. Elementor: Button widget › Advanced ›
+   Margin top 24px (Mobile 16px). */
+.situations__cta {
+  margin-top: 24px;
+}
+
+/* Second picture (round 4): wide picture between "What you can expect"
+   and "How we work together", like the About page (21:9, container width).
+   Elementor: Image · Hide on Tablet + Mobile. The picture under the bullet
+   points: Hide on Desktop + Laptop (visible below 1000px only). */
+.expect__wide {
+  margin-top: clamp(48px, 6vw, 80px);
+  aspect-ratio: 21 / 9;
 }
 
 .mobile-only {
@@ -353,8 +358,12 @@ html {
     position: static;
   }
 
-  .expect__picture {
+  .desktop-only {
     display: none;
+  }
+
+  .situations__cta {
+    margin-top: 16px;
   }
 
   .mobile-only {
