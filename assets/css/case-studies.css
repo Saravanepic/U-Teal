@@ -1,0 +1,291 @@
+/* ==========================================================================
+   U-TEAL · CASE STUDIES (overview + detail template) · Draft 1
+   Loaded on case-studies.html and case-study-detail.html, after global.css.
+   Shared parts in global.css: case cards (5.3d), wide testimonial (5.3c),
+   dash list (5.2), buttons (5.1), mockup banner.
+
+   Overview: S02 Hero (H1) · S03 Higher education cases (H2 + tiles) ·
+             S04 Other sectors (H2 + tiles) · S05 Publications
+   Detail:   S02 Hero (back link · H1 · intro | picture) · S03 Approach
+             (H2 sticky | Goals · Method · Result) · S04 Quote + service link
+   ========================================================================== */
+
+/* Anchors (#bifrost …, #publications): leave room for the sticky header */
+html {
+  scroll-behavior: smooth;
+}
+
+.case-card,
+.cs-pubs {
+  scroll-margin-top: 110px;
+}
+
+/* --------------------------------------------------------------------------
+   OVERVIEW · S02 Hero: H1 only (no intro text in the client doc)
+   Elementor: Container › Heading H1 (36–56px, like the Methods H1)
+   -------------------------------------------------------------------------- */
+.cs-hero {
+  padding-top: clamp(40px, 6vw, 88px);
+  padding-bottom: clamp(32px, 4vw, 56px);
+}
+
+.cs-hero__title {
+  max-width: 900px;
+  font-size: clamp(36px, 4vw, 56px);
+  line-height: 1.2;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--c-teal-dark);
+  text-wrap: balance;
+}
+
+/* --------------------------------------------------------------------------
+   OVERVIEW · S03 / S04 Case groups (H2 + tiles)
+   Tiles on a soft section are white, like "From my practice".
+   -------------------------------------------------------------------------- */
+.cs-group.section--soft .case-card {
+  background: var(--c-white);
+}
+
+.cs-group.section--soft .case-card__logo {
+  background: var(--c-bg-soft);
+}
+
+/* --------------------------------------------------------------------------
+   OVERVIEW · S05 Publications: intro + 2-column list of entries
+   (topic label · title · co-authors and source)
+   Elementor: Container (grid 2 cols) › per entry: Text (label) ·
+              Heading (p, title) · Text (meta)
+   -------------------------------------------------------------------------- */
+.cs-pubs .section-head {
+  max-width: 880px;
+}
+
+.cs-pubs__list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0 clamp(32px, 5vw, 72px);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border-top: 1px solid var(--c-line);
+}
+
+.cs-pub {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 22px 0;
+  border-bottom: 1px solid var(--c-line);
+}
+
+.cs-pub__topic {
+  font-size: 13px;
+  line-height: 1.35;
+  font-weight: 800;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  color: var(--c-teal);
+}
+
+.cs-pub__title {
+  font-size: 17px;
+  line-height: 1.4;
+  font-weight: 700;
+  color: var(--c-teal-dark);
+  text-wrap: pretty;
+}
+
+.cs-pub__meta {
+  font-size: 15px;
+  line-height: 1.55;
+  color: var(--c-text);
+}
+
+/* --------------------------------------------------------------------------
+   DETAIL · S02 Hero: back link · H1 · intro | picture (logo tile)
+   Elementor (Theme Builder › Single › Case study):
+     Text (link to overview) · Post Title (H1) · Text (custom field "Intro")
+     | Featured Image (logo on white, 16:10, contain)
+   -------------------------------------------------------------------------- */
+.cs-detail-hero {
+  padding-top: clamp(32px, 5vw, 72px);
+  padding-bottom: clamp(48px, 6vw, 88px);
+}
+
+.cs-detail-hero__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+  gap: clamp(32px, 5vw, 72px);
+  align-items: center;
+}
+
+.cs-detail-hero__content {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.cs-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  align-self: flex-start;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--c-teal);
+}
+
+.cs-back::before {
+  content: "←";
+}
+
+.cs-back:hover {
+  color: var(--c-teal-dark);
+}
+
+.cs-detail-hero__title {
+  font-size: clamp(32px, 3.6vw, 48px);
+  line-height: 1.2;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--c-teal-dark);
+  text-wrap: balance;
+}
+
+.cs-detail-hero__intro {
+  max-width: 38em;
+}
+
+.cs-detail-hero__intro a,
+.cs-approach a {
+  color: var(--c-teal);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* Picture: client logo on a white tile (same look as the case cards) */
+.cs-detail-hero__picture {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  aspect-ratio: 16 / 10;
+  padding: 14% 16%;
+  background: var(--c-bg-soft);
+  border-bottom: 3px solid var(--c-teal-light);
+}
+
+.cs-detail-hero__picture img {
+  max-width: 100%;
+  max-height: 110px;
+  width: auto;
+  object-fit: contain;
+}
+
+/* --------------------------------------------------------------------------
+   DETAIL · S03 Approach: H2 (sticky) | Goals · Method · Result
+   Elementor: Container (grid 0.6fr 1.4fr) › Heading H2 (sticky) |
+              Post Content (written in the WP editor: H3 + lists), or
+              3 containers (H3 · Text Editor list)
+   -------------------------------------------------------------------------- */
+.cs-approach__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.6fr) minmax(0, 1.4fr);
+  gap: 32px clamp(32px, 5vw, 72px);
+  align-items: start;
+}
+
+.cs-approach__head {
+  position: sticky;
+  top: 120px;
+}
+
+.cs-approach__blocks {
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid var(--c-line);
+}
+
+.cs-block {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: clamp(24px, 3vw, 36px) 0;
+  border-bottom: 1px solid var(--c-line);
+}
+
+.cs-block .dash-list {
+  gap: 12px;
+}
+
+/* Method: the three steps (Notice · Align · Act with impact) with the
+   brand shapes square · diamond · circle (same as Home "How I work").
+   Elementor: Icon List with uploaded SVG shapes, or Text Editor list. */
+.cs-steps {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.cs-step {
+  display: grid;
+  grid-template-columns: 22px minmax(0, 1fr);
+  gap: 16px;
+  align-items: start;
+}
+
+.cs-step .shape {
+  width: 18px;
+  height: 18px;
+  margin-top: 4px;
+}
+
+.cs-step .shape--diamond {
+  width: 15px;
+  height: 15px;
+  margin: 6px 0 0 2px;
+}
+
+.cs-step strong {
+  color: var(--c-teal-dark);
+}
+
+/* --------------------------------------------------------------------------
+   DETAIL · S04 Quote + "Learn more about this service"
+   Elementor: Container › testimonial (global 5.3c) · Button (outline)
+   -------------------------------------------------------------------------- */
+.cs-outro .testimonial--wide {
+  margin-top: 0;
+  background: var(--c-bg-soft);
+}
+
+.cs-outro__cta {
+  display: flex;
+  margin-top: clamp(28px, 3vw, 40px);
+}
+
+/* ==========================================================================
+   RESPONSIVE
+   ========================================================================== */
+@media (max-width: 999px) {
+  .cs-detail-hero__grid,
+  .cs-approach__grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .cs-detail-hero__picture {
+    order: -1;
+    aspect-ratio: 16 / 9;
+  }
+
+  .cs-approach__head {
+    position: static;
+  }
+
+  .cs-pubs__list {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}

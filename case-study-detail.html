@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<!--
+================================================================================
+  U-TEAL · Case study DETAIL TEMPLATE (EN) · example: Bifröst · HTML mockup — Draft 1
+================================================================================
+  Content: client doc "20261103_Case_Studies_EN" (PDF), "Detail block" of the
+  Bifröst case. All 7 case studies use this one layout (WordPress: Theme
+  Builder › Single › Case study). Headings: case title = H1 (agreed);
+  "My approach" = H2 and "Goals / Method / Result" = H3 are our proposal
+  (bold lines in the doc).
+  CSS: assets/css/global.css + assets/css/case-studies.css
+================================================================================
+-->
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- SEO (Yoast: SEO title / Meta description / Social) -->
+    <title>Rethinking internationalisation for a digital university | U-teal</title>
+    <meta
+      name="description"
+      content="Bifröst University in Iceland had moved to fully online teaching, but its internationalisation strategy still dated from before the switch."
+    />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="Rethinking internationalisation for a digital university | U-teal" />
+    <meta
+      property="og:description"
+      content="How Bifröst University adapted its internationalisation strategy, exchange models and partnerships to fully online teaching."
+    />
+    <meta property="og:image" content="assets/images/clients/bifrost.png" />
+
+    <link rel="icon" type="image/png" href="assets/images/brand/mark-primary-bg-white-square.png" />
+    <link rel="apple-touch-icon" href="assets/images/brand/mark-primary-bg-white-square.png" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap"
+    />
+
+    <link rel="stylesheet" href="assets/css/global.css" />
+    <link rel="stylesheet" href="assets/css/case-studies.css" />
+  </head>
+
+  <body>
+    <!-- ======================================================================
+         S01 · HEADER
+         Elementor: Theme Builder › Header (sticky)
+         Widgets: Site Logo (SVG) · Nav Menu (Home · Services ▾ · About ·
+                  Methods) · Polylang language switcher (codes EN / DE / ES) · Button
+         ====================================================================== -->
+    <header class="site-header" id="top">
+      <div class="dev-note">
+        S01 · Theme Builder › Header (sticky) — Site Logo · Nav Menu with
+        "Services" submenu · Polylang switcher as dropdown (EN ▾) · Button "Let's talk"
+      </div>
+
+      <div class="container site-header__inner">
+        <a class="site-logo" href="index.html" aria-label="U-teal home">
+          <img src="assets/images/brand/logo-uteal.svg" alt="U-teal" width="117" height="31" />
+        </a>
+
+        <!-- Mobile menu button (designer icon: bar · diamond · bar) -->
+        <button
+          class="menu-toggle"
+          type="button"
+          aria-label="Open menu"
+          aria-expanded="false"
+          aria-controls="site-nav"
+        >
+          <span class="menu-toggle__bar menu-toggle__bar--top"></span>
+          <span class="menu-toggle__diamond"></span>
+          <span class="menu-toggle__bar menu-toggle__bar--bottom"></span>
+        </button>
+
+        <nav class="site-nav" id="site-nav" aria-label="Main">
+          <ul class="nav-list">
+            <li><a class="nav-link" href="index.html">Home</a></li>
+
+            <!-- Services dropdown (final wording tbc by client) -->
+            <li>
+              <button class="nav-link" type="button" aria-expanded="false" aria-controls="submenu-services" data-dropdown>
+                Services <span class="nav-link__chev" aria-hidden="true"></span>
+              </button>
+              <ul class="submenu" id="submenu-services">
+                <li><a href="internationalisation.html">Internationalisation and university alliances</a></li>
+                <li><a href="strategy-consulting.html">Strategy consulting</a></li>
+                <li><a href="organisational-development.html">Organisational development</a></li>
+                <li><a href="leadership-development.html">Leadership development and coaching</a></li>
+                <li class="submenu__divider" aria-hidden="true"></li>
+                <li><a href="women-in-higher-education-leadership.html">Coaching for women in higher education leadership</a></li>
+              </ul>
+            </li>
+
+            <li><a class="nav-link" href="about-me.html">About</a></li>
+            <li><a class="nav-link" href="methods.html">Methods</a></li>
+
+            <!-- Language switcher (Polylang, menu item "Displays as dropdown"):
+                 current code + arrow, the other languages in the dropdown.
+                 Scales to 4+ languages (feedback round 2, G1). No globe icon. -->
+            <li class="lang">
+              <button class="nav-link lang__btn" type="button" aria-expanded="false" aria-controls="submenu-lang" aria-label="Language: English. Change language" data-dropdown>
+                EN <span class="nav-link__chev" aria-hidden="true"></span>
+              </button>
+              <ul class="submenu lang__menu" id="submenu-lang">
+                <li><a href="methods.html" aria-current="true" lang="en">English</a></li>
+                <li><a href="#" data-todo="/de/" lang="de">Deutsch</a></li>
+                <li><a href="#" data-todo="/es/" lang="es">Español</a></li>
+              </ul>
+            </li>
+          </ul>
+
+          <a class="btn btn--primary" href="contact.html">Let’s talk</a>
+
+          <!-- Elementor build notes for the mobile menu (visible with developer notes on, menu open) -->
+          <div class="dev-note dev-note--inline">
+            <strong>MOBILE MENU · Elementor Pro › Nav Menu widget</strong>
+            <ul>
+              <li>Layout: Horizontal · Breakpoint: Tablet (Site Settings › Layout › Breakpoints: Tablet = 999px).</li>
+              <li>Mobile dropdown: Full width ON · Align: start · Toggle icon: custom SVG (bar · diamond · bar), colour #02383E, size 22px.</li>
+              <li>Dropdown items: Manrope 16px/700 #02383E · padding 15px 0 · divider 1px #CCD7D8 · active: text #008080 + 3px left border.</li>
+              <li>Submenu ("Services"): indicator chevron on the right · bg #F8F8F8 · items 15px/600 · padding 12px 16px.</li>
+              <li>Languages: Polylang "Language switcher" menu item, "Displays as dropdown": parent shows the current code (EN ▾), sub-items the other languages. No flags, no globe icon (round 2, G1).</li>
+              <li>"Let's talk": last menu item with CSS class <code>menu-cta</code> styled as a button (or hide the header button on mobile: the floating Let's talk is always visible).</li>
+            </ul>
+            <div class="dev-svgs">
+              <p class="dev-svgs__label">SVG · Nav Menu › Toggle icon (normal / active)</p>
+              <div class="dev-svgs__grid">
+                <div class="dev-svg">
+                  <img src="assets/images/svg/icon-menu.svg" alt="" width="28" height="28" />
+                  <span class="dev-svg__name">icon-menu.svg</span>
+                  <button class="copy-btn" type="button" data-copy>Copy</button>
+                  <a class="copy-btn" href="assets/images/svg/icon-menu.svg" download>Download</a>
+                  <code hidden>&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 26 22&quot; width=&quot;26&quot; height=&quot;22&quot;&gt;&lt;rect x=&quot;0&quot; y=&quot;2&quot; width=&quot;22&quot; height=&quot;4&quot; fill=&quot;#02383E&quot;/&gt;&lt;rect x=&quot;9.5&quot; y=&quot;7.5&quot; width=&quot;7&quot; height=&quot;7&quot; transform=&quot;rotate(45 13 11)&quot; fill=&quot;#008080&quot;/&gt;&lt;rect x=&quot;4&quot; y=&quot;16&quot; width=&quot;22&quot; height=&quot;4&quot; fill=&quot;#02383E&quot;/&gt;&lt;/svg&gt;</code>
+                </div>
+                <div class="dev-svg">
+                  <img src="assets/images/svg/icon-menu-close.svg" alt="" width="28" height="28" />
+                  <span class="dev-svg__name">icon-menu-close.svg</span>
+                  <button class="copy-btn" type="button" data-copy>Copy</button>
+                  <a class="copy-btn" href="assets/images/svg/icon-menu-close.svg" download>Download</a>
+                  <code hidden>&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 22 22&quot; width=&quot;22&quot; height=&quot;22&quot;&gt;&lt;rect x=&quot;-2&quot; y=&quot;9&quot; width=&quot;26&quot; height=&quot;4&quot; transform=&quot;rotate(45 11 11)&quot; fill=&quot;#02383E&quot;/&gt;&lt;rect x=&quot;-2&quot; y=&quot;9&quot; width=&quot;26&quot; height=&quot;4&quot; transform=&quot;rotate(-45 11 11)&quot; fill=&quot;#02383E&quot;/&gt;&lt;/svg&gt;</code>
+                </div>
+              </div>
+            </div>
+          </div>
+        </nav>
+      </div>
+    </header>
+    <!-- /S01 · HEADER -->
+
+    <!-- Mockup-only note (review drafts) — NOT part of the WordPress build -->
+    <aside class="mockup-banner" aria-label="Note about this draft">
+      <div class="container mockup-banner__inner">
+        <span class="mockup-banner__tag">Draft note</span>
+        <p>
+          <strong>Case study template.</strong> This page shows the Bifröst case
+          as the example. In WordPress, all seven case studies use this one
+          layout, and each gets its own page (for example
+          <code>/case-studies/bifrost/</code>). New case studies can be added
+          by filling in the same fields, without designing a page.
+        </p>
+      </div>
+    </aside>
+
+
+    <!-- ======================================================================
+         SEO BOX (developer only — copy-paste into Yoast for this page)
+         ====================================================================== -->
+    <aside class="seo-box dev-only" aria-label="SEO values for this page">
+      <div class="seo-box__inner">
+        <p class="seo-box__title">
+          <span>SEO · Case study · Bifröst (EN) → Yoast SEO</span>
+          <span>Slug: /case-studies/bifrost</span>
+        </p>
+        <dl>
+          <dt>Title tag</dt>
+          <dd data-count>Rethinking internationalisation for a digital university | U-teal</dd>
+          <dd><button class="copy-btn" type="button">Copy</button></dd>
+
+          <dt>Meta description</dt>
+          <dd data-count>Bifröst University in Iceland had moved to fully online teaching, but its internationalisation strategy still dated from before the switch.</dd>
+          <dd><button class="copy-btn" type="button">Copy</button></dd>
+
+          <dt>OG title</dt>
+          <dd data-count>Rethinking internationalisation for a digital university | U-teal</dd>
+          <dd><button class="copy-btn" type="button">Copy</button></dd>
+
+          <dt>OG description</dt>
+          <dd data-count>How Bifröst University adapted its internationalisation strategy, exchange models and partnerships to fully online teaching.</dd>
+          <dd><button class="copy-btn" type="button">Copy</button></dd>
+
+          <dt>Slug</dt>
+          <dd>/case-studies/bifrost (= the anchor name from the doc)</dd>
+          <dd></dd>
+
+          <dt>H1</dt>
+          <dd>Rethinking internationalisation for a digital university</dd>
+          <dd><button class="copy-btn" type="button">Copy</button></dd>
+        </dl>
+
+        <div class="seo-box__outline">
+          <p class="seo-box__subtitle">
+            Heading structure (H1 = case title, agreed; H2 "My approach" + H3 Goals/Method/Result = our proposal, bold lines in the doc)
+          </p>
+          <ol class="heading-outline" data-heading-outline></ol>
+          <p class="seo-box__hint">
+            No SEO block for the case pages in the doc → PROPOSAL: Yoast template for the post type "Case study": title = %%title%% | U-teal; meta = first sentence of the tile text (Excerpt), OG description = our summary (to confirm). Links on hold (client): none in the Bifröst detail text apart from the method links. Other cases: DAAD, CAPES, joyn-coop, European Commission, SA Dept. of Science and Technology, NORPART → plain text until the client sends the links; FAS, UAB and HK-dir use the links already on the site.
+          </p>
+        </div>
+      </div>
+    </aside>
+
+    <main>
+      <!-- Build notes (developer notes only) -->
+      <div class="container dev-only">
+        <div class="dev-note dev-note--inline">
+          <strong>CASE STUDY · Theme Builder › Single › Case study (one template for all cases)</strong>
+          <ul>
+            <li><strong>S02</strong>: Text link "All case studies" → <code>/case-studies/#{slug}</code> (Dynamic tag: post slug as anchor) · Post Title (H1) · Text = custom field "Intro" (detail block opening paragraph) | Featured Image or custom field "Detail picture" (logo on white, or photo).</li>
+            <li><strong>S03</strong>: H2 "My approach" (some cases: "Our approach" → custom field "Approach heading", default "Our approach") | <strong>Post Content</strong> (one per single template): Goals / Method / Result written in the WP editor as H3 + lists. The 3-step method list (Notice · Align · Act) only appears in the Bifröst case.</li>
+            <li><strong>S04</strong>: Quote (fields: text, name, role; hide the container when empty — Display Conditions) · Button "Learn more about this service" (fields: URL; label fixed).</li>
+            <li>Mobile/tablet: picture first (16:9), then text; approach = one column (H2 not sticky); quote with normal side padding.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- ====================================================================
+           S02 · HERO — back link (navigation aid, not in the doc) · H1 ·
+           intro | picture ("Picture option" after the intro in the doc)
+           Elementor: Container (row, 2 cols) › [Text link · Post Title H1 ·
+                      Text (field "Intro")] | Image (logo tile)
+           ==================================================================== -->
+      <section class="cs-detail-hero">
+        <div class="dev-note">S02 · back link (our addition, navigation aid) · H1 (32–48px/700) · intro | picture (client logo on a soft tile; "Picture option" — can be replaced by a photo later)</div>
+        <div class="container cs-detail-hero__grid">
+          <div class="cs-detail-hero__content">
+            <a class="cs-back" href="case-studies.html#bifrost" data-extra>All case studies</a>
+            <h1 class="cs-detail-hero__title">Rethinking internationalisation for a digital university</h1>
+            <p class="body cs-detail-hero__intro">
+              Bifröst University had fundamentally changed its teaching and
+              learning model and moved all its degree programmes online. Its
+              international relations had not kept pace with this change: the
+              internationalisation strategy, the exchange models and some of
+              the partnerships still dated from its campus-based days. The
+              university’s leadership and international office wanted support
+              to adapt strategy, exchange formats and partnerships to the new
+              digital learning model.
+            </p>
+          </div>
+          <figure class="cs-detail-hero__picture">
+            <img src="assets/images/clients/bifrost.png" alt="Bifröst University" />
+          </figure>
+        </div>
+      </section>
+      <!-- /S02 · HERO -->
+
+      <!-- ====================================================================
+           S03 · APPROACH — H2 (sticky) | Goals · Method · Result
+           Elementor: Container (grid 0.6fr 1.4fr, soft bg) › Heading H2
+                      (sticky) | Post Content (H3 + lists)
+           ==================================================================== -->
+      <section class="section section--soft cs-approach">
+        <div class="dev-note">S03 · H2 sticky | 3 blocks (H3 · dash list / step list), lines between blocks</div>
+        <div class="container cs-approach__grid">
+          <div class="cs-approach__head">
+            <h2 class="h2">My approach</h2>
+          </div>
+          <div class="cs-approach__blocks">
+            <div class="cs-block">
+              <h3 class="h4">Goals of my consulting work</h3>
+              <ul class="dash-list body">
+                <li>Rethink internationalisation for a digital university</li>
+                <li>Clarify which models of virtual student exchange would work</li>
+                <li>Develop recommendations for the future partnership strategy</li>
+              </ul>
+            </div>
+
+            <div class="cs-block">
+              <h3 class="h4">Method</h3>
+              <p class="body">
+                The work followed
+                <a href="index.html#how-i-work">the three steps I use to shape change processes</a>:
+              </p>
+              <ol class="cs-steps body" role="list">
+                <li class="cs-step">
+                  <span class="shape shape--square" aria-hidden="true"></span>
+                  <p><strong>Notice</strong>: interviews with those involved to understand the starting point and the differing expectations of internationalisation; a workshop with the leadership team in which we used <a href="methods.html#design-thinking">design thinking</a> to develop two personas, one for outgoing and one for incoming exchange students</p>
+                </li>
+                <li class="cs-step">
+                  <span class="shape shape--diamond" aria-hidden="true"></span>
+                  <p><strong>Align</strong>: <a href="methods.html#3d-mapping">3D mapping</a> to make the current state of international relations visible and develop a vision for the future</p>
+                </li>
+                <li class="cs-step">
+                  <span class="shape shape--circle" aria-hidden="true"></span>
+                  <p><strong>Act with impact</strong>: recommendations for new exchange models and the future partnership strategy</p>
+                </li>
+              </ol>
+            </div>
+
+            <div class="cs-block">
+              <h3 class="h4">Result</h3>
+              <ul class="dash-list body">
+                <li>The persona work brought to light a student profile that the university’s previous approach had overlooked, and it changed how Bifröst University thinks about its future exchange models.</li>
+                <li>Bifröst University has introduced new exchange models and established new international partnerships.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- /S03 · APPROACH -->
+
+      <!-- ====================================================================
+           S04 · QUOTE + SERVICE LINK
+           Elementor: Container › testimonial (global 5.3c, fields) ·
+                      Button outline "Learn more about this service"
+           ==================================================================== -->
+      <section class="section cs-outro">
+        <div class="dev-note">S04 · quote (hidden when the case has none) · Button "Learn more about this service" → service page (field)</div>
+        <div class="container">
+          <figure class="testimonial testimonial--wide">
+            <span class="testimonial__mark" aria-hidden="true">“</span>
+            <blockquote class="testimonial__text">Nadja combines deep knowledge of international higher education with a clear, participatory process. She listened carefully to our team, made our situation visible and helped us find a direction we could all support.</blockquote>
+            <figcaption class="testimonial__author">
+              <span class="testimonial__name">Margrét Jónsdóttir</span>
+              <span class="testimonial__role">Former Rector, Bifröst University, Iceland</span>
+            </figcaption>
+          </figure>
+          <div class="cs-outro__cta">
+            <a class="btn btn--outline btn--arrow" href="internationalisation.html">Learn more about this service</a>
+          </div>
+        </div>
+      </section>
+      <!-- /S04 · QUOTE + SERVICE LINK -->
+    </main>
+
+    <!-- ======================================================================
+         S11 · FOOTER
+         Elementor: Theme Builder › Footer
+         Col 1: Site Logo (white SVG) · Text · Button
+         Col 2: Nav Menu (services)
+         Col 3: Text · Form (Pro: first name + email → Mailchimp/Brevo,
+                double opt-in) · privacy note
+         Bottom bar: copyright · legal links · contact · LinkedIn · EN|DE|ES
+         ====================================================================== -->
+    <footer class="site-footer">
+      <div class="dev-note">
+        S11 · Theme Builder › Footer — 3 cols (logo + text + contact ·
+        services menu · newsletter form) + bottom bar (Polylang switcher)
+      </div>
+      <div class="dev-note dev-note--inline">
+        <strong>FOOTER · build notes</strong>
+        <ul>
+          <li>No "Let's talk" button in the footer (round 2, F1).</li>
+          <li>Contact: Heading (p) "Contact" · Icon List (email, phone; links mailto: / tel:).</li>
+          <li>LinkedIn: Icon List with the LinkedIn icon + text "Nadja Gmelch" / "U-teal" only (no word "LinkedIn", round 2, F2). Set aria-label "LinkedIn: …" via Custom Attributes.</li>
+          <li>Bottom bar language list: Polylang switcher widget, codes, separator "|".</li>
+        </ul>
+        <div class="dev-svgs">
+          <p class="dev-svgs__label">SVG · LinkedIn icon (Icon List › Upload SVG)</p>
+          <div class="dev-svgs__grid">
+            <div class="dev-svg">
+              <img src="assets/images/svg/icon-linkedin.svg" alt="" width="28" height="28" />
+              <span class="dev-svg__name">icon-linkedin.svg</span>
+              <button class="copy-btn" type="button" data-copy>Copy</button>
+              <a class="copy-btn" href="assets/images/svg/icon-linkedin.svg" download>Download</a>
+              <code hidden>&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 24 24&quot; width=&quot;24&quot; height=&quot;24&quot;&gt;&lt;path fill=&quot;currentColor&quot; d=&quot;M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z&quot;/&gt;&lt;/svg&gt;</code>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="container">
+        <div class="site-footer__cols">
+          <!-- Column 1: about + contact (feedback F3: contact details moved here) -->
+          <div class="site-footer__col">
+            <a class="site-footer__logo" href="index.html" aria-label="U-teal home">
+              <img src="assets/images/brand/logo-uteal-white.svg" alt="U-teal" width="96" height="26" />
+            </a>
+            <p>
+              U-teal · Nadja Gmelch’s systemic higher education consultancy for
+              internationalisation, strategy, organisational development and
+              leadership in Europe and beyond. · On site and online.
+            </p>
+            <div class="site-footer__contact">
+              <p class="site-footer__title">Contact</p>
+              <ul class="site-footer__links">
+                <li><a href="mailto:nadja@u-teal.com">nadja@u-teal.com</a></li>
+                <li><a href="tel:+34697585199">+34 697 585 199</a></li>
+              </ul>
+              <!-- Elementor: Icon List (LinkedIn icon) or Social Icons + text -->
+              <ul class="site-footer__social">
+                <li>
+                  <a href="https://www.linkedin.com/in/nadja-gmelch/" target="_blank" rel="noopener" aria-label="LinkedIn: Nadja Gmelch">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg>
+                    Nadja Gmelch
+                  </a>
+                </li>
+                <li>
+                  <a href="https://www.linkedin.com/company/u-teal/" target="_blank" rel="noopener" aria-label="LinkedIn: U-teal">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg>
+                    U-teal
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Column 2 -->
+          <div class="site-footer__col">
+            <p class="site-footer__title">Services</p>
+            <ul class="site-footer__links">
+              <li><a href="strategy-consulting.html">Strategy consulting</a></li>
+              <li><a href="internationalisation.html">Internationalisation and university alliances</a></li>
+              <li><a href="organisational-development.html">Organisational development</a></li>
+              <li><a href="leadership-development.html">Leadership development and coaching</a></li>
+              <li><a href="women-in-higher-education-leadership.html">Coaching for women in higher education leadership</a></li>
+            </ul>
+          </div>
+
+          <!-- Column 3: newsletter (email only, feedback F1) -->
+          <div class="site-footer__col site-footer__col--newsletter">
+            <p class="site-footer__title">Newsletter</p>
+            <p>
+              Want to stay informed about what I’m working on? Roughly every two
+              months, I write about current projects, new formats and upcoming
+              dates, and share what I’m learning about change in universities.
+            </p>
+            <form class="footer-form" action="#" onsubmit="return false;">
+              <label class="sr-only" for="nl-email">Email</label>
+              <input id="nl-email" type="email" placeholder="Email" autocomplete="email" required />
+              <button class="btn btn--accent" type="submit">Subscribe</button>
+            </form>
+            <p class="footer-form__note">
+              Unsubscribe at any time.
+              <a href="#" data-todo="/privacy-policy">Privacy information</a>
+            </p>
+
+            <div class="dev-note dev-note--inline">
+              <strong>FORM · Elementor Pro › Form widget</strong>
+              <ul>
+                <li>Fields: Email only (required, 100%) + Submit (100% = same width as the field, desktop and mobile; feedback F1/F2/MO2).</li>
+                <li>Action: Brevo (client's provider) with double opt-in ON (GDPR/DE): Brevo plugin or webhook.</li>
+                <li>Spam: honeypot ON + hCaptcha (free "hCaptcha for WP" plugin, supports Elementor Pro forms). No reCAPTCHA.</li>
+                <li>Field: transparent bg · border 1px rgba(255,255,255,.35) · radius 8px · padding 11px 14px · Manrope 14px · text #FFF · placeholder #9AAFB2.</li>
+                <li>Button: bg #3DB7BB · text #02383E · 14px/700 · padding 12px 20px · radius 8px · hover bg #FFF.</li>
+                <li>Polylang: translate the success message + privacy link in DE/ES.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bottom bar -->
+        <div class="site-footer__bottom">
+          <ul class="site-footer__meta">
+            <li>© <span class="js-year">2026</span> Nadja Gmelch · U-teal</li>
+            <li><a href="#" data-todo="/legal-notice">Legal notice</a></li>
+            <li><a href="#" data-todo="/privacy-policy">Privacy policy</a></li>
+            <li><a href="#" data-todo="cookie-settings">Cookie settings</a></li>
+          </ul>
+          <!-- Polylang: each link points to the same page in the other language -->
+          <nav class="site-footer__lang" aria-label="Language">
+            <a href="methods.html" aria-current="true">EN</a> |
+            <a href="#" data-todo="/de/">DE</a> |
+            <a href="#" data-todo="/es/">ES</a>
+          </nav>
+        </div>
+      </div>
+    </footer>
+    <!-- /S11 · FOOTER -->
+
+    <!-- ======================================================================
+         FLOATING "LET'S TALK" (mobile / tablet only — feedback G1; desktop uses the header button)
+         Elementor: Pro Popup (bottom bar, all pages, no close button) or a
+         fixed Container. Triangle = SVG/shape behind the button.
+         ====================================================================== -->
+    <div class="float-cta">
+      <a class="btn btn--primary" href="contact.html">Let’s talk</a>
+    </div>
+
+    <!-- Scripts: menus, developer notes, SEO copy buttons, footer year -->
+    <script src="assets/js/main.js" defer></script>
+  </body>
+</html>

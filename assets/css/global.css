@@ -410,6 +410,147 @@ a:hover {
   color: var(--c-muted);
 }
 
+/* --- 5.3c Wide testimonial: one quote across the full content width.
+   Used on service pages and case study pages. Elementor: Container with
+   classes ut-testimonial (+ local style: rows auto auto, wide left padding). --- */
+.testimonial--wide {
+  grid-template-rows: auto auto;
+  margin-top: clamp(32px, 4vw, 48px);
+  padding-left: clamp(56px, 7vw, 96px);
+}
+
+.testimonial--wide .testimonial__text {
+  max-width: 60em;
+}
+
+.testimonial--wide .testimonial__author {
+  justify-self: start;
+  min-width: 280px;
+}
+
+@media (max-width: 599px) {
+  .testimonial--wide {
+    padding-left: clamp(24px, 3vw, 40px);
+  }
+
+  .testimonial--wide .testimonial__author {
+    min-width: 0;
+  }
+}
+
+/* --- 5.3d Case cards ("tiles"): picture (client logo or photo) · H3 ·
+   text · button. Used on service pages ("From my practice") and on the
+   Case studies overview. Elementor: Loop Grid › Loop Item (Featured Image ·
+   Post Title · Excerpt · Read more) or static containers; classes
+   ut-case-card / ut-case-logo / ut-case-body / ut-case-title. --- */
+.case-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.case-card {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 0 0 28px;
+  background: var(--c-bg-soft);
+}
+
+.case-card > :not(.case-card__logo) {
+  margin-left: clamp(20px, 2vw, 28px);
+  margin-right: clamp(20px, 2vw, 28px);
+}
+
+/* Logo tile (Elementor: Featured Image = client logo, contain, padded) */
+.case-card__logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  aspect-ratio: 16 / 9;
+  overflow: hidden; /* keeps the box at 16:9 even when a photo is taller */
+  margin-bottom: 8px;
+  padding: 12% 14%;
+  background: var(--c-white);
+  border-bottom: 3px solid var(--c-teal-light);
+}
+
+.case-card__logo img {
+  max-width: 100%;
+  max-height: 72px;
+  width: auto;
+  object-fit: contain;
+}
+
+/* Tall logos (e.g. OpenEU) may use more height */
+.case-card__logo img[src*="openeu"] {
+  max-height: 110px;
+}
+
+/* Photo instead of a logo (round 2, S6: Unsplash photos where no logo can
+   be used). Full-bleed, cropped. */
+.case-card__logo--photo {
+  padding: 0;
+}
+
+.case-card__logo--photo img {
+  width: 100%;
+  height: 100%;
+  max-height: none;
+  object-fit: cover;
+}
+
+.case-card__logo-ph {
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.4;
+  text-align: center;
+  color: var(--c-tint-dark-60);
+}
+
+.case-card__logo-ph small {
+  font-weight: 500;
+}
+
+.case-card__title {
+  font-size: clamp(18px, 1.5vw, 20px);
+  line-height: 1.35;
+  font-weight: 800;
+  color: var(--c-teal-dark);
+  text-wrap: balance;
+}
+
+.case-card .body {
+  font-size: 15px;
+}
+
+.case-card .body a {
+  color: var(--c-teal);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.case-card > div:last-child {
+  margin-top: auto;
+  padding-top: 6px;
+}
+
+.case-card .btn {
+  white-space: normal;
+}
+
+@media (max-width: 999px) {
+  .case-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 699px) {
+  .case-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
 /* --- 5.4 Numbered rows (designer "Trust" style: 01 + title | text) --- */
 .num-rows {
   border-top: 1px solid var(--c-line);
@@ -1742,4 +1883,50 @@ a:hover {
   margin-top: 12px;
   font-size: 13px;
   color: var(--c-muted);
+}
+
+/* --------------------------------------------------------------------------
+   Mockup-only note (review drafts) — NOT part of the WordPress build (service + case study drafts)
+   -------------------------------------------------------------------------- */
+.mockup-banner {
+  background: #fff8d6;
+  border-bottom: 1px solid #ecd97a;
+}
+
+.mockup-banner__inner {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding-top: 14px;
+  padding-bottom: 14px;
+  font-size: 14px;
+  line-height: 1.55;
+  color: var(--c-ink);
+}
+
+.mockup-banner__tag {
+  flex: 0 0 auto;
+  margin-top: 1px;
+  padding: 2px 8px;
+  border-radius: 4px;
+  background: var(--c-ink);
+  color: #fff8d6;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.mockup-banner a {
+  color: var(--c-teal);
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+@media (max-width: 599px) {
+  .mockup-banner__inner {
+    flex-direction: column;
+    gap: 8px;
+  }
 }
