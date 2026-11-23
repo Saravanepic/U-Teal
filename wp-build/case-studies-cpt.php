@@ -81,6 +81,19 @@ add_action( 'pre_get_posts', function ( $q ) {
 	}
 } );
 
+// Admin lists only: German case studies show "… – DE" after the title (like the German pages),
+// so EN and DE are easy to tell apart. The real title (shown on the website) stays unchanged.
+add_filter( 'the_title', function ( $title, $id = 0 ) {
+	global $pagenow;
+	if ( ! is_admin() || 'edit.php' !== $pagenow || ! $id || 'case_study' !== get_post_type( $id ) ) {
+		return $title;
+	}
+	if ( function_exists( 'pll_get_post_language' ) && 'de' === pll_get_post_language( $id ) ) {
+		return $title . ' – DE';
+	}
+	return $title;
+}, 10, 2 );
+
 // ACF fields (local = defined in code, not editable as a field group in the UI).
 add_action( 'acf/include_fields', function () {
 	if ( ! function_exists( 'acf_add_local_field_group' ) ) {

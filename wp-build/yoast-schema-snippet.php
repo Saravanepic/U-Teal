@@ -19,7 +19,26 @@
 add_filter( 'wpseo_schema_organization', function ( $data ) {
 	$data['description'] = 'Nadja Gmelch’s systemic higher education consultancy for internationalisation, strategy, organisational development and leadership in Europe and beyond.';
 	$data['email']       = 'nadja@u-teal.com';
-	$data['telephone']   = '+34 697 585 199';
+	// German pages show the German number, all other pages the Spanish one (Nadja, 23 Nov 2026).
+	$is_de               = function_exists( 'pll_current_language' ) && 'de' === pll_current_language();
+	$data['telephone']   = $is_de ? '+49 151 72538515' : '+34 697 585 199';
+	$data['contactPoint'] = array(
+		array(
+			'@type'             => 'ContactPoint',
+			'contactType'       => 'customer support',
+			'telephone'         => '+49 151 72538515',
+			'email'             => 'nadja@u-teal.com',
+			'availableLanguage' => array( 'de' ),
+			'areaServed'        => array( 'DE', 'AT', 'CH' ),
+		),
+		array(
+			'@type'             => 'ContactPoint',
+			'contactType'       => 'customer support',
+			'telephone'         => '+34 697 585 199',
+			'email'             => 'nadja@u-teal.com',
+			'availableLanguage' => array( 'en', 'es', 'it', 'ca' ),
+		),
+	);
 	$data['address']     = array(
 		'@type'           => 'PostalAddress',
 		'streetAddress'   => 'Landsberger Straße 82',
