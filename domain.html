@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex, nofollow" />
+    <title>u-teal.com · Domain connection checklist (internal)</title>
+    <style>
+      :root {
+        --teal-dark: #02383e;
+        --teal: #008080;
+        --teal-light: #3db7bb;
+        --teal-20: #cce6e6;
+        --text: #4b4b4b;
+        --line: #ccd7d8;
+        --soft: #f8f8f8;
+        --warn: #fff6c2;
+        --danger: #fde8e6;
+      }
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        font: 16px/1.6 system-ui, -apple-system, "Segoe UI", sans-serif;
+        color: var(--text);
+        background: var(--soft);
+      }
+      main { max-width: 920px; margin: 0 auto; padding: 40px 20px 80px; }
+      h1 { margin: 0 0 6px; font-size: 32px; line-height: 1.2; color: var(--teal-dark); }
+      h2 { margin: 40px 0 12px; font-size: 22px; color: var(--teal-dark); }
+      .sub { margin: 0 0 24px; color: var(--teal); font-weight: 700; font-size: 14px; }
+      .card { background: #fff; border: 1px solid var(--line); padding: 20px 24px; margin: 16px 0; }
+      .note { background: var(--warn); border-left: 4px solid #e0b400; padding: 14px 18px; margin: 16px 0; }
+      .danger { background: var(--danger); border-left: 4px solid #c0392b; padding: 14px 18px; margin: 16px 0; }
+      table { width: 100%; border-collapse: collapse; background: #fff; font-size: 14px; }
+      th, td { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--line); vertical-align: top; }
+      th { background: var(--teal-20); color: var(--teal-dark); }
+      td.act-del { color: #c0392b; font-weight: 700; }
+      td.act-add { color: var(--teal); font-weight: 700; }
+      td.act-keep { color: var(--teal-dark); font-weight: 700; }
+      code { background: var(--soft); border: 1px solid var(--line); padding: 1px 5px; font-size: 13px; }
+      ol.steps { list-style: none; padding: 0; margin: 0; counter-reset: s; }
+      ol.steps > li { counter-increment: s; position: relative; padding: 14px 0 14px 44px; border-bottom: 1px solid var(--line); }
+      ol.steps > li::before {
+        content: counter(s); position: absolute; left: 0; top: 14px;
+        width: 28px; height: 28px; display: grid; place-items: center;
+        background: var(--teal-dark); color: #fff; font-weight: 800; font-size: 14px;
+      }
+      ol.steps label { display: flex; gap: 10px; align-items: flex-start; cursor: pointer; }
+      ol.steps input { margin-top: 5px; width: 18px; height: 18px; accent-color: var(--teal); flex: none; }
+      ol.steps li.done { opacity: 0.55; }
+      ol.steps ul { margin: 8px 0 0; padding-left: 20px; }
+      .reset { margin-top: 16px; background: none; border: 1px solid var(--teal-dark); color: var(--teal-dark); padding: 8px 14px; cursor: pointer; font-weight: 700; }
+      .meta { font-size: 13px; color: #6b7c7e; }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>u-teal.com · Domain connection checklist</h1>
+      <p class="sub">Internal · Hostinger website + Porkbun DNS + Tuta email · prepared 23 Nov 2026 · status: PARKED until launch</p>
+
+      <div class="note">
+        <strong>Connecting the domain = going live.</strong> Do this only when the launch conditions
+        below are met. The nameservers stay at Porkbun: we only point the website records to
+        Hostinger, so Nadja's email (Tuta) keeps working without any change.
+      </div>
+
+      <h2>Current DNS (checked 23 Nov 2026)</h2>
+      <p class="meta">Nameservers: curitiba / fortaleza / maceio / salvador .ns.porkbun.com</p>
+      <table>
+        <thead>
+          <tr><th>Action</th><th>Type</th><th>Host</th><th>Value</th><th>What it is</th></tr>
+        </thead>
+        <tbody>
+          <tr><td class="act-del">Delete</td><td>A / ALIAS</td><td><code>@</code></td><td>207.207.210.50 · .36 · .23</td><td>Porkbun parking page</td></tr>
+          <tr><td class="act-del">Delete</td><td>CNAME</td><td><code>www</code></td><td>uixie.porkbun.com</td><td>Porkbun parking page</td></tr>
+          <tr><td class="act-del">Delete</td><td>CNAME</td><td><code>*</code></td><td>uixie.porkbun.com</td><td>Parking wildcard</td></tr>
+          <tr><td class="act-add">Add</td><td>A</td><td><code>@</code></td><td><em>IP shown by Hostinger</em></td><td>Website</td></tr>
+          <tr><td class="act-add">Add</td><td>CNAME (or A)</td><td><code>www</code></td><td><em>as shown by Hostinger</em></td><td>Website (www)</td></tr>
+          <tr><td class="act-keep">Keep</td><td>MX</td><td><code>@</code></td><td>10 mail.tutanota.de</td><td>Tuta email</td></tr>
+          <tr><td class="act-keep">Keep</td><td>TXT</td><td><code>@</code></td><td>v=spf1 include:spf.tutanota.de -all</td><td>Email SPF</td></tr>
+          <tr><td class="act-keep">Keep</td><td>TXT</td><td><code>@</code></td><td>t-verify=…</td><td>Tuta domain verification</td></tr>
+          <tr><td class="act-keep">Keep</td><td>TXT</td><td><code>_dmarc</code></td><td>v=DMARC1; p=quarantine; adkim=s</td><td>Email DMARC</td></tr>
+          <tr><td class="act-keep">Keep</td><td>CNAME</td><td><code>s1._domainkey</code> · <code>s2._domainkey</code></td><td>s1/s2.domainkey.tutanota.de</td><td>Email DKIM</td></tr>
+          <tr><td class="act-keep">Keep</td><td>CNAME · TXT</td><td><code>mta-sts</code> · <code>_mta-sts</code></td><td>mta-sts.tutanota.de · v=STSv1; id=20190723;</td><td>Email MTA-STS</td></tr>
+        </tbody>
+      </table>
+
+      <div class="danger">
+        <strong>Never touch</strong> MX, the TXT records (SPF, t-verify), <code>_dmarc</code>,
+        <code>s1/s2._domainkey</code>, <code>mta-sts</code> or <code>_mta-sts</code>. Do not accept
+        Hostinger's offer to change nameservers.
+      </div>
+
+      <h2>Steps</h2>
+      <div class="card">
+        <ol class="steps" id="steps">
+          <li><label><input type="checkbox" /><span><strong>Launch conditions:</strong> Nadja has approved the site; legal notice (Impressum) and privacy policy pages are live; draft blog articles approved or removed.</span></label></li>
+          <li><label><input type="checkbox" /><span><strong>Second 50% payment</strong> (USD 592.25) received.</span></label></li>
+          <li><label><input type="checkbox" /><span><strong>Send Nadja the DNS change list</strong> (table above) and get her OK, as promised.</span></label></li>
+          <li><label><input type="checkbox" /><span><strong>Tell Nadja</strong> that her review link on the temporary address will forward to u-teal.com from now on.</span></label></li>
+          <li><label><input type="checkbox" /><span><strong>Hostinger:</strong> Dashboard › Connect domain › "Use an existing domain" › <code>u-teal.com</code>.
+            <ul>
+              <li>Choose <strong>point the domain / use DNS records</strong>, not "change nameservers".</li>
+              <li>Copy the A record IP for <code>@</code> and the record for <code>www</code> from that screen.</li>
+            </ul></span></label></li>
+          <li><label><input type="checkbox" /><span><strong>Porkbun › Domain › DNS:</strong> delete the 3 parking records (<code>@</code>, <code>www</code>, <code>*</code>) and add the 2 Hostinger records. Nothing else.</span></label></li>
+          <li><label><input type="checkbox" /><span><strong>Wait for propagation</strong> (minutes to a few hours). Check: <code>dig +short u-teal.com A</code> shows the Hostinger IP and <code>dig +short u-teal.com MX</code> still shows <code>mail.tutanota.de</code>.</span></label></li>
+          <li><label><input type="checkbox" /><span><strong>Hostinger:</strong> domain shows as connected → install <strong>SSL</strong> → turn on <strong>Force HTTPS</strong>. Decide the main address (with or without www).</span></label></li>
+          <li><label><input type="checkbox" /><span><strong>WordPress:</strong> Settings › General shows <code>https://u-teal.com</code>; Settings › Reading › "Discourage search engines" <strong>OFF</strong>; <code>/robots.txt</code> no longer blocks Googlebot.</span></label></li>
+          <li><label><input type="checkbox" /><span><strong>Elementor › Tools › Replace URL:</strong> old temporary URL → <code>https://u-teal.com</code>. Then clear all caches (Elementor, LiteSpeed, Hostinger CDN).</span></label></li>
+          <li><label><input type="checkbox" /><span><strong>Yoast:</strong> check <code>/sitemap_index.xml</code>; switch llms.txt off and on (regenerates with the real domain); run Google's Rich Results Test.</span></label></li>
+          <li><label><input type="checkbox" /><span><strong>Email check:</strong> send a test mail to and from nadja@u-teal.com; test the contact form and the newsletter sign-up.</span></label></li>
+          <li><label><input type="checkbox" /><span><strong>Final check</strong> on desktop and mobile (all pages, menu, case studies, blog, 404). Add the HSTS header once HTTPS is stable.</span></label></li>
+          <li><label><input type="checkbox" /><span><strong>Launch done:</strong> the 2-week bug-fix support period starts today. Add the date to the client-notes timeline.</span></label></li>
+        </ol>
+        <button class="reset" type="button" id="reset">Reset ticks</button>
+        <p class="meta">Ticks are saved in this browser only.</p>
+      </div>
+    </main>
+    <script>
+      (function () {
+        var KEY = "ut-domain-steps";
+        var boxes = document.querySelectorAll("#steps input");
+        var saved = JSON.parse(localStorage.getItem(KEY) || "[]");
+        boxes.forEach(function (b, i) {
+          b.checked = !!saved[i];
+          b.closest("li").classList.toggle("done", b.checked);
+          b.addEventListener("change", function () {
+            b.closest("li").classList.toggle("done", b.checked);
+            localStorage.setItem(KEY, JSON.stringify([].map.call(boxes, function (x) { return x.checked; })));
+          });
+        });
+        document.getElementById("reset").addEventListener("click", function () {
+          localStorage.removeItem(KEY);
+          boxes.forEach(function (b) { b.checked = false; b.closest("li").classList.remove("done"); });
+        });
+      })();
+    </script>
+  </body>
+</html>
