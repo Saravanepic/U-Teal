@@ -50,6 +50,14 @@ add_filter( 'wpseo_schema_organization', function ( $data ) {
 	return $data;
 } );
 
+// 1b. German 404 page: browser-tab title in German (Yoast's 404 title setting is one text for all languages).
+add_filter( 'wpseo_title', function ( $title ) {
+	if ( is_404() && function_exists( 'pll_current_language' ) && 'de' === pll_current_language() ) {
+		return 'Seite nicht gefunden - U-teal';
+	}
+	return $title;
+} );
+
 // 2. Person node for Nadja Gmelch, linked to the organisation.
 add_filter( 'wpseo_schema_graph', function ( $graph ) {
 	$graph[] = array(
