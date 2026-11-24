@@ -1,0 +1,19 @@
+u-teal.com · Porkbun DNS backup · 24 Nov 2026 (before connecting the domain to Hostinger)
+Nameservers: curitiba / fortaleza / maceio / salvador .ns.porkbun.com   (DNS powered by Cloudflare)
+All TTL 600.
+
+TYPE   HOST                         VALUE                                              NOTE
+ALIAS  u-teal.com                   uixie.porkbun.com                                  Porkbun parking (resolves to 207.207.210.50/.36/.23)
+CNAME  mta-sts.u-teal.com           mta-sts.tutanota.de                                email with Tuta
+CNAME  _mta-sts.u-teal.com          mta-sts.tutanota.de                                email with Tuta
+CNAME  s2._domainkey.u-teal.com     s2.domainkey.tutanota.de                           email with Tuta
+CNAME  s1._domainkey.u-teal.com     s1.domainkey.tutanota.de                           email with Tuta
+CNAME  *.u-teal.com                 uixie.porkbun.com                                  Porkbun parking wildcard (this also answers www)
+MX     u-teal.com                   mail.tutanota.de  (prio 10)                        email with Tuta
+TXT    u-teal.com                   t-verify=84bae7a222410aa46b4b13fa7e1da1da          Verification of domain for Tuta
+TXT    u-teal.com                   v=spf1 include:spf.tutanota.de -all                email with Tuta
+TXT    _acme-challenge.u-teal.com   hyD2n_iK7_UXX8OtOcVPnC0ALsKzgRX-ojZanM2mGBo        Porkbun parking SSL (leftover)
+TXT    _acme-challenge.u-teal.com   JiSWhThAu24T8HVpY5klJzfMpQZzcoYLwJ4_RX6AQtU        Porkbun parking SSL (leftover)
+TXT    _dmarc.u-teal.com            v=DMARC1; p=quarantine; adkim=s                    email with Tuta
+
+Note: there is NO separate www record; www.u-teal.com is answered by the * wildcard.

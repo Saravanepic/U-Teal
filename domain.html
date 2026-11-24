@@ -64,24 +64,25 @@
         Hostinger, so Nadja's email (Tuta) keeps working without any change.
       </div>
 
-      <h2>Current DNS (checked 23 Nov 2026)</h2>
-      <p class="meta">Nameservers: curitiba / fortaleza / maceio / salvador .ns.porkbun.com</p>
+      <h2>Current DNS (backup taken 24 Nov 2026, before connecting)</h2>
+      <p class="meta">Nameservers: curitiba / fortaleza / maceio / salvador .ns.porkbun.com · all TTL 600 ·
+        full backup: <code>dns-backup/porkbun-dns-2026-11-24.txt</code> + <code>.png</code></p>
       <table>
         <thead>
           <tr><th>Action</th><th>Type</th><th>Host</th><th>Value</th><th>What it is</th></tr>
         </thead>
         <tbody>
-          <tr><td class="act-del">Delete</td><td>A / ALIAS</td><td><code>@</code></td><td>207.207.210.50 · .36 · .23</td><td>Porkbun parking page</td></tr>
-          <tr><td class="act-del">Delete</td><td>CNAME</td><td><code>www</code></td><td>uixie.porkbun.com</td><td>Porkbun parking page</td></tr>
-          <tr><td class="act-del">Delete</td><td>CNAME</td><td><code>*</code></td><td>uixie.porkbun.com</td><td>Parking wildcard</td></tr>
+          <tr><td class="act-del">Delete</td><td>ALIAS</td><td><code>@</code></td><td>uixie.porkbun.com</td><td>Porkbun parking page</td></tr>
+          <tr><td class="act-del">Delete</td><td>CNAME</td><td><code>*</code></td><td>uixie.porkbun.com</td><td>Parking wildcard (currently also answers www)</td></tr>
           <tr><td class="act-add">Add</td><td>A</td><td><code>@</code></td><td><em>IP shown by Hostinger</em></td><td>Website</td></tr>
-          <tr><td class="act-add">Add</td><td>CNAME (or A)</td><td><code>www</code></td><td><em>as shown by Hostinger</em></td><td>Website (www)</td></tr>
+          <tr><td class="act-add">Add</td><td>CNAME (or A)</td><td><code>www</code></td><td><em>as shown by Hostinger</em></td><td>Website (www); no www record exists today</td></tr>
+          <tr><td class="act-keep">Keep*</td><td>TXT ×2</td><td><code>_acme-challenge</code></td><td>hyD2n_… · JiSWh…</td><td>Leftover Porkbun parking SSL; harmless. Delete only after Hostinger SSL works.</td></tr>
           <tr><td class="act-keep">Keep</td><td>MX</td><td><code>@</code></td><td>10 mail.tutanota.de</td><td>Tuta email</td></tr>
           <tr><td class="act-keep">Keep</td><td>TXT</td><td><code>@</code></td><td>v=spf1 include:spf.tutanota.de -all</td><td>Email SPF</td></tr>
-          <tr><td class="act-keep">Keep</td><td>TXT</td><td><code>@</code></td><td>t-verify=…</td><td>Tuta domain verification</td></tr>
+          <tr><td class="act-keep">Keep</td><td>TXT</td><td><code>@</code></td><td>t-verify=84bae7a222410aa46b4b13fa7e1da1da</td><td>Tuta domain verification</td></tr>
           <tr><td class="act-keep">Keep</td><td>TXT</td><td><code>_dmarc</code></td><td>v=DMARC1; p=quarantine; adkim=s</td><td>Email DMARC</td></tr>
           <tr><td class="act-keep">Keep</td><td>CNAME</td><td><code>s1._domainkey</code> · <code>s2._domainkey</code></td><td>s1/s2.domainkey.tutanota.de</td><td>Email DKIM</td></tr>
-          <tr><td class="act-keep">Keep</td><td>CNAME · TXT</td><td><code>mta-sts</code> · <code>_mta-sts</code></td><td>mta-sts.tutanota.de · v=STSv1; id=20190723;</td><td>Email MTA-STS</td></tr>
+          <tr><td class="act-keep">Keep</td><td>CNAME</td><td><code>mta-sts</code> · <code>_mta-sts</code></td><td>mta-sts.tutanota.de (both)</td><td>Email MTA-STS</td></tr>
         </tbody>
       </table>
 
@@ -103,7 +104,7 @@
               <li>Choose <strong>point the domain / use DNS records</strong>, not "change nameservers".</li>
               <li>Copy the A record IP for <code>@</code> and the record for <code>www</code> from that screen.</li>
             </ul></span></label></li>
-          <li><label><input type="checkbox" /><span><strong>Porkbun › Domain › DNS:</strong> delete the 3 parking records (<code>@</code>, <code>www</code>, <code>*</code>) and add the 2 Hostinger records. Nothing else.</span></label></li>
+          <li><label><input type="checkbox" /><span><strong>Porkbun › Domain › DNS:</strong> delete the 2 parking records (ALIAS <code>@</code> and CNAME <code>*</code>) and add the 2 Hostinger records (<code>@</code> and <code>www</code>). Nothing else.</span></label></li>
           <li><label><input type="checkbox" /><span><strong>Wait for propagation</strong> (minutes to a few hours). Check: <code>dig +short u-teal.com A</code> shows the Hostinger IP and <code>dig +short u-teal.com MX</code> still shows <code>mail.tutanota.de</code>.</span></label></li>
           <li><label><input type="checkbox" /><span><strong>Hostinger:</strong> domain shows as connected → install <strong>SSL</strong> → turn on <strong>Force HTTPS</strong>. Decide the main address (with or without www).</span></label></li>
           <li><label><input type="checkbox" /><span><strong>WordPress:</strong> Settings › General shows <code>https://u-teal.com</code>; Settings › Reading › "Discourage search engines" <strong>OFF</strong>; <code>/robots.txt</code> no longer blocks Googlebot.</span></label></li>
