@@ -7,7 +7,7 @@
  * - Blocking the whole REST API: the Elementor editor, block editor, Yoast, Code Snippets
  *   and the Elementor MCP connection all need it. Only the user list is closed (below).
  * - Application passwords: may be used by the MCP connection → left on.
- * - HSTS: add at go-live once u-teal.com runs on HTTPS (Hostinger "Force HTTPS").
+ * - HSTS: live since 24 Nov 2026 (section 8); Hostinger "Force HTTPS" is on.
  * XML-RPC is also switched off in Hostinger › WordPress › Security (disable_xml_rpc).
  */
 
@@ -99,10 +99,14 @@ add_action( 'admin_bar_menu', function ( $bar ) {
 	$bar->remove_node( 'comments' );
 }, 999 );
 
-/* 8. Security headers (front end; HSTS later at go-live) */
+/* 8. Security headers (front end). HSTS added 24 Nov 2026 after the www certificate was fixed.
+   1 year, no includeSubDomains (mta-sts and other subdomains are managed elsewhere), no preload. */
 add_action( 'send_headers', function () {
 	if ( is_admin() ) {
 		return;
+	}
+	if ( is_ssl() ) {
+		header( 'Strict-Transport-Security: max-age=31536000' );
 	}
 	header( 'X-Content-Type-Options: nosniff' );
 	header( 'X-Frame-Options: SAMEORIGIN' );
